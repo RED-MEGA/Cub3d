@@ -6,11 +6,11 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:19:31 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/02/06 18:05:40 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 00:03:11 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 int	ft_putstr(char *s, int fd)
 {

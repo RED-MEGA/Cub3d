@@ -6,11 +6,11 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 09:20:47 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/02/01 23:52:00 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 00:03:11 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {

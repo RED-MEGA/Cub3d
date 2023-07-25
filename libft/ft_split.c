@@ -6,11 +6,11 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 19:38:48 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/03/01 21:52:53 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 00:03:11 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 static int	hm_word(char *str, int c)
 {

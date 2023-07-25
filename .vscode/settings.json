@@ -1,0 +1,11 @@
+{
+	"files.associations": {
+		"libft.h": "c",
+		"global.h": "c",
+		"stdlib.h": "c",
+		"string.h": "c",
+		"cub3d.h": "c",
+		"utils.h": "c",
+		"_types.h": "c"
+	}
+}

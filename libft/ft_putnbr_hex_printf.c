@@ -6,11 +6,11 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:57:38 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/02/06 18:03:59 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 00:03:11 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 int	ft_putnbr_hex(unsigned int n, int ul, int fd)
 {

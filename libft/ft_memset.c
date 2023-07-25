@@ -6,11 +6,11 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:29:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2022/11/08 15:32:22 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 00:03:11 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 void	*ft_memset(void *str, int c, size_t len)
 {
