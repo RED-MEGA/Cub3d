@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/07/26 13:54:36 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/07/26 14:21:05 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,8 @@ SRC = main.c \
 		utils/error.c \
 		utils/matdup.c \
 		utils/free.c \
-		utils/index_list.c
+		utils/index_list.c \
+		utils/compare.c
 
 OBJ = $(SRC:.c=.o)
 

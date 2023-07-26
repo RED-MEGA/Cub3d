@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:08 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 14:06:50 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 14:14:58 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define UTILS_H
 
 # include "global.h"
+# include "libft.h"
 
 void	perror_x(char *error);
 void	ft_free(char **str);
