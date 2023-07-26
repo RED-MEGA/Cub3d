@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 14:09:19 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 14:30:45 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,10 @@ void	cub3d(char *map_file)
 {
 	char	**file;
 
-	if (check_extension(map_file))
+	if (!check_extension(map_file))
 		ft_error_msg(ERRFILE, EXIT_FAILURE);
 	file = read_file(map_file);
 	ft_error_ptr(file, 1);
-	
 }
 
 int	main(int argc, char **argv)
