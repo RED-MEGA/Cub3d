@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 16:31:05 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 16:36:28 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,16 @@ void	cub3d(char *map_file)
 		ft_error_msg(ERRFILE, EXIT_FAILURE);
 	if (isempty(map_file))
 		ft_error_msg("Empty file", EXIT_FAILURE);
-	
 	file = read_file(map_file);
-
-
-
-	
 	for (t_list *tmp = file; tmp; tmp = tmp->next)
 	{
 		printf("%s", tmp->data);
 	}
+	
+	
+	
+
+	
 	
 
 
