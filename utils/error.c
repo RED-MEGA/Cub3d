@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:17:22 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 00:02:34 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 11:18:22 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,24 @@
 void	ft_error(int status, int code)
 {
 	if (status == FAIL)
-		return (perror("Error "), exit(code));
+		return (perror(ERROR), exit(code));
 }
 
-void	ft_error_str(void *status, int code)
+void	ft_error_ptr(void *status, int code)
 {
 	if (status == NULL)
-		return (perror("Error "), exit(code));
+		return (perror(ERROR), exit(code));
+}
+
+void	ft_error_msg(char *msg, int code)
+{
+	if (msg != NULL)
+		return (perror_x(msg), exit(code));
+}
+
+void	perror_x(char *error)
+{
+	ft_putstr_fd(ERROR, 2);
+	ft_putstr_fd(error, 2);
+	ft_putstr_fd("\n", 2);
 }

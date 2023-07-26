@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 20:36:45 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 00:03:11 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 11:02:28 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1 || !s2)
 		return (cheack(s1, s2));
 	sjoin = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	ft_error_str(sjoin, 1);
+	ft_error_ptr(sjoin, 1);
 	i = 0;
 	while (s1[i])
 	{

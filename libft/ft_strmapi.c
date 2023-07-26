@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:21:28 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 00:03:11 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 11:02:28 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!s || !f)
 		return (NULL);
 	result = malloc((ft_strlen(s)) * sizeof(char) + 1);
-	ft_error_str(result, 1);
+	ft_error_ptr(result, 1);
 	i = 0;
 	while (s[i] != '\0')
 	{

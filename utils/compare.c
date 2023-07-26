@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   compare.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 15:14:15 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 11:02:28 by reben-ha         ###   ########.fr       */
+/*   Created: 2023/07/26 11:11:09 by reben-ha          #+#    #+#             */
+/*   Updated: 2023/07/26 11:22:53 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "../include/utils.h"
 
-t_list	*ft_lstnew(void *data)
+bool	compare(char *s1, char *s2)
 {
-	t_list	*newnode;
+	int	i;
 
-	newnode = (t_list *)malloc(sizeof(t_list));
-	ft_error_ptr(newnode, 1);
-	newnode->data = data;
-	newnode->next = NULL;
-	return (newnode);
+	if (!s1 || !s2)
+		return (false);		
+	i = 0;
+	while (s1[i] && s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (false);
+	}
+	return (true);
 }

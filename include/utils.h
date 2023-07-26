@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:08 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/25 23:55:23 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 11:17:49 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 
 # include "global.h"
 
+void	perror_x(char *error);
 void	ft_free(char **str);
 void	ft_error(int status, int code);
-void	ft_error_str(void *status, int code);
+void	ft_error_ptr(void *status, int code);
+void	ft_error_msg(char *msg, int code);
+bool	compare(char *s1, char *s2);
 size_t	ft_matlen(char **matrix);
 char	**ft_matrixdup(char **matrix);
 t_list	*in(t_list *head, int index);

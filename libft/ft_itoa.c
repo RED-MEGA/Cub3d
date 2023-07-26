@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:45:54 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 00:03:11 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 11:02:28 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_itoa(int n)
 
 	len = tolen(n);
 	result = (char *)malloc((len * sizeof(char)) + 1);
-	ft_error_str(result, 1);
+	ft_error_ptr(result, 1);
 	n = ft_check(n, result);
 	result[len] = '\0';
 	while (n != 0)

@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:32:54 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 00:03:11 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 11:02:28 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char	*ft_read_join(int fd, char *save_area, int *fail)
 	char		*buffer;
 
 	buffer = (char *)malloc(BUFFER_SIZE * sizeof(char) + 1);
-	ft_error_str(buffer, 1);
+	ft_error_ptr(buffer, 1);
 	while ((*fail) > 0 && ft_strchr_cheack_gnl(save_area, '\n') == 0)
 	{
 		(*fail) = read(fd, buffer, BUFFER_SIZE);

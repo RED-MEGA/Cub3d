@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 19:38:48 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 00:03:11 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 11:27:19 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	result = (char **)malloc(sizeof (char *) * (hm_word((char *)s, c) + 1));
-	ft_error_str(result, 1);
+	ft_error_ptr(result, 1);
 	while (o < hm_word((char *)s, c))
-	{	
+	{
 		while (s[i] && s[i] == c)
 			i++;
 		j = i;

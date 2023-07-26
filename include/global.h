@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/25 23:56:19 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 11:01:02 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define GLOBAL_H
 
 # include <stdlib.h>
+# include <stdbool.h>
 # include <stdio.h>
 # include <string.h>
 # include <stdarg.h>
@@ -25,7 +26,21 @@
 # include "libft.h"
 # include "utils.h"
 
+# define ERROR  "\033[31;1mError :\033[0m "
 # define FAIL -1
+# define SUCCESS 0
+
+# define ERRMALLOC "Cannot allocate memory"
+# define ERRFORK "Failed to fork process"
+# define ERRPERMISSION "Permission denied"
+# define ERRINVALID "Invalid argument"
+# define ERRFILE "Invalid file"
+
+# define C_EAT "\e[1;35m"
+# define C_SLEEP "\e[1;30m"
+# define C_THINK "\e[1;33m"
+# define C_DEATH "\033[1;31m"
+# define C_RESET "\e[0m"
 
 typedef struct s_list
 {
