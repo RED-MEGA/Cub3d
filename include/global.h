@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 16:57:49 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 19:11:20 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,27 +45,9 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef enum
-{
-	NO,
-	SO,
-	WE,
-	EA
-}	e_texture;
-typedef struct s_texture
-{
-	e_texture	type;
-	char		*path;
-}			t_texture;
 
-typedef enum
-{
-	F,
-	C
-}	e_color;
 typedef struct s_color
 {
-	e_color	type;
 	int		r;
 	int		g;
 	int		b;
@@ -73,6 +55,12 @@ typedef struct s_color
 
 typedef struct s_info
 {
-}			t_info;
+	t_color		F;
+	t_color		C;
+	char		*NO;
+	char		*SO;
+	char		*WE;
+	char		*EA;
+}	t_info;
 
 #endif

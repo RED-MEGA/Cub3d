@@ -6,17 +6,17 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 16:36:28 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 19:10:51 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/cub3d.h"
 
-bool	check_extension(char *map_file)
+bool	check_extension(char *file)
 {
 	char	*extension;
 
-	extension = ft_strrchr(map_file, '.');
+	extension = ft_strrchr(file, '.');
 	if (compare(extension, ".cub"))
 		return (true);
 	return (false);
@@ -37,14 +37,14 @@ bool	isempty(char *file)
 	return (false);
 }
 
-t_list	*read_file(char *map_file)
+t_list	*read_file(char *file)
 {
 	t_list	*file_data;
 	char	*buff;
 	int		fd;
 
 	file_data = NULL;
-	fd = open(map_file, O_RDONLY);
+	fd = open(file, O_RDONLY);
 	ft_error(fd, 1);
 	while (1)
 	{
@@ -57,24 +57,135 @@ t_list	*read_file(char *map_file)
 	return (file_data);
 }
 
+bool	isrgb(int rgb)
+{
+	if (rgb >= 0 && rgb <= 255)
+		return (true);
+	return (false);
+}
+
+bool	get_info(t_list	*file, t_info *info)
+{
+	char	**data;
+	char	*color;
+	int		rgb;
+
+	while (file)
+	{
+		if (file->data[0] == '\n')
+			;
+		else if (ft_strncmp(file->data, "NO ", 3))
+		{
+			data = ft_split(file->data, ' ');
+			(*info).NO = ft_strdup(data[1]);
+			ft_free(data);
+		}
+		else if (ft_strncmp(file->data, "SO ", 3))
+		{
+			data = ft_split(file->data, ' ');
+			(*info).SO = ft_strdup(data[1]);
+			ft_free(data);
+		}
+		else if (ft_strncmp(file->data, "WE ", 3))
+		{
+			data = ft_split(file->data, ' ');
+			(*info).WE = ft_strdup(data[1]);
+			ft_free(data);
+		}
+		else if (ft_strncmp(file->data, "EA ", 3))
+		{
+			data = ft_split(file->data, ' ');
+			(*info).EA = ft_strdup(data[1]);
+			ft_free(data);
+		}
+		else if (ft_strncmp(file->data, "F ", 2))
+		{
+			data = ft_split(file->data, ' ');
+			color = ft_split(data[1], ',');
+			ft_free(data);
+
+			rgb = ft_atoi(color[0]);
+			if (isrgb(rgb))
+				return (ft_free(color), ft_error_msg("Wrong RGB range", 1), false);
+			(*info).F.r = isrgb(ft_atoi(color[0]));
+			
+			rgb = ft_atoi(color[1]);
+			if (isrgb(rgb))
+				return (ft_free(color), ft_error_msg("Wrong RGB range", 1), false);
+			(*info).F.g = isrgb(ft_atoi(color[1]));
+
+			rgb = ft_atoi(color[2]);
+			if (isrgb(rgb))
+				return (ft_free(color), ft_error_msg("Wrong RGB range", 1), false);
+			(*info).F.b = isrgb(ft_atoi(color[2]));
+
+			ft_free(color);
+		}
+		else if (ft_strncmp(file->data, "C ", 2))
+		{
+			data = ft_split(file->data, ' ');
+			color = ft_split(data[1], ',');
+			ft_free(data);
+
+			rgb = ft_atoi(color[0]);
+			if (isrgb(rgb))
+				return (ft_free(color), ft_error_msg("Wrong RGB range", 1), false);
+			(*info).C.r = isrgb(ft_atoi(color[0]));
+			
+			rgb = ft_atoi(color[1]);
+			if (isrgb(rgb))
+				return (ft_free(color), ft_error_msg("Wrong RGB range", 1), false);
+			(*info).C.g = isrgb(ft_atoi(color[1]));
+
+			rgb = ft_atoi(color[2]);
+			if (isrgb(rgb))
+				return (ft_free(color), ft_error_msg("Wrong RGB range", 1), false);
+			(*info).C.b = isrgb(ft_atoi(color[2]));
+
+			ft_free(color);
+		}
+		file = file->next;
+	}
+
+
+	return (true);
+}
+
 void	cub3d(char *map_file)
 {
 	t_list	*file;
+	t_info	info;
 
 	if (!check_extension(map_file))
 		ft_error_msg(ERRFILE, EXIT_FAILURE);
 	if (isempty(map_file))
 		ft_error_msg("Empty file", EXIT_FAILURE);
 	file = read_file(map_file);
-	for (t_list *tmp = file; tmp; tmp = tmp->next)
-	{
-		printf("%s", tmp->data);
-	}
+	// for (t_list *tmp = file; tmp; tmp = tmp->next)
+	// {
+	// 	printf("%s", tmp->data);
+	// }
 	
+	if (!get_info(file, &info))
+		ft_error_msg("Invalid info", EXIT_FAILURE);
 	
+		
 	
 
 	
+
+
+
+
+
+
+
+
+
+
+
+	
+
 	
 
 
