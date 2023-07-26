@@ -11,6 +11,11 @@
 		"unistd.h": "c",
 		"stdbool.h": "c",
 		"type_traits": "c",
-		"__config": "c"
+		"__config": "c",
+		"array": "c",
+		"iterator": "c",
+		"string": "c",
+		"string_view": "c",
+		"vector": "c"
 	}
 }
