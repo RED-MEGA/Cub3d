@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 11:01:02 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 14:03:40 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,6 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <limits.h>
-
-# include "cub3d.h"
-# include "libft.h"
-# include "utils.h"
 
 # define ERROR  "\033[31;1mError :\033[0m "
 # define FAIL -1

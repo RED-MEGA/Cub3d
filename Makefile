@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/07/25 23:48:19 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/07/26 13:54:36 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC = gcc -g
 
 FLAGS = -Wall -Wextra -Werror
 
-INCLUDE = global.h cub3d.h utils.h libft.h
+INCLUDE = include/global.h include/cub3d.h include/utils.h include/libft.h
 
 SRC = main.c \
 		libft/ft_atoi.c \

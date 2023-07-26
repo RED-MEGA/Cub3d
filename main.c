@@ -6,11 +6,11 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 13:50:01 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/26 14:09:19 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/global.h"
+#include "include/cub3d.h"
 
 bool	check_extension(char *map_file)
 {

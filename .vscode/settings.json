@@ -10,6 +10,7 @@
 		"stdio.h": "c",
 		"unistd.h": "c",
 		"stdbool.h": "c",
-		"type_traits": "c"
+		"type_traits": "c",
+		"__config": "c"
 	}
 }
