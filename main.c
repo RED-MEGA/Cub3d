@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 11:57:16 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:55:02 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,8 +215,13 @@ void	cub3d(char *map_file)
 	if (!set_info(file, &info))
 		return (ft_lstclear(&file), exit(EXIT_FAILURE));
 
+	printf("NO : %s \n", info.NO);
+	printf("SO : %s \n", info.SO);
+	printf("WE : %s \n", info.WE);
+	printf("EA : %s \n", info.EA);
+	printf("F : %d,%d,%d \n", info.F.r, info.F.g, info.F.b);
+	printf("C : %d,%d,%d \n", info.C.r, info.C.g, info.C.b);
 	
-		
 
 }
 
