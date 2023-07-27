@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/07/27 11:42:51 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/07/27 21:22:17 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,15 @@ FLAGS = -fsanitize=address #-Wall -Wextra -Werror
 INCLUDE = include/global.h include/cub3d.h include/utils.h include/libft.h
 
 SRC = main.c \
+		parsing/attributes.c \
+		parsing/check.c \
+		parsing/info.c \
+		parsing/map.c \
+		utils/error.c \
+		utils/matdup.c \
+		utils/free.c \
+		utils/index_list.c \
+		utils/compare.c \
 		libft/ft_atoi.c \
 		libft/ft_bzero.c \
 		libft/ft_calloc.c \
@@ -68,12 +77,7 @@ SRC = main.c \
 		libft/ft_strrchr.c \
 		libft/ft_substr.c \
 		libft/get_next_line.c \
-		libft/get_next_line_utils.c \
-		utils/error.c \
-		utils/matdup.c \
-		utils/free.c \
-		utils/index_list.c \
-		utils/compare.c
+		libft/get_next_line_utils.c
 
 OBJ = $(SRC:.c=.o)
 
