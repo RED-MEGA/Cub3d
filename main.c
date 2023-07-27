@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 19:10:51 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 00:43:17 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ bool	isrgb(int rgb)
 	return (false);
 }
 
-bool	get_info(t_list	*file, t_info *info)
+bool	set_info(t_list	*file, t_info *info)
 {
 	char	**data;
 	char	*color;
@@ -166,7 +166,7 @@ void	cub3d(char *map_file)
 	// 	printf("%s", tmp->data);
 	// }
 	
-	if (!get_info(file, &info))
+	if (!set_info(file, &info))
 		ft_error_msg("Invalid info", EXIT_FAILURE);
 	
 		
