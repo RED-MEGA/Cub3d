@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 11:53:14 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 11:57:16 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,6 +190,7 @@ bool	set_info(t_list	*file, t_info *info)
 			status = set_color(buff, &(info->C));
 		file = file->next;
 	}
+	status = info_isset(info);
 	return (status);
 }
 
@@ -214,7 +215,6 @@ void	cub3d(char *map_file)
 	if (!set_info(file, &info))
 		return (ft_lstclear(&file), exit(EXIT_FAILURE));
 
-	printf("%s");
 	
 		
 
