@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 08:55:19 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 11:53:14 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,27 +168,29 @@ void	set_info_defaut(t_info *info)
 bool	set_info(t_list	*file, t_info *info)
 {
 	char	*buff;
+	bool	status;
 
-	while (file && !info_isset(info))
+	status = true;
+	while (file && !info_isset(info) && status)
 	{
 		buff = ft_strtrim(file->data, " ");
 		if (buff[0] == '\n')
 			;
 		else if (ft_strncmp(buff, "NO ", 3) == 0)
-			set_direction(buff, &(info->NO));
+			status = set_direction(buff, &(info->NO));
 		else if (ft_strncmp(buff, "SO ", 3) == 0)
-			set_direction(buff, &(info->SO));
+			status = set_direction(buff, &(info->SO));
 		else if (ft_strncmp(buff, "WE ", 3) == 0)
-			set_direction(buff, &(info->WE));
+			status = set_direction(buff, &(info->WE));
 		else if (ft_strncmp(buff, "EA ", 3) == 0)
-			set_direction(buff, &(info->EA));
+			status = set_direction(buff, &(info->EA));
 		else if (ft_strncmp(buff, "F ", 2) == 0)
-			set_color(buff, &(info->F));
+			status = set_color(buff, &(info->F));
 		else if (ft_strncmp(buff, "C ", 2) == 0)
-			set_color(buff, &(info->C));
+			status = set_color(buff, &(info->C));
 		file = file->next;
 	}
-	return (true);
+	return (status);
 }
 
 void	cub3d(char *map_file)
@@ -202,15 +204,17 @@ void	cub3d(char *map_file)
 		ft_error_msg("Empty file", EXIT_FAILURE);
 	file = read_file(map_file);
 	
-	for (size_t i = 0; file; file = file->next)
-	{
-		perror_x(file->data);
-	}
+	// for (size_t i = 0; file; file = file->next)
+	// {
+	// 	perror_x(file->data);
+	// }
 	
 
-	// set_info_defaut(&info);
-	// if (!set_info(file, &info))
-	// 	return (ft_lstclear(&file), exit(EXIT_FAILURE));
+	set_info_defaut(&info);
+	if (!set_info(file, &info))
+		return (ft_lstclear(&file), exit(EXIT_FAILURE));
+
+	printf("%s");
 	
 		
 
