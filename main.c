@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 04:54:40 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 05:22:52 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,13 +106,13 @@ bool	check_rgbform(char *rgb)
 	return (true);	
 }
 
-int		_set_color(char *data, char **color, int i)
+int		_set_color(char **color, int i, char *to_free)
 {
 	int	nb;
 
 	nb = ft_atoi(color[i]);
 	if (!isrgb(nb))
-		return (free(data), ft_free(color)
+		return (free(to_free), ft_free(color)
 			, ft_error_msg("Wrong RGB range", 1), false);
 	return (nb);
 }
@@ -127,9 +127,9 @@ bool	set_color(char *data, t_color *rgb)
 		return (free(data), free(buff), perror_x("Invalid color attribute"), false);
 	color = ft_split(buff, ',');
 	free(buff);
-	rgb->r = _set_color(data, color, 0);
-	rgb->g = _set_color(data, color, 1);
-	rgb->b = _set_color(data, color, 2);
+	rgb->r = _set_color(color, 0, data);
+	rgb->g = _set_color(color, 1, data);
+	rgb->b = _set_color(color, 2, data);
 	ft_free(color);
 	return (free(data), true);
 }
