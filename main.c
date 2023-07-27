@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 13:15:15 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 14:47:54 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,15 +165,15 @@ void	set_info_defaut(t_info *info)
 	info->C.b = FAIL;
 }
 
-bool	set_info(t_list	*file, t_info *info)
+bool	set_info(t_list	**file, t_info *info)
 {
 	char	*buff;
 	bool	status;
 
 	status = true;
-	while (file && !info_isset(info) && status)
+	while ((*file) && !info_isset(info) && status)
 	{
-		buff = ft_strtrim(file->data, " ");
+		buff = ft_strtrim((*file)->data, " ");
 		if (buff[0] == '\n')
 			;
 		else if (ft_strncmp(buff, "NO ", 3) == 0)
@@ -188,7 +188,7 @@ bool	set_info(t_list	*file, t_info *info)
 			status = set_color(buff, &(info->F));
 		else if (ft_strncmp(buff, "C ", 2) == 0)
 			status = set_color(buff, &(info->C));
-		file = file->next;
+		(*file) = (*file)->next;
 	}
 	if (!info_isset(info))
 		return (perror_x("Some attribute not set")
@@ -199,6 +199,7 @@ bool	set_info(t_list	*file, t_info *info)
 void	cub3d(char *map_file)
 {
 	t_list	*file;
+	t_list	*head;
 	t_info	info;
 
 	if (!check_extension(map_file))
@@ -206,25 +207,39 @@ void	cub3d(char *map_file)
 	if (isempty(map_file))
 		ft_error_msg("Empty file", EXIT_FAILURE);
 	file = read_file(map_file);
-	
-	// for (size_t i = 0; file; file = file->next)
-	// {
-	// 	perror_x(file->data);
-	// }
-	
-
 	set_info_defaut(&info);
-	if (!set_info(file, &info))
+	if (!set_info(&file, &info))
 		return (ft_lstclear(&file), exit(EXIT_FAILURE));
 
+	printf("\nAttribute : \n");
 	printf("NO : %s \n", info.NO);
 	printf("SO : %s \n", info.SO);
 	printf("WE : %s \n", info.WE);
 	printf("EA : %s \n", info.EA);
 	printf("F : (%d,%d,%d) \n", info.F.r, info.F.g, info.F.b);
 	printf("C : (%d,%d,%d) \n", info.C.r, info.C.g, info.C.b);
+
+
+
+
+	printf("\nMap : Before parse\n");
+	for (t_list *tmp = file; tmp; tmp = tmp->next)
+		printf("%s\n", tmp->data);
+
+	
 	
 
+
+
+
+
+
+
+
+	
+	
+
+	printf("\nMap : After parse\n");
 }
 
 int	main(int argc, char **argv)
