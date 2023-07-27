@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 14:46:48 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 20:29:01 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@
 typedef struct s_list
 {
 	char			*data;
+	int				len;
 	int				index;
 	struct s_list	*next;
 }					t_list;

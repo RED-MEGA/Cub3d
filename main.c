@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 18:49:11 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 20:37:41 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,12 +202,12 @@ int	get_bline(t_list *file)
 {
 	int topline;
 
-	topline = ft_strlen(file->data);
+	topline = file->len;
 	file = file->next;
 	while (file)
 	{
-		if (ft_strlen(file->data) > topline)
-			topline = ft_strlen(file->data);
+		if (file->len > topline)
+			topline = file->len;
 		file = file->next;
 	}
 	return (topline);
@@ -257,11 +257,20 @@ char	**parse_map(t_list *file)
 	bline = get_bline(file);
 	while (file)
 	{
-		if (bline < ft_strlen(file->data))
-			file->data = addsize(file->data, bline - ft_strlen(file->data));
+		if (bline > file->len)
+			file->data = addsize(file->data, bline - file->len);
 		file = file->next;
 	}
 	return (to_matrix(head));
+}
+
+void	set_datalen(t_list *file)
+{
+	while (file)
+	{
+		file->len = ft_strlen(file->data);
+		file = file->next;
+	}
 }
 
 void	cub3d(char *map_file)
@@ -306,7 +315,7 @@ void	cub3d(char *map_file)
 
 
 
-
+	set_datalen(file);
 	info.map = parse_map(skip_newline(file));
 	if (!info.map)
 		return ;
