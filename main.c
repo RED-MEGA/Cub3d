@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 12:55:02 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 13:15:15 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ bool	set_direction(char *data, char **direction)
 	char	*buff;
 	char	*tmp;
 
-	tmp = ft_strtrim(data + 3, " ");
-	buff = ft_substr(tmp, 0, ft_strlen(tmp) - 1);
+	tmp = ft_substr(data, 0, ft_strlen(data) - 1);
+	buff = ft_strtrim(tmp + 3, " ");
 	free(tmp);
 	if (!isvalid_path(buff))
 		return (free(data), free(buff)
@@ -126,8 +126,8 @@ bool	set_color(char *data, t_color *rgb)
 	char	*tmp;
 	char	**color;
 
-	tmp = ft_strtrim(data + 2, " ");
-	buff = ft_substr(tmp, 0, ft_strlen(tmp) - 1);
+	tmp = ft_substr(data, 0, ft_strlen(data) - 1);
+	buff = ft_strtrim(tmp + 2, " ");
 	free(tmp);
 	if (!check_rgbform(buff))
 		return (free(data), free(buff), perror_x("Invalid color attribute"), false);
@@ -190,7 +190,9 @@ bool	set_info(t_list	*file, t_info *info)
 			status = set_color(buff, &(info->C));
 		file = file->next;
 	}
-	status = info_isset(info);
+	if (!info_isset(info))
+		return (perror_x("Some attribute not set")
+			, false);
 	return (status);
 }
 
@@ -219,8 +221,8 @@ void	cub3d(char *map_file)
 	printf("SO : %s \n", info.SO);
 	printf("WE : %s \n", info.WE);
 	printf("EA : %s \n", info.EA);
-	printf("F : %d,%d,%d \n", info.F.r, info.F.g, info.F.b);
-	printf("C : %d,%d,%d \n", info.C.r, info.C.g, info.C.b);
+	printf("F : (%d,%d,%d) \n", info.F.r, info.F.g, info.F.b);
+	printf("C : (%d,%d,%d) \n", info.C.r, info.C.g, info.C.b);
 	
 
 }
