@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 00:43:17 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 04:54:40 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,90 +64,99 @@ bool	isrgb(int rgb)
 	return (false);
 }
 
+bool	isvalid_path(char *file)
+{
+	int	fd;
+
+	fd = open(file, O_RDONLY);
+	if (fd == FAIL)
+		return (false);
+	return (close(fd), true);
+}
+
+bool	set_direction(char *data, char **direction)
+{
+	char	*buff;
+
+	buff = ft_strtrim(data, " ");
+	if (!isvalid_path(buff))
+		return (free(data), free(buff)
+			, perror_x("Invalid direction attribute")
+			, false);
+	(*direction) = buff;
+	return (free(data), true);
+}
+
+bool	check_rgbform(char *rgb)
+{
+	int	i;
+	int	count;
+
+	count = 0;
+	i = -1;
+	while (rgb[++i])
+		if (rgb[i] == ',')
+			count++;
+	if (count != 2)
+		return (false);
+	i = -1;
+	while (rgb[++i])
+		if (!ft_isdigit(rgb[i]) && rgb[i] != ',')
+			return (false);
+	return (true);	
+}
+
+int		_set_color(char *data, char **color, int i)
+{
+	int	nb;
+
+	nb = ft_atoi(color[i]);
+	if (!isrgb(nb))
+		return (free(data), ft_free(color)
+			, ft_error_msg("Wrong RGB range", 1), false);
+	return (nb);
+}
+
+bool	set_color(char *data, t_color *rgb)
+{
+	char	*buff;
+	char	**color;
+
+	buff = ft_strtrim(data, " ");
+	if (!check_rgbform(buff))
+		return (free(data), free(buff), perror_x("Invalid color attribute"), false);
+	color = ft_split(buff, ',');
+	free(buff);
+	rgb->r = _set_color(data, color, 0);
+	rgb->g = _set_color(data, color, 1);
+	rgb->b = _set_color(data, color, 2);
+	ft_free(color);
+	return (free(data), true);
+}
+
 bool	set_info(t_list	*file, t_info *info)
 {
-	char	**data;
-	char	*color;
-	int		rgb;
+	char	*buff;
 
 	while (file)
 	{
-		if (file->data[0] == '\n')
+		buff = ft_strtrim(file->data, " ");
+		if (buff[0] == '\n')
 			;
-		else if (ft_strncmp(file->data, "NO ", 3))
-		{
-			data = ft_split(file->data, ' ');
-			(*info).NO = ft_strdup(data[1]);
-			ft_free(data);
-		}
-		else if (ft_strncmp(file->data, "SO ", 3))
-		{
-			data = ft_split(file->data, ' ');
-			(*info).SO = ft_strdup(data[1]);
-			ft_free(data);
-		}
-		else if (ft_strncmp(file->data, "WE ", 3))
-		{
-			data = ft_split(file->data, ' ');
-			(*info).WE = ft_strdup(data[1]);
-			ft_free(data);
-		}
-		else if (ft_strncmp(file->data, "EA ", 3))
-		{
-			data = ft_split(file->data, ' ');
-			(*info).EA = ft_strdup(data[1]);
-			ft_free(data);
-		}
-		else if (ft_strncmp(file->data, "F ", 2))
-		{
-			data = ft_split(file->data, ' ');
-			color = ft_split(data[1], ',');
-			ft_free(data);
-
-			rgb = ft_atoi(color[0]);
-			if (isrgb(rgb))
-				return (ft_free(color), ft_error_msg("Wrong RGB range", 1), false);
-			(*info).F.r = isrgb(ft_atoi(color[0]));
-			
-			rgb = ft_atoi(color[1]);
-			if (isrgb(rgb))
-				return (ft_free(color), ft_error_msg("Wrong RGB range", 1), false);
-			(*info).F.g = isrgb(ft_atoi(color[1]));
-
-			rgb = ft_atoi(color[2]);
-			if (isrgb(rgb))
-				return (ft_free(color), ft_error_msg("Wrong RGB range", 1), false);
-			(*info).F.b = isrgb(ft_atoi(color[2]));
-
-			ft_free(color);
-		}
-		else if (ft_strncmp(file->data, "C ", 2))
-		{
-			data = ft_split(file->data, ' ');
-			color = ft_split(data[1], ',');
-			ft_free(data);
-
-			rgb = ft_atoi(color[0]);
-			if (isrgb(rgb))
-				return (ft_free(color), ft_error_msg("Wrong RGB range", 1), false);
-			(*info).C.r = isrgb(ft_atoi(color[0]));
-			
-			rgb = ft_atoi(color[1]);
-			if (isrgb(rgb))
-				return (ft_free(color), ft_error_msg("Wrong RGB range", 1), false);
-			(*info).C.g = isrgb(ft_atoi(color[1]));
-
-			rgb = ft_atoi(color[2]);
-			if (isrgb(rgb))
-				return (ft_free(color), ft_error_msg("Wrong RGB range", 1), false);
-			(*info).C.b = isrgb(ft_atoi(color[2]));
-
-			ft_free(color);
-		}
+		else if (ft_strncmp(buff, "NO ", 3))
+			set_direction(buff + 3, &(info->NO));
+		else if (ft_strncmp(buff, "SO ", 3))
+			set_direction(buff + 3, &(info->SO));
+		else if (ft_strncmp(buff, "WE ", 3))
+			set_direction(buff + 3, &(info->WE));
+		else if (ft_strncmp(buff, "EA ", 3))
+			set_direction(buff + 3, &(info->EA));
+		else if (ft_strncmp(buff, "F ", 2))
+			set_color(buff + 2, &(info->F));
+		else if (ft_strncmp(buff, "C ", 2))
+			set_color(buff + 2, &(info->C));
 		file = file->next;
 	}
-
-
 	return (true);
 }
 
@@ -167,7 +176,7 @@ void	cub3d(char *map_file)
 	// }
 	
 	if (!set_info(file, &info))
-		ft_error_msg("Invalid info", EXIT_FAILURE);
+		return (ft_lstclear(&file), exit(EXIT_FAILURE));
 	
 		
 	
