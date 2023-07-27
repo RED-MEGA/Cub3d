@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 16:45:23 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 17:42:50 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ t_list	*read_file(char *file)
 		buff = get_next_line(fd);
 		if (!buff)
 			break ;
-		ft_lstadd_back(&file_data, ft_lstnew(buff));
+		ft_lstadd_back(&file_data, ft_lstnew(ft_substr(buff, 0, ft_strlen(buff) - 1)));
+		free(buff);
 	}
 	close(fd);
 	return (file_data);
@@ -77,11 +78,8 @@ bool	isvalid_path(char *file)
 bool	set_direction(char *data, char **direction)
 {
 	char	*buff;
-	char	*tmp;
 
-	tmp = ft_substr(data, 0, ft_strlen(data) - 1);
-	buff = ft_strtrim(tmp + 3, " ");
-	free(tmp);
+	buff = ft_strtrim(data + 3, " ");
 	if (!isvalid_path(buff))
 		return (free(data), free(buff)
 			, perror_x("Invalid direction attribute")
@@ -123,12 +121,9 @@ int		_set_color(char **color, int i, char *to_free)
 bool	set_color(char *data, t_color *rgb)
 {
 	char	*buff;
-	char	*tmp;
 	char	**color;
 
-	tmp = ft_substr(data, 0, ft_strlen(data) - 1);
-	buff = ft_strtrim(tmp + 2, " ");
-	free(tmp);
+	buff = ft_strtrim(data + 2, " ");
 	if (!check_rgbform(buff))
 		return (free(data), free(buff), perror_x("Invalid color attribute"), false);
 	color = ft_split(buff, ',');
@@ -174,7 +169,7 @@ bool	set_info(t_list	**file, t_info *info)
 	while ((*file) && !info_isset(info) && status)
 	{
 		buff = ft_strtrim((*file)->data, " ");
-		if (buff[0] == '\n')
+		if (buff[0] == '\0')
 			;
 		else if (ft_strncmp(buff, "NO ", 3) == 0)
 			status = set_direction(buff, &(info->NO));
@@ -198,12 +193,12 @@ bool	set_info(t_list	**file, t_info *info)
 
 t_list	*skip_newline(t_list *info)
 {
-	while (info && compare(info->data, "\n"))
+	while (info && info->data[0] == '\0')
 		info = info->next;
 	return (info);
 }
 
-int	get_longerline(t_list *file)
+int	get_bline(t_list *file)
 {
 	int topline;
 
@@ -257,7 +252,7 @@ char	**parse_map(t_list *file)
 {
 	int	bline;
 
-	bline = get_longline(file);
+	bline = get_bline(file);
 	while (file)
 	{
 		if (bline < ft_strlen(file->data))
@@ -278,6 +273,16 @@ void	cub3d(char *map_file)
 	if (isempty(map_file))
 		ft_error_msg("Empty file", EXIT_FAILURE);
 	file = read_file(map_file);
+
+
+
+	// for (size_t i = 0; file; file = file->next)
+	// {
+	// 	printf("%s:newline\n", file->data);
+	// }
+	// exit(1);
+
+
 	set_info_defaut(&info);
 	if (!set_info(&file, &info))
 		return (ft_lstclear(&file), exit(EXIT_FAILURE));
