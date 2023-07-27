@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 07:50:08 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 08:55:19 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,17 +174,17 @@ bool	set_info(t_list	*file, t_info *info)
 		buff = ft_strtrim(file->data, " ");
 		if (buff[0] == '\n')
 			;
-		else if (ft_strncmp(buff, "NO ", 3))
+		else if (ft_strncmp(buff, "NO ", 3) == 0)
 			set_direction(buff, &(info->NO));
-		else if (ft_strncmp(buff, "SO ", 3))
+		else if (ft_strncmp(buff, "SO ", 3) == 0)
 			set_direction(buff, &(info->SO));
-		else if (ft_strncmp(buff, "WE ", 3))
+		else if (ft_strncmp(buff, "WE ", 3) == 0)
 			set_direction(buff, &(info->WE));
-		else if (ft_strncmp(buff, "EA ", 3))
+		else if (ft_strncmp(buff, "EA ", 3) == 0)
 			set_direction(buff, &(info->EA));
-		else if (ft_strncmp(buff, "F ", 2))
+		else if (ft_strncmp(buff, "F ", 2) == 0)
 			set_color(buff, &(info->F));
-		else if (ft_strncmp(buff, "C ", 2))
+		else if (ft_strncmp(buff, "C ", 2) == 0)
 			set_color(buff, &(info->C));
 		file = file->next;
 	}
@@ -202,9 +202,15 @@ void	cub3d(char *map_file)
 		ft_error_msg("Empty file", EXIT_FAILURE);
 	file = read_file(map_file);
 	
-	set_info_defaut(&info);
-	if (!set_info(file, &info))
-		return (ft_lstclear(&file), exit(EXIT_FAILURE));
+	for (size_t i = 0; file; file = file->next)
+	{
+		perror_x(file->data);
+	}
+	
+
+	// set_info_defaut(&info);
+	// if (!set_info(file, &info))
+	// 	return (ft_lstclear(&file), exit(EXIT_FAILURE));
 	
 		
 
