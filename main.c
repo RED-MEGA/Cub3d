@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 14:47:54 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 16:45:23 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,6 +196,77 @@ bool	set_info(t_list	**file, t_info *info)
 	return (status);
 }
 
+t_list	*skip_newline(t_list *info)
+{
+	while (info && compare(info->data, "\n"))
+		info = info->next;
+	return (info);
+}
+
+int	get_longerline(t_list *file)
+{
+	int topline;
+
+	topline = ft_strlen(file->data);
+	file = file->next;
+	while (file)
+	{
+		if (ft_strlen(file->data) > topline)
+			topline = ft_strlen(file->data);
+		file = file->next;
+	}
+	return (topline);
+}
+
+char	*addsize(char *data, int len)
+{
+	char	*newstr;
+	char	*spaces;
+	int		i;
+
+	spaces = (char *)malloc(len * sizeof(char) + 1);
+	ft_error_ptr(spaces, 1);
+	i = -1;
+	spaces[len] = '\0';
+	while (spaces[++i])
+		spaces[i] = ' ';
+	newstr = ft_strjoin_gnl(data, spaces);
+	return (free(spaces), newstr);
+}
+
+char	**to_matrix(t_list *file)
+{
+	int		i;
+	int		list_size;
+	char	**map;
+
+	map = NULL;
+	list_size = ft_lstsize(file);
+	map = (char **)malloc(sizeof(char *) * list_size);
+	map[list_size] = NULL;
+	i = -1;
+	while (file)
+	{
+		map[++i] = ft_strdup(file->data);
+		file = file->next;
+	}
+	return (ft_lstclear(&file), map);
+}
+
+char	**parse_map(t_list *file)
+{
+	int	bline;
+
+	bline = get_longline(file);
+	while (file)
+	{
+		if (bline < ft_strlen(file->data))
+			file->data = addsize(file->data, bline - ft_strlen(file->data));
+		file = file->next;
+	}
+	return (to_matrix(file));
+}
+
 void	cub3d(char *map_file)
 {
 	t_list	*file;
@@ -228,9 +299,9 @@ void	cub3d(char *map_file)
 
 	
 	
-
-
-
+	info.map = parse_map(skip_newline(file));
+	if (!info.map)
+		return ;
 
 
 
