@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/07/26 14:25:13 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/07/27 05:46:03 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ SRC = main.c \
 		libft/ft_putstr_fd.c \
 		libft/ft_putstr_printf.c \
 		libft/ft_split.c \
+		libft/ft_strtrim.c \
 		libft/ft_strchr.c \
 		libft/ft_strdup.c \
 		libft/ft_striteri.c \

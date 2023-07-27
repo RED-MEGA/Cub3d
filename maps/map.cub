@@ -1,7 +1,7 @@
-NO ./main.c
-SO ./main.c
-WE ./main.c
-EA ./main.c
+NO exemple_texture
+SO exemple_texture
+WE exemple_texture
+EA exemple_texture
 F 220,100,0
 C 225,30,0
 		1111111111111111111111111

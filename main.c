@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 05:22:52 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 06:07:54 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,11 @@ bool	isvalid_path(char *file)
 bool	set_direction(char *data, char **direction)
 {
 	char	*buff;
+	char	*tmp;
 
-	buff = ft_strtrim(data, " ");
+	tmp = ft_strtrim(data + 3, " ");
+	buff = ft_substr(tmp, 0, ft_strlen(tmp) - 1);
+	free(tmp);
 	if (!isvalid_path(buff))
 		return (free(data), free(buff)
 			, perror_x("Invalid direction attribute")
@@ -120,9 +123,12 @@ int		_set_color(char **color, int i, char *to_free)
 bool	set_color(char *data, t_color *rgb)
 {
 	char	*buff;
+	char	*tmp;
 	char	**color;
 
-	buff = ft_strtrim(data, " ");
+	tmp = ft_strtrim(data + 2, " ");
+	buff = ft_substr(tmp, 0, ft_strlen(tmp) - 1);
+	free(tmp);
 	if (!check_rgbform(buff))
 		return (free(data), free(buff), perror_x("Invalid color attribute"), false);
 	color = ft_split(buff, ',');
@@ -144,17 +150,17 @@ bool	set_info(t_list	*file, t_info *info)
 		if (buff[0] == '\n')
 			;
 		else if (ft_strncmp(buff, "NO ", 3))
-			set_direction(buff + 3, &(info->NO));
+			set_direction(buff, &(info->NO));
 		else if (ft_strncmp(buff, "SO ", 3))
-			set_direction(buff + 3, &(info->SO));
+			set_direction(buff, &(info->SO));
 		else if (ft_strncmp(buff, "WE ", 3))
-			set_direction(buff + 3, &(info->WE));
+			set_direction(buff, &(info->WE));
 		else if (ft_strncmp(buff, "EA ", 3))
-			set_direction(buff + 3, &(info->EA));
+			set_direction(buff, &(info->EA));
 		else if (ft_strncmp(buff, "F ", 2))
-			set_color(buff + 2, &(info->F));
+			set_color(buff, &(info->F));
 		else if (ft_strncmp(buff, "C ", 2))
-			set_color(buff + 2, &(info->C));
+			set_color(buff, &(info->C));
 		file = file->next;
 	}
 	return (true);
@@ -170,39 +176,12 @@ void	cub3d(char *map_file)
 	if (isempty(map_file))
 		ft_error_msg("Empty file", EXIT_FAILURE);
 	file = read_file(map_file);
-	// for (t_list *tmp = file; tmp; tmp = tmp->next)
-	// {
-	// 	printf("%s", tmp->data);
-	// }
+	
 	
 	if (!set_info(file, &info))
 		return (ft_lstclear(&file), exit(EXIT_FAILURE));
 	
 		
-	
-
-	
-
-
-
-
-
-
-
-
-
-
-
-	
-
-	
-
-
-
-
-
-
-
 
 }
 
