@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/07/27 05:46:03 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/07/27 11:42:51 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = cub3D
 # CC = cc
 CC = gcc -g
 
-FLAGS = #-Wall -Wextra -Werror
+FLAGS = -fsanitize=address #-Wall -Wextra -Werror
 
 INCLUDE = include/global.h include/cub3d.h include/utils.h include/libft.h
 
