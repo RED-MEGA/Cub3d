@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:49:55 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 03:26:58 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 09:56:03 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_list	*ft_lstnew(char *data);
 int		ft_lstsize(t_list *lst);
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
+#  define BUFFER_SIZE 1
 # endif
 
 char	*get_next_line(int fd);
