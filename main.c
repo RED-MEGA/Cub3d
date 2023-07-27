@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 06:07:54 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 07:50:08 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,11 +140,36 @@ bool	set_color(char *data, t_color *rgb)
 	return (free(data), true);
 }
 
+bool	info_isset(t_info *info)
+{
+	if (info->NO != NULL && info->SO != NULL
+		&& info->WE != NULL && info->EA != NULL
+		&& info->F.r != FAIL && info->F.g != FAIL
+		&& info->F.b != FAIL && info->C.r != FAIL
+		&& info->C.g != FAIL && info->C.b != FAIL)
+		return (true);
+	return (false);
+}
+
+void	set_info_defaut(t_info *info)
+{
+	info->NO = NULL;
+	info->SO = NULL;
+	info->WE = NULL;
+	info->EA = NULL;
+	info->F.r = FAIL;
+	info->F.g = FAIL;
+	info->F.b = FAIL;
+	info->C.r = FAIL;
+	info->C.g = FAIL;
+	info->C.b = FAIL;
+}
+
 bool	set_info(t_list	*file, t_info *info)
 {
 	char	*buff;
 
-	while (file)
+	while (file && !info_isset(info))
 	{
 		buff = ft_strtrim(file->data, " ");
 		if (buff[0] == '\n')
@@ -177,7 +202,7 @@ void	cub3d(char *map_file)
 		ft_error_msg("Empty file", EXIT_FAILURE);
 	file = read_file(map_file);
 	
-	
+	set_info_defaut(&info);
 	if (!set_info(file, &info))
 		return (ft_lstclear(&file), exit(EXIT_FAILURE));
 	
