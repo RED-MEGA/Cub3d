@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 17:42:50 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 18:49:11 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,7 +237,7 @@ char	**to_matrix(t_list *file)
 
 	map = NULL;
 	list_size = ft_lstsize(file);
-	map = (char **)malloc(sizeof(char *) * list_size);
+	map = (char **)malloc(sizeof(char *) * (list_size + 1));
 	map[list_size] = NULL;
 	i = -1;
 	while (file)
@@ -250,8 +250,10 @@ char	**to_matrix(t_list *file)
 
 char	**parse_map(t_list *file)
 {
-	int	bline;
+	t_list	*head;
+	int		bline;
 
+	head = file;
 	bline = get_bline(file);
 	while (file)
 	{
@@ -259,7 +261,7 @@ char	**parse_map(t_list *file)
 			file->data = addsize(file->data, bline - ft_strlen(file->data));
 		file = file->next;
 	}
-	return (to_matrix(file));
+	return (to_matrix(head));
 }
 
 void	cub3d(char *map_file)
@@ -273,6 +275,9 @@ void	cub3d(char *map_file)
 	if (isempty(map_file))
 		ft_error_msg("Empty file", EXIT_FAILURE);
 	file = read_file(map_file);
+	set_info_defaut(&info);
+	if (!set_info(&file, &info))
+		return (ft_lstclear(&file), exit(EXIT_FAILURE));
 
 
 
@@ -283,9 +288,6 @@ void	cub3d(char *map_file)
 	// exit(1);
 
 
-	set_info_defaut(&info);
-	if (!set_info(&file, &info))
-		return (ft_lstclear(&file), exit(EXIT_FAILURE));
 
 	printf("\nAttribute : \n");
 	printf("NO : %s \n", info.NO);
@@ -300,22 +302,27 @@ void	cub3d(char *map_file)
 
 	printf("\nMap : Before parse\n");
 	for (t_list *tmp = file; tmp; tmp = tmp->next)
-		printf("%s\n", tmp->data);
+		printf("%s:newline\n", tmp->data);
 
-	
-	
+
+
+
 	info.map = parse_map(skip_newline(file));
 	if (!info.map)
 		return ;
 
-
+	
 
 
 
 	
-	
-
 	printf("\nMap : After parse\n");
+	
+	for (size_t i = 0; info.map[i]; i++)
+	{
+		printf("%s:newline\n", info.map[i]);
+	}
+	
 }
 
 int	main(int argc, char **argv)
