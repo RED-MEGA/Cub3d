@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 21:18:24 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 23:01:39 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ bool	info_isset(t_info *info);
 void	set_info_defaut(t_info *info);
 bool	set_info(t_list **file, t_info *info);
 
+bool	check_newline(char **map);
 t_list	*skip_newline(t_list *file);
 int		get_bline(t_list *file);
 char	*addsize(char *data, int len);

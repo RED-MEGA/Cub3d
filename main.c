@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 21:12:06 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/27 23:09:21 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,11 @@ void	cub3d(char *map_file)
 
 	set_datalen(file);
 	info.map = parse_map(skip_newline(file));
-	if (!info.map)
-		return ;
+	if (!info.map && check_newline(info.map))
+		ft_error_msg("Invalid map", 1);
 
+	// if (!info.map && check_newline(info.map))
+	// 	ft_error_msg("Invalid map", 1);
 	
 
 
