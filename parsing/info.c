@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:08:40 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/28 19:34:43 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/28 20:27:48 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,47 +75,4 @@ void	set_datalen(t_list *file)
 		file->len = ft_strlen(file->data);
 		file = file->next;
 	}
-}
-
-bool	check_map(char **map)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (map[++i])
-		if (map[i][0] == '\n')
-			return (false);
-	i = -1;
-	while (map[++i][j])
-	{
-		j = -1;
-		while (map[i][++j])
-	   		if (map[i][j] != '0'
-				&& map[i][j] != '1'
-				&& map[i][j] != 'N'
-				&& map[i][j] != 'S'
-				&& map[i][j] != 'E'
-				&& map[i][j] != 'W'
-				&& map[i][j] != ' ')
-				return (false);
-	}
-	
-	int	player_set = 0;
-	i = -1;
-	while (map[++i])
-	{
-		j = -1;
-		while (map[i][++j])
-		{
-			if (map[i][j] == 'N'
-				|| map[i][j] == 'S'
-				|| map[i][j] == 'E'
-				|| map[i][j] == 'W')
-				player_set++;
-		}
-	}
-	if (player_set > 1)
-		return (false);
-	return (true);
 }

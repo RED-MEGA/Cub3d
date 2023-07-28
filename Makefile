@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/07/27 21:22:17 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/07/28 20:26:44 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRC = main.c \
 		parsing/attributes.c \
 		parsing/check.c \
 		parsing/info.c \
-		parsing/map.c \
+		parsing/map_parse.c \
+		parsing/map_check.c \
 		utils/error.c \
 		utils/matdup.c \
 		utils/free.c \
