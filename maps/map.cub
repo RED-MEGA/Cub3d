@@ -1,7 +1,7 @@
-NO exemple_texture
-SO exemple_texture
-WE exemple_texture
-EA exemple_texture
+NO textures/exemple_texture
+SO textures/exemple_texture
+WE textures/exemple_texture
+EA textures/exemple_texture
 F 220,100,0
 C 225,30,0
 
