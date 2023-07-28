@@ -6,21 +6,17 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:27:54 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/28 21:10:20 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/28 21:46:18 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-bool	check_map(char **map)
+bool	m_check_characters(char **map)
 {
 	int	i;
 	int	j;
-
-	i = -1;
-	while (map[++i])
-		if (map[i][0] == '\n')
-			return (false);
+	
 	i = -1;
 	while (map[++i])
 	{
@@ -35,8 +31,16 @@ bool	check_map(char **map)
 				&& map[i][j] != ' ')
 				return (false);
 	}
-	
+	return (true);
+}
+
+bool	m_check_playerc(char **map)
+{
+	int	i;
+	int	j;
 	int	player_set = 0;
+
+	player_set = 0;
 	i = -1;
 	while (map[++i])
 	{
@@ -52,22 +56,28 @@ bool	check_map(char **map)
 	}
 	if (player_set > 1)
 		return (false);
-	
+	return (true);
+}
+
+bool	m_check_tb(int i, char **map)
+{	
+	int	j;
 
 	j = -1;
 	while (map[0][++j])
 		if (map[0][j] == '0')
 			return (false);
-
-	i--;
 	j = -1;
 	while (map[i] && map[i][++j])
 		if (map[i][j] == '0')
 			return (false);
-	
+	return (true);
+}
 
-
-
+bool	m_check_surrounded(char **map)
+{
+	int i;
+	int j;
 
 	i = 0;
 	while (map[++i] && map[i + 1] != NULL)
@@ -84,12 +94,22 @@ bool	check_map(char **map)
 				return (false);
 		}
 	}
+	return (true);
+}
 
+bool	check_map(char **map)
+{
+	int	i;
+	int	j;
 
-
-
-
-
-
+	i = -1;
+	while (map[++i])
+		if (map[i][0] == '\n')
+			return (false);
+	if (!m_check_characters(map)
+		|| !m_check_playerc(map)
+		|| !m_check_tb(--i, map)
+		|| !m_check_surrounded(map))
+		return (false);
 	return (true);
 }
