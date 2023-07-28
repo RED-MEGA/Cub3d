@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:08:40 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/28 19:01:58 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/28 19:34:43 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,22 @@ bool	check_map(char **map)
 				&& map[i][j] != ' ')
 				return (false);
 	}
+	
+	int	player_set = 0;
+	i = -1;
+	while (map[++i])
+	{
+		j = -1;
+		while (map[i][++j])
+		{
+			if (map[i][j] == 'N'
+				|| map[i][j] == 'S'
+				|| map[i][j] == 'E'
+				|| map[i][j] == 'W')
+				player_set++;
+		}
+	}
+	if (player_set > 1)
+		return (false);
 	return (true);
 }
