@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:08:40 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 23:09:13 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/28 06:23:16 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,13 @@ void	set_datalen(t_list *file)
 	}
 }
 
-// bool	check_newline(char **map)
-// {
-// 	int	i;
+bool	check_newline(char **map)
+{
+	int	i;
 
-// 	i = -1;
-// 	while (map[++i])
-// 		if (map[i][0] == ' ')
-// 			return (true);
-// 	return (false);
-// }
+	i = -1;
+	while (map[++i])
+		if (map[i][0] == '\n')
+			return (true);
+	return (false);
+}

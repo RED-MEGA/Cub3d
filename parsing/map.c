@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:11:17 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 21:11:43 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/28 06:22:39 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ char	*addsize(char *data, int len)
 	char	*spaces;
 	int		i;
 
+	if (data[0] == '\0')
+		return (ft_strjoin_gnl(data, "\n"));
 	spaces = (char *)malloc(len * sizeof(char) + 1);
 	ft_error_ptr(spaces, 1);
 	i = -1;
