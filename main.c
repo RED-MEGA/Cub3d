@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/28 06:23:32 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/28 18:36:08 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,52 +27,44 @@ void	cub3d(char *map_file)
 	if (!set_info(&file, &info))
 		return (ft_lstclear(&file), exit(EXIT_FAILURE));
 
-
-
-	// for (size_t i = 0; file; file = file->next)
-	// {
-	// 	printf("%s:newline\n", file->data);
-	// }
-	// exit(1);
-
-
-
-	printf("\nAttribute : \n");
-	printf("NO : %s \n", info.NO);
-	printf("SO : %s \n", info.SO);
-	printf("WE : %s \n", info.WE);
-	printf("EA : %s \n", info.EA);
-	printf("F : (%d,%d,%d) \n", info.F.r, info.F.g, info.F.b);
-	printf("C : (%d,%d,%d) \n", info.C.r, info.C.g, info.C.b);
-
-
-
-
-	printf("\nMap : Before parse\n");
-	for (t_list *tmp = file; tmp; tmp = tmp->next)
-		printf("%s:newline\n", tmp->data);
-
-
-
 	set_datalen(file);
 	info.map = parse_map(skip_newline(file));
 	if (!info.map || check_newline(info.map))
 		ft_error_msg("Invalid map", 1);
 
-	// if (!info.map && check_newline(info.map))
-	// 	ft_error_msg("Invalid map", 1);
-	
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
-	printf("\nMap : After parse\n");
 	
+	int debug_fd = open("Debug.log", O_RDWR);
+	dprintf(debug_fd, "/* **************** */\n");
+	dprintf(debug_fd, "/*     PARSING      */\n");
+	dprintf(debug_fd, "/* **************** */\n");
+	dprintf(debug_fd, "\nAttribute : \n");
+	dprintf(debug_fd, "NO : %s \n", info.NO);
+	dprintf(debug_fd, "SO : %s \n", info.SO);
+	dprintf(debug_fd, "WE : %s \n", info.WE);
+	dprintf(debug_fd, "EA : %s \n", info.EA);
+	dprintf(debug_fd, "F : (%d,%d,%d) \n", info.F.r, info.F.g, info.F.b);
+	dprintf(debug_fd, "C : (%d,%d,%d) \n", info.C.r, info.C.g, info.C.b);
+
+	dprintf(debug_fd, "\nMap :\n");
 	for (size_t i = 0; info.map[i]; i++)
-	{
-		printf("%s:newline\n", info.map[i]);
-	}
-	
+		dprintf(debug_fd, "%s:newline\n", info.map[i]);
 }
 
 int	main(int argc, char **argv)
