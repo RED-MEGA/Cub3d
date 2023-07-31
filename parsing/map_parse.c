@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:11:17 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/31 15:08:30 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:26:17 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*addsize(char *data, int len)
 	if (data[0] == '\0')
 		return (ft_strjoin_gnl(data, "\n"));
 	spaces = (char *)malloc(len * sizeof(char) + 1);
-	ft_error_ptr(spaces, 1);
+	ft_error_ptr(spaces, 1); // Note : info is leak hair 
 	i = -1;
 	spaces[len] = '\0';
 	while (spaces[++i])

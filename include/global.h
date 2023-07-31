@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/31 13:33:14 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:07:02 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define ERRPERMISSION "Permission denied"
 # define ERRINVALID "Invalid argument"
 # define ERRFILE "Invalid file"
+# define ERREMPTY "Empty file"
 
 #define BLACK "\033[0;30m"
 #define RED "\033[0;31m"

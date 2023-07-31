@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:08:40 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/28 20:27:48 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:04:57 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,6 @@ bool	info_isset(t_info *info)
 		&& info->C.g != FAIL && info->C.b != FAIL)
 		return (true);
 	return (false);
-}
-
-void	set_info_defaut(t_info *info)
-{
-	info->NO = NULL;
-	info->SO = NULL;
-	info->WE = NULL;
-	info->EA = NULL;
-	info->F.r = FAIL;
-	info->F.g = FAIL;
-	info->F.b = FAIL;
-	info->C.r = FAIL;
-	info->C.g = FAIL;
-	info->C.b = FAIL;
 }
 
 bool	set_info(t_list	**file, t_info *info)

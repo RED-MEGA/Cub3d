@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/31 17:52:55 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:28:34 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	cub3d(char *file_name)
 {
 	t_info	*info;
 
-	info = parse_file(file_name);
+	info = parsing(file_name);
 
 
 

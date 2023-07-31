@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/31 17:52:16 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:28:39 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 /*     PARSING      */
 /* **************** */
 
-t_info	*parse_file(char *file_name);
+t_info	*parsing(char *file_name);
 
 bool	check_extension(char *file);
 bool	isempty(char *file);
@@ -37,7 +37,6 @@ bool	set_color(char *data, t_color *rgb);
 
 void	set_datalen(t_list *file);
 bool	info_isset(t_info *info);
-void	set_info_defaut(t_info *info);
 bool	set_info(t_list **file, t_info *info);
 
 bool	check_map(char **map);
