@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/07/28 20:26:44 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/07/31 17:52:32 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ FLAGS = -fsanitize=address #-Wall -Wextra -Werror
 INCLUDE = include/global.h include/cub3d.h include/utils.h include/libft.h
 
 SRC = main.c \
+		parsing/parse_file.c \
 		parsing/attributes.c \
 		parsing/check.c \
 		parsing/info.c \

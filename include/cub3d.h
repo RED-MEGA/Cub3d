@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/28 18:54:52 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/31 17:52:16 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 /* **************** */
 /*     PARSING      */
 /* **************** */
+
+t_info	*parse_file(char *file_name);
 
 bool	check_extension(char *file);
 bool	isempty(char *file);
