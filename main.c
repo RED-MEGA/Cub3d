@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/28 18:57:41 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/31 13:34:18 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	cub3d(char *map_file)
 	set_info_defaut(&info);
 	if (!set_info(&file, &info))
 		return (ft_lstclear(&file), exit(EXIT_FAILURE));
-
 	set_datalen(file);
 	info.map = parse_map(skip_newline(file));
 	if (!info.map || !check_map(info.map))
@@ -65,6 +64,12 @@ void	cub3d(char *map_file)
 	dprintf(debug_fd, "\nMap :\n");
 	for (size_t i = 0; info.map[i]; i++)
 		dprintf(debug_fd, "%s:newline\n", info.map[i]);
+
+
+
+
+
+	printf("%sSUCCESS\n", GREEN);
 }
 
 int	main(int argc, char **argv)

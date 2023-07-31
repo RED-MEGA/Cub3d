@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 20:29:01 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/07/31 13:33:14 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,14 @@
 # define ERRINVALID "Invalid argument"
 # define ERRFILE "Invalid file"
 
-# define C_EAT "\e[1;35m"
-# define C_SLEEP "\e[1;30m"
-# define C_THINK "\e[1;33m"
-# define C_DEATH "\033[1;31m"
-# define C_RESET "\e[0m"
+#define BLACK "\033[0;30m"
+#define RED "\033[0;31m"
+#define GREEN "\033[0;32m"
+#define YELLOW "\033[0;33m"
+#define BLUE "\033[0;34m"
+#define PURPLE "\033[0;35m"
+#define CYAN "\033[0;36m"
+#define WHITE "\033[0;37m"
 
 typedef struct s_list
 {
