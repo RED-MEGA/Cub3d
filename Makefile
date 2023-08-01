@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/07/31 18:28:59 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/08/01 20:00:15 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,12 @@ NAME = cub3D
 # CC = cc
 CC = gcc -g
 
-FLAGS = -fsanitize=address #-Wall -Wextra -Werror
+FW = -framework Cocoa -framework OpenGL -framework IOKit
+FLAGS = $(FW) -fsanitize=address #-Wall -Wextra -Werror
+
+LIBMLX = ./MLX42
+HEADERS = -I ./include  -I $(LIBMLX)/include/MLX42
+LIBS = $(LIBMLX)/build/libmlx42.a -dl -lglfw -L$(shell brew --prefix glfw)/lib -pthread -lm
 
 INCLUDE = include/global.h include/cub3d.h include/utils.h include/libft.h
 
@@ -83,13 +88,16 @@ SRC = main.c \
 
 OBJ = $(SRC:.c=.o)
 
-all : $(NAME)
+all : libmlx $(NAME)
+
+libmlx :
+	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 $(NAME) : $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(FLAGS) $(OBJ) $(LIBS) -o $(NAME)
 
 %.o: %.c $(INCLUDE)
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
 
 clean :
 	rm -rf $(OBJ)
@@ -99,4 +107,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all bonus clean fclean re
+.PHONY : all clean fclean re

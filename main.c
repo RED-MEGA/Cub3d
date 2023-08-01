@@ -6,56 +6,48 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/01 19:55:29 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/01 23:43:43 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+t_global	*init_global(t_info *info)
+{
+	t_global	*global;
+
+	global = (t_global *)malloc(sizeof(t_global));
+	ft_error_ptr(global, 1);
+	global->info = info;
+	global->mlx = mlx_init(WIDTH, HEIGHT, "Cub3d", true);
+	if (!global->mlx)
+		ft_error_msg(mlx_strerror(mlx_errno), 1);
+	global->window_img = mlx_new_image(global->mlx, WIDTH, HEIGHT);
+	if (!global->window_img)
+		ft_error_msg(mlx_strerror(mlx_errno), 1);
+	ft_error(mlx_image_to_window(global->mlx, global->window_img, 0, 0), 1);
+	return (global);
+}
+
+void	handle_keys(mlx_key_data_t keydata, void *param)
+{
+	if (keydata.key == MLX_KEY_ESCAPE)
+		exit(1);
+}
+
 void	cub3d(char *file_name)
 {
-	t_info	*info;
+	t_global	*pub;
+	t_info		*info;
 
 	info = parsing(file_name);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	pub = init_global(info);
 	
 	
-	int debug_fd = open("Debug.log", O_RDWR);
-	dprintf(debug_fd, "/* **************** */\n");
-	dprintf(debug_fd, "/*     PARSING      */\n");
-	dprintf(debug_fd, "/* **************** */\n");
-	dprintf(debug_fd, "\nAttribute : \n");
-	dprintf(debug_fd, "NO : %s \n", info->NO);
-	dprintf(debug_fd, "SO : %s \n", info->SO);
-	dprintf(debug_fd, "WE : %s \n", info->WE);
-	dprintf(debug_fd, "EA : %s \n", info->EA);
-	dprintf(debug_fd, "F : (%d,%d,%d) \n", info->F.r, info->F.g, info->F.b);
-	dprintf(debug_fd, "C : (%d,%d,%d) \n", info->C.r, info->C.g, info->C.b);
+	mlx_key_hook(pub->mlx, handle_keys, pub);
 
-	dprintf(debug_fd, "\nMap :\n");
-	for (size_t i = 0; info->map[i]; i++)
-		dprintf(debug_fd, "%s:newline\n", info->map[i]);
-
-
-
-
-
-	printf("%sSUCCESS\n", GREEN);
+	mlx_loop(pub->mlx);
+	mlx_terminate(pub->mlx);
 }
 
 int	main(int argc, char **argv)
@@ -65,3 +57,24 @@ int	main(int argc, char **argv)
 	cub3d(argv[1]);
 	return (0);
 }
+
+
+
+
+
+// Parsing debug
+// int debug_fd = open("Debug.log", O_RDWR);
+// dprintf(debug_fd, "/* **************** */\n");
+// dprintf(debug_fd, "/*     PARSING      */\n");
+// dprintf(debug_fd, "/* **************** */\n");
+// dprintf(debug_fd, "\nAttribute : \n");
+// dprintf(debug_fd, "NO : %s \n", info->NO);
+// dprintf(debug_fd, "SO : %s \n", info->SO);
+// dprintf(debug_fd, "WE : %s \n", info->WE);
+// dprintf(debug_fd, "EA : %s \n", info->EA);
+// dprintf(debug_fd, "F : (%d,%d,%d) \n", info->F.r, info->F.g, info->F.b);
+// dprintf(debug_fd, "C : (%d,%d,%d) \n", info->C.r, info->C.g, info->C.b);
+// dprintf(debug_fd, "\nMap :\n");
+// for (size_t i = 0; info->map[i]; i++)
+// 	dprintf(debug_fd, "%s:newline\n", info->map[i]);
+// printf("%sSUCCESS\n", GREEN);

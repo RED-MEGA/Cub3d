@@ -57,6 +57,7 @@
 		"tuple": "c",
 		"typeinfo": "c",
 		"unordered_map": "c",
-		"utility": "c"
+		"utility": "c",
+		"mlx42.h": "c"
 	}
 }

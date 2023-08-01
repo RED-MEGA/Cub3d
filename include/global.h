@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/01 19:52:33 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/01 21:46:36 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,17 @@
 # define ERRFILE "Invalid file"
 # define ERREMPTY "Empty file"
 
-#define BLACK "\033[0;30m"
-#define RED "\033[0;31m"
-#define GREEN "\033[0;32m"
-#define YELLOW "\033[0;33m"
-#define BLUE "\033[0;34m"
-#define PURPLE "\033[0;35m"
-#define CYAN "\033[0;36m"
-#define WHITE "\033[0;37m"
+# define BLACK "\033[0;30m"
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
+# define YELLOW "\033[0;33m"
+# define BLUE "\033[0;34m"
+# define PURPLE "\033[0;35m"
+# define CYAN "\033[0;36m"
+# define WHITE "\033[0;37m"
+
+# define HEIGHT 2880
+# define WIDTH 5120
 
 typedef struct s_list
 {
@@ -49,7 +52,7 @@ typedef struct s_list
 	int				len;
 	int				index;
 	struct s_list	*next;
-}					t_list;
+}	t_list;
 
 
 typedef struct s_color
@@ -57,7 +60,7 @@ typedef struct s_color
 	int		r;
 	int		g;
 	int		b;
-}			t_color;
+}	t_color;
 
 typedef struct s_info
 {
@@ -69,5 +72,13 @@ typedef struct s_info
 	char		*EA;
 	char		**map;
 }	t_info;
+
+typedef struct s_global
+{
+	t_info		*info;
+	mlx_t		*mlx;
+	mlx_image_t	*window_img;
+}	t_global;
+
 
 #endif
