@@ -6,11 +6,11 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:17:22 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 11:18:22 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/01 19:55:02 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/utils.h"
+#include "utils.h"
 
 void	ft_error(int status, int code)
 {

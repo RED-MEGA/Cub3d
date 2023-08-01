@@ -6,11 +6,11 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:40:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 00:02:45 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/01 19:55:02 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/utils.h"
+#include "utils.h"
 
 t_list	*in(t_list *head, int index)
 {

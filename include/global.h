@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/31 18:07:02 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/01 19:52:33 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <limits.h>
+# include "MLX42.h"
 
 # define ERROR  "\033[31;1mError :\033[0m "
 # define FAIL -1

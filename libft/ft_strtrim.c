@@ -6,11 +6,11 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 11:25:38 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/27 03:26:47 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/01 19:53:38 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "libft.h"
 
 static int	w_part(const char *set, const char str)
 {

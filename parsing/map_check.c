@@ -6,11 +6,11 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:27:54 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/28 21:46:18 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/01 19:54:26 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "cub3d.h"
 
 bool	m_check_characters(char **map)
 {

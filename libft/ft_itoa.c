@@ -6,11 +6,11 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:45:54 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/07/26 11:02:28 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/01 19:53:38 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "libft.h"
 
 static int	tolen(int n)
 {
