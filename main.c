@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/02 21:15:44 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/02 21:58:04 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,25 @@ void	draw_square(t_global *pub, int x, int y, int color)
 	
 	x_tmp = x;
 	y_tmp = y;
-	while (y <= (y_tmp + SQUARE_LEN))
+	while (y < (y_tmp + SQUARE_LEN))
 	{
 		x = x_tmp;
-		while (x <= (x_tmp + SQUARE_LEN))
+		while (x < (x_tmp + SQUARE_LEN))
 		{
+			printf("%d ---- %d\n", x, y);
 			mlx_put_pixel(pub->window_img, x, y, color);
 			x++;
 		}
 		y++;
 	}
+}
+
+int	get_color(char c)
+{
+	if (c == '1'
+		|| c == ' ')
+		return (get_rgb(BLACK_R, BLACK_G, BLACK_B, 255));
+	return (get_rgb(WHITE_R, WHITE_G, WHITE_B, 255));
 }
 
 void	to_2D_map(t_global *pub)
@@ -70,38 +79,17 @@ void	to_2D_map(t_global *pub)
 	pos.x = 0;
 	pos.y = 0;
 
-	index.x = 0;
-	index.y = 0;
-	// while (pub->info->map[index.y])
-	// {
-	// 	index.x = 0;
-	// 	while (pub->info->map[index.y][index.x])
-	// 	{
-	// 		if (pub->info->map[index.y][index.x] == '1'
-	// 			&& pub->info->map[index.y][index.x] == ' ')
-	// 			color = get_rgb(BLACK_R, BLACK_G, BLACK_B, 255);
-	// 		else
-	// 			color = get_rgb(WHITE_R, WHITE_G, WHITE_B, 255);
-
-
-
-
-
-
-		color = get_rgb(WHITE_R, WHITE_G, WHITE_B, 255);
-		draw_square(pub, 0, 0, color);
-
-
-	// 		printf("%d\n", index.x);
-	// 		index.x++;
-	// 	}
-	// 	index.y++;
-	// }
-
-
-
-
-
+	index.x = -1;
+	index.y = -1;
+	while (pub->info->map[++index.y])
+	{
+		index.x = -1;
+		while (pub->info->map[index.y][++index.x])
+			draw_square(pub
+				, index.x * SQUARE_LEN
+				, index.y * SQUARE_LEN
+				, get_color(pub->info->map[index.y][index.x]));
+	}
 }
 
 void	cub3d(char *file_name)
@@ -111,14 +99,8 @@ void	cub3d(char *file_name)
 
 	info = parsing(file_name);
 	pub = init_global(info);
-	
-
-
-
-
 
 	to_2D_map(pub);
-
 
 	mlx_key_hook(pub->mlx, handle_keys, pub);
 
