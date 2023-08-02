@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/01 23:43:43 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/02 17:03:24 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,38 @@ void	handle_keys(mlx_key_data_t keydata, void *param)
 		exit(1);
 }
 
+void	to_2D_map(t_global *pub)
+{
+	t_pos	pos;
+	int		pos_s;
+
+	pos_s = 32;
+	pos.x = 0;
+	pos.y = 0;
+
+	while (pos.y <= pos_s)
+	{
+		pos.x = 0;
+		while (pos.x <= pos_s)
+		{
+			mlx_put_pixel(pub->window_img, pos.x, pos.y, 255);
+			pos.x++;	
+		}
+		pos.y++;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+
 void	cub3d(char *file_name)
 {
 	t_global	*pub;
@@ -43,7 +75,14 @@ void	cub3d(char *file_name)
 	info = parsing(file_name);
 	pub = init_global(info);
 	
-	
+
+
+
+
+
+	to_2D_map(pub);
+
+
 	mlx_key_hook(pub->mlx, handle_keys, pub);
 
 	mlx_loop(pub->mlx);

@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/01 21:46:36 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/02 17:02:44 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <limits.h>
-# include "MLX42.h"
+# include "MLX42/MLX42.h"
 
 # define ERROR  "\033[31;1mError :\033[0m "
 # define FAIL -1
@@ -54,6 +54,11 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+typedef struct s_pos
+{
+	int x;
+	int y;
+}	t_pos;
 
 typedef struct s_color
 {
