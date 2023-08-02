@@ -6,11 +6,16 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/02 17:03:24 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/02 21:15:44 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	get_rgb(int r, int g, int b, int a)
+{
+	return (r << 24 | g << 16 | b << 8 | a);	
+}
 
 t_global	*init_global(t_info *info)
 {
@@ -35,36 +40,68 @@ void	handle_keys(mlx_key_data_t keydata, void *param)
 		exit(1);
 }
 
+void	draw_square(t_global *pub, int x, int y, int color)
+{
+	int x_tmp;
+	int y_tmp;
+	
+	x_tmp = x;
+	y_tmp = y;
+	while (y <= (y_tmp + SQUARE_LEN))
+	{
+		x = x_tmp;
+		while (x <= (x_tmp + SQUARE_LEN))
+		{
+			mlx_put_pixel(pub->window_img, x, y, color);
+			x++;
+		}
+		y++;
+	}
+}
+
 void	to_2D_map(t_global *pub)
 {
 	t_pos	pos;
+	t_pos	index;
 	int		pos_s;
+	int		color;
 
-	pos_s = 32;
+	pos_s = 50;
 	pos.x = 0;
 	pos.y = 0;
 
-	while (pos.y <= pos_s)
-	{
-		pos.x = 0;
-		while (pos.x <= pos_s)
-		{
-			mlx_put_pixel(pub->window_img, pos.x, pos.y, 255);
-			pos.x++;	
-		}
-		pos.y++;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	index.x = 0;
+	index.y = 0;
+	// while (pub->info->map[index.y])
+	// {
+	// 	index.x = 0;
+	// 	while (pub->info->map[index.y][index.x])
+	// 	{
+	// 		if (pub->info->map[index.y][index.x] == '1'
+	// 			&& pub->info->map[index.y][index.x] == ' ')
+	// 			color = get_rgb(BLACK_R, BLACK_G, BLACK_B, 255);
+	// 		else
+	// 			color = get_rgb(WHITE_R, WHITE_G, WHITE_B, 255);
+
+
+
+
+
+
+		color = get_rgb(WHITE_R, WHITE_G, WHITE_B, 255);
+		draw_square(pub, 0, 0, color);
+
+
+	// 		printf("%d\n", index.x);
+	// 		index.x++;
+	// 	}
+	// 	index.y++;
+	// }
+
+
+
+
+
 }
 
 void	cub3d(char *file_name)

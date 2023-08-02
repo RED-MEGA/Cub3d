@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/02 17:02:44 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/02 19:40:53 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,22 @@
 # define CYAN "\033[0;36m"
 # define WHITE "\033[0;37m"
 
-# define HEIGHT 2880
-# define WIDTH 5120
+# define RED_R 255
+# define RED_G 0
+# define RED_B 0
+# define BLACK_R 0
+# define BLACK_G 0
+# define BLACK_B 0
+# define WHITE_R 255
+# define WHITE_G 255
+# define WHITE_B 255
+
+# define SQUARE_LEN 50
+
+// # define HEIGHT 2880
+// # define WIDTH 5120
+# define HEIGHT 640
+# define WIDTH 960
 
 typedef struct s_list
 {
