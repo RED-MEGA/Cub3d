@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/03 18:46:06 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/03 21:07:59 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ typedef struct s_player
 {
 	t_pos		pos;
 	e_direction	direction;
+	int			turn_d;
+	int			walk_d;
 }	t_player;
 
 typedef struct s_color
