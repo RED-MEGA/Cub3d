@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/02 21:50:46 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/03 11:21:27 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,14 @@
 # define HEIGHT 1080
 # define WIDTH 1920
 
+typedef enum e_direction
+{
+	NO,
+	SO,
+	WE,
+	EA
+}	e_direction;
+
 typedef struct s_list
 {
 	char			*data;
@@ -74,6 +82,12 @@ typedef struct s_pos
 	int y;
 }	t_pos;
 
+typedef struct s_player
+{
+	t_pos		pos;
+	e_direction	direction;
+}	t_player;
+
 typedef struct s_color
 {
 	int		r;
@@ -83,6 +97,7 @@ typedef struct s_color
 
 typedef struct s_info
 {
+	t_player	player;
 	t_color		F;
 	t_color		C;
 	char		*NO;
