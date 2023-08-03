@@ -38,8 +38,8 @@ t_player	_set_pi(char **map, char c, t_pos pos)
 {
 	t_player	player;
 
-	player.pos.x = pos.x;
-	player.pos.y = pos.y;
+	player.pos.x = pos.x * SQUARE_LEN;
+	player.pos.y = pos.y * SQUARE_LEN;
 	map[pos.y][pos.x] = 'P';
 	if (c == 'N')
 		player.direction = NO;

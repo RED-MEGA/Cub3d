@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/03 11:21:27 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/03 14:14:40 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <limits.h>
+# include <math.h>
 # include "MLX42/MLX42.h"
 
 # define ERROR  "\033[31;1mError :\033[0m "
@@ -113,6 +114,5 @@ typedef struct s_global
 	mlx_t		*mlx;
 	mlx_image_t	*window_img;
 }	t_global;
-
 
 #endif
