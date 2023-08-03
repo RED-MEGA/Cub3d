@@ -95,6 +95,8 @@ t_info	*parsing(char *file_name)
 	if (!info->map || !check_map(info->map))
 		return (free(info), ft_error_msg("Invalid map", 1)
 				, NULL);
+	info->map_size.y = ft_matlen(info->map) * SQUARE_LEN;
+	info->map_size.x = ft_strlen(info->map[0]) * SQUARE_LEN;
 	set_player_info(info);
 	return (info);
 }

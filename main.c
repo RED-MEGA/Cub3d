@@ -6,30 +6,27 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/03 14:12:10 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/03 14:36:03 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	draw_player(t_global *pub)
+void	draw_player(mlx_image_t *image, t_info *info)
 {
 	t_pos	pos;
-	t_pos	map;
-	int		d;
+	int		distance;
 
 	pos.y = -1;
 	pos.x = -1;
-	map.x = ft_strlen(pub->info->map[0]) * SQUARE_LEN;
-	map.y = ft_matlen(pub->info->map) * SQUARE_LEN;
-	while (++pos.y < map.y)
+	while (++pos.y < info->map_size.y)
 	{
 		pos.x = -1;
-		while (++pos.x < map.x)
+		while (++pos.x < info->map_size.x)
 		{
-			d = sqrt(pow(pub->info->player.pos.x - pos.x, 2) + pow(pub->info->player.pos.y - pos.y, 2));
-			if (d < 10)
-				mlx_put_pixel(pub->window_img
+			distance = sqrt(pow(info->player.pos.x - pos.x, 2) + pow(info->player.pos.y - pos.y, 2));
+			if (distance < 10)
+				mlx_put_pixel(image
 						, pos.x, pos.y
 						, get_rgb(RED_R, RED_G, RED_B, 255));
 		}
@@ -46,7 +43,7 @@ void	cub3d(char *file_name)
 
 	to_2D_map(pub);
 
-	draw_player(pub);
+	draw_player(pub->window_img, pub->info);
 
 	mlx_key_hook(pub->mlx, handle_keys, pub);
 

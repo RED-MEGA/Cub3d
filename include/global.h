@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/03 14:14:40 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/03 14:19:04 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ typedef struct s_info
 	char		*WE;
 	char		*EA;
 	char		**map;
+	t_pos		map_size;
 }	t_info;
 
 typedef struct s_global
