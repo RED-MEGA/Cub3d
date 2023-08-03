@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/02 22:10:18 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/03 10:33:03 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char		**parse_map(t_list *file);
 void		handle_keys(mlx_key_data_t keydata, void *param);
 t_global	*init_global(t_info *info);
 int			get_color(char c);
-void		draw_square(t_global *pub, int x, int y, int color);
+void		draw_square(mlx_image_t *image, int x, int y, int color);
 void		to_2D_map(t_global *pub);
 
 #endif

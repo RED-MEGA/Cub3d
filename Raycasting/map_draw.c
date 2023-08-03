@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/02 22:06:59 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/03 10:32:27 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	get_color(char c)
 	return (get_rgb(WHITE_R, WHITE_G, WHITE_B, 255));
 }
 
-void	draw_square(t_global *pub, int x, int y, int color)
+void	draw_square(mlx_image_t *image, int x, int y, int color)
 {
 	int x_tmp;
 	int y_tmp;
@@ -50,7 +50,7 @@ void	draw_square(t_global *pub, int x, int y, int color)
 		while (x < (x_tmp + SQUARE_LEN))
 		{
 			printf("%d ---- %d\n", x, y);
-			mlx_put_pixel(pub->window_img, x, y, color);
+			mlx_put_pixel(image, x, y, color);
 			x++;
 		}
 		y++;
@@ -67,7 +67,7 @@ void	to_2D_map(t_global *pub)
 	{
 		index.x = -1;
 		while (pub->info->map[index.y][++index.x])
-			draw_square(pub
+			draw_square(pub->window_img
 				, index.x * SQUARE_LEN
 				, index.y * SQUARE_LEN
 				, get_color(pub->info->map[index.y][index.x]));
