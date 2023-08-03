@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/08/02 22:14:46 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/08/03 14:16:56 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,14 +25,14 @@ LIBS = $(LIBMLX)/build/libmlx42.a -dl -lglfw -L$(shell brew --prefix glfw)/lib -
 INCLUDE = include/global.h include/cub3d.h include/utils.h include/libft.h
 
 SRC = main.c \
-		Parsing/parsing.c \
-		Parsing/attributes.c \
-		Parsing/check.c \
-		Parsing/info.c \
-		Parsing/map_parse.c \
-		Parsing/map_check.c \
-		Raycasting/handle_keys.c \
-		Raycasting/map_draw.c \
+		parsing/parsing.c \
+		parsing/attributes.c \
+		parsing/check.c \
+		parsing/info.c \
+		parsing/map_parse.c \
+		parsing/map_check.c \
+		raycasting/handle_keys.c \
+		raycasting/map_draw.c \
 		utils/get_color.c \
 		utils/error.c \
 		utils/matdup.c \
