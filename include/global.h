@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/03 14:19:04 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/03 17:16:30 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@
 # define WHITE_G 255
 # define WHITE_B 255
 
-# define SQUARE_LEN 32
+# define SQUARE_LEN 50
 
 // # define HEIGHT 2880
 // # define WIDTH 5120

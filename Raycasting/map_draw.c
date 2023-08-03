@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/03 14:44:30 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/03 17:58:20 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,27 @@ int	get_color(char c)
 
 void	draw_player(mlx_image_t *image, t_info *info)
 {
-	t_pos	pos;
-	int		distance;
+	// t_pos	pos;
+	// int		distance;
 
-	pos.y = -1;
-	pos.x = -1;
-	while (++pos.y < info->map_size.y)
-	{
-		pos.x = -1;
-		while (++pos.x < info->map_size.x)
-		{
-			distance = sqrt(pow(info->player.pos.x - pos.x, 2) + pow(info->player.pos.y - pos.y, 2));
-			if (distance < 10)
-				mlx_put_pixel(image
-						, pos.x, pos.y
-						, get_rgb(RED_R, RED_G, RED_B, 255));
-		}
-	}
+	// pos.y = -1;
+	// pos.x = -1;
+
+	// while (++pos.y < info->map_size.y)
+	// {
+	// 	pos.x = -1;
+	// 	while (++pos.x < info->map_size.x)
+	// 	{
+	// 		distance = sqrt(pow(info->player.pos.x - pos.x, 2) + pow(info->player.pos.y - pos.y, 2));
+	// 		if (distance < 10)
+	// 			mlx_put_pixel(image
+	// 					, pos.x, pos.y
+	// 					, get_rgb(RED_R, RED_G, RED_B, 255));
+	// 	}
+	// }
+
+	
+
 }
 
 void	draw_square(mlx_image_t *image, int x, int y, int color)
