@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/03 18:00:55 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/03 18:50:37 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,9 @@ void	draw_player(mlx_image_t *image, t_info *info)
 		pos.x = -1;
 		while (++pos.x < info->map_size.x)
 		{
-			distance = sqrt(pow(info->player.pos.x - pos.x, 2) + pow(info->player.pos.y - pos.y, 2));
-			if (distance < 10)
+			distance = sqrt(pow(info->player.pos.x - pos.x, 2)
+					 + pow(info->player.pos.y - pos.y, 2));
+			if (distance < P_RADIUS)
 				mlx_put_pixel(image
 						, pos.x, pos.y
 						, get_rgb(RED_R, RED_G, RED_B, 255));
