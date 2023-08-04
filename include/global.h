@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/04 18:47:27 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/04 20:56:21 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@
 # define P_RADIUS 5
 # define P_ROTATION_ANGLE (M_PI / 2)
 # define P_ROTATION_SPEED 2 * (M_PI / 180)
-# define P_MOVE_SPEED 2.0
+# define P_MOVE_SPEED 5.0
 
 typedef enum e_direction
 {
