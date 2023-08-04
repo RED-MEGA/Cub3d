@@ -6,11 +6,14 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/04 16:56:01 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/04 18:14:56 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+// cos(P_ROTATION_ANGLE) * 20
+// sin(P_ROTATION_ANGLE) * 20
 
 void	cub3d(char *file_name)
 {

@@ -36,13 +36,13 @@ t_info	*create_info(void)
 	return (info);
 }
 
-t_player	_set_pi(char **map, char c, t_pos pos)
+t_player	_set_pi(char **map, char c, t_loc pos)
 {
 	t_player	player;
 
-	player.pos.x = pos.x * SQUARE_LEN;
-	player.pos.y = pos.y * SQUARE_LEN;
-	map[pos.y][pos.x] = 'P';
+	player.pos.x = pos.j * SQUARE_LEN;
+	player.pos.y = pos.i * SQUARE_LEN;
+	map[pos.i][pos.j] = 'P';
 	if (c == 'N')
 		player.direction = NO;
 	else if (c == 'S')
@@ -57,21 +57,22 @@ t_player	_set_pi(char **map, char c, t_pos pos)
 void	set_player_info(t_info *info)
 {
 	t_player	player;
+	t_loc		loc;
 	int			i;
 	int			j;
 
-	i = -1;
-	j = -1;
-	while (info->map[++i])
+	loc.i = -1;
+	loc.j = -1;
+	while (info->map[++loc.i])
 	{
-		j = -1;
-		while (info->map[i][++j])
+		loc.j = -1;
+		while (info->map[loc.i][++loc.j])
 		{
-			if (info->map[i][j] == 'N' || info->map[i][j] == 'S'
-				|| info->map[i][j] == 'W' || info->map[i][j] == 'E')
+			if (info->map[loc.i][loc.j] == 'N' || info->map[loc.i][loc.j] == 'S'
+				|| info->map[loc.i][loc.j] == 'W' || info->map[loc.i][loc.j] == 'E')
 			{
-				info->player = _set_pi(info->map, info->map[i][j]
-						, (t_pos){.y = i, .x = j});
+				info->player = _set_pi(info->map, info->map[loc.i][loc.j]
+						, loc);
 				break ;
 			}
 		}

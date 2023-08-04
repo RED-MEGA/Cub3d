@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/04 16:58:13 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/04 18:23:19 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,17 @@ void	draw_square(mlx_image_t *image, int x, int y, int color)
 
 void	to_2D_map(t_global *pub)
 {
-	t_pos	index;
+	t_loc	index;
 
-	index.x = -1;
-	index.y = -1;
-	while (pub->info->map[++index.y])
+	index.j = -1;
+	index.i = -1;
+	while (pub->info->map[++index.i])
 	{
-		index.x = -1;
-		while (pub->info->map[index.y][++index.x])
+		index.j = -1;
+		while (pub->info->map[index.i][++index.j])
 			draw_square(pub->window_img
-				, index.x * SQUARE_LEN
-				, index.y * SQUARE_LEN
-				, get_color(pub->info->map[index.y][index.x]));
+				, index.j * SQUARE_LEN
+				, index.i * SQUARE_LEN
+				, get_color(pub->info->map[index.i][index.j]));
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/03 21:07:59 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/04 18:17:51 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,15 @@ typedef struct s_list
 
 typedef struct s_pos
 {
-	int x;
-	int y;
+	double x;
+	double y;
 }	t_pos;
+
+typedef struct s_loc
+{
+	int	j;
+	int	i;
+}	t_loc;
 
 typedef struct s_player
 {
