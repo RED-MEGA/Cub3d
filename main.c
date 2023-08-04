@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/03 16:59:14 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/04 16:56:01 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ void	cub3d(char *file_name)
 
 	to_2D_map(pub);
 	draw_player(pub->window_img, pub->info);
+	draw_line(pub->window_img, pub->info->player.pos,
+		(t_pos){.x = pub->info->player.pos.x - 50, .y = pub->info->player.pos.y - 50});
 
 	mlx_key_hook(pub->mlx, handle_keys, pub);
-
 	mlx_loop(pub->mlx);
 	mlx_terminate(pub->mlx);
 }

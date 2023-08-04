@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/04 15:47:45 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/04 16:58:13 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void	draw_square(mlx_image_t *image, int x, int y, int color)
 		x = x_tmp;
 		while (x < (x_tmp + SQUARE_LEN))
 		{
-			printf("%d ---- %d\n", x, y);
 			mlx_put_pixel(image, x, y, color);
 			x++;
 		}
