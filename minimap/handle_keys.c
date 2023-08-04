@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/04 13:33:36 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/04 15:19:55 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,45 @@ void	handle_keys(mlx_key_data_t keydata, void *param)
 	pub = (t_global *)param;
 	if (keydata.key == MLX_KEY_ESCAPE)
 		exit(1);
-	else if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS)
-		pub->info->player.turn_d = 1;
-	else if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS)
-		pub->info->player.turn_d = -1;
-	else if (keydata.key == MLX_KEY_DOWN && keydata.action == MLX_PRESS)
-		pub->info->player.turn_d = 1;
 	else if (keydata.key == MLX_KEY_UP && keydata.action == MLX_PRESS)
+	{
+		pub->info->player.walk_d = 1;
+		printf("%d\n", pub->info->player.walk_d);
+	}
+	else if (keydata.key == MLX_KEY_DOWN && keydata.action == MLX_PRESS)
+	{
+		pub->info->player.walk_d = -1;
+		printf("%d\n", pub->info->player.walk_d);
+	}
+	else if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS)
+	{
+		pub->info->player.turn_d = 1;
+		printf("%d\n", pub->info->player.turn_d);
+	}
+	else if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS)
+	{
 		pub->info->player.turn_d = -1;
-	else if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_RELEASE)
-		pub->info->player.turn_d = 0;
-	else if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_RELEASE)
-		pub->info->player.turn_d = 0;
-	else if (keydata.key == MLX_KEY_DOWN && keydata.action == MLX_RELEASE)
-		pub->info->player.turn_d = 0;
+		printf("%d\n", pub->info->player.turn_d);
+	}
+
 	else if (keydata.key == MLX_KEY_UP && keydata.action == MLX_RELEASE)
+	{
+		pub->info->player.walk_d = 0;
+		printf("%d\n", pub->info->player.walk_d);
+	}
+	else if (keydata.key == MLX_KEY_DOWN && keydata.action == MLX_RELEASE)
+	{
+		pub->info->player.walk_d = 0;
+		printf("%d\n", pub->info->player.walk_d);
+	}
+	else if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_RELEASE)
+	{
 		pub->info->player.turn_d = 0;
-	printf("%d\n", pub->info->player.turn_d);
+		printf("%d\n", pub->info->player.turn_d);
+	}
+	else if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_RELEASE)
+	{
+		pub->info->player.turn_d = 0;
+		printf("%d\n", pub->info->player.turn_d);
+	}
 }
