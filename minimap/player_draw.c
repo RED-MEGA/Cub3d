@@ -41,12 +41,12 @@ void	draw_line(mlx_image_t *image, t_pos start, t_pos end)
 		fraction = distance.x / distance.y;
 	}
 	
-	int i = 0;
+	int i = -1;
 	draw_p.x = start.x;
 	draw_p.y = start.y;
 	max_nb = distance.x > distance.y ? distance.x : distance.y; 
 
-	while (++i < max_nb + 1)
+	while (++i <= max_nb + 1)
 	{
 		mlx_put_pixel(image, draw_p.x, draw_p.y
 				, get_rgb(RED_R, RED_G, RED_B, 255));
