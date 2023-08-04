@@ -6,14 +6,17 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/03 22:05:51 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/04 13:33:36 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	handle_keys(mlx_key_data_t keydata, t_global *pub)
+void	handle_keys(mlx_key_data_t keydata, void *param)
 {
+	t_global *pub;
+
+	pub = (t_global *)param;
 	if (keydata.key == MLX_KEY_ESCAPE)
 		exit(1);
 	else if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS)

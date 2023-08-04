@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/08/03 17:22:01 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/08/04 13:35:34 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,8 @@ SRC = main.c \
 		parsing/info.c \
 		parsing/map_parse.c \
 		parsing/map_check.c \
-		raycasting/handle_keys.c \
-		raycasting/map_draw.c \
+		minimap/handle_keys.c \
+		minimap/map_draw.c \
 		utils/get_color.c \
 		utils/error.c \
 		utils/matdup.c \
