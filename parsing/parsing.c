@@ -33,6 +33,7 @@ t_info	*create_info(void)
 	info->player.direction = FAIL;
 	info->player.turn_d = 0;
 	info->player.walk_d = 0;
+	info->player.rotation_angle = 0;
 	return (info);
 }
 
