@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/04 16:52:27 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/05 14:45:39 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char		**to_matrix(t_list *file);
 char		**parse_map(t_list *file);
 
 /* **************** */
-/*     RAYCASTING   */
+/*     MINIMAP      */
 /* **************** */
 
 void		handle_keys(mlx_key_data_t keydata, void *param);
