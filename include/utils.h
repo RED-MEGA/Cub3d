@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:08 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/02 22:15:45 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/05 21:04:13 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "global.h"
 # include "libft.h"
 
-void	perror_x(char *error);
+void	perror_x(const char *error);
 void	ft_free(char **str);
 void	ft_error(int status, int code);
 void	ft_error_ptr(void *status, int code);

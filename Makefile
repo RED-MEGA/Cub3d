@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/08/04 15:49:08 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/08/05 21:01:51 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,13 @@ NAME = cub3D
 # CC = cc
 CC = gcc -g
 
-FW = -framework Cocoa -framework OpenGL -framework IOKit
+FW = #-framework Cocoa -framework OpenGL -framework IOKit
 FLAGS = $(FW) -fsanitize=address #-Wall -Wextra -Werror
 
 LIBMLX = ./MLX42
 HEADERS = -I ./include  -I $(LIBMLX)/include
-LIBS = $(LIBMLX)/build/libmlx42.a -dl -lglfw -L$(shell brew --prefix glfw)/lib -pthread -lm
+MLXLIB = $(LIBMLX)/build/libmlx42.a
+LIBS = $(MLXLIB) -dl -lglfw -L$(shell brew --prefix glfw)/lib -pthread -lm
 
 INCLUDE = include/global.h include/cub3d.h include/utils.h include/libft.h
 
@@ -92,13 +93,13 @@ SRC = main.c \
 
 OBJ = $(SRC:.c=.o)
 
-all : libmlx $(NAME)
+all : $(NAME)
 
-libmlx :
-	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
-
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJ) $(MLXLIB)
 	$(CC) $(FLAGS) libft/libft.a $(OBJ) $(LIBS) -o $(NAME)
+
+$(MLXLIB) :
+	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 %.o: %.c $(INCLUDE)
 	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@

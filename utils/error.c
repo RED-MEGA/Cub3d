@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:17:22 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/01 20:21:14 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/05 21:04:25 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_error_msg(const char *msg, int code)
 		return (perror_x(msg), exit(code));
 }
 
-void	perror_x(char *error)
+void	perror_x(const char *error)
 {
 	ft_putstr_fd(ERROR, 2);
 	ft_putstr_fd(error, 2);
