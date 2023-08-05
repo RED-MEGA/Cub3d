@@ -6,33 +6,45 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/05 20:08:08 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/05 21:25:17 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	refresh_frame(t_global *pub)
+void	refresh_frame(void *param)
 {
+	t_global	*pub;
 	t_player	*player;
+	t_pos		new_pos;
 
+	pub = (t_global *)param;
 	player = &(pub->info->player);
+
+
 	if (player->turn_d != 0)
 		player->rotation_angle += (double)player->turn_d * (5 * (M_PI / 180));
-	printf("Turn : %d\n", player->turn_d);
-	printf("  |\n");
-	printf("   - rotation angle : %f\n\n", player->rotation_angle);
 
 
 	if (player->walk_d != 0)
-	{	
-		player->pos.x += cos(player->rotation_angle) * (player->walk_d * P_MOVE_SPEED);
-		player->pos.y += sin(player->rotation_angle) * (player->walk_d * P_MOVE_SPEED);
+	{
+		new_pos.x = player->pos.x;
+		new_pos.y = player->pos.y;
+		new_pos.x += cos(player->rotation_angle) * (player->walk_d * P_MOVE_SPEED);
+		new_pos.y += sin(player->rotation_angle) * (player->walk_d * P_MOVE_SPEED);
+		if (pub->info->map[(int)(new_pos.y / SQUARE_LEN)][(int)(new_pos.x / SQUARE_LEN)] != '1')
+		{
+			player->pos.x = new_pos.x;
+			player->pos.y = new_pos.y;
+		}
 	}
-	printf("Walk : %d\n", player->walk_d);
-	printf("  |\n");
-	printf("   - rotation angle : %f\n\n", player->rotation_angle);
 
+
+
+	printf("Turn : %d\n", player->turn_d);
+	printf("Walk : %d\n", player->walk_d);
+	printf("[ x: %d -- y: %d ]\n", player->pos.x, player->pos.y);
+	printf("Rotation angle : %f\n\n", player->rotation_angle);
 	// update frame
 	to_2D_map(pub);
 }
