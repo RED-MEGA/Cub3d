@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/05 21:25:17 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/05 21:31:31 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	refresh_frame(void *param)
 
 	printf("Turn : %d\n", player->turn_d);
 	printf("Walk : %d\n", player->walk_d);
-	printf("[ x: %d -- y: %d ]\n", player->pos.x, player->pos.y);
-	printf("Rotation angle : %f\n\n", player->rotation_angle);
+	printf("[ x: %.3f -- y: %.3f ]\n", player->pos.x, player->pos.y);
+	printf("Rotation angle : %.3f\n\n", player->rotation_angle);
 	// update frame
 	to_2D_map(pub);
 }
