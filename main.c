@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/04 21:57:24 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/05 20:11:46 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,9 @@ void	cub3d(char *file_name)
 	pub = init_global(info);
 	to_2D_map(pub);
 
-
 	mlx_key_hook(pub->mlx, handle_keys, pub);
-	// mlx_key_hook(pub->mlx, handle_keys, pub);
 	
-	mlx_loop_hook(pub->mlx,to_2D_map, pub);
+	mlx_loop_hook(pub->mlx, refresh_frame, pub);
 	mlx_loop(pub->mlx);
 	mlx_terminate(pub->mlx);
 }
