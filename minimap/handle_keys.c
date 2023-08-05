@@ -6,11 +6,29 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/05 21:31:31 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/05 22:55:25 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+bool	check_bp(char **map, t_pos pos)
+{
+	t_pos	tmp_pos;
+
+	pos.x -= 5;
+	pos.y -= 5;
+	tmp_pos.x = pos.x;
+	tmp_pos.y = pos.y;
+	while (++pos.y <= (tmp_pos.y + 5))
+	{
+		pos.x = tmp_pos.x;
+		while (++pos.x <= (tmp_pos.x + 5))
+			if (map[(int)(pos.y / SQUARE_LEN)][(int)(pos.x / SQUARE_LEN)] == '1')
+				return (false);
+	}
+	return (true);
+}
 
 void	refresh_frame(void *param)
 {
@@ -32,7 +50,8 @@ void	refresh_frame(void *param)
 		new_pos.y = player->pos.y;
 		new_pos.x += cos(player->rotation_angle) * (player->walk_d * P_MOVE_SPEED);
 		new_pos.y += sin(player->rotation_angle) * (player->walk_d * P_MOVE_SPEED);
-		if (pub->info->map[(int)(new_pos.y / SQUARE_LEN)][(int)(new_pos.x / SQUARE_LEN)] != '1')
+		if (pub->info->map[(int)(new_pos.y / SQUARE_LEN)][(int)(new_pos.x / SQUARE_LEN)] != '1'
+			&& check_bp(pub->info->map, new_pos))
 		{
 			player->pos.x = new_pos.x;
 			player->pos.y = new_pos.y;
