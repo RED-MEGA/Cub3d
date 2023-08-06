@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/06 22:25:04 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/06 22:50:24 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,39 +17,32 @@ void	draw_fc(t_global *pub)
 	t_pos	pos;
 
 	pos.y = -1;
-	while (++pos.y < HEIGHT / 2)
-	{
-		pos.x = - 1;
-		while (++pos.x <= WIDTH)
-			mlx_put_pixel(
-				pub->window_img,
-				pos.x,
-				pos.y,
-				get_rgb(
-					pub->info->C.r,
-					pub->info->C.g,
-					pub->info->C.b,
-					255
-				)
-			);
-	}
-	pos.y = (HEIGHT / 2) - 1;
 	while (++pos.y < HEIGHT)
 	{
 		pos.x = -1;
-		while (++pos.x <= WIDTH)
+		while (++pos.x < WIDTH)
 		{
-			mlx_put_pixel(
-				pub->window_img,
-				pos.x,
-				pos.y,
-				get_rgb(
-					pub->info->F.r,
-					pub->info->F.g,
-					pub->info->F.b,
-					255
-				)
-			);
+			if (pos.y >= 0 && pos.y <= HEIGHT / 2)
+				mlx_put_pixel(
+					pub->window_img,
+					pos.x,
+					pos.y,
+					get_rgb(
+						pub->info->C.r,
+						pub->info->C.g,
+						pub->info->C.b,
+						255));
+
+			if (pos.y >= HEIGHT / 2 && pos.y <= HEIGHT)
+				mlx_put_pixel(
+					pub->window_img,
+					pos.x,
+					pos.y,
+					get_rgb(
+						pub->info->F.r,
+						pub->info->F.g,
+						pub->info->F.b,
+						255));
 		}
 	}
 }

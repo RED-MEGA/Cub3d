@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/06 21:49:59 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/06 22:39:39 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@
 # define WIDTH 1920
 # define SQUARE_LEN 30
 # define P_RADIUS 5
-# define P_ROTATION_SPEED 3.0 * (M_PI / 180)
-# define P_MOVE_SPEED 3.0
+# define P_ROTATION_SPEED 5.0 * (M_PI / 180)
+# define P_MOVE_SPEED 5.0
 
 typedef enum e_direction
 {
