@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/05 21:03:57 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/06 22:02:19 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char		**parse_map(t_list *file);
 /*     MINIMAP      */
 /* **************** */
 
-void		refresh_frame(void	*param);
+void		set_newpos(t_global *pub);
 void		handle_keys(mlx_key_data_t keydata, void *param);
 t_global	*init_global(t_info *info);
 int			get_color(char c);

@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/06 20:49:25 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/06 22:00:16 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,14 @@ bool	check_bp(char **map, t_pos pos)
 	return (true);
 }
 
-void	refresh_frame(void *param)
+void	set_newpos(t_global *pub)
 {
-	t_global	*pub;
 	t_player	*player;
 	t_pos		new_pos;
 
-	pub = (t_global *)param;
 	player = &(pub->info->player);
-
-
 	if (player->turn_d != 0)
 		player->rotation_angle += (double)player->turn_d * P_ROTATION_SPEED;
-
-
 	if (player->walk_d != 0)
 	{
 		new_pos.x = player->pos.x;
@@ -57,15 +51,10 @@ void	refresh_frame(void *param)
 			player->pos.y = new_pos.y;
 		}
 	}
-
-
-
 	printf("Turn : %d\n", player->turn_d);
 	printf("Walk : %d\n", player->walk_d);
 	printf("[ x: %.3f -- y: %.3f ]\n", player->pos.x, player->pos.y);
 	printf("Rotation angle : %.3f\n\n", player->rotation_angle);
-	// update frame
-	to_2D_map(pub);
 }
 
 void	handle_keys(mlx_key_data_t keydata, void *param)

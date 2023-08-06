@@ -6,11 +6,22 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/06 20:48:31 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/06 22:00:58 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	refresh_frame(void *param)
+{
+	t_global	*pub;
+
+	pub = (t_global *)param;
+
+	set_newpos(pub);
+	// update frame
+	to_2D_map(pub);
+}
 
 void	cub3d(char *file_name)
 {
