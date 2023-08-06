@@ -6,18 +6,60 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/06 22:00:58 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/06 22:25:04 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	draw_fc(t_global *pub)
+{
+	t_pos	pos;
+
+	pos.y = -1;
+	while (++pos.y < HEIGHT / 2)
+	{
+		pos.x = - 1;
+		while (++pos.x <= WIDTH)
+			mlx_put_pixel(
+				pub->window_img,
+				pos.x,
+				pos.y,
+				get_rgb(
+					pub->info->C.r,
+					pub->info->C.g,
+					pub->info->C.b,
+					255
+				)
+			);
+	}
+	pos.y = (HEIGHT / 2) - 1;
+	while (++pos.y < HEIGHT)
+	{
+		pos.x = -1;
+		while (++pos.x <= WIDTH)
+		{
+			mlx_put_pixel(
+				pub->window_img,
+				pos.x,
+				pos.y,
+				get_rgb(
+					pub->info->F.r,
+					pub->info->F.g,
+					pub->info->F.b,
+					255
+				)
+			);
+		}
+	}
+}
 
 void	refresh_frame(void *param)
 {
 	t_global	*pub;
 
 	pub = (t_global *)param;
-
+	draw_fc(pub);
 	set_newpos(pub);
 	// update frame
 	to_2D_map(pub);
