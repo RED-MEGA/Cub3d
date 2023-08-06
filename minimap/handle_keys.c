@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/05 22:55:25 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/06 20:49:25 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	refresh_frame(void *param)
 
 
 	if (player->turn_d != 0)
-		player->rotation_angle += (double)player->turn_d * (5 * (M_PI / 180));
+		player->rotation_angle += (double)player->turn_d * P_ROTATION_SPEED;
 
 
 	if (player->walk_d != 0)
