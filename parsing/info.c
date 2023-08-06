@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:08:40 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/01 19:54:26 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/06 20:39:10 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ bool	set_info(t_list	**file, t_info *info)
 		else if (ft_strncmp(buff, "C ", 2) == 0)
 			status = set_color(buff, &(info->C));
 		(*file) = (*file)->next;
+		free(buff);
 	}
 	if (!info_isset(info))
 		return (perror_x("Some attribute not set")
