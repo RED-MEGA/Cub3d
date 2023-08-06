@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:06:37 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/01 19:54:26 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/06 20:36:23 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@ bool	set_direction(char *data, char **direction)
 {
 	char	*buff;
 
+	if ((*direction) != NULL)
+		return (perror_x("Direction attribute is Already set")
+			, false);
 	buff = ft_strtrim(data + 3, " ");
 	if (!isvalid_path(buff))
-		return (free(data), free(buff)
+		return (free(buff)
 			, perror_x("Invalid direction attribute")
 			, false);
 	(*direction) = buff;
-	return (free(data), true);
+	return (true);
 }
 
 bool	check_rgbform(char *rgb)
@@ -60,14 +63,16 @@ bool	set_color(char *data, t_color *rgb)
 	char	*buff;
 	char	**color;
 
+	if (rgb->r != FAIL || rgb->g != FAIL || rgb->b != FAIL)
+		return (perror_x("Color attribute is Already set"), false);
 	buff = ft_strtrim(data + 2, " ");
 	if (!check_rgbform(buff))
-		return (free(data), free(buff), perror_x("Invalid color attribute"), false);
+		return (free(buff), perror_x("Invalid color attribute"), false);
 	color = ft_split(buff, ',');
 	free(buff);
 	rgb->r = _set_color(color, 0, data);
 	rgb->g = _set_color(color, 1, data);
 	rgb->b = _set_color(color, 2, data);
 	ft_free(color);
-	return (free(data), true);
+	return (true);
 }
