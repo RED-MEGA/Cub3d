@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/07 13:10:22 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/07 13:17:17 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@
 # define HEIGHT 1080
 # define WIDTH 1920
 # define SQUARE_LEN 30
-# define P_RADIUS 5
+# define P_RADIUS 6
 # define P_ROTATION_SPEED 5.0 * (M_PI / 180)
 # define P_MOVE_SPEED 5.0
 
