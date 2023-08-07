@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/06 22:50:24 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/07 13:13:56 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,23 @@ void	draw_fc(t_global *pub)
 
 void	refresh_frame(void *param)
 {
+	clock_t t = clock();
 	t_global	*pub;
 
 	pub = (t_global *)param;
-	draw_fc(pub);
 	set_newpos(pub);
 	// update frame
 	to_2D_map(pub);
+
+
+
+
+
+
+
+	t = clock() - t;
+	double time_taken = ((double)t) / CLOCKS_PER_SEC;
+	printf("--- FPS :%d\n", (int)(1 / time_taken));
 }
 
 void	cub3d(char *file_name)
@@ -65,6 +75,7 @@ void	cub3d(char *file_name)
 
 	info = parsing(file_name);
 	pub = init_global(info);
+	draw_fc(pub);
 	to_2D_map(pub);
 
 	mlx_key_hook(pub->mlx, handle_keys, pub);
