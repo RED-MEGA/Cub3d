@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
+#    By: azarda <azarda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/08/05 21:01:51 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/08/17 19:06:33 by azarda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRC = main.c \
 		minimap/handle_keys.c \
 		minimap/map_draw.c \
 		minimap/player_draw.c \
+		raycasting/ray_cast.c \
 		utils/get_color.c \
 		utils/error.c \
 		utils/matdup.c \

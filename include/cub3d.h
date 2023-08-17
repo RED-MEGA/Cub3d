@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/06 22:02:19 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/17 19:06:45 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,13 @@ void		draw_square(mlx_image_t *image, int x, int y, int color);
 void		to_2D_map(t_global *pub);
 void		draw_player(mlx_image_t *image, t_info *info);
 void		draw_line(mlx_image_t *image, t_pos start, t_pos end);
+
+
+/* **************** */
+/*     RAYCASTING   */
+/* **************** */
+
+void ray_cast(t_global *pub);
+
 
 #endif

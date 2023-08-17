@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/07 13:13:56 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/17 19:04:24 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,16 @@ void	refresh_frame(void *param)
 
 
 
-
+	draw_image();
 
 
 	t = clock() - t;
 	double time_taken = ((double)t) / CLOCKS_PER_SEC;
 	printf("--- FPS :%d\n", (int)(1 / time_taken));
 }
+
+
+
 
 void	cub3d(char *file_name)
 {
@@ -79,7 +82,7 @@ void	cub3d(char *file_name)
 	to_2D_map(pub);
 
 	mlx_key_hook(pub->mlx, handle_keys, pub);
-	
+	ray_cast(pub);
 	mlx_loop_hook(pub->mlx, refresh_frame, pub);
 	mlx_loop(pub->mlx);
 	mlx_terminate(pub->mlx);
