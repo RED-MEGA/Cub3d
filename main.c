@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/17 19:04:24 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/17 19:21:09 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ void	refresh_frame(void *param)
 
 
 
-
-	draw_image();
 
 
 	t = clock() - t;

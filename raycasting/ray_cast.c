@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/08/17 18:55:49 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/17 19:21:19 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void ray_cast(t_global *pub)
 {
 	t_player player = pub->info->player;
 
-	printf("--> %p\n", player);
+	// printf("--> %p\n", player);
 	double raymagic = player.rotation_angle - (FOV_ANGLE / 2);
 	int i = 0;
 	while (i < WIDTH)
