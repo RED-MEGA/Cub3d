@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/17 19:06:57 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/19 19:57:12 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,9 @@ typedef struct s_global
 	t_info		*info;
 	mlx_t		*mlx;
 	mlx_image_t	*window_img;
+	double  tess_y;
+	double  tess_x;
+	
 }	t_global;
 
 #endif

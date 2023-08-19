@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/08/19 05:07:30 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/19 20:22:56 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 
 // void ray_cast(t_global *pub)
 // {
-// 	t_player player = pub->info->player;
+// 	t_player player = pub.info->player;
 
 // 	// printf("--> %p\n", player);
 // 	double raymagic = player.rotation_angle - (FOV_ANGLE / 2);
@@ -51,16 +51,42 @@ void ray_cast(t_global *pub)
 
 	t_player player = pub->info->player;
 
-	int new_x;
-	int new_y;
-
+//-----------------------------------------------------------------------------------------------------------------------
+	double new_x;
+	double new_y;
+	
 	new_y = floor(player.pos.y / SQUARE_LEN) * SQUARE_LEN ;
 	if(player.rotation_angle > PI &&  player.rotation_angle < 0)
 		new_y += SQUARE_LEN;
 	new_x = player.pos.x + (new_y - player.pos.y) / tan(player.rotation_angle);
 
+//-----------------------------------------------------------------------------------------------------------------------
+
+	double new_step_x;
+	double new_step_y;
+
+	
+	new_step_y = SQUARE_LEN;
+	new_step_x = SQUARE_LEN / tan(player.rotation_angle);
+	
+	
+
+	
 
 
+
+
+//------------------------------------------------------------passto_draw-------------------------------------------------------
+
+	
+	pub->tess_x = new_x;
+	pub->tess_y = new_y;
+//-----------------------------------------------------------------------------------------------------------------------
+
+
+	// draw_line(pub->window_img, player.pos, (t_pos){.x = player.pos.x + (cos(player.rotation_angle) * 30), .y = player.pos.y + (sin(player.rotation_angle) * 30)});
+	
+	// draw_line(pub->window_img, player.pos, (t_pos){.x = player.pos.x + (cos(player.rotation_angle) * 30), .y = player.pos.y + (sin(player.rotation_angle) * 30)});
 	printf("==|%f|==\n",tan(player.rotation_angle));
 	// exit(0);
 

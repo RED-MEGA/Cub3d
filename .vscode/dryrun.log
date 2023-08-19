@@ -1,0 +1,74 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/azarda/Desktop/Cub3d'
+gcc -g  -I ./include  -I ./MLX42/include -c main.c -o main.o
+gcc -g  -I ./include  -I ./MLX42/include -c parsing/parsing.c -o parsing/parsing.o
+gcc -g  -I ./include  -I ./MLX42/include -c parsing/attributes.c -o parsing/attributes.o
+gcc -g  -I ./include  -I ./MLX42/include -c parsing/check.c -o parsing/check.o
+gcc -g  -I ./include  -I ./MLX42/include -c parsing/info.c -o parsing/info.o
+gcc -g  -I ./include  -I ./MLX42/include -c parsing/map_parse.c -o parsing/map_parse.o
+gcc -g  -I ./include  -I ./MLX42/include -c parsing/map_check.c -o parsing/map_check.o
+gcc -g  -I ./include  -I ./MLX42/include -c minimap/handle_keys.c -o minimap/handle_keys.o
+gcc -g  -I ./include  -I ./MLX42/include -c minimap/map_draw.c -o minimap/map_draw.o
+gcc -g  -I ./include  -I ./MLX42/include -c minimap/player_draw.c -o minimap/player_draw.o
+gcc -g  -I ./include  -I ./MLX42/include -c raycasting/ray_cast.c -o raycasting/ray_cast.o
+gcc -g  -I ./include  -I ./MLX42/include -c utils/get_color.c -o utils/get_color.o
+gcc -g  -I ./include  -I ./MLX42/include -c utils/error.c -o utils/error.o
+gcc -g  -I ./include  -I ./MLX42/include -c utils/matdup.c -o utils/matdup.o
+gcc -g  -I ./include  -I ./MLX42/include -c utils/free.c -o utils/free.o
+gcc -g  -I ./include  -I ./MLX42/include -c utils/index_list.c -o utils/index_list.o
+gcc -g  -I ./include  -I ./MLX42/include -c utils/compare.c -o utils/compare.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_atoi.c -o libft/ft_atoi.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_bzero.c -o libft/ft_bzero.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_calloc.c -o libft/ft_calloc.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_isalnum.c -o libft/ft_isalnum.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_isalpha.c -o libft/ft_isalpha.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_isascii.c -o libft/ft_isascii.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_isdigit.c -o libft/ft_isdigit.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_isprint.c -o libft/ft_isprint.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_itoa.c -o libft/ft_itoa.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_lstadd_back.c -o libft/ft_lstadd_back.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_lstadd_front.c -o libft/ft_lstadd_front.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_lstclear.c -o libft/ft_lstclear.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_lstdelone.c -o libft/ft_lstdelone.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_lstiter.c -o libft/ft_lstiter.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_lstlast.c -o libft/ft_lstlast.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_lstnew.c -o libft/ft_lstnew.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_lstsize.c -o libft/ft_lstsize.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_memchr.c -o libft/ft_memchr.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_memcmp.c -o libft/ft_memcmp.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_memcpy.c -o libft/ft_memcpy.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_memmove.c -o libft/ft_memmove.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_memset.c -o libft/ft_memset.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_printf.c -o libft/ft_printf.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_putchar_fd.c -o libft/ft_putchar_fd.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_putchar_printf.c -o libft/ft_putchar_printf.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_putendl_fd.c -o libft/ft_putendl_fd.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_putnbr_fd.c -o libft/ft_putnbr_fd.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_putnbr_hex_printf.c -o libft/ft_putnbr_hex_printf.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_putnbr_pos_printf.c -o libft/ft_putnbr_pos_printf.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_putnbr_printf.c -o libft/ft_putnbr_printf.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_putptr_printf.c -o libft/ft_putptr_printf.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_putstr_fd.c -o libft/ft_putstr_fd.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_putstr_printf.c -o libft/ft_putstr_printf.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_split.c -o libft/ft_split.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_strtrim.c -o libft/ft_strtrim.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_strchr.c -o libft/ft_strchr.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_strdup.c -o libft/ft_strdup.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_striteri.c -o libft/ft_striteri.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_strjoin.c -o libft/ft_strjoin.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_strlcat.c -o libft/ft_strlcat.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_strlcpy.c -o libft/ft_strlcpy.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_strlen.c -o libft/ft_strlen.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_strmapi.c -o libft/ft_strmapi.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_strncmp.c -o libft/ft_strncmp.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_strnstr.c -o libft/ft_strnstr.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_strrchr.c -o libft/ft_strrchr.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/ft_substr.c -o libft/ft_substr.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/get_next_line.c -o libft/get_next_line.o
+gcc -g  -I ./include  -I ./MLX42/include -c libft/get_next_line_utils.c -o libft/get_next_line_utils.o
+cmake ./MLX42 -B ./MLX42/build && make -C ./MLX42/build -j4
+gcc -g  main.o parsing/parsing.o parsing/attributes.o parsing/check.o parsing/info.o parsing/map_parse.o parsing/map_check.o minimap/handle_keys.o minimap/map_draw.o minimap/player_draw.o raycasting/ray_cast.o utils/get_color.o utils/error.o utils/matdup.o utils/free.o utils/index_list.o utils/compare.o libft/ft_atoi.o libft/ft_bzero.o libft/ft_calloc.o libft/ft_isalnum.o libft/ft_isalpha.o libft/ft_isascii.o libft/ft_isdigit.o libft/ft_isprint.o libft/ft_itoa.o libft/ft_lstadd_back.o libft/ft_lstadd_front.o libft/ft_lstclear.o libft/ft_lstdelone.o libft/ft_lstiter.o libft/ft_lstlast.o libft/ft_lstnew.o libft/ft_lstsize.o libft/ft_memchr.o libft/ft_memcmp.o libft/ft_memcpy.o libft/ft_memmove.o libft/ft_memset.o libft/ft_printf.o libft/ft_putchar_fd.o libft/ft_putchar_printf.o libft/ft_putendl_fd.o libft/ft_putnbr_fd.o libft/ft_putnbr_hex_printf.o libft/ft_putnbr_pos_printf.o libft/ft_putnbr_printf.o libft/ft_putptr_printf.o libft/ft_putstr_fd.o libft/ft_putstr_printf.o libft/ft_split.o libft/ft_strtrim.o libft/ft_strchr.o libft/ft_strdup.o libft/ft_striteri.o libft/ft_strjoin.o libft/ft_strlcat.o libft/ft_strlcpy.o libft/ft_strlen.o libft/ft_strmapi.o libft/ft_strncmp.o libft/ft_strnstr.o libft/ft_strrchr.o libft/ft_substr.o libft/get_next_line.o libft/get_next_line_utils.o ./MLX42/build/libmlx42.a -dl -lglfw -L/lib -pthread -lm -o cub3D
+make: Leaving directory '/home/azarda/Desktop/Cub3d'
+ 
+make: --prefix: No such file or directory
+
