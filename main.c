@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/17 19:21:09 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/18 22:50:34 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,14 @@ void	refresh_frame(void *param)
 	pub = (t_global *)param;
 	set_newpos(pub);
 	// update frame
+
+
+
+
+	ray_cast(pub);
+
+
+	
 	to_2D_map(pub);
 
 
@@ -80,7 +88,6 @@ void	cub3d(char *file_name)
 	to_2D_map(pub);
 
 	mlx_key_hook(pub->mlx, handle_keys, pub);
-	ray_cast(pub);
 	mlx_loop_hook(pub->mlx, refresh_frame, pub);
 	mlx_loop(pub->mlx);
 	mlx_terminate(pub->mlx);
