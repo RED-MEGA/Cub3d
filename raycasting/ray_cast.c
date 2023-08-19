@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/08/19 22:01:39 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/19 23:19:20 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,67 +46,87 @@
 // }
 
 
+
+float    normalize_angle(float angle)
+{
+    angle = remainder(angle, (M_PI * 2));
+    if (angle < 0)
+        angle = (M_PI * 2) + angle;
+    return (angle);
+}
+
+
 void ray_cast(t_global *pub)
 {
 
 	t_player player = pub->info->player;
-	
+	int is_down = 0;
+	int is_up = 0;
+
+    player.rotation_angle = normalize_angle(player.rotation_angle);
+    if (player.rotation_angle > 0 && player.rotation_angle < M_PI)
+        is_down = 1;
+    	is_up = !is_down;
+    // if (player.rotation_angle < 0.5 * M_PI || player.rotation_angle > 1.5 * M_PI)
+    //     maps->hit.is_right = 1;
+    // maps->hit.is_left = !maps->hit.is_right;
+
 	// player.rotation_angle *= P_ROTATION_SPEED;
+
+
+
+
+	printf("angl rey cast  ---->>> %f\n", player.rotation_angle);
+
+
+
 //-----------------------------------------------------------------------------------------------------------------------
-	double new_x;
-	double new_y;
-	
+	float new_x;
+	float new_y;
+
 	new_y = floor(player.pos.y / SQUARE_LEN) * SQUARE_LEN ;
-	if(player.rotation_angle > PI &&  player.rotation_angle < 0)
+	if(is_down)
 		new_y += SQUARE_LEN;
 	new_x = player.pos.x + (new_y - player.pos.y) / tan(player.rotation_angle);
 
 //-----------------------------------------------------------------------------------------------------------------------
 
-	double new_step_x;
-	double new_step_y;
+	float new_step_x;
+	float new_step_y;
 
-	
+
 	new_step_y = SQUARE_LEN;
 	new_step_x = SQUARE_LEN / tan(player.rotation_angle);
-	
-	double test_x = new_step_x;
-	double test_y = new_step_y;
-	
-	
-	// while (pub->info->map[(int)new_step_x][(int)new_step_y] != '1')
-	// {
-	// 	new_step_x += test_x; 
-	// 	new_step_y += test_y; 
-	// }
-	
-	int test = (int)(new_step_x / SQUARE_LEN);
-	
-	printf("new x int  %d\n", test);
+
+
+
+	printf("new_step_x  %f\n\n", new_step_x);
+
+	int test = floor(new_step_x);
+
+	printf("new_x ===== %f\n", new_x);
+	printf("new_y ===== %f\n\n", new_y);
+
+	printf("new x int  %d\n\n", test);
 
 	// exit(0);
 
 	// printf("yaha  ->>  %c\n ", pub->info->map[(int)new_y][(int)new_x]);
-	
-	new_x += new_step_x;
-	new_y += new_step_y;
+
+	new_x = new_step_x;
+	new_y = new_step_y;
 
 //------------------------------------------------------------passto_draw-------------------------------------------------------
 	printf("------------------------ray cast ------------------\n");
 
 
-	printf("x.player ===== %f\n", player.pos.x);
-	printf("y.player ===== %f\n", player.pos.y);
-
-	printf("x ===== %f\n", new_x);
-	printf("y ===== %f\n", new_y);
 	pub->tess_x = new_x;
 	pub->tess_y = new_y;
 //-----------------------------------------------------------------------------------------------------------------------
 
 
 	// draw_line(pub->window_img, player.pos, (t_pos){.x = player.pos.x + (cos(player.rotation_angle) * 30), .y = player.pos.y + (sin(player.rotation_angle) * 30)});
-	
+
 	// draw_line(pub->window_img, player.pos, (t_pos){.x = player.pos.x + (cos(player.rotation_angle) * 30), .y = player.pos.y + (sin(player.rotation_angle) * 30)});
 	printf("==|%f|==\n",player.rotation_angle);
 	// exit(0);
