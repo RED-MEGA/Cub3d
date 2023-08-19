@@ -6,7 +6,7 @@
 #    By: azarda <azarda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/08/19 20:18:56 by azarda           ###   ########.fr        #
+#    Updated: 2023/08/19 20:20:32 by azarda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ FLAGS = $(FW) -fsanitize=address #-Wall -Wextra -Werror
 LIBMLX = ./MLX42
 HEADERS = -I ./include  -I $(LIBMLX)/include
 MLXLIB = $(LIBMLX)/build/libmlx42.a
-LIBS = $(MLXLIB) -dl -lglfw -L$(shell brew  --prefix glfw)/lib -pthread -lm
+LIBS = $(MLXLIB) -dl -lglfw -L$(shell  brew  --prefix glfw)/lib -pthread -lm
 
 INCLUDE = include/global.h include/cub3d.h include/utils.h include/libft.h
 

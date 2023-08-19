@@ -1,249 +1,187 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-# GNU Make 4.3
-# Built for x86_64-pc-linux-gnu
-# Copyright (C) 1988-2020 Free Software Foundation, Inc.
-# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-# This is free software: you are free to change and redistribute it.
-# There is NO WARRANTY, to the extent permitted by law.
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
 
-# Make data base, printed on Sat Aug 19 20:04:11 2023
+# This program built for i386-apple-darwin11.3.0
+ 
+
+# Make data base, printed on Sat Aug 19 20:17:12 2023
 
 # Variables
 
-# makefile (from 'Makefile', line 95)
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# makefile (from `Makefile', line 95)
 OBJ = $(SRC:.c=.o)
 # environment
-GDK_BACKEND = x11
-# environment
-LC_ALL = C
-# makefile (from 'Makefile', line 28)
-SRC = main.c parsing/parsing.c parsing/attributes.c parsing/check.c parsing/info.c parsing/map_parse.c parsing/map_check.c minimap/handle_keys.c minimap/map_draw.c minimap/player_draw.c raycasting/ray_cast.c utils/get_color.c utils/error.c utils/matdup.c utils/free.c utils/index_list.c utils/compare.c libft/ft_atoi.c libft/ft_bzero.c libft/ft_calloc.c libft/ft_isalnum.c libft/ft_isalpha.c libft/ft_isascii.c libft/ft_isdigit.c libft/ft_isprint.c libft/ft_itoa.c libft/ft_lstadd_back.c libft/ft_lstadd_front.c libft/ft_lstclear.c libft/ft_lstdelone.c libft/ft_lstiter.c libft/ft_lstlast.c libft/ft_lstnew.c libft/ft_lstsize.c libft/ft_memchr.c libft/ft_memcmp.c libft/ft_memcpy.c libft/ft_memmove.c libft/ft_memset.c libft/ft_printf.c libft/ft_putchar_fd.c libft/ft_putchar_printf.c libft/ft_putendl_fd.c libft/ft_putnbr_fd.c libft/ft_putnbr_hex_printf.c libft/ft_putnbr_pos_printf.c libft/ft_putnbr_printf.c libft/ft_putptr_printf.c libft/ft_putstr_fd.c libft/ft_putstr_printf.c libft/ft_split.c libft/ft_strtrim.c libft/ft_strchr.c libft/ft_strdup.c libft/ft_striteri.c libft/ft_strjoin.c libft/ft_strlcat.c libft/ft_strlcpy.c libft/ft_strlen.c libft/ft_strmapi.c libft/ft_strncmp.c libft/ft_strnstr.c libft/ft_strrchr.c libft/ft_substr.c libft/get_next_line.c libft/get_next_line_utils.c
-# environment
-GNOME_SHELL_SESSION_MODE = ubuntu
-# environment
-SSH_AGENT_LAUNCHER = gnome-keyring
-# environment
-LC_NAME = es_ES.UTF-8
-# environment
-LC_NUMERIC = es_ES.UTF-8
-# environment
 VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
-# environment
-VSCODE_CWD = /home/azarda/Desktop/Cub3d
-# makefile (from 'Makefile', line 24)
-LIBS = $(MLXLIB) -dl -lglfw -L$(shell   --prefix glfw)/lib -pthread -lm
-# environment
-LC_ADDRESS = es_ES.UTF-8
-# default
-MAKE_COMMAND := make
-# environment
-QT_ACCESSIBILITY = 1
+# makefile (from `Makefile', line 28)
+SRC = main.c parsing/parsing.c parsing/attributes.c parsing/check.c parsing/info.c parsing/map_parse.c parsing/map_check.c minimap/handle_keys.c minimap/map_draw.c minimap/player_draw.c raycasting/ray_cast.c utils/get_color.c utils/error.c utils/matdup.c utils/free.c utils/index_list.c utils/compare.c libft/ft_atoi.c libft/ft_bzero.c libft/ft_calloc.c libft/ft_isalnum.c libft/ft_isalpha.c libft/ft_isascii.c libft/ft_isdigit.c libft/ft_isprint.c libft/ft_itoa.c libft/ft_lstadd_back.c libft/ft_lstadd_front.c libft/ft_lstclear.c libft/ft_lstdelone.c libft/ft_lstiter.c libft/ft_lstlast.c libft/ft_lstnew.c libft/ft_lstsize.c libft/ft_memchr.c libft/ft_memcmp.c libft/ft_memcpy.c libft/ft_memmove.c libft/ft_memset.c libft/ft_printf.c libft/ft_putchar_fd.c libft/ft_putchar_printf.c libft/ft_putendl_fd.c libft/ft_putnbr_fd.c libft/ft_putnbr_hex_printf.c libft/ft_putnbr_pos_printf.c libft/ft_putnbr_printf.c libft/ft_putptr_printf.c libft/ft_putstr_fd.c libft/ft_putstr_printf.c libft/ft_split.c libft/ft_strtrim.c libft/ft_strchr.c libft/ft_strdup.c libft/ft_striteri.c libft/ft_strjoin.c libft/ft_strlcat.c libft/ft_strlcpy.c libft/ft_strlen.c libft/ft_strmapi.c libft/ft_strncmp.c libft/ft_strnstr.c libft/ft_strrchr.c libft/ft_substr.c libft/get_next_line.c libft/get_next_line_utils.c
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
-# environment
-VSCODE_HANDLES_UNCAUGHT_ERRORS = true
-# default
-.VARIABLES := 
-# environment
-PWD = /home/azarda/Desktop/Cub3d
 # automatic
-%D = $(patsubst %/,%,$(dir $%))
+@F = $(notdir $@)
+# makefile
+CURDIR := /Users/azarda/Documents/Cub3d
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","osLocale":"en","availableLanguages":{},"_languagePackSupport":true}
+# environment
+_ = /usr/bin/make
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# environment
+VSCODE_CWD = /Users/azarda/Documents
+# environment
+PATH = /Users/azarda/.brew/bin:/Users/azarda/goinfre/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Apple/usr/bin
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-XDG_DATA_DIRS = /usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+LaunchInstanceID = 0D913628-5002-40AA-93AB-C617CD5CBF09
 # environment
-OLDPWD = /home/azarda/Desktop/Cub3d
-# automatic
-^D = $(patsubst %/,%,$(dir $^))
+ELECTRON_RUN_AS_NODE = 1
+# makefile (from `Makefile', line 23)
+MLXLIB = $(LIBMLX)/build/libmlx42.a
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# environment
+LS_COLORS = di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43
+# makefile (from `Makefile', line 21)
+LIBMLX = ./MLX42
+# environment
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.khU5Yt4eNq/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/azarda/.config/Code/CachedData/6c3e3dba23e8fadc360aed75ce363ba185c49794
-# environment
-LANG = C
-# environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.2RAY91
-# default
-.LOADED := 
-# default
-.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
-# environment
-GNOME_TERMINAL_SERVICE = :1.122
-# makefile
-MAKEFLAGS = pqrR
-# makefile
-CURDIR := /home/azarda/Desktop/Cub3d
-# makefile (from 'Makefile', line 18)
-FW = 
-# environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# automatic
-*D = $(patsubst %/,%,$(dir $*))
-# environment
-MFLAGS = -pqrR
-# environment
-SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
-# default
-.SHELLFLAGS := -c
-# environment
-WAYLAND_DISPLAY = wayland-0
-# automatic
-+D = $(patsubst %/,%,$(dir $+))
-# environment
-XDG_SESSION_DESKTOP = ubuntu
-# makefile (from 'Makefile', line 1)
-MAKEFILE_LIST := Makefile
-# automatic
-@F = $(notdir $@)
-# environment
-ZSH = /home/azarda/.oh-my-zsh
-# environment
-VSCODE_PID = 3788
-# environment
-XDG_SESSION_TYPE = wayland
-# automatic
-?D = $(patsubst %/,%,$(dir $?))
-# environment
-SESSION_MANAGER = local/azarda-Prestige-14-A10SC:@/tmp/.ICE-unix/1744,unix/azarda-Prestige-14-A10SC:/tmp/.ICE-unix/1744
-# automatic
-*F = $(notdir $*)
-# environment
-CHROME_DESKTOP = code-url-handler.desktop
-# environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
-# automatic
-<D = $(patsubst %/,%,$(dir $<))
-# environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","osLocale":"en-us","availableLanguages":{},"_languagePackSupport":true}
-# makefile (from 'Makefile', line 26)
-INCLUDE = include/global.h include/cub3d.h include/utils.h include/libft.h
-# environment
 HOMEBREW_TEMP = /tmp/azarda/Homebrew/Temp
-# default
-MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-GNOME_DESKTOP_SESSION_ID = this-is-deprecated
-# makefile
-SHELL = /bin/sh
-# default
-MAKECMDGOALS := all
+PWD = /Users/azarda/Documents/Cub3d
 # environment
-XMODIFIERS = @im=ibus
-# makefile (from 'Makefile', line 22)
-HEADERS = -I ./include  -I $(LIBMLX)/include
-# environment
-SHLVL = 1
-# environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/4fda0e1d_4924_4a53_bfd2_6a90c84185e6
-# environment
-MAKELEVEL := 0
-# default
-MAKE = $(MAKE_COMMAND)
-# environment
-PATH = /home/azarda/goinfre/homebrew/bin:/home/azarda/.brew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
-# default
-MAKEFILES := 
-# environment
-LC_MONETARY = es_ES.UTF-8
-# automatic
-^F = $(notdir $^)
-# environment
-LC_TIME = es_ES.UTF-8
-# environment
-USERNAME = azarda
-# environment
-GNOME_SETUP_DISPLAY = :1
-# makefile (from 'Makefile', line 21)
-LIBMLX = ./MLX42
-# environment
-LC_TELEPHONE = es_ES.UTF-8
-# automatic
-?F = $(notdir $?)
-# makefile (from 'Makefile', line 13)
-NAME = cub3D
-# environment
-XDG_CURRENT_DESKTOP = Unity
-# environment
-LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
-# automatic
-+F = $(notdir $+)
-# environment
-LESS = -R
-# environment
-DESKTOP_SESSION = ubuntu
-# environment
-ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
-# 'override' directive
-GNUMAKEFLAGS := 
-# environment
-LOGNAME = azarda
-# makefile
-.DEFAULT_GOAL := all
-# environment
-SYSTEMD_EXEC_PID = 1767
-# environment
-DISPLAY = :0
-# environment
-USER = azarda
-# environment
-GTK_MODULES = gail:atk-bridge
-# default
-MAKE_VERSION := 4.3
-# environment
-LC_MEASUREMENT = es_ES.UTF-8
-# environment
-PAGER = less
-# environment
-_ = /usr/bin/code
-# environment
-LC_PAPER = es_ES.UTF-8
-# environment
-XDG_RUNTIME_DIR = /run/user/1000
-# environment
-HOMEBREW_CACHE = /tmp/azarda/Homebrew/Caches
-# environment
-COLORTERM = truecolor
-# environment
-XDG_SESSION_CLASS = user
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-HOME = /home/azarda
-# environment
-QT_IM_MODULE = ibus
-# makefile (from 'Makefile', line 23)
-MLXLIB = $(LIBMLX)/build/libmlx42.a
-# environment
-ELECTRON_RUN_AS_NODE = 1
-# environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-64384115-1.81-main.sock
-# environment
-TERM = xterm-256color
+HOME = /Users/azarda
 # default
-.RECIPEPREFIX := 
-# automatic
-<F = $(notdir $<)
-# default
-SUFFIXES := 
+MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
 # environment
 VSCODE_CLI = 1
 # environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
+VSCODE_CODE_CACHE_PATH = /Users/azarda/Library/Application Support/Code/CachedData/6c3e3dba23e8fadc360aed75ce363ba185c49794
 # environment
-VTE_VERSION = 6800
+LOGNAME = azarda
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# makefile (from `Makefile', line 22)
+HEADERS = -I ./include  -I $(LIBMLX)/include
+# environment
+ZSH = /Users/azarda/.oh-my-zsh
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+XPC_FLAGS = 0x0
 # default
-.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
-# makefile (from 'Makefile', line 16)
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+HOMEBREW_CACHE = /tmp/azarda/Homebrew/Caches
+# environment
+SHLVL = 3
+# makefile (from `Makefile', line 16)
 CC = gcc -g
+# default
+MAKE_VERSION := 3.81
 # environment
-XDG_MENU_PREFIX = gnome-
+USER = azarda
+# makefile
+.DEFAULT_GOAL := all
+# makefile (from `Makefile', line 26)
+INCLUDE = include/global.h include/cub3d.h include/utils.h include/libft.h
 # environment
-GDMSESSION = ubuntu
+TERM_SESSION_ID = 151145A8-7CCC-416F-B840-AE6B578CDF56
+# makefile (from `Makefile', line 13)
+NAME = cub3D
 # environment
-LC_IDENTIFICATION = es_ES.UTF-8
+LESS = -R
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
+# environment
+TERM_PROGRAM = Apple_Terminal
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000cftc0033pl/T/
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /Users/azarda/Library/Application Support/Code/1.81-main.sock
+# environment
+MallocNanoZone = 0
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+TERM_PROGRAM_VERSION = 433
+# environment
+XPC_SERVICE_NAME = 0
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+__CF_USER_TEXT_ENCODING = 0x18ED3:0x0:0x0
+# environment
+COMMAND_MODE = unix2003
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# makefile (from `Makefile', line 18)
+FW = 
+# environment
+PAGER = less
+# environment
+LC_ALL = C
+# makefile (from `Makefile', line 24)
+LIBS = $(MLXLIB) -dl -lglfw -L$(shell   --prefix glfw)/lib -pthread -lm
+# environment
+SECURITYSESSIONID = 186a8
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# makefile (from `Makefile', line 19)
+FLAGS = $(FW) -fsanitize=address 
+# default
+.INCLUDE_DIRS = /usr/local/include
+# environment
+MAKELEVEL := 0
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+VSCODE_PID = 32260
 # variable set hash-table stats:
-# Load=116/1024=11%, Rehash=0, Collisions=18/162=11%
+# Load=84/1024=8%, Rehash=0, Collisions=5/124=4%
 
 # Pattern-specific Variable Values
 
@@ -251,22 +189,33 @@ LC_IDENTIFICATION = es_ES.UTF-8
 
 # Directories
 
-# raycasting (device 66311, inode 4331904): 1 files, no impossibilities so far.
-# include (device 66311, inode 4331831): 5 files, no impossibilities so far.
-# . (device 66311, inode 4340493): 22 files, no impossibilities.
-# parsing (device 66311, inode 4331895): 14 files, no impossibilities so far.
-# minimap (device 66311, inode 4331891): 5 files, no impossibilities so far.
+# include (device 16777227, inode 6686874): 6 files, no impossibilities so far.
+# . (device 16777227, inode 6686709): 20 files, no impossibilities.
 
-# 47 files, no impossibilities in 5 directories.
+# 26 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
 %.o: %.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  recipe to execute (from 'Makefile', line 106):
+#  commands to execute (from `Makefile', line 106):
 	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+	
 
 # 1 implicit rules, 0 (0.0%) terminal.
+
 # Files
+
+# Not a target:
+parsing/check.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_putptr_printf.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 libft/ft_lstadd_back.o:
@@ -275,7 +224,238 @@ libft/ft_lstadd_back.o:
 #  File has not been updated.
 
 # Not a target:
-utils/index_list.o:
+libft/ft_putendl_fd.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_strmapi.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_lstiter.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+minimap/player_draw.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: cub3D
+#  Phony target (prerequisite of .PHONY).
+#  Command-line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
+
+# Not a target:
+libft/ft_memcpy.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_itoa.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: all clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_memcmp.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+ 
+libft/ft_strlen.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_lstsize.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_isdigit.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+main.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 20:16:23
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+libft/ft_lstlast.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+cub3D: main.o parsing/parsing.o parsing/attributes.o parsing/check.o parsing/info.o parsing/map_parse.o parsing/map_check.o minimap/handle_keys.o minimap/map_draw.o minimap/player_draw.o raycasting/ray_cast.o utils/get_color.o utils/error.o utils/matdup.o utils/free.o utils/index_list.o utils/compare.o libft/ft_atoi.o libft/ft_bzero.o libft/ft_calloc.o libft/ft_isalnum.o libft/ft_isalpha.o libft/ft_isascii.o libft/ft_isdigit.o libft/ft_isprint.o libft/ft_itoa.o libft/ft_lstadd_back.o libft/ft_lstadd_front.o libft/ft_lstclear.o libft/ft_lstdelone.o libft/ft_lstiter.o libft/ft_lstlast.o libft/ft_lstnew.o libft/ft_lstsize.o libft/ft_memchr.o libft/ft_memcmp.o libft/ft_memcpy.o libft/ft_memmove.o libft/ft_memset.o libft/ft_printf.o libft/ft_putchar_fd.o libft/ft_putchar_printf.o libft/ft_putendl_fd.o libft/ft_putnbr_fd.o libft/ft_putnbr_hex_printf.o libft/ft_putnbr_pos_printf.o libft/ft_putnbr_printf.o libft/ft_putptr_printf.o libft/ft_putstr_fd.o libft/ft_putstr_printf.o libft/ft_split.o libft/ft_strtrim.o libft/ft_strchr.o libft/ft_strdup.o libft/ft_striteri.o libft/ft_strjoin.o libft/ft_strlcat.o libft/ft_strlcpy.o libft/ft_strlen.o libft/ft_strmapi.o libft/ft_strncmp.o libft/ft_strnstr.o libft/ft_strrchr.o libft/ft_substr.o libft/get_next_line.o libft/get_next_line_utils.o MLX42/build/libmlx42.a
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
+#  commands to execute (from `Makefile', line 100):
+	$(CC) $(FLAGS) $(OBJ) $(LIBS) -o $(NAME)
+	
+
+# Not a target:
+libft/ft_memchr.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_memset.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+parsing/info.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_strrchr.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_split.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_lstclear.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_printf.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+include/cub3d.h:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 20:16:23
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 20:16:23
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+include/global.h:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 20:16:23
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+libft/ft_strlcat.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_putnbr_hex_printf.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+parsing/map_parse.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_strjoin.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_bzero.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_isprint.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+utils/compare.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_striteri.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+parsing/attributes.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+minimap/map_draw.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -286,82 +466,125 @@ libft/ft_putnbr_pos_printf.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-parsing/attributes.o: parsing/attributes.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'parsing/attributes'
-#  Last modified 2023-08-19 19:58:18.625153828
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 106):
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+# Not a target:
+libft/ft_lstnew.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 112):
+	rm -rf $(NAME)
+	
 
 # Not a target:
-parsing/attributes.c:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 18:52:00.617195247
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-parsing/parsing.c:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 18:52:00.617195247
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-libft/ft_lstiter.o:
+libft/ft_putnbr_printf.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-libft/ft_memcpy.o:
+utils/error.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-parsing/map_check.o: parsing/map_check.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'parsing/map_check'
-#  Last modified 2023-08-19 19:58:18.757153827
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 106):
+# Not a target:
+libft/ft_putnbr_fd.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_isascii.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/get_next_line_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+utils/matdup.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_calloc.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_substr.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_isalpha.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+utils/get_color.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+parsing/parsing.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
  
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-
-# Not a target:
-minimap/map_draw.c:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 19:58:16.889153846
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-minimap/handle_keys.c:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 18:52:00.617195247
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-libft/ft_isprint.o:
+raycasting/ray_cast.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-parsing/map_parse.o: parsing/map_parse.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'parsing/map_parse'
-#  Last modified 2023-08-19 19:58:18.721153827
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 106):
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 109):
+	rm -rf $(OBJ)
+	
+
+MLX42/build/libmlx42.a:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 103):
+	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
+	
 
 # Not a target:
-libft/ft_isalnum.o:
+parsing/map_check.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -379,20 +602,89 @@ libft/ft_strncmp.o:
 #  File has not been updated.
 
 # Not a target:
-utils/get_color.o:
+libft/ft_isalnum.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-Makefile:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 19:33:56.085169056
-#  File has been updated.
-#  Successfully updated.
+minimap/handle_keys.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-utils/error.o:
+libft/ft_lstadd_front.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_strdup.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_lstdelone.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_memmove.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_strchr.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+main.o: main.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `main'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := main.o
+# automatic
+# % := 
+# automatic
+# * := main
+# automatic
+# + := main.c include/global.h include/cub3d.h include/utils.h include/libft.h
+# automatic
+# | := 
+# automatic
+# < := main.c
+# automatic
+# ^ := main.c include/global.h include/cub3d.h include/utils.h include/libft.h
+# automatic
+# ? := main.c include/global.h include/cub3d.h include/utils.h include/libft.h
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/17=12%
+#  commands to execute (from `Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+	
+
+# Not a target:
+utils/free.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_putstr_printf.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/ft_strnstr.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -404,52 +696,34 @@ libft/ft_putstr_fd.o:
 #  File has not been updated.
 
 # Not a target:
-libft/ft_atoi.o:
+libft/get_next_line.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-libft/ft_putnbr_hex_printf.o:
+include/libft.h:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 20:16:23
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+libft/ft_putchar_printf.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-libft/ft_strlen.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-parsing/check.c:
+include/utils.h:
 #  Implicit rule search has been done.
-#  Last modified 2023-08-19 18:52:00.617195247
+#  Last modified 2023-08-19 20:16:23
 #  File has been updated.
 #  Successfully updated.
-
-# Not a target:
-parsing/map_parse.c:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 18:52:00.617195247
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-parsing/map_check.c:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 18:52:00.617195247
-#  File has been updated.
-#  Successfully updated.
-
-parsing/check.o: parsing/check.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'parsing/check'
-#  Last modified 2023-08-19 19:58:18.657153828
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 106):
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 libft/ft_putchar_fd.o:
@@ -458,156 +732,13 @@ libft/ft_putchar_fd.o:
 #  File has not been updated.
 
 # Not a target:
-parsing/info.c:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 18:52:00.617195247
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-libft/ft_putchar_printf.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-clean:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 109):
-	rm -rf $(OBJ)
-
-# Not a target:
-utils/matdup.o:
+libft/ft_atoi.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-libft/ft_strjoin.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/ft_isascii.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-parsing/info.o: parsing/info.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'parsing/info'
-#  Last modified 2023-08-19 19:58:18.689153828
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 106):
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-
-# Not a target:
-utils/compare.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/ft_split.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/get_next_line_utils.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-raycasting/ray_cast.c:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:00:02.057152751
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-libft/ft_strmapi.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-include/global.h:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 19:57:12.733154514
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-libft/ft_putptr_printf.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/ft_strchr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-re: fclean all
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-
-# Not a target:
-libft/ft_printf.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/ft_calloc.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/ft_memcmp.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-MLX42/build/libmlx42.a:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 103):
-	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
-
-# Not a target:
-libft/ft_lstnew.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-include/utils.h:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 18:52:00.613195247
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-libft/ft_lstlast.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/ft_bzero.o:
- 
+utils/index_list.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -618,292 +749,19 @@ libft/ft_strtrim.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-libft/ft_strrchr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-include/libft.h:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 18:52:00.613195247
-#  File has been updated.
-#  Successfully updated.
-
-minimap/handle_keys.o: minimap/handle_keys.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'minimap/handle_keys'
-#  Last modified 2023-08-19 19:58:18.793153826
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 106):
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-
-# Not a target:
-libft/ft_lstadd_front.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-.DEFAULT:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-all: cub3D
-#  Phony target (prerequisite of .PHONY).
-#  Command line target.
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
-
-# Not a target:
-libft/ft_isdigit.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-fclean: clean
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 112):
-	rm -rf $(NAME)
-
-raycasting/ray_cast.o: raycasting/ray_cast.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'raycasting/ray_cast'
-#  Last modified 2023-08-19 19:58:18.885153825
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := raycasting/ray_cast.o
-# automatic
-# * := raycasting/ray_cast
-# automatic
-# < := raycasting/ray_cast.c
-# automatic
-# + := raycasting/ray_cast.c include/global.h include/cub3d.h include/utils.h include/libft.h
-# automatic
-# % := 
-# automatic
-# ^ := raycasting/ray_cast.c include/global.h include/cub3d.h include/utils.h include/libft.h
-# automatic
-# ? := raycasting/ray_cast.c
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=3/17=18%
-#  recipe to execute (from 'Makefile', line 106):
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-
-# Not a target:
-libft/ft_lstclear.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/ft_substr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/ft_itoa.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/ft_putendl_fd.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-main.c:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 18:58:15.757191341
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-libft/ft_strlcat.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/ft_isalpha.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/ft_putstr_printf.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-main.o: main.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'main'
-#  Last modified 2023-08-19 19:58:18.561153829
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 106):
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-
-# Not a target:
-libft/ft_memset.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/ft_strdup.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-minimap/map_draw.o: minimap/map_draw.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'minimap/map_draw'
-#  Last modified 2023-08-19 19:58:18.825153826
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 106):
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-
-minimap/player_draw.o: minimap/player_draw.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'minimap/player_draw'
-#  Last modified 2023-08-19 19:58:18.857153826
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 106):
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-
-# Not a target:
-libft/ft_memchr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-minimap/player_draw.c:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 18:52:00.617195247
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-libft/ft_lstdelone.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/ft_lstsize.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/get_next_line.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-cub3D: main.o parsing/parsing.o parsing/attributes.o parsing/check.o parsing/info.o parsing/map_parse.o parsing/map_check.o minimap/handle_keys.o minimap/map_draw.o minimap/player_draw.o raycasting/ray_cast.o utils/get_color.o utils/error.o utils/matdup.o utils/free.o utils/index_list.o utils/compare.o libft/ft_atoi.o libft/ft_bzero.o libft/ft_calloc.o libft/ft_isalnum.o libft/ft_isalpha.o libft/ft_isascii.o libft/ft_isdigit.o libft/ft_isprint.o libft/ft_itoa.o libft/ft_lstadd_back.o libft/ft_lstadd_front.o libft/ft_lstclear.o libft/ft_lstdelone.o libft/ft_lstiter.o libft/ft_lstlast.o libft/ft_lstnew.o libft/ft_lstsize.o libft/ft_memchr.o libft/ft_memcmp.o libft/ft_memcpy.o libft/ft_memmove.o libft/ft_memset.o libft/ft_printf.o libft/ft_putchar_fd.o libft/ft_putchar_printf.o libft/ft_putendl_fd.o libft/ft_putnbr_fd.o libft/ft_putnbr_hex_printf.o libft/ft_putnbr_pos_printf.o libft/ft_putnbr_printf.o libft/ft_putptr_printf.o libft/ft_putstr_fd.o libft/ft_putstr_printf.o libft/ft_split.o libft/ft_strtrim.o libft/ft_strchr.o libft/ft_strdup.o libft/ft_striteri.o libft/ft_strjoin.o libft/ft_strlcat.o libft/ft_strlcpy.o libft/ft_strlen.o libft/ft_strmapi.o libft/ft_strncmp.o libft/ft_strnstr.o libft/ft_strrchr.o libft/ft_substr.o libft/get_next_line.o libft/get_next_line_utils.o MLX42/build/libmlx42.a
-#  Implicit rule search has not been done.
-#  Last modified 2023-08-19 19:58:20.533153808
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
-#  recipe to execute (from 'Makefile', line 100):
-	$(CC) $(FLAGS) $(OBJ) $(LIBS) -o $(NAME)
-
-parsing/parsing.o: parsing/parsing.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'parsing/parsing'
-#  Last modified 2023-08-19 19:58:18.593153829
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 106):
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-
-# Not a target:
-libft/ft_striteri.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/ft_putnbr_fd.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/ft_memmove.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-.PHONY: all clean fclean re
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-utils/free.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-libft/ft_putnbr_printf.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-include/cub3d.h:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 18:52:00.613195247
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-libft/ft_strnstr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
 # files hash-table stats:
-# Load=91/1024=9%, Rehash=0, Collisions=14/300=5%
+# Load=81/1024=8%, Rehash=0, Collisions=8/180=4%
 # VPATH Search Paths
 
-# No 'vpath' search paths.
+# No `vpath' search paths.
 
-# No general ('VPATH' variable) search path.
+# No general (`VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 145 / storage = 2208 B / avg = 15 B
-# current buf: size = 8162 B / used = 2208 B / count = 145 / avg = 15 B
- 
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# strcache performance: lookups = 276 / hit rate = 47%
-# hash-table stats:
-# Load=145/8192=2%, Rehash=0, Collisions=1/276=0%
-# Finished Make data base on Sat Aug 19 20:04:11 2023
+# Finished Make data base on Sat Aug 19 20:17:12 2023
 
  
