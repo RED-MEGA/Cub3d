@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/08/19 20:56:04 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/19 21:20:46 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void ray_cast(t_global *pub)
 
 	t_player player = pub->info->player;
 	
-	player.rotation_angle *= P_ROTATION_SPEED;
+	// player.rotation_angle *= P_ROTATION_SPEED;
 //-----------------------------------------------------------------------------------------------------------------------
 	double new_x;
 	double new_y;
