@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/08/19 20:22:56 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/19 20:56:04 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ void ray_cast(t_global *pub)
 {
 
 	t_player player = pub->info->player;
-
+	
+	player.rotation_angle *= P_ROTATION_SPEED;
 //-----------------------------------------------------------------------------------------------------------------------
 	double new_x;
 	double new_y;
@@ -77,8 +78,14 @@ void ray_cast(t_global *pub)
 
 
 //------------------------------------------------------------passto_draw-------------------------------------------------------
+	printf("------------------------ray cast ------------------\n");
 
-	
+
+	printf("x.player ===== %f\n", player.pos.x);
+	printf("y.player ===== %f\n", player.pos.y);
+
+	printf("x ===== %f\n", new_x);
+	printf("y ===== %f\n", new_y);
 	pub->tess_x = new_x;
 	pub->tess_y = new_y;
 //-----------------------------------------------------------------------------------------------------------------------
@@ -87,10 +94,9 @@ void ray_cast(t_global *pub)
 	// draw_line(pub->window_img, player.pos, (t_pos){.x = player.pos.x + (cos(player.rotation_angle) * 30), .y = player.pos.y + (sin(player.rotation_angle) * 30)});
 	
 	// draw_line(pub->window_img, player.pos, (t_pos){.x = player.pos.x + (cos(player.rotation_angle) * 30), .y = player.pos.y + (sin(player.rotation_angle) * 30)});
-	printf("==|%f|==\n",tan(player.rotation_angle));
+	printf("==|%f|==\n",player.rotation_angle);
 	// exit(0);
 
 
 
-	printf("-----ray cast -------\n");
 }

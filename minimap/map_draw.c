@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/19 19:58:16 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/19 21:09:37 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ void	to_2D_map(t_global *pub)
 				, get_color(pub->info->map[index.i][index.j]));
 	}
 	draw_player(pub->window_img, pub->info);
-	draw_line(pub->window_img, player->pos, (t_pos){.x = player->pos.x + (cos(player->rotation_angle) * pub->tess_x) , .y = player->pos.y + (sin(player->rotation_angle) * pub->tess_y)});
+	// draw_line(pub->window_img, player->pos, (t_pos){.x = player->pos.x + (cos(player->rotation_angle + pub->tess_x) * 5 ) , .y = player->pos.y + (sin(player->rotation_angle + pub->tess_y) * 5)});
+	mlx_put_pixel(pub->window_img, pub->tess_x, pub->tess_y, 255);
 }
