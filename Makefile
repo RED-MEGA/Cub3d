@@ -6,7 +6,7 @@
 #    By: azarda <azarda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/08/19 19:33:56 by azarda           ###   ########.fr        #
+#    Updated: 2023/08/19 21:40:01 by azarda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = cub3D
 CC = gcc -g
 
 FW = #-framework Cocoa -framework OpenGL -framework IOKit
-# FLAGS = $(FW) -fsanitize=address #-Wall -Wextra -Werror
+FLAGS = $(FW) -fsanitize=address #-Wall -Wextra -Werror
 
 LIBMLX = ./MLX42
 HEADERS = -I ./include  -I $(LIBMLX)/include

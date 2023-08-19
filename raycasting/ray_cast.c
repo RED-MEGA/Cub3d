@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/08/19 21:20:46 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/19 22:01:39 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,26 @@ void ray_cast(t_global *pub)
 	new_step_y = SQUARE_LEN;
 	new_step_x = SQUARE_LEN / tan(player.rotation_angle);
 	
+	double test_x = new_step_x;
+	double test_y = new_step_y;
 	
-
 	
+	// while (pub->info->map[(int)new_step_x][(int)new_step_y] != '1')
+	// {
+	// 	new_step_x += test_x; 
+	// 	new_step_y += test_y; 
+	// }
+	
+	int test = (int)(new_step_x / SQUARE_LEN);
+	
+	printf("new x int  %d\n", test);
 
+	// exit(0);
 
-
+	// printf("yaha  ->>  %c\n ", pub->info->map[(int)new_y][(int)new_x]);
+	
+	new_x += new_step_x;
+	new_y += new_step_y;
 
 //------------------------------------------------------------passto_draw-------------------------------------------------------
 	printf("------------------------ray cast ------------------\n");
