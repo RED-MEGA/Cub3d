@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/08/20 01:45:46 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/20 00:39:43 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,25 +100,29 @@ void ray_cast(t_global *pub)
 
 
 
-	// printf("new_step_x  %f\n\n", new_step_x);
-
 
 	// printf("new_x ===== %f\n", new_x);
 	// printf("new_y ===== %f\n\n", new_y);
 
 
+
 	// exit(0);
 
-	// printf("yaha  ->>  %c\n ", pub->info->map[(int)new_y][(int)new_x]);
 
-	new_x += new_step_x;
-	new_y += new_step_y;
-	
-	int test = floor(new_x / SQUARE_LEN);
 
-	
-	printf("new x int  %d\n\n", test);
 
+	while(pub->info->map[(int)floor(new_y / SQUARE_LEN)][(int)new_x / SQUARE_LEN] != '1')
+	{
+		new_x += new_step_x;
+		new_y += new_step_y;
+
+	}
+	// int test = floor(new_x / SQUARE_LEN);
+	// printf("test_x -->> %d\n", test);
+	// int test_y = floor(new_y / SQUARE_LEN);
+	// printf("test_y -->> %d\n", test_y);
+
+	// printf("yaha  ->>  %c\n ", pub->info->map[test_y][test]);
 //------------------------------------------------------------passto_draw-------------------------------------------------------
 	printf("------------------------ray cast ------------------\n");
 
