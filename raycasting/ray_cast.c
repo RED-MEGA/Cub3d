@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/08/19 23:19:20 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/20 01:45:46 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,21 +100,24 @@ void ray_cast(t_global *pub)
 
 
 
-	printf("new_step_x  %f\n\n", new_step_x);
+	// printf("new_step_x  %f\n\n", new_step_x);
 
-	int test = floor(new_step_x);
 
-	printf("new_x ===== %f\n", new_x);
-	printf("new_y ===== %f\n\n", new_y);
+	// printf("new_x ===== %f\n", new_x);
+	// printf("new_y ===== %f\n\n", new_y);
 
-	printf("new x int  %d\n\n", test);
 
 	// exit(0);
 
 	// printf("yaha  ->>  %c\n ", pub->info->map[(int)new_y][(int)new_x]);
 
-	new_x = new_step_x;
-	new_y = new_step_y;
+	new_x += new_step_x;
+	new_y += new_step_y;
+	
+	int test = floor(new_x / SQUARE_LEN);
+
+	
+	printf("new x int  %d\n\n", test);
 
 //------------------------------------------------------------passto_draw-------------------------------------------------------
 	printf("------------------------ray cast ------------------\n");

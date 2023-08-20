@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/18 22:50:34 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/20 02:06:47 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,20 @@ void	refresh_frame(void *param)
 
 
 
+
+
+void change_dr(t_player *player)
+{
+	if (player->direction == NO)
+		player->rotation_angle =  3 * M_PI_2;
+	else if (player->direction == SO)
+		player->rotation_angle = M_PI_2;
+	else if (player->direction == WE)
+		player->rotation_angle = M_PI;
+	else if (player->direction == EA)
+		player->rotation_angle = 0;	
+}
+
 void	cub3d(char *file_name)
 {
 	t_global	*pub;
@@ -85,6 +99,7 @@ void	cub3d(char *file_name)
 	info = parsing(file_name);
 	pub = init_global(info);
 	draw_fc(pub);
+	change_dr(&pub->info->player);
 	to_2D_map(pub);
 
 	mlx_key_hook(pub->mlx, handle_keys, pub);
