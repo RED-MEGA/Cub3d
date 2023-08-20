@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/08/20 00:39:43 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/20 04:59:32 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,54 +81,61 @@ void ray_cast(t_global *pub)
 
 
 //-----------------------------------------------------------------------------------------------------------------------
-	float new_x;
-	float new_y;
+	// float new_x;
+	// float new_y;
 
-	new_y = floor(player.pos.y / SQUARE_LEN) * SQUARE_LEN ;
-	if(is_down)
-		new_y += SQUARE_LEN;
-	new_x = player.pos.x + (new_y - player.pos.y) / tan(player.rotation_angle);
+	// new_y = floor(player.pos.y / SQUARE_LEN) * SQUARE_LEN ;
+	// if(is_down)
+	// 	new_y += SQUARE_LEN;
+	// new_x = player.pos.x + (new_y - player.pos.y) / tan(player.rotation_angle);
 
+
+	// float new_step_x;
+	// float new_step_y;
+
+
+	// new_step_y = SQUARE_LEN;
+	// new_step_x = SQUARE_LEN / tan(player.rotation_angle);
+
+
+	// while(pub->info->map[(int)floor(new_y / SQUARE_LEN)][(int)new_x / SQUARE_LEN] != '1')
+	// {
+	// 	new_x += new_step_x;
+	// 	new_y += new_step_y;
+
+	// }
+	
+	
 //-----------------------------------------------------------------------------------------------------------------------
 
-	float new_step_x;
-	float new_step_y;
+	float v_new_x;
+	float v_new_y;
+	
+	v_new_x = floor(player.pos.x / SQUARE_LEN) * SQUARE_LEN ;
+		// if(is_up)
+		// v_new_x *= -1;
+	v_new_y = player.pos.y + (v_new_x - player.pos.x) * tan(player.rotation_angle);
 
 
-	new_step_y = SQUARE_LEN;
-	new_step_x = SQUARE_LEN / tan(player.rotation_angle);
+	float v_new_step_x;
+	float v_new_step_y;
+	
+	v_new_step_x = SQUARE_LEN;
+	v_new_step_y = SQUARE_LEN * tan(player.rotation_angle);
 
 
-
-
-	// printf("new_x ===== %f\n", new_x);
-	// printf("new_y ===== %f\n\n", new_y);
-
-
-
-	// exit(0);
-
-
-
-
-	while(pub->info->map[(int)floor(new_y / SQUARE_LEN)][(int)new_x / SQUARE_LEN] != '1')
+	while(pub->info->map[(int)floor(v_new_y / SQUARE_LEN)][(int)floor(v_new_x / SQUARE_LEN)] != '1')
 	{
-		new_x += new_step_x;
-		new_y += new_step_y;
-
+		v_new_x += v_new_step_x;
+		v_new_y += v_new_step_y;
 	}
-	// int test = floor(new_x / SQUARE_LEN);
-	// printf("test_x -->> %d\n", test);
-	// int test_y = floor(new_y / SQUARE_LEN);
-	// printf("test_y -->> %d\n", test_y);
-
-	// printf("yaha  ->>  %c\n ", pub->info->map[test_y][test]);
+	
 //------------------------------------------------------------passto_draw-------------------------------------------------------
 	printf("------------------------ray cast ------------------\n");
 
 
-	pub->tess_x = new_x;
-	pub->tess_y = new_y;
+	pub->tess_x = v_new_x;
+	pub->tess_y = v_new_y;
 //-----------------------------------------------------------------------------------------------------------------------
 
 
