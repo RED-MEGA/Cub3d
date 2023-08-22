@@ -1,186 +1,253 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-# GNU Make 3.81
-# Copyright (C) 2006  Free Software Foundation, Inc.
-# This is free software; see the source for copying conditions.
-# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
-# PARTICULAR PURPOSE.
+# GNU Make 4.3
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
 
-# This program built for i386-apple-darwin11.3.0
-
-# Make data base, printed on Sat Aug 19 20:25:17 2023
+# Make data base, printed on Tue Aug 22 19:09:21 2023
 
 # Variables
 
-# automatic
-<D = $(patsubst %/,%,$(dir $<))
-# automatic
-?F = $(notdir $?)
-# environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
-# makefile (from `Makefile', line 95)
+# makefile (from 'Makefile', line 95)
 OBJ = $(SRC:.c=.o)
 # environment
+GDK_BACKEND = x11
+# environment
+LC_ALL = C
+# makefile (from 'Makefile', line 28)
+SRC = main.c parsing/parsing.c parsing/attributes.c parsing/check.c parsing/info.c parsing/map_parse.c parsing/map_check.c minimap/handle_keys.c minimap/map_draw.c minimap/player_draw.c raycasting/ray_cast.c utils/get_color.c utils/error.c utils/matdup.c utils/free.c utils/index_list.c utils/compare.c libft/ft_atoi.c libft/ft_bzero.c libft/ft_calloc.c libft/ft_isalnum.c libft/ft_isalpha.c libft/ft_isascii.c libft/ft_isdigit.c libft/ft_isprint.c libft/ft_itoa.c libft/ft_lstadd_back.c libft/ft_lstadd_front.c libft/ft_lstclear.c libft/ft_lstdelone.c libft/ft_lstiter.c libft/ft_lstlast.c libft/ft_lstnew.c libft/ft_lstsize.c libft/ft_memchr.c libft/ft_memcmp.c libft/ft_memcpy.c libft/ft_memmove.c libft/ft_memset.c libft/ft_printf.c libft/ft_putchar_fd.c libft/ft_putchar_printf.c libft/ft_putendl_fd.c libft/ft_putnbr_fd.c libft/ft_putnbr_hex_printf.c libft/ft_putnbr_pos_printf.c libft/ft_putnbr_printf.c libft/ft_putptr_printf.c libft/ft_putstr_fd.c libft/ft_putstr_printf.c libft/ft_split.c libft/ft_strtrim.c libft/ft_strchr.c libft/ft_strdup.c libft/ft_striteri.c libft/ft_strjoin.c libft/ft_strlcat.c libft/ft_strlcpy.c libft/ft_strlen.c libft/ft_strmapi.c libft/ft_strncmp.c libft/ft_strnstr.c libft/ft_strrchr.c libft/ft_substr.c libft/get_next_line.c libft/get_next_line_utils.c
+# environment
+GNOME_SHELL_SESSION_MODE = ubuntu
+# environment
+SSH_AGENT_LAUNCHER = gnome-keyring
+# environment
+LC_NAME = es_ES.UTF-8
+# environment
+LC_NUMERIC = es_ES.UTF-8
+# environment
 VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
-# makefile (from `Makefile', line 28)
-SRC = main.c parsing/parsing.c parsing/attributes.c parsing/check.c parsing/info.c parsing/map_parse.c parsing/map_check.c minimap/handle_keys.c minimap/map_draw.c minimap/player_draw.c raycasting/ray_cast.c utils/get_color.c utils/error.c utils/matdup.c utils/free.c utils/index_list.c utils/compare.c 
-# automatic
-?D = $(patsubst %/,%,$(dir $?))
+# environment
+VSCODE_CWD = /home/azarda/Desktop/Cub3d
+# makefile (from 'Makefile', line 24)
+LIBS = $(MLXLIB) -dl -lglfw -L$(shell    --prefix glfw)/lib -pthread -lm
+# environment
+LC_ADDRESS = es_ES.UTF-8
+# default
+MAKE_COMMAND := make
+# environment
+QT_ACCESSIBILITY = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
-# automatic
-@F = $(notdir $@)
-# makefile
-CURDIR := /Users/azarda/Documents/Cub3d
-# makefile
-SHELL = /bin/sh
-# environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","osLocale":"en","availableLanguages":{},"_languagePackSupport":true}
-# environment
-_ = /usr/bin/make
-# makefile (from `Makefile', line 1)
-MAKEFILE_LIST :=  Makefile
-# environment
-VSCODE_CWD = /Users/azarda/Documents
-# environment
-PATH = /Users/azarda/.brew/bin:/Users/azarda/goinfre/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Apple/usr/bin
-# environment
-LSCOLORS = Gxfxcxdxbxegedabagacad
-# environment
-LaunchInstanceID = 0D913628-5002-40AA-93AB-C617CD5CBF09
-# environment
-ELECTRON_RUN_AS_NODE = 1
-# makefile (from `Makefile', line 23)
-MLXLIB = $(LIBMLX)/build/libmlx42.a
-# default
-.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
-# environment
-LS_COLORS = di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43
-# makefile (from `Makefile', line 21)
-LIBMLX = ./MLX42
-# environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.khU5Yt4eNq/Listeners
-# automatic
-%F = $(notdir $%)
-# environment
-HOMEBREW_TEMP = /tmp/azarda/Homebrew/Temp
-# environment
-PWD = /Users/azarda/Documents/Cub3d
-# environment
-ORIGINAL_XDG_CURRENT_DESKTOP = undefined
-# environment
-VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
-# environment
-HOME = /Users/azarda
-# default
-MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
-# environment
-VSCODE_CLI = 1
-# environment
-VSCODE_CODE_CACHE_PATH = /Users/azarda/Library/Application Support/Code/CachedData/6c3e3dba23e8fadc360aed75ce363ba185c49794
-# environment
-LOGNAME = azarda
-# environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# makefile (from `Makefile', line 22)
-HEADERS = -I ./include  -I $(LIBMLX)/include
-# environment
-ZSH = /Users/azarda/.oh-my-zsh
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
-# automatic
-^D = $(patsubst %/,%,$(dir $^))
-# environment
-XPC_FLAGS = 0x0
-# default
-MAKE = $(MAKE_COMMAND)
-# default
-MAKECMDGOALS := all
-# environment
-HOMEBREW_CACHE = /tmp/azarda/Homebrew/Caches
-# environment
-SHLVL = 3
-# makefile (from `Makefile', line 16)
-CC = gcc -g
-# default
-MAKE_VERSION := 3.81
-# environment
-USER = azarda
-# makefile
-.DEFAULT_GOAL := all
-# makefile (from `Makefile', line 26)
-INCLUDE = include/global.h include/cub3d.h include/utils.h include/libft.h
-# environment
-TERM_SESSION_ID = 151145A8-7CCC-416F-B840-AE6B578CDF56
-# makefile (from `Makefile', line 13)
-NAME = cub3D
-# environment
-LESS = -R
-# automatic
-%D = $(patsubst %/,%,$(dir $%))
-# default
-MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
-# environment
-TERM_PROGRAM = Apple_Terminal
 # default
 .VARIABLES := 
 # environment
-TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000cftc0033pl/T/
+PWD = /home/azarda/Desktop/Cub3d
 # automatic
-*F = $(notdir $*)
+%D = $(patsubst %/,%,$(dir $%))
 # environment
-VSCODE_IPC_HOOK = /Users/azarda/Library/Application Support/Code/1.81-main.sock
+LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-MallocNanoZone = 0
-# makefile
-MAKEFLAGS = Rrqp
+XDG_DATA_DIRS = /usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-MFLAGS = -Rrqp
+OLDPWD = /home/azarda/Desktop/Cub3d
 # automatic
-*D = $(patsubst %/,%,$(dir $*))
-# environment
-TERM_PROGRAM_VERSION = 433
-# environment
-XPC_SERVICE_NAME = 0
+^D = $(patsubst %/,%,$(dir $^))
 # automatic
-+D = $(patsubst %/,%,$(dir $+))
-# automatic
-+F = $(notdir $+)
+%F = $(notdir $%)
 # environment
-__CF_USER_TEXT_ENCODING = 0x18ED3:0x0:0x0
-# environment
-COMMAND_MODE = unix2003
-# default
-MAKEFILES := 
-# automatic
-<F = $(notdir $<)
-# makefile (from `Makefile', line 18)
-FW = 
-# environment
-PAGER = less
-# environment
-LC_ALL = C
-# makefile (from `Makefile', line 24)
-LIBS = $(MLXLIB) -dl -lglfw -L$(shell  brew  --prefix glfw)/lib -pthread -lm
-# environment
-SECURITYSESSIONID = 186a8
-# automatic
-^F = $(notdir $^)
-# default
-SUFFIXES := 
-# makefile (from `Makefile', line 19)
-FLAGS = $(FW) -fsanitize=address 
-# default
-.INCLUDE_DIRS = /usr/local/include
-# environment
-MAKELEVEL := 0
+VSCODE_CODE_CACHE_PATH = /home/azarda/.config/Code/CachedData/6c3e3dba23e8fadc360aed75ce363ba185c49794
 # environment
 LANG = C
 # environment
-TERM = xterm-256color
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.BYD491
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-VSCODE_PID = 32260
+GNOME_TERMINAL_SERVICE = :1.122
+# makefile
+MAKEFLAGS = pqrR
+# makefile
+CURDIR := /home/azarda/Desktop/Cub3d
+# makefile (from 'Makefile', line 18)
+FW = 
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+VSCODE_L10N_BUNDLE_LOCATION = 
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrR
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# default
+.SHELLFLAGS := -c
+# environment
+WAYLAND_DISPLAY = wayland-0
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+ZSH = /home/azarda/.oh-my-zsh
+# environment
+VSCODE_PID = 12260
+# environment
+XDG_SESSION_TYPE = wayland
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# makefile (from 'Makefile', line 19)
+FLAGS = $(FW) -fsanitize=address 
+# environment
+SESSION_MANAGER = local/azarda-Prestige-14-A10SC:@/tmp/.ICE-unix/4266,unix/azarda-Prestige-14-A10SC:/tmp/.ICE-unix/4266
+# automatic
+*F = $(notdir $*)
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","osLocale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# makefile (from 'Makefile', line 26)
+INCLUDE = include/global.h include/cub3d.h include/utils.h include/libft.h
+# environment
+HOMEBREW_TEMP = /tmp/azarda/Homebrew/Temp
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# makefile
+SHELL = /bin/sh
+# default
+MAKECMDGOALS := all
+# environment
+XMODIFIERS = @im=ibus
+# makefile (from 'Makefile', line 22)
+HEADERS = -I ./include  -I $(LIBMLX)/include
+# environment
+SHLVL = 1
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/98bed5c5_a495_46e5_93ce_272aa0934f33
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = /home/azarda/goinfre/homebrew/bin:/home/azarda/.brew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+# default
+MAKEFILES := 
+# environment
+LC_MONETARY = es_ES.UTF-8
+# automatic
+^F = $(notdir $^)
+# environment
+LC_TIME = es_ES.UTF-8
+# environment
+USERNAME = azarda
+# environment
+GNOME_SETUP_DISPLAY = :1
+# makefile (from 'Makefile', line 21)
+LIBMLX = ./MLX42
+# environment
+LC_TELEPHONE = es_ES.UTF-8
+# automatic
+?F = $(notdir $?)
+# makefile (from 'Makefile', line 13)
+NAME = cub3D
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# automatic
++F = $(notdir $+)
+# environment
+LESS = -R
+# environment
+DESKTOP_SESSION = ubuntu
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+LOGNAME = azarda
+# makefile
+.DEFAULT_GOAL := all
+# environment
+SYSTEMD_EXEC_PID = 4289
+# environment
+DISPLAY = :0
+# environment
+USER = azarda
+# environment
+GTK_MODULES = gail:atk-bridge
+# default
+MAKE_VERSION := 4.3
+# environment
+LC_MEASUREMENT = es_ES.UTF-8
+# environment
+PAGER = less
+# environment
+_ = /usr/bin/code
+# environment
+LC_PAPER = es_ES.UTF-8
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# environment
+HOMEBREW_CACHE = /tmp/azarda/Homebrew/Caches
+# environment
+COLORTERM = truecolor
+# environment
+XDG_SESSION_CLASS = user
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/azarda
+# environment
+QT_IM_MODULE = ibus
+# makefile (from 'Makefile', line 23)
+MLXLIB = $(LIBMLX)/build/libmlx42.a
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-64384115-1.81-main.sock
+# environment
+TERM = xterm-256color
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+VTE_VERSION = 6800
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# makefile (from 'Makefile', line 16)
+CC = gcc -g
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+GDMSESSION = ubuntu
+# environment
+LC_IDENTIFICATION = es_ES.UTF-8
 # variable set hash-table stats:
-# Load=84/1024=8%, Rehash=0, Collisions=5/117=4%
+# Load=118/1024=12%, Rehash=0, Collisions=17/157=11%
 
 # Pattern-specific Variable Values
 
@@ -188,313 +255,544 @@ VSCODE_PID = 32260
 
 # Directories
 
-# raycasting (device 16777227, inode 6686943): 3 files, no impossibilities so far.
-# utils (device 16777227, inode 6686948): 13 files, no impossibilities so far.
-# include (device 16777227, inode 6686874): 6 files, no impossibilities so far.
-# . (device 16777227, inode 6686709): 22 files, no impossibilities.
-# parsing (device 16777227, inode 6686936): 13 files, no impossibilities so far.
-# minimap (device 16777227, inode 6686932): 7 files, no impossibilities so far.
+# raycasting (device 66311, inode 4331904): 1 files, no impossibilities so far.
+# libft (device 66311, inode 4331836): 101 files, no impossibilities so far.
+# include (device 66311, inode 4331831): 5 files, no impossibilities so far.
+# utils (device 66311, inode 4331909): 12 files, no impossibilities so far.
+# . (device 66311, inode 4340493): 22 files, no impossibilities.
+# parsing (device 66311, inode 4331895): 14 files, no impossibilities so far.
+# minimap (device 66311, inode 4331891): 5 files, no impossibilities so far.
 
-# 64 files, no impossibilities in 6 directories.
+# 160 files, no impossibilities in 7 directories.
 
 # Implicit Rules
 
 %.o: %.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  commands to execute (from `Makefile', line 106):
+#  recipe to execute (from 'Makefile', line 106):
 	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
 
 # 1 implicit rules, 0 (0.0%) terminal.
-
 # Files
 
-parsing/check.o: parsing/check.c include/global.h include/cub3d.h include/utils.h include/libft.h
+libft/ft_lstadd_back.o: libft/ft_lstadd_back.c include/global.h include/cub3d.h include/utils.h include/libft.h
+ 
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `parsing/check'
-#  Last modified 2023-08-19 20:24:24
+#  Implicit/static pattern stem: 'libft/ft_lstadd_back'
+#  Last modified 2023-08-21 14:19:25.671789295
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 106):
+#  recipe to execute (from 'Makefile', line 106):
 	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
+
+utils/index_list.o: utils/index_list.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'utils/index_list'
+#  Last modified 2023-08-21 14:19:25.079789274
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
 
 # Not a target:
-raycasting/ray_cast.c:
+libft/ft_strjoin.c:
 #  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
+#  Last modified 2023-08-19 18:52:00.617195247
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+libft/ft_putnbr_pos_printf.o: libft/ft_putnbr_pos_printf.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_putnbr_pos_printf'
+#  Last modified 2023-08-21 14:19:26.651789331
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
 
 # Not a target:
-parsing/map_check.c:
+libft/ft_strmapi.c:
 #  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
+#  Last modified 2023-08-19 18:52:00.617195247
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-minimap/player_draw.o: minimap/player_draw.c include/global.h include/cub3d.h include/utils.h include/libft.h
+# Not a target:
+libft/ft_isalpha.c:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `minimap/player_draw'
-#  Last modified 2023-08-19 20:24:24
+#  Last modified 2023-08-19 18:52:00.613195247
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 106):
+
+parsing/attributes.o: parsing/attributes.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'parsing/attributes'
+#  Last modified 2023-08-21 14:19:24.271789244
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
 	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
+
+# Not a target:
+libft/ft_isalnum.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+parsing/attributes.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_lstsize.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_strdup.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_printf.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+parsing/parsing.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-20 01:54:54.324885316
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_lstiter.o: libft/ft_lstiter.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_lstiter'
+#  Last modified 2023-08-21 14:19:25.863789302
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+libft/ft_memcpy.o: libft/ft_memcpy.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_memcpy'
+#  Last modified 2023-08-21 14:19:26.151789313
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+parsing/map_check.o: parsing/map_check.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'parsing/map_check'
+#  Last modified 2023-08-21 14:19:24.567789255
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+minimap/map_draw.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-20 19:12:46.395980822
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 minimap/handle_keys.c:
 #  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
+#  Last modified 2023-08-19 18:52:00.617195247
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-all: cub3D
-#  Phony target (prerequisite of .PHONY).
-#  Command-line target.
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-.PHONY: all clean fclean re
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 # Not a target:
-main.c:
+libft/ft_putchar_printf.c:
 #  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
+#  Last modified 2023-08-19 18:52:00.617195247
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
- 
-cub3D: main.o parsing/parsing.o parsing/attributes.o parsing/check.o parsing/info.o parsing/map_parse.o parsing/map_check.o minimap/handle_keys.o minimap/map_draw.o minimap/player_draw.o raycasting/ray_cast.o utils/get_color.o utils/error.o utils/matdup.o utils/free.o utils/index_list.o utils/compare.o MLX42/build/libmlx42.a
-#  Implicit rule search has not been done.
-#  Last modified 2023-08-19 20:24:25
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 100):
-	$(CC) $(FLAGS) libft/libft.a $(OBJ) $(LIBS) -o $(NAME)
-	
-
-# Not a target:
-utils/free.c:
+libft/ft_isprint.o: libft/ft_isprint.c include/global.h include/cub3d.h include/utils.h include/libft.h
 #  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
+#  Implicit/static pattern stem: 'libft/ft_isprint'
+#  Last modified 2023-08-21 14:19:25.499789289
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-parsing/info.o: parsing/info.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `parsing/info'
-#  Last modified 2023-08-19 20:24:24
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 106):
+#  recipe to execute (from 'Makefile', line 106):
 	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
 
 # Not a target:
-.SUFFIXES:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-include/cub3d.h:
+utils/matdup.c:
 #  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
+#  Last modified 2023-08-19 18:52:00.617195247
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+libft/ft_putstr_fd.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+parsing/map_parse.o: parsing/map_parse.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'parsing/map_parse'
+#  Last modified 2023-08-21 14:19:24.495789252
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+libft/get_next_line.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_isalnum.o: libft/ft_isalnum.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_isalnum'
+#  Last modified 2023-08-21 14:19:25.315789282
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+libft/ft_strlcpy.o: libft/ft_strlcpy.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_strlcpy'
+#  Last modified 2023-08-21 14:19:27.271789353
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+libft/ft_strncmp.o: libft/ft_strncmp.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_strncmp'
+#  Last modified 2023-08-21 14:19:27.435789359
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+utils/get_color.o: utils/get_color.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'utils/get_color'
+#  Last modified 2023-08-21 14:19:24.895789267
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:20:32
+#  Last modified 2023-08-21 00:26:12.974737738
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-# Not a target:
-include/global.h:
+utils/error.o: utils/error.c include/global.h include/cub3d.h include/utils.h include/libft.h
 #  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
+#  Implicit/static pattern stem: 'utils/error'
+#  Last modified 2023-08-21 14:19:24.943789269
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-parsing/map_parse.o: parsing/map_parse.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `parsing/map_parse'
-#  Last modified 2023-08-19 20:24:24
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 106):
+#  recipe to execute (from 'Makefile', line 106):
 	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
 
-# Not a target:
-utils/index_list.c:
+libft/ft_putstr_fd.o: libft/ft_putstr_fd.c include/global.h include/cub3d.h include/utils.h include/libft.h
 #  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
+#  Implicit/static pattern stem: 'libft/ft_putstr_fd'
+#  Last modified 2023-08-21 14:19:26.803789336
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+libft/ft_atoi.o: libft/ft_atoi.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_atoi'
+#  Last modified 2023-08-21 14:19:25.171789277
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+libft/ft_putnbr_hex_printf.o: libft/ft_putnbr_hex_printf.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_putnbr_hex_printf'
+#  Last modified 2023-08-21 14:19:26.595789329
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+utils/get_color.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_strrchr.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_atoi.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+ 
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_lstadd_back.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_strlen.o: libft/ft_strlen.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_strlen'
+#  Last modified 2023-08-21 14:19:27.331789356
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
 
 # Not a target:
 parsing/check.c:
 #  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
+#  Last modified 2023-08-19 18:52:00.617195247
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-utils/compare.o: utils/compare.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `utils/compare'
-#  Last modified 2023-08-19 20:24:25
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 106):
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
 
 # Not a target:
-minimap/player_draw.c:
+parsing/map_parse.c:
 #  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
+#  Last modified 2023-08-19 18:52:00.617195247
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-parsing/attributes.o: parsing/attributes.c include/global.h include/cub3d.h include/utils.h include/libft.h
+# Not a target:
+parsing/map_check.c:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `parsing/attributes'
-#  Last modified 2023-08-19 20:24:24
+#  Last modified 2023-08-19 18:52:00.617195247
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 106):
+
+parsing/check.o: parsing/check.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'parsing/check'
+#  Last modified 2023-08-21 14:19:24.339789247
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
 	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
 
-minimap/map_draw.o: minimap/map_draw.c include/global.h include/cub3d.h include/utils.h include/libft.h
+libft/ft_putchar_fd.o: libft/ft_putchar_fd.c include/global.h include/cub3d.h include/utils.h include/libft.h
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `minimap/map_draw'
-#  Last modified 2023-08-19 20:24:24
+#  Implicit/static pattern stem: 'libft/ft_putchar_fd'
+#  Last modified 2023-08-21 14:19:26.36778932
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 106):
+#  recipe to execute (from 'Makefile', line 106):
 	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
-
-fclean: clean
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 112):
-	rm -rf $(NAME)
-	
-
-utils/error.o: utils/error.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `utils/error'
-#  Last modified 2023-08-19 20:24:24
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 106):
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
-
-utils/matdup.o: utils/matdup.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `utils/matdup'
-#  Last modified 2023-08-19 20:24:24
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 106):
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
 
 # Not a target:
 parsing/info.c:
 #  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
+#  Last modified 2023-08-19 18:52:00.617195247
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-.DEFAULT:
+libft/ft_lstdelone.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_putchar_printf.o: libft/ft_putchar_printf.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_putchar_printf'
+#  Last modified 2023-08-21 14:19:26.443789323
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+clean:
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Modification time never checked.
+#  File does not exist.
 #  File has not been updated.
+#  recipe to execute (from 'Makefile', line 109):
+	rm -rf $(OBJ)
 
-utils/get_color.o: utils/get_color.c include/global.h include/cub3d.h include/utils.h include/libft.h
+# Not a target:
+libft/ft_isdigit.c:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `utils/get_color'
-#  Last modified 2023-08-19 20:24:24
+#  Last modified 2023-08-19 18:52:00.613195247
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 106):
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
 
-parsing/parsing.o: parsing/parsing.c include/global.h include/cub3d.h include/utils.h include/libft.h
+# Not a target:
+libft/ft_bzero.c:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `parsing/parsing'
-#  Last modified 2023-08-19 20:24:24
+#  Last modified 2023-08-19 18:52:00.613195247
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 106):
+
+utils/matdup.o: utils/matdup.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'utils/matdup'
+#  Last modified 2023-08-21 14:19:24.98778927
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
 	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
+
+# Not a target:
+libft/ft_lstiter.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_strjoin.o: libft/ft_strjoin.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_strjoin'
+#  Last modified 2023-08-21 14:19:27.127789348
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+libft/ft_isascii.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_isascii.o: libft/ft_isascii.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_isascii'
+#  Last modified 2023-08-21 14:19:25.411789286
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+parsing/info.o: parsing/info.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'parsing/info'
+#  Last modified 2023-08-21 14:19:24.41978925
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+utils/compare.o: utils/compare.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'utils/compare'
+#  Last modified 2023-08-21 14:19:25.123789275
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+libft/ft_split.o: libft/ft_split.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_split'
+#  Last modified 2023-08-21 14:19:26.89978934
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+libft/get_next_line_utils.o: libft/get_next_line_utils.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/get_next_line_utils'
+#  Last modified 2023-08-21 14:19:27.72378937
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+raycasting/ray_cast.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-21 00:25:50.334736913
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_strmapi.o: libft/ft_strmapi.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_strmapi'
+#  Last modified 2023-08-21 14:19:27.387789358
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+include/global.h:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 20:47:01.208330445
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+utils/index_list.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_lstlast.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_putptr_printf.o: libft/ft_putptr_printf.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_putptr_printf'
+#  Last modified 2023-08-21 14:19:26.751789334
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+libft/ft_strchr.o: libft/ft_strchr.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_strchr'
+#  Last modified 2023-08-21 14:19:26.987789343
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
 
 re: fclean all
 #  Phony target (prerequisite of .PHONY).
@@ -502,200 +800,647 @@ re: fclean all
 #  File does not exist.
 #  File has not been updated.
 
-raycasting/ray_cast.o: raycasting/ray_cast.c include/global.h include/cub3d.h include/utils.h include/libft.h
+# Not a target:
+libft/ft_putchar_fd.c:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `raycasting/ray_cast'
-#  Last modified 2023-08-19 20:24:24
+#  Last modified 2023-08-19 18:52:00.617195247
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 106):
+
+libft/ft_printf.o: libft/ft_printf.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_printf'
+#  Last modified 2023-08-21 14:19:26.315789319
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
 	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
+
+libft/ft_calloc.o: libft/ft_calloc.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_calloc'
+#  Last modified 2023-08-21 14:19:25.271789281
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
 
 # Not a target:
-parsing/map_parse.c:
+libft/ft_calloc.c:
 #  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
+#  Last modified 2023-08-19 18:52:00.613195247
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-clean:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 109):
-	rm -rf $(OBJ)
-	
+libft/ft_memcmp.o: libft/ft_memcmp.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_memcmp'
+#  Last modified 2023-08-21 14:19:26.103789311
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+ 
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+utils/free.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
 
 MLX42/build/libmlx42.a:
- 
 #  Implicit rule search has not been done.
-#  Last modified 2023-08-19 20:17:42
+#  Last modified 2023-08-19 18:52:09.825195151
 #  File has been updated.
 #  Successfully updated.
-#  commands to execute (from `Makefile', line 103):
+#  recipe to execute (from 'Makefile', line 103):
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
-	
 
-parsing/map_check.o: parsing/map_check.c include/global.h include/cub3d.h include/utils.h include/libft.h
+# Not a target:
+libft/ft_strlen.c:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `parsing/map_check'
-#  Last modified 2023-08-19 20:24:24
+#  Last modified 2023-08-19 18:52:00.617195247
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 106):
+
+# Not a target:
+libft/ft_lstadd_front.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_memset.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_lstnew.o: libft/ft_lstnew.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_lstnew'
+#  Last modified 2023-08-21 14:19:25.959789306
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
 	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
-
-minimap/handle_keys.o: minimap/handle_keys.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `minimap/handle_keys'
-#  Last modified 2023-08-19 20:24:24
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 106):
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
-
-# Not a target:
-utils/compare.c:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-parsing/attributes.c:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-minimap/map_draw.c:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-main.o: main.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `main'
-#  Last modified 2023-08-19 20:24:24
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 106):
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
-
-utils/free.o: utils/free.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `utils/free'
-#  Last modified 2023-08-19 20:24:24
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 106):
-	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
-
-# Not a target:
-utils/error.c:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-utils/matdup.c:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-include/libft.h:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 include/utils.h:
 #  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
+#  Last modified 2023-08-19 18:52:00.613195247
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-# Not a target:
-utils/get_color.c:
+libft/ft_lstlast.o: libft/ft_lstlast.c include/global.h include/cub3d.h include/utils.h include/libft.h
 #  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
+#  Implicit/static pattern stem: 'libft/ft_lstlast'
+#  Last modified 2023-08-21 14:19:25.911789304
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-parsing/parsing.c:
-#  Implicit rule search has been done.
-#  Last modified 2023-08-19 20:16:23
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-utils/index_list.o: utils/index_list.c include/global.h include/cub3d.h include/utils.h include/libft.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `utils/index_list'
-#  Last modified 2023-08-19 20:24:25
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 106):
+#  recipe to execute (from 'Makefile', line 106):
 	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
-	
+
+libft/ft_bzero.o: libft/ft_bzero.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_bzero'
+#  Last modified 2023-08-21 14:19:25.215789279
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+libft/ft_strtrim.o: libft/ft_strtrim.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_strtrim'
+#  Last modified 2023-08-21 14:19:26.943789341
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+libft/ft_substr.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_memcmp.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_strrchr.o: libft/ft_strrchr.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_strrchr'
+#  Last modified 2023-08-21 14:19:27.543789363
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+include/libft.h:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+minimap/handle_keys.o: minimap/handle_keys.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'minimap/handle_keys'
+#  Last modified 2023-08-21 14:19:24.647789258
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+libft/ft_putptr_printf.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_lstadd_front.o: libft/ft_lstadd_front.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_lstadd_front'
+#  Last modified 2023-08-21 14:19:25.719789297
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+utils/error.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_lstnew.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_strchr.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+all: cub3D
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_isdigit.o: libft/ft_isdigit.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_isdigit'
+#  Last modified 2023-08-21 14:19:25.455789287
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 112):
+	rm -rf $(NAME)
+
+raycasting/ray_cast.o: raycasting/ray_cast.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'raycasting/ray_cast'
+#  Last modified 2023-08-21 14:19:24.847789265
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+libft/ft_lstclear.o: libft/ft_lstclear.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_lstclear'
+#  Last modified 2023-08-21 14:19:25.767789299
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+libft/ft_substr.o: libft/ft_substr.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_substr'
+#  Last modified 2023-08-21 14:19:27.599789365
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+libft/ft_itoa.o: libft/ft_itoa.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_itoa'
+#  Last modified 2023-08-21 14:19:25.547789291
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+libft/ft_strlcpy.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_putendl_fd.o: libft/ft_putendl_fd.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_putendl_fd'
+#  Last modified 2023-08-21 14:19:26.499789325
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+main.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-20 02:06:47.916877886
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_putnbr_printf.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_strlcat.o: libft/ft_strlcat.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_strlcat'
+#  Last modified 2023-08-21 14:19:27.199789351
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+libft/ft_isalpha.o: libft/ft_isalpha.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_isalpha'
+#  Last modified 2023-08-21 14:19:25.363789284
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+libft/ft_putstr_printf.o: libft/ft_putstr_printf.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_putstr_printf'
+#  Last modified 2023-08-21 14:19:26.847789338
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+main.o: main.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'main'
+#  Last modified 2023-08-21 14:19:24.115789238
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+libft/ft_memset.o: libft/ft_memset.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_memset'
+#  Last modified 2023-08-21 14:19:26.251789316
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+ 
+libft/ft_putnbr_fd.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_strnstr.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_putendl_fd.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/get_next_line_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_strtrim.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_putnbr_pos_printf.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_strdup.o: libft/ft_strdup.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_strdup'
+#  Last modified 2023-08-21 14:19:27.031789345
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+minimap/map_draw.o: minimap/map_draw.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'minimap/map_draw'
+#  Last modified 2023-08-21 14:19:24.71978926
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+libft/ft_memchr.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+minimap/player_draw.o: minimap/player_draw.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'minimap/player_draw'
+#  Last modified 2023-08-21 14:19:24.787789263
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+libft/ft_split.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_memchr.o: libft/ft_memchr.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_memchr'
+#  Last modified 2023-08-21 14:19:26.051789309
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+minimap/player_draw.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_striteri.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_lstclear.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_memcpy.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_lstdelone.o: libft/ft_lstdelone.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_lstdelone'
+#  Last modified 2023-08-21 14:19:25.8157893
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+libft/ft_strlcat.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_lstsize.o: libft/ft_lstsize.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_lstsize'
+#  Last modified 2023-08-21 14:19:26.003789307
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+libft/get_next_line.o: libft/get_next_line.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/get_next_line'
+#  Last modified 2023-08-21 14:19:27.655789367
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+cub3D: main.o parsing/parsing.o parsing/attributes.o parsing/check.o parsing/info.o parsing/map_parse.o parsing/map_check.o minimap/handle_keys.o minimap/map_draw.o minimap/player_draw.o raycasting/ray_cast.o utils/get_color.o utils/error.o utils/matdup.o utils/free.o utils/index_list.o utils/compare.o libft/ft_atoi.o libft/ft_bzero.o libft/ft_calloc.o libft/ft_isalnum.o libft/ft_isalpha.o libft/ft_isascii.o libft/ft_isdigit.o libft/ft_isprint.o libft/ft_itoa.o libft/ft_lstadd_back.o libft/ft_lstadd_front.o libft/ft_lstclear.o libft/ft_lstdelone.o libft/ft_lstiter.o libft/ft_lstlast.o libft/ft_lstnew.o libft/ft_lstsize.o libft/ft_memchr.o libft/ft_memcmp.o libft/ft_memcpy.o libft/ft_memmove.o libft/ft_memset.o libft/ft_printf.o libft/ft_putchar_fd.o libft/ft_putchar_printf.o libft/ft_putendl_fd.o libft/ft_putnbr_fd.o libft/ft_putnbr_hex_printf.o libft/ft_putnbr_pos_printf.o libft/ft_putnbr_printf.o libft/ft_putptr_printf.o libft/ft_putstr_fd.o libft/ft_putstr_printf.o libft/ft_split.o libft/ft_strtrim.o libft/ft_strchr.o libft/ft_strdup.o libft/ft_striteri.o libft/ft_strjoin.o libft/ft_strlcat.o libft/ft_strlcpy.o libft/ft_strlen.o libft/ft_strmapi.o libft/ft_strncmp.o libft/ft_strnstr.o libft/ft_strrchr.o libft/ft_substr.o libft/get_next_line.o libft/get_next_line_utils.o MLX42/build/libmlx42.a
+#  Implicit rule search has not been done.
+#  Last modified 2023-08-21 14:19:27.815789373
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 100):
+	$(CC) $(FLAGS)  $(OBJ) $(LIBS) -o $(NAME)
+
+parsing/parsing.o: parsing/parsing.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'parsing/parsing'
+#  Last modified 2023-08-21 14:19:24.195789241
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+libft/ft_memmove.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_striteri.o: libft/ft_striteri.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_striteri'
+#  Last modified 2023-08-21 14:19:27.079789346
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+libft/ft_putnbr_fd.o: libft/ft_putnbr_fd.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_putnbr_fd'
+#  Last modified 2023-08-21 14:19:26.547789327
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+libft/ft_strncmp.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_memmove.o: libft/ft_memmove.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_memmove'
+#  Last modified 2023-08-21 14:19:26.199789314
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+libft/ft_itoa.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+utils/compare.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+.PHONY: all clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+utils/free.o: utils/free.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'utils/free'
+#  Last modified 2023-08-21 14:19:25.035789272
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+libft/ft_putnbr_hex_printf.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_putnbr_printf.o: libft/ft_putnbr_printf.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_putnbr_printf'
+#  Last modified 2023-08-21 14:19:26.703789333
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+# Not a target:
+include/cub3d.h:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+libft/ft_isprint.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.613195247
+#  File has been updated.
+#  Successfully updated.
+
+libft/ft_strnstr.o: libft/ft_strnstr.c include/global.h include/cub3d.h include/utils.h include/libft.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'libft/ft_strnstr'
+#  Last modified 2023-08-21 14:19:27.491789361
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 106):
+	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
+
+ 
+# Not a target:
+libft/ft_putstr_printf.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-08-19 18:52:00.617195247
+#  File has been updated.
+#  Successfully updated.
 
 # files hash-table stats:
-# Load=48/1024=5%, Rehash=0, Collisions=0/274=0%
+# Load=146/1024=14%, Rehash=0, Collisions=26/960=3%
 # VPATH Search Paths
 
-# No `vpath' search paths.
+# No 'vpath' search paths.
 
-# No general (`VPATH' variable) search path.
+# No general ('VPATH' variable) search path.
 
-# # of strings in strcache: 1
-# # of strcache buffers: 1
-# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
-# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+# strcache buffers: 1 (0) / strings = 364 / storage = 5771 B / avg = 15 B
+# current buf: size = 8162 B / used = 5771 B / count = 364 / avg = 15 B
 
-# Finished Make data base on Sat Aug 19 20:25:17 2023
+# strcache performance: lookups = 996 / hit rate = 63%
+# hash-table stats:
+# Load=364/8192=4%, Rehash=0, Collisions=8/996=1%
+# Finished Make data base on Tue Aug 22 19:09:21 2023
 
  
