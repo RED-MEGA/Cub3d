@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_draw.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/22 19:13:08 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/23 18:54:31 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	draw_square(mlx_image_t *image, int x, int y, int color)
 		x = x_tmp;
 		while (x < (x_tmp + SQUARE_LEN))
 		{
-			mlx_put_pixel(image, x, y, color);
+			mlx_put_pixel_p(image, x, y, color);
 			x++;
 		}
 		y++;

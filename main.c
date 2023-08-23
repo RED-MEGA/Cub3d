@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/20 02:06:47 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/23 18:45:50 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	draw_fc(t_global *pub)
 		while (++pos.x < WIDTH)
 		{
 			if (pos.y >= 0 && pos.y <= HEIGHT / 2)
-				mlx_put_pixel(
+				mlx_put_pixel_p(
 					pub->window_img,
 					pos.x,
 					pos.y,
@@ -34,7 +34,7 @@ void	draw_fc(t_global *pub)
 						255));
 
 			if (pos.y >= HEIGHT / 2 && pos.y <= HEIGHT)
-				mlx_put_pixel(
+				mlx_put_pixel_p(
 					pub->window_img,
 					pos.x,
 					pos.y,
@@ -57,27 +57,21 @@ void	refresh_frame(void *param)
 	// update frame
 
 
-
-
-	ray_cast(pub);
+	// Zerda test
+	// ray_cast(pub);
 
 
 	
+
+
+
+
+
 	to_2D_map(pub);
-
-
-
-
-
 	t = clock() - t;
 	double time_taken = ((double)t) / CLOCKS_PER_SEC;
 	printf("--- FPS :%d\n", (int)(1 / time_taken));
 }
-
-
-
-
-
 
 void change_dr(t_player *player)
 {

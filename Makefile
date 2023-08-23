@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/08/23 17:37:42 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/08/23 18:20:11 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC = main.c \
 		minimap/map_draw.c \
 		minimap/player_draw.c \
 		raycasting/ray_cast.c \
+		utils/math_tools.c \
 		utils/get_color.c \
 		utils/error.c \
 		utils/matdup.c \

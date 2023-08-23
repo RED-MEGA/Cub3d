@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   global.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/22 20:48:41 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/23 18:33:57 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ typedef struct s_player
 	int			turn_d;
 	int			walk_d;
 	double		rotation_angle;
+	double		ray_angle;
 }	t_player;
 
 typedef struct s_color
