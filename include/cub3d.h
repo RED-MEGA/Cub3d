@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   Cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/24 18:46:11 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/24 20:18:42 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void		handle_keys(mlx_key_data_t keydata, void *param);
 t_global	*init_global(t_info *info);
 int			get_color(char c);
 void		draw_square(mlx_image_t *image, int x, int y, int color);
-void		to_2D_map(t_global *pub);
+void		minimap(t_global *pub);
 void		draw_player(mlx_image_t *image, t_info *info);
 void		draw_line(mlx_image_t *image, t_pos start, t_pos end);
 
@@ -66,5 +66,11 @@ void		draw_line(mlx_image_t *image, t_pos start, t_pos end);
 
 t_pos	ray_cast(t_global *pub);
 float	normalize_angle(float angle);
+
+/* **************** */
+/*     RENDERING    */
+/* **************** */
+
+void	draw_fc(t_global *pub);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/24 18:48:45 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/24 20:18:41 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	draw_fov(t_global *pub, t_player *player)
 	}
 }
 
-void	to_2D_map(t_global *pub)
+void	minimap(t_global *pub)
 {
 	t_loc		index;
 	t_player	*player;
