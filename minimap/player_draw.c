@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:47:56 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/23 18:45:50 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/24 18:31:38 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void	draw_line(mlx_image_t *image, t_pos start, t_pos end)
     int steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy);
  
     // calculate increment in x & y for each steps
-    float Xinc = dx / (float)steps;
-    float Yinc = dy / (float)steps;
+    double Xinc = dx / (double)steps;
+    double Yinc = dy / (double)steps;
  
     // Put pixel for each step
-    float X = start.x;
-    float Y = start.y;
+    double X = start.x;
+    double Y = start.y;
     for (int i = 0; i <= steps; i++)
 	{
 		mlx_put_pixel_p(image

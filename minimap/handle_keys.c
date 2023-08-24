@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/06 22:00:16 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/24 18:31:18 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ void	set_newpos(t_global *pub)
 
 	player = &(pub->info->player);
 	if (player->turn_d != 0)
+	{
 		player->rotation_angle += (double)player->turn_d * P_ROTATION_SPEED;
+		player->rotation_angle = normalize_angle(player->rotation_angle);
+	}
 	if (player->walk_d != 0)
 	{
 		new_pos.x = player->pos.x;
@@ -54,7 +57,7 @@ void	set_newpos(t_global *pub)
 	printf("Turn : %d\n", player->turn_d);
 	printf("Walk : %d\n", player->walk_d);
 	printf("[ x: %.3f -- y: %.3f ]\n", player->pos.x, player->pos.y);
-	printf("Rotation angle : %.3f\n\n", player->rotation_angle);
+	printf("Rotation angle : %.3f\n\n", to_degree(player->rotation_angle));
 }
 
 void	handle_keys(mlx_key_data_t keydata, void *param)

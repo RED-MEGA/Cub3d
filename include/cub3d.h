@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/17 19:06:45 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/24 18:46:11 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void		draw_line(mlx_image_t *image, t_pos start, t_pos end);
 /*     RAYCASTING   */
 /* **************** */
 
-void ray_cast(t_global *pub);
-
+t_pos	ray_cast(t_global *pub);
+float	normalize_angle(float angle);
 
 #endif

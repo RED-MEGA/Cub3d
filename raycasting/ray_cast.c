@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_cast.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/08/24 18:00:32 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/24 18:45:58 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ double ft_destance(double x1, double y1, double x2, double y2)
 	return(sqrt((x2 - x1) * (x2 - x1) +(y2 - y1) * (y2 -y1)));
 }
 
-void ray_cast(t_global *pub)
+t_pos ray_cast(t_global *pub)
 {
 
 	//--------------------------------------------size map -----------------------------------------------
@@ -83,7 +83,7 @@ void ray_cast(t_global *pub)
 	t_player player = pub->info->player;
     // player.rotation_angle = normalize_angle(player.rotation_angle);  // dega normalizet de puis l7myer
 
-	double ray_angel = normalize_angle(player.rotation_angle);
+	double ray_angel = normalize_angle(player.ray_angle);
 
 	double wallhit_x = 0;
 	double wallhit_y  = 0;
@@ -225,7 +225,9 @@ void ray_cast(t_global *pub)
 		}
 	}
 
-	double  horisontal_distance = 135416843148613586154564683546514685146.85 ;
+	t_pos end_pos;
+
+	double  horisontal_distance = 135416843148613586154564683546514685146.85;
 	double  vertical_distance = 135416843148613586154564683546514685146.85;
 	if(flag_horison)
 	{
@@ -237,173 +239,14 @@ void ray_cast(t_global *pub)
 	}
 	if(horisontal_distance < vertical_distance)
 	{
-		pub->tess_x = next_horiso_x;
+		end_pos.x = next_horiso_x;
 		
 	}
 	else
-		pub->tess_x = next_verti_x;
+		end_pos.x = next_verti_x;
 	if(horisontal_distance < vertical_distance)
-		pub->tess_y = next_horiso_y;
+		end_pos.y = next_horiso_y;
 	else
-		pub->tess_y = next_verti_y;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//-----------------------------------------------------------------------------------------------------------------------
-	// float new_x = 0;
-	// float new_y = 0;
-
-
-
-	// 	// printf("new y %f\n", new_y);
-	// 	// printf("new x %f\n", new_x);
-
-
-
-	// new_y = floor(player.pos.y / SQUARE_LEN) * SQUARE_LEN ;
-	// if(is_down)
-	// 	new_y += SQUARE_LEN;
-	// new_x = player.pos.x + (new_y - player.pos.y) / tan(player.rotation_angle);
-
-
-	// float new_step_x = 0;
-	// float new_step_y = 0;
-
-
-	// new_step_y = SQUARE_LEN;
-	// new_step_x = SQUARE_LEN / tan(player.rotation_angle);
-
-
-
-
-	// while(1)
-	// {
-	// 	// printf("new y %f\n", new_y);
-	// 	// printf("new x %f\n", new_x);
-	// 	// puts("-------------------------------------------------------------------------------");
-
-
-
-
-	// 	int x = floor(new_x / SQUARE_LEN);
-	// 	int y = floor(new_y / SQUARE_LEN);
-
-
-	// 	// printf("y_map  ---->>>  %d x_map ->>>> %d \n", s_y_map, s_x_map);
-	// 	// 	printf("y %d\n", y);
-	// 	// printf("x %d\n", x);
-
-
-
-	// 	if(y >= s_y_map || y < 0  || x >= s_x_map || x < 0 )
-	// 	{
-	// 		// puts( "HNA BREKA" );
-	// 		break;
-	// 	}
-	// 	if (pub->info->map[y][x] == '1')
-	// 		break;
-	// 		new_x += new_step_x;
-	// 		new_y += new_step_y;
-
-	// }
-	// 	// printf("new y %f\n", new_y);
-	// 	// printf("new x %f\n", new_x);
-	// // exit(0);
-
-
-//-----------------------------------------------------------------------------------------------------------------------
-
-	// float v_new_x = 0;
-	// float v_new_y = 0;
-
-	// v_new_x = floor(player.pos.x / SQUARE_LEN) * SQUARE_LEN ;
-	// 	// if(is_up)
-	// 	// v_new_x *= -1;
-	// v_new_y = player.pos.y + (v_new_x - player.pos.x) * tan(player.rotation_angle);
-
-
-	// float v_new_step_x = 0;
-	// float v_new_step_y = 0;
-
-	// v_new_step_x = SQUARE_LEN;
-	// v_new_step_y = SQUARE_LEN * tan(player.rotation_angle);
-
-
-
-	// while(1)
-	// {
-	// 	int j = floor(v_new_y / SQUARE_LEN);
-	// 	int i = floor(v_new_x / SQUARE_LEN);
-	// 	if(i >= s_y_map ||  i < 0 || j >= s_x_map || j < 0 )
-	// 	{
-	// 		// puts( "HNA BREKA" );
-	// 		break;
-	// 	}
-	// 	if(pub->info->map[i][j] == '1')
-	// 		break;
-	// 	v_new_x += v_new_step_x;
-	// 	v_new_y += v_new_step_y;
-	// }
-
-//------------------------------------------------------------passto_draw-------------------------------------------------------
-// 	printf("------------------------ ray cast ------------------\n");
-
-// 	if(v_new_x < new_x && v_new_x >= 0)
-// 	{
-// 		// printf("1  v new x  --> %f\n", v_new_x);
-// 		pub->tess_x = v_new_x;
-
-// 	}
-// 	else if(new_x >= 0)
-// 	{
-// 		// printf("2  new x  --> %f\n", new_x);
-// 		pub->tess_x = new_x;
-
-// 	}
-
-// 	if(v_new_y < new_y && v_new_y >= 0)
-// 	{
-
-// 		// printf("3  v new y  --> %f\n", v_new_y);
-// 		// printf("3  new y  --> %f\n", new_y);
-// 		pub->tess_y = v_new_y;
-
-// 	}
-// 	else if (new_y >= 0)
-// 	{
-// 		// printf("4  new y  --> %f\n", new_y);
-// 		pub->tess_y = new_y;
-// 	}
-
-// 	printf("x go to dro  --->> %f\n", pub->tess_x );
-// 	printf("y go to dro  --->> %f\n", pub->tess_y );
-// 	// exit(0);
-
-// 	// printf("x_size map %d\ny_size_map %d\n", s_x_map, s_y_map);
-// 	// printf("x point to draw  %d\ny to mlx tom draw  %d\n", pub->tess_x, pub->tess_y);
-// //-----------------------------------------------------------------------------------------------------------------------
-
-// 	printf("==|%f|==\n",player.rotation_angle);
-// 	// exit(0);
-
-
-
+		end_pos.y = next_verti_y;
+	return (end_pos);
 }

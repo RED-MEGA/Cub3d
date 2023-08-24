@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_draw.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/24 18:16:59 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/24 18:48:45 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void change_dr(t_player *player)
-{
-	if (player->direction == NO)
-		player->rotation_angle =  3 * M_PI_2;
-	else if (player->direction == SO)
-		player->rotation_angle = M_PI_2;
-	else if (player->direction == WE)
-		player->rotation_angle = M_PI;
-	else if (player->direction == EA)
-		player->rotation_angle = 0;
-}
 
 t_global	*init_global(t_info *info)
 {
@@ -37,7 +25,6 @@ t_global	*init_global(t_info *info)
 	global->window_img = mlx_new_image(global->mlx, WIDTH, HEIGHT);
 	if (!global->window_img)
 		ft_error_msg(mlx_strerror(mlx_errno), 1);
-	change_dr(&info->player);
 	ft_error(mlx_image_to_window(global->mlx, global->window_img, 0, 0), 1);
 	return (global);
 }
@@ -69,6 +56,20 @@ void	draw_square(mlx_image_t *image, int x, int y, int color)
 	}
 }
 
+void	draw_fov(t_global *pub, t_player *player)
+{
+	const double	rays_d = to_rad(60) / WIDTH;
+	t_pos		end_pos;
+
+	player->ray_angle = normalize_angle(player->rotation_angle - (FOV_ANGLE / 2));
+	for (size_t i = 0; i < WIDTH; i++)
+	{
+		end_pos = ray_cast(pub);
+		draw_line(pub->window_img, player->pos, end_pos);
+		player->ray_angle = normalize_angle(player->ray_angle + rays_d);
+	}
+}
+
 void	to_2D_map(t_global *pub)
 {
 	t_loc		index;
@@ -87,6 +88,5 @@ void	to_2D_map(t_global *pub)
 				, get_color(pub->info->map[index.i][index.j]));
 	}
 	draw_player(pub->window_img, pub->info);
-	draw_line(pub->window_img, player->pos, (t_pos){.x = player->pos.x + (cos(player->rotation_angle) * 10 ) , .y = player->pos.y + (sin(player->rotation_angle) * 10)});
-	mlx_put_pixel(pub->window_img, pub->tess_x, pub->tess_y, get_rgb(RED_R, RED_G, RED_B, 255));
+	draw_fov(pub, player);
 }
