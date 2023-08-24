@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/24 20:18:42 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/24 20:31:06 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ float	normalize_angle(float angle);
 /*     RENDERING    */
 /* **************** */
 
+void	render(t_global *pub);
 void	draw_fc(t_global *pub);
 
 #endif
