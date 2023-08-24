@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/24 20:23:03 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/24 20:28:26 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,10 @@ void	draw_fov(t_global *pub, t_player *player)
 	}
 }
 
-void	minimap(t_global *pub)
+void	draw_map(t_global *pub)
 {
-	t_loc		index;
-	t_player	*player;
+	t_loc	index;
 
-	player = &pub->info->player;
 	index.j = -1;
 	index.i = -1;
 	while (pub->info->map[++index.i])
@@ -86,6 +84,14 @@ void	minimap(t_global *pub)
 				, index.i * SQUARE_LEN
 				, get_color(pub->info->map[index.i][index.j]));
 	}
+}
+
+void	minimap(t_global *pub)
+{
+	t_player	*player;
+
+	player = &pub->info->player;
+	draw_map(pub);
 	draw_player(pub->window_img, pub->info);
 	draw_fov(pub, player);
 }
