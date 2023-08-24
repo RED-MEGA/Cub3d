@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/23 18:33:57 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/24 20:24:53 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,30 +55,18 @@
 # define WHITE_G 255
 # define WHITE_B 255
 
-// # define HEIGHT 2880
-// # define WIDTH 5120
-
 # define HEIGHT 1080
 # define WIDTH 1920
+
 # define SQUARE_LEN 30
+
 # define P_RADIUS 6
 # define P_ROTATION_SPEED 5.0 * (M_PI / 180)
 # define P_MOVE_SPEED 5.0
 
-
-
-
-
-
-//=======================azarda=============================
-
-#define PI 3.14159265
-#define FOV_ANGLE (60 * (PI / 180))
-#define TWO_PI 6.28318530
-
-
-
-//===========================================================
+# define PI M_PI
+# define RAY_D FOV_ANGLE / WIDTH
+# define FOV_ANGLE (60 * (PI / 180))
 
 typedef enum e_direction
 {
