@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   map_draw.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/23 18:54:31 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/24 18:16:59 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void change_dr(t_player *player)
+{
+	if (player->direction == NO)
+		player->rotation_angle =  3 * M_PI_2;
+	else if (player->direction == SO)
+		player->rotation_angle = M_PI_2;
+	else if (player->direction == WE)
+		player->rotation_angle = M_PI;
+	else if (player->direction == EA)
+		player->rotation_angle = 0;
+}
 
 t_global	*init_global(t_info *info)
 {
@@ -25,6 +37,7 @@ t_global	*init_global(t_info *info)
 	global->window_img = mlx_new_image(global->mlx, WIDTH, HEIGHT);
 	if (!global->window_img)
 		ft_error_msg(mlx_strerror(mlx_errno), 1);
+	change_dr(&info->player);
 	ft_error(mlx_image_to_window(global->mlx, global->window_img, 0, 0), 1);
 	return (global);
 }

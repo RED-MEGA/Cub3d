@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/23 18:45:50 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/23 20:07:28 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ void	refresh_frame(void *param)
 
 
 	// Zerda test
-	// ray_cast(pub);
+	ray_cast(pub);
 
 
-	
+
 
 
 
@@ -73,17 +73,7 @@ void	refresh_frame(void *param)
 	printf("--- FPS :%d\n", (int)(1 / time_taken));
 }
 
-void change_dr(t_player *player)
-{
-	if (player->direction == NO)
-		player->rotation_angle =  3 * M_PI_2;
-	else if (player->direction == SO)
-		player->rotation_angle = M_PI_2;
-	else if (player->direction == WE)
-		player->rotation_angle = M_PI;
-	else if (player->direction == EA)
-		player->rotation_angle = 0;	
-}
+
 
 void	cub3d(char *file_name)
 {
@@ -93,7 +83,6 @@ void	cub3d(char *file_name)
 	info = parsing(file_name);
 	pub = init_global(info);
 	draw_fc(pub);
-	change_dr(&pub->info->player);
 	to_2D_map(pub);
 
 	mlx_key_hook(pub->mlx, handle_keys, pub);
