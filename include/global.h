@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/24 20:24:53 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/24 23:32:30 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,12 @@ typedef struct s_loc
 	int	i;
 }	t_loc;
 
+typedef struct s_ray
+{
+	double	ray_angle;
+	double	len;
+}	t_ray;
+
 typedef struct s_player
 {
 	t_pos		pos;
@@ -104,6 +110,7 @@ typedef struct s_player
 	int			walk_d;
 	double		rotation_angle;
 	double		ray_angle;
+	t_ray		ray[WIDTH];
 }	t_player;
 
 typedef struct s_color
