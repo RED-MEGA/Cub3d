@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cub3d.h                                            :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/24 20:31:06 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/25 11:49:00 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void		draw_line(mlx_image_t *image, t_pos start, t_pos end);
 /* **************** */
 
 t_pos	ray_cast(t_global *pub);
-float	normalize_angle(float angle);
+double	normalize_angle(double angle);
 
 /* **************** */
 /*     RENDERING    */
