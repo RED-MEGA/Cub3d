@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/25 18:48:29 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/25 18:56:43 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ double	calcul_wp(t_player	*player, int i)
 {
 	// note 1:
 	return (
-		SQUARE_LEN / player->ray[i].len
+		SQUARE_LEN / (player->ray[i].len * cos(player->ray[i].ray_angle))
 		*
 		((WIDTH / 2) / tan(FOV_ANGLE / 2))
 	);
