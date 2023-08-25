@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/24 20:19:56 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/25 18:41:56 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ void	refresh_frame(void *param)
 
 
 	// update frame
+	draw_fc(pub);
 	minimap(pub);
-
+	render(pub);
+	minimap(pub);
 
 	// Debug
 	t = clock() - t;

@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/24 20:28:26 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/25 16:22:50 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ void	draw_fov(t_global *pub, t_player *player)
 	for (size_t i = 0; i < WIDTH; i++)
 	{
 		end_pos = ray_cast(pub);
-		draw_line(pub->window_img, player->pos, end_pos);
+		player->ray[i].ray_angle = player->ray_angle;
+		player->ray[i].len = draw_line(pub->window_img, player->pos, end_pos);
 		player->ray_angle = normalize_angle(player->ray_angle + RAY_D);
 	}
 }

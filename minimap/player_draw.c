@@ -6,13 +6,13 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:47:56 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/24 18:31:38 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/25 16:21:23 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	draw_line(mlx_image_t *image, t_pos start, t_pos end)
+double	draw_line(mlx_image_t *image, t_pos start, t_pos end)
 {
 	int dx = end.x - start.x;
     int dy = end.y - start.y;
@@ -38,6 +38,13 @@ void	draw_line(mlx_image_t *image, t_pos start, t_pos end)
         X += Xinc; // increment in x at each step
         Y += Yinc; // increment in y at each step
     }
+	return (
+		sqrt(
+			pow(end.x - start.x, 2)
+			+ 
+			pow(end.y - start.y, 2) 
+		)
+	);
 }
 
 void	draw_player(mlx_image_t *image, t_info *info)

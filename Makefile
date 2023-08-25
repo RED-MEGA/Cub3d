@@ -6,14 +6,14 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/08/24 20:29:39 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/08/25 18:42:29 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 
 # CC = cc
-CC = gcc -g
+CC = gcc -g -Ofast
 
 FW = #-framework Cocoa -framework OpenGL -framework IOKit
 FLAGS = $(FW) -fsanitize=address #-Wall -Wextra -Werror
