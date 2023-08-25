@@ -6,39 +6,23 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/25 20:37:46 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/25 22:40:08 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// Calculate 3d len_projection
-/*
-note 1:
-	len_projection = (
-		Square len / $ray_l3abd
-		 * 
-		((Width / 2) / tan(FOV / 2)))
-
-note 2:
-	START POS FOR DRAW = (
-		(HIGTH / 2) - ($len_projection / 2)
-	)
-*/
 double	calcul_wp(t_player *player, int i)
 {
-	// printf("%lf * %lf = %lf : %lf\n", player->ray[i].len, cos(player->ray[i].ray_angle), player->ray[i].len * cos(player->ray[i].ray_angle), (double)player->ray[i].ray_angle);
-	// printf("%f\n", (double)SQUARE_LEN / (player->ray[i].len * cos(player->ray[i].ray_angle)));
-	
-		// SQUARE_LEN / (player->ray[i].len * cos(player->ray[i].ray_angle))
-	return (
-		SQUARE_LEN / player->ray[i].len
-		*
-		((WIDTH / 2) / tan(FOV_ANGLE / 2))
-	);
-}
+	double	A;
+	double	B;
+	double	D;
 
-//  #765127 has RGB values of R:118, G:81, B:39
+	A = (double)SQUARE_LEN;
+	B = player->ray[i].len * cos(player->rotation_angle - player->ray[i].ray_angle);
+	D = (WIDTH / 2) / tan(FOV_ANGLE / 2);
+	return ((A / B) * D);
+}
 
 void	to_3d_ray(mlx_image_t *image, double wp, int i)
 {
