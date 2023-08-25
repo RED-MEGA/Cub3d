@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/25 18:56:43 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/25 20:37:46 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,14 @@ note 2:
 		(HIGTH / 2) - ($len_projection / 2)
 	)
 */
-double	calcul_wp(t_player	*player, int i)
+double	calcul_wp(t_player *player, int i)
 {
-	// note 1:
+	// printf("%lf * %lf = %lf : %lf\n", player->ray[i].len, cos(player->ray[i].ray_angle), player->ray[i].len * cos(player->ray[i].ray_angle), (double)player->ray[i].ray_angle);
+	// printf("%f\n", (double)SQUARE_LEN / (player->ray[i].len * cos(player->ray[i].ray_angle)));
+	
+		// SQUARE_LEN / (player->ray[i].len * cos(player->ray[i].ray_angle))
 	return (
-		SQUARE_LEN / (player->ray[i].len * cos(player->ray[i].ray_angle))
+		SQUARE_LEN / player->ray[i].len
 		*
 		((WIDTH / 2) / tan(FOV_ANGLE / 2))
 	);
