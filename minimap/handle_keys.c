@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/24 18:31:18 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/26 23:11:06 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,25 @@ void	set_newpos(t_global *pub)
 			player->pos.y = new_pos.y;
 		}
 	}
+	if (player->move_d != 0)
+	{
+		double	rotation_angle = player->rotation_angle;
+
+		if (player->move_d == 1)
+			rotation_angle += to_rad(90);
+		else if (player->move_d == -1)
+			rotation_angle -= to_rad(90);
+		new_pos.x = player->pos.x;
+		new_pos.y = player->pos.y;
+		new_pos.x += cos(rotation_angle) * P_MOVE_SPEED;
+		new_pos.y += sin(rotation_angle) * P_MOVE_SPEED;
+		if (pub->info->map[(int)(new_pos.y / SQUARE_LEN)][(int)(new_pos.x / SQUARE_LEN)] != '1'
+			&& check_bp(pub->info->map, new_pos))
+		{
+			player->pos.x = new_pos.x;
+			player->pos.y = new_pos.y;
+		}
+	}
 	printf("Turn : %d\n", player->turn_d);
 	printf("Walk : %d\n", player->walk_d);
 	printf("[ x: %.3f -- y: %.3f ]\n", player->pos.x, player->pos.y);
@@ -70,17 +89,29 @@ void	handle_keys(mlx_key_data_t keydata, void *param)
 	if (keydata.key == MLX_KEY_ESCAPE)
 		exit(1);
 
-	if (keydata.key == MLX_KEY_UP
+	if (keydata.key == MLX_KEY_W
 		&& (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
 		player->walk_d = 1;
-	else if (keydata.key == MLX_KEY_DOWN
+	else if (keydata.key == MLX_KEY_S
 		&& (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
 		player->walk_d = -1;
-	else if (keydata.key == MLX_KEY_UP && keydata.action == MLX_RELEASE)
+	else if (keydata.key == MLX_KEY_W && keydata.action == MLX_RELEASE)
 		player->walk_d = 0;
-	else if (keydata.key == MLX_KEY_DOWN && keydata.action == MLX_RELEASE)
+	else if (keydata.key == MLX_KEY_S && keydata.action == MLX_RELEASE)
 		player->walk_d = 0;
-	else if (keydata.key == MLX_KEY_RIGHT
+
+	if (keydata.key == MLX_KEY_D
+		&& (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
+		player->move_d = 1;
+	else if (keydata.key == MLX_KEY_A
+		&& (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
+		player->move_d = -1;
+	else if (keydata.key == MLX_KEY_D && keydata.action == MLX_RELEASE)
+		player->move_d = 0;
+	else if (keydata.key == MLX_KEY_A && keydata.action == MLX_RELEASE)
+		player->move_d = 0;
+
+	if (keydata.key == MLX_KEY_RIGHT
 		&& (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
 		player->turn_d = 1;
 	else if (keydata.key == MLX_KEY_LEFT
