@@ -6,14 +6,23 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:47:56 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/26 16:59:19 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/27 00:12:44 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-double	draw_line(mlx_image_t *image, t_pos start, t_pos end)
+void	draw_line(mlx_image_t *image, t_pos start, t_pos end)
 {
+	double distance = calcul_distance(start, end);
+	if (distance > 30)
+	{
+		double dx = (end.x - start.x) / distance; 
+		double dy = (end.y - start.y) / distance;
+		
+		end.x = start.x + 30 * dx;
+		end.y = start.y + 30 * dy;
+	}
 	int dx = end.x - start.x;
     int dy = end.y - start.y;
  
@@ -38,13 +47,6 @@ double	draw_line(mlx_image_t *image, t_pos start, t_pos end)
         X += Xinc; // increment in x at each step
         Y += Yinc; // increment in y at each step
     }
-	return (
-		sqrt(
-			pow(end.x - start.x, 2)
-			+ 
-			pow(end.y - start.y, 2) 
-		)
-	);
 }
 
 void	draw_player(mlx_image_t *image, t_info *info)
