@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:12:54 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/26 16:33:04 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/26 17:24:47 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,12 @@ double	calcul_distance(t_pos start, t_pos end)
 			pow(end.y - start.y, 2) 
 		)
 	);
+}
+
+double	normalize_angle(double angle)
+{
+	angle = remainder(angle, (M_PI * 2));
+	if (angle < 0)
+		angle = (M_PI * 2) + angle;
+	return (angle);
 }

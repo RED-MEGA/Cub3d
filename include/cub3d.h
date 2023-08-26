@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/26 16:28:47 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/26 17:25:11 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ double		draw_line(mlx_image_t *image, t_pos start, t_pos end);
 /* **************** */
 
 t_pos	ray_cast(t_global *pub);
-double	normalize_angle(double angle);
 
 /* **************** */
 /*     RENDERING    */

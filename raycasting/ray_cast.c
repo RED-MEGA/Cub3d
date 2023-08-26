@@ -6,19 +6,13 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/08/26 17:23:32 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/26 17:24:42 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-double	normalize_angle(double angle)
-{
-	angle = remainder(angle, (M_PI * 2));
-	if (angle < 0)
-		angle = (M_PI * 2) + angle;
-	return (angle);
-}
+
 
 t_pos ray_cast(t_global *pub)
 {

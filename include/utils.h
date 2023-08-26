@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:08 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/26 16:33:17 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/26 17:24:59 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "global.h"
 # include "libft.h"
 
+double	normalize_angle(double angle);
 void	mlx_put_pixel_p(mlx_image_t *image, uint32_t x, uint32_t y, uint32_t color);
 double	to_rad(double degree);
 double	to_degree(double rad);
