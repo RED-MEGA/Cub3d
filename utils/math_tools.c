@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:12:54 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/23 18:18:47 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/26 16:33:04 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,15 @@ double	to_rad(double degree)
 double	to_degree(double rad)
 {
 	return (rad * (180 / PI));
+}
+
+double	calcul_distance(t_pos start, t_pos end)
+{
+	return (
+		sqrt(
+			pow(end.x - start.x, 2)
+			+ 
+			pow(end.y - start.y, 2) 
+		)
+	);
 }

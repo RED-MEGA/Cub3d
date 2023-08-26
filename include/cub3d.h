@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/25 16:21:29 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/26 16:28:47 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ double	normalize_angle(double angle);
 /*     RENDERING    */
 /* **************** */
 
+void	calcul_rays(t_global *pub);
 void	render(t_global *pub);
 void	draw_fc(t_global *pub);
 

@@ -6,38 +6,11 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/26 16:07:25 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/26 16:33:27 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-double	calcul_distance(t_pos start, t_pos end)
-{
-	return (
-		sqrt(
-			pow(end.x - start.x, 2)
-			+ 
-			pow(end.y - start.y, 2) 
-		)
-	);
-}
-
-void	calcul_rays(t_global *pub)
-{
-	t_player	*player;
-
-	player = &(pub->info->player);
-	player->ray_angle = normalize_angle(player->rotation_angle - (FOV_ANGLE / 2));
-	for (size_t i = 0; i < WIDTH; i++)
-	{
-		player->ray[i].pos = ray_cast(pub);
-		player->ray[i].angle = player->ray_angle;
-		player->ray[i].len = calcul_distance(player->pos, player->ray[i].pos);
-		// increment
-		player->ray_angle = normalize_angle(player->ray_angle + RAY_D);
-	}
-}
 
 void	refresh_frame(void *param)
 {
