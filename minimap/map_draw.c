@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/25 16:22:50 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/26 16:09:54 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,8 @@ void	draw_square(mlx_image_t *image, int x, int y, int color)
 
 void	draw_fov(t_global *pub, t_player *player)
 {
-	t_pos		end_pos;
-
-	player->ray_angle = normalize_angle(player->rotation_angle - (FOV_ANGLE / 2));
 	for (size_t i = 0; i < WIDTH; i++)
-	{
-		end_pos = ray_cast(pub);
-		player->ray[i].ray_angle = player->ray_angle;
-		player->ray[i].len = draw_line(pub->window_img, player->pos, end_pos);
-		player->ray_angle = normalize_angle(player->ray_angle + RAY_D);
-	}
+		draw_line(pub->window_img, player->pos, player->ray[i].pos);
 }
 
 void	draw_map(t_global *pub)

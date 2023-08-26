@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/25 22:40:08 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/25 22:49:10 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ double	calcul_wp(t_player *player, int i)
 	double	D;
 
 	A = (double)SQUARE_LEN;
-	B = player->ray[i].len * cos(player->rotation_angle - player->ray[i].ray_angle);
+	B = player->ray[i].len * cos(player->rotation_angle - player->ray[i].angle);
 	D = (WIDTH / 2) / tan(FOV_ANGLE / 2);
 	return ((A / B) * D);
 }

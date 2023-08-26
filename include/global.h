@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   global.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/25 12:25:34 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/25 22:42:16 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,9 @@ typedef struct s_loc
 
 typedef struct s_ray
 {
-	double	ray_angle;
+	double	angle;
 	double	len;
+	t_pos	pos;
 }	t_ray;
 
 typedef struct s_player
