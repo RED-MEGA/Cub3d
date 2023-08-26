@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_cast.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/08/25 12:29:12 by azarda           ###   ########.fr       */
+/*   Updated: 2023/08/26 17:23:32 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,36 +20,10 @@ double	normalize_angle(double angle)
 	return (angle);
 }
 
-
-double ft_destance(double x1, double y1, double x2, double y2)
-{
-	return(sqrt((x2 - x1) * (x2 - x1) +(y2 - y1) * (y2 -y1)));
-}
-
-void	ft_calcul_size_map(t_global *pub)
-{
-	int s_y_map = 0;
-	int s_x_map = 0;
-	int o = 0;
-
-	while(pub->info->map[s_y_map])
-	{
-		while(pub->info->map[s_y_map][s_x_map] && o == 0)
-			s_x_map++;
-		o = 1;
-		s_y_map++;;
-	}
-	pub->info->s_y_map = s_y_map;
-	pub->info->s_x_map = s_x_map;
-}
-
 t_pos ray_cast(t_global *pub)
 {
-	ft_calcul_size_map(pub); // khasha t7at 3and // !l7myer
-
 	t_player player = pub->info->player;
 
-	// player.ray_angle = normalize_angle(player.ray_angle);  deja nrmalize bay // !l3bied
 
 	double wallhit_x = 0; // whai
 	double wallhit_y  = 0; // whai
@@ -106,7 +80,7 @@ t_pos ray_cast(t_global *pub)
 	{
 		x = floor(next_horiso_x / SQUARE_LEN);
 		y = floor(next_horiso_y / SQUARE_LEN);
-		if(x >= pub->info->s_x_map || y >= pub->info->s_y_map || x < 0 || y < 0)
+		if(x >= pub->info->map_m_size.j || y >= pub->info->map_m_size.i || x < 0 || y < 0)
 			break;
 		else
 		{
@@ -161,7 +135,7 @@ t_pos ray_cast(t_global *pub)
 	{
 		x = floor(next_verti_x / SQUARE_LEN);
 		y = floor(next_verti_y / SQUARE_LEN);
-		if(x >= pub->info->s_x_map || y >= pub->info->s_y_map || x < 0 || y < 0)
+		if(x >= pub->info->map_m_size.j || y >= pub->info->map_m_size.i || x < 0 || y < 0)
 			break;
 		else
 		{
@@ -178,15 +152,15 @@ t_pos ray_cast(t_global *pub)
 // ---------------------------------------------------calcul dectence -------------------------------------------------------
 	t_pos end_pos;
 
-	double  horisontal_distance = 135416843148613586154564683546514685146.85;
-	double  vertical_distance = 135416843148613586154564683546514685146.85;
+	double  horisontal_distance = ULLONG_MAX;
+	double  vertical_distance = ULLONG_MAX;
 	if(flag_horison)
 	{
-		horisontal_distance = ft_destance(player.pos.x, player.pos.y, next_horiso_x, next_horiso_y) ;
+		horisontal_distance = calcul_distance(player.pos, (t_pos) {.x = next_horiso_x, .y = next_horiso_y});
 	}
 	if(flag_vertical)
 	{
-		vertical_distance = ft_destance(player.pos.x, player.pos.y, next_verti_x, next_verti_y);
+		vertical_distance = calcul_distance(player.pos, (t_pos) {.x = next_verti_x, .y = next_verti_y});
 	}
 	if(horisontal_distance < vertical_distance)
 	{
