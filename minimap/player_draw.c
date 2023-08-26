@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:47:56 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/25 16:21:23 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/26 16:59:19 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ void	draw_player(mlx_image_t *image, t_info *info)
 
 	pos.y = -1;
 	pos.x = -1;
-	while (++pos.y < info->map_size.y)
+	while (++pos.y < info->map_p_size.y)
 	{
 		pos.x = -1;
-		while (++pos.x < info->map_size.x)
+		while (++pos.x < info->map_p_size.x)
 		{
 			distance = sqrt(pow(info->player.pos.x - pos.x, 2)
 					 + pow(info->player.pos.y - pos.y, 2));

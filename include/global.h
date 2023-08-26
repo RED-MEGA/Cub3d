@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/25 22:42:16 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/26 16:56:30 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,8 @@ typedef struct s_info
 	char		**map;
 	int			s_y_map;
 	int			s_x_map;
-	t_pos		map_size;
+	t_pos		map_p_size;
+	t_loc		map_m_size;
 }	t_info;
 
 typedef struct s_global
