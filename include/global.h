@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/27 00:08:00 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/27 14:51:51 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@
 # define SQUARE_LEN 30
 
 # define P_RADIUS 6
-# define P_ROTATION_SPEED 1.5 * (M_PI / 180)
+# define P_ROTATION_SPEED 2.0 * (M_PI / 180)
 # define P_MOVE_SPEED 1.5
 
 # define PI M_PI
