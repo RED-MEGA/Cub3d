@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/25 22:49:10 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/27 16:00:19 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	to_3d_ray(mlx_image_t *image, double wp, int i)
 	{
 		mlx_put_pixel_p(image
 			, pos.x, pos.y
-			, get_rgb(12, 53, 106, 255));
+			, get_rgb(12, 53, 106, wp));
 		pos.y++;
 	}
 }
