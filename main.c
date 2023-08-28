@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/26 16:33:27 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/28 17:17:40 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ void	refresh_frame(void *param)
 
 
 	// update frame
-	draw_fc(pub);
-
 	calcul_rays(pub);
 	render(pub);
 	minimap(pub);
@@ -45,7 +43,6 @@ void	cub3d(char *file_name)
 
 	info = parsing(file_name);
 	pub = init_global(info);
-	draw_fc(pub);
 	mlx_key_hook(pub->mlx, handle_keys, pub);
 	mlx_loop_hook(pub->mlx, refresh_frame, pub);
 	mlx_loop(pub->mlx);

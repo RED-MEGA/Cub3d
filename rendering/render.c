@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/27 17:09:14 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/28 17:26:46 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,32 @@ double	calcul_wp(t_player *player, int i)
 	return ((A / B) * D);
 }
 
-void	to_3d_ray(mlx_image_t *image, double wp, int i)
+void	to_3d_ray(t_info *info, mlx_image_t *image, double wp, int i)
 {
 	t_pos	pos;
+	int		start_y;
 	int		end_y;
 	int		alpha;
 
 	if (wp > HEIGHT)
 		wp = HEIGHT;
+	pos.y = 0;
 	pos.x = i;
-	pos.y = (HEIGHT / 2) - (wp / 2);
+	start_y = (HEIGHT / 2) - (wp / 2);
 	end_y = (HEIGHT / 2) + (wp / 2);
 	alpha = (double)((double)155 / HEIGHT) * (wp) + 100;
-	while (pos.y < end_y)
+	while (pos.y < HEIGHT)
 	{
-		mlx_put_pixel_p(image
-			, pos.x, pos.y
-			, get_rgb(255, 245, 224, alpha));
+		if (pos.y < start_y)
+			draw_fc(image, info->C, pos);
+		else if (pos.y >= start_y && pos.y <= end_y)
+		{
+			mlx_put_pixel_p(image
+				, pos.x, pos.y
+				, get_rgb(255, 245, 224, alpha));
+		}
+		else if (pos.y > end_y)
+			draw_fc(image, info->F, pos);
 		pos.y++;
 	}
 }
@@ -52,6 +61,6 @@ void	render(t_global *pub)
 	for (size_t i = 0; i < WIDTH; i++)
 	{
 		wp = calcul_wp(&pub->info->player, i);
-		to_3d_ray(pub->window_img, wp, i);
+		to_3d_ray(pub->info, pub->window_img, wp, i);
 	}
 }
