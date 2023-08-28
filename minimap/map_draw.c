@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/27 00:11:29 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:02:39 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	get_color(char c)
 {
 	if (c == '1'
 		|| c == ' ')
-		return (get_rgb(163, 138, 0, 255));
+		return (get_rgb(101, 69, 31, 255));
 	return (get_rgb(BLACK_R, BLACK_G, BLACK_B, 255));
 }
 

@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/27 17:04:28 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:36:37 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,15 @@ typedef enum e_direction
 	EA
 }	e_direction;
 
+typedef enum e_move
+{
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT,
+	NONE
+}	e_move;
+
 typedef struct s_list
 {
 	char			*data;
@@ -107,6 +116,8 @@ typedef struct s_player
 {
 	t_pos		pos;
 	e_direction	direction;
+	e_move		move_h;
+	e_move		move_v;
 	int			turn_d;
 	int			walk_d;
 	int			move_d;

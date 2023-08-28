@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/26 23:11:06 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:41:40 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,27 @@ bool	check_bp(char **map, t_pos pos)
 	return (true);
 }
 
+void	get_new_pos(t_info *info, double rotation_angle)
+{
+	t_pos	new_pos;
+
+	new_pos.x = info->player.pos.x;
+	new_pos.y = info->player.pos.y;
+	new_pos.x += cos(rotation_angle) * P_MOVE_SPEED;
+	new_pos.y += sin(rotation_angle) * P_MOVE_SPEED;
+	if (info->map[(int)(new_pos.y / SQUARE_LEN)][(int)(new_pos.x / SQUARE_LEN)] != '1'
+		&& check_bp(info->map, new_pos))
+	{
+		info->player.pos.x = new_pos.x;
+		info->player.pos.y = new_pos.y;
+	}
+}
+
 void	set_newpos(t_global *pub)
 {
 	t_player	*player;
 	t_pos		new_pos;
+	double		rotation_angle;
 
 	player = &(pub->info->player);
 	if (player->turn_d != 0)
@@ -41,37 +58,23 @@ void	set_newpos(t_global *pub)
 		player->rotation_angle += (double)player->turn_d * P_ROTATION_SPEED;
 		player->rotation_angle = normalize_angle(player->rotation_angle);
 	}
-	if (player->walk_d != 0)
+	if (player->move_v != NONE)
 	{
-		new_pos.x = player->pos.x;
-		new_pos.y = player->pos.y;
-		new_pos.x += cos(player->rotation_angle) * (player->walk_d * P_MOVE_SPEED);
-		new_pos.y += sin(player->rotation_angle) * (player->walk_d * P_MOVE_SPEED);
-		if (pub->info->map[(int)(new_pos.y / SQUARE_LEN)][(int)(new_pos.x / SQUARE_LEN)] != '1'
-			&& check_bp(pub->info->map, new_pos))
-		{
-			player->pos.x = new_pos.x;
-			player->pos.y = new_pos.y;
-		}
+		rotation_angle = player->rotation_angle;
+		if (player->move_v == UP)
+			;
+		else if (player->move_v == DOWN)
+			rotation_angle += to_rad(180);
+		get_new_pos(pub->info, rotation_angle);
 	}
-	if (player->move_d != 0)
+	if (player->move_h != NONE)
 	{
-		double	rotation_angle = player->rotation_angle;
-
-		if (player->move_d == 1)
+		rotation_angle = player->rotation_angle;
+		if (player->move_h == RIGHT)
 			rotation_angle += to_rad(90);
-		else if (player->move_d == -1)
+		else if (player->move_h == LEFT)
 			rotation_angle -= to_rad(90);
-		new_pos.x = player->pos.x;
-		new_pos.y = player->pos.y;
-		new_pos.x += cos(rotation_angle) * P_MOVE_SPEED;
-		new_pos.y += sin(rotation_angle) * P_MOVE_SPEED;
-		if (pub->info->map[(int)(new_pos.y / SQUARE_LEN)][(int)(new_pos.x / SQUARE_LEN)] != '1'
-			&& check_bp(pub->info->map, new_pos))
-		{
-			player->pos.x = new_pos.x;
-			player->pos.y = new_pos.y;
-		}
+		get_new_pos(pub->info, rotation_angle);
 	}
 	printf("Turn : %d\n", player->turn_d);
 	printf("Walk : %d\n", player->walk_d);
@@ -89,28 +92,31 @@ void	handle_keys(mlx_key_data_t keydata, void *param)
 	if (keydata.key == MLX_KEY_ESCAPE)
 		exit(1);
 
+	// Handle (UP, DOWN)
 	if (keydata.key == MLX_KEY_W
 		&& (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
-		player->walk_d = 1;
+		player->move_v = UP;
 	else if (keydata.key == MLX_KEY_S
 		&& (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
-		player->walk_d = -1;
+		player->move_v = DOWN;
 	else if (keydata.key == MLX_KEY_W && keydata.action == MLX_RELEASE)
-		player->walk_d = 0;
+		player->move_v = NONE;
 	else if (keydata.key == MLX_KEY_S && keydata.action == MLX_RELEASE)
-		player->walk_d = 0;
+		player->move_v = NONE;
 
+	// Handle (RIGHT, LEFT)
 	if (keydata.key == MLX_KEY_D
 		&& (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
-		player->move_d = 1;
+		player->move_h = RIGHT;
 	else if (keydata.key == MLX_KEY_A
 		&& (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
-		player->move_d = -1;
+		player->move_h = LEFT;
 	else if (keydata.key == MLX_KEY_D && keydata.action == MLX_RELEASE)
-		player->move_d = 0;
+		player->move_h = NONE;
 	else if (keydata.key == MLX_KEY_A && keydata.action == MLX_RELEASE)
-		player->move_d = 0;
+		player->move_h = NONE;
 
+	// Handle turn
 	if (keydata.key == MLX_KEY_RIGHT
 		&& (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT))
 		player->turn_d = 1;
