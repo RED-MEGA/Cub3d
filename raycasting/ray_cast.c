@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/08/26 17:24:42 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/28 22:55:34 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ t_pos ray_cast(t_global *pub)
 		{
 			if(pub->info->map[y][x] == '1')
 			{
+				if(is_up)
+					next_horiso_y++;
 				flag_horison = 1;
 				break;
 			}
@@ -136,6 +138,8 @@ t_pos ray_cast(t_global *pub)
 
 			if(pub->info->map[y][x] == '1')
 			{
+				if(is_left)
+					next_verti_x++;
 				flag_vertical = 1;
 				break;
 			}
