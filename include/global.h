@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/29 03:44:35 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/29 06:10:14 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,16 @@
 # define HEIGHT 1080
 # define WIDTH 1920
 
-# define SQUARE_LEN 15
+# define SQUARE_LEN 50
 
-# define MINIMAP_SIZE WIDTH / 6
+# define MINIMAP_SIZE (WIDTH / 6)
 
-# define P_RADIUS 6
+# define P_RADIUS (SQUARE_LEN / 4)
 # define P_ROTATION_SPEED 2.0 * (M_PI / 180)
-# define P_MOVE_SPEED 1.5
+# define P_MOVE_SPEED 3.0
 
 # define PI M_PI
-# define RAY_D FOV_ANGLE / WIDTH
+# define RAY_D (FOV_ANGLE / WIDTH)
 # define FOV_ANGLE (60 * (PI / 180))
 
 typedef enum e_direction
