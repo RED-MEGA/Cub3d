@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/28 17:17:40 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/30 00:30:02 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	cub3d(char *file_name)
 	info = parsing(file_name);
 	pub = init_global(info);
 	mlx_key_hook(pub->mlx, handle_keys, pub);
+	mlx_cursor_hook(pub->mlx, handle_mouse, &pub->info->player);
 	mlx_loop_hook(pub->mlx, refresh_frame, pub);
 	mlx_loop(pub->mlx);
 	mlx_terminate(pub->mlx);

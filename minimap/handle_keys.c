@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/28 15:44:44 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/30 00:34:31 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,19 @@ void	set_newpos(t_global *pub)
 	printf("Walk : %d\n", player->walk_d);
 	printf("[ x: %.3f -- y: %.3f ]\n", player->pos.x, player->pos.y);
 	printf("Rotation angle : %.3f\n\n", to_degree(player->rotation_angle));
+}
+
+void	handle_mouse(double xpos, double ypos, void* param)
+{
+	t_player	*player;
+
+	player = (t_player *)param;
+	if (xpos <= (WIDTH / 2) - (WIDTH / 8))
+		player->turn_d = -1;
+	else if (xpos >= (WIDTH / 2) + (WIDTH / 8))
+		player->turn_d = 1;
+	else
+		player->turn_d = 0;
 }
 
 bool	key_press(mlx_key_data_t keydata, keys_t key)
