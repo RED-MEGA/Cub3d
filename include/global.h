@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/28 14:36:37 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/29 03:44:35 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@
 # define WIDTH 1920
 
 # define SQUARE_LEN 15
+
+# define MINIMAP_SIZE WIDTH / 6
 
 # define P_RADIUS 6
 # define P_ROTATION_SPEED 2.0 * (M_PI / 180)

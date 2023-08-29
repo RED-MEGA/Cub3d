@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/28 14:02:39 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/29 05:47:27 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,55 @@ void	draw_map(t_global *pub)
 	}
 }
 
+void	draw_flex_map(t_global *pub)
+{
+	t_pos	map_pos;
+	t_pos	pos_tmp;
+	t_pos	pos;
+	int		color;
+
+	map_pos = pub->info->player.pos;
+	map_pos.y -= MINIMAP_SIZE / 2;
+	map_pos.x -= MINIMAP_SIZE / 2;
+	pos_tmp = map_pos;
+	pos.x = 0;
+	pos.y = 0;
+	while (map_pos.y < pub->info->map_p_size.y && map_pos.y < (pos_tmp.y + MINIMAP_SIZE))
+	{
+		pos.x = 0;
+		map_pos.x = pos_tmp.x;
+		while (map_pos.x < pub->info->map_p_size.x && map_pos.x < (pos_tmp.x + MINIMAP_SIZE))
+		{
+			if (map_pos.x < 0 || map_pos.y < 0)
+				color = get_color('1');
+			else
+				color = get_color(pub->info->map[(int)map_pos.y / SQUARE_LEN][(int)map_pos.x / SQUARE_LEN]);
+			mlx_put_pixel_p(pub->window_img
+					, pos.x, pos.y, color);
+
+			map_pos.x++;
+			pos.x++;
+		}
+		map_pos.y++;
+		pos.y++;
+	}
+}
+
+void	draw_rotation(mlx_image_t *image, t_player *player)
+{
+	t_pos	end;
+
+	end.x = (MINIMAP_SIZE / 2) + (cos(player->rotation_angle) * 23);
+	end.y = (MINIMAP_SIZE / 2) + (sin(player->rotation_angle) * 23);
+	draw_line(image, (t_pos){.x = MINIMAP_SIZE / 2, .y = MINIMAP_SIZE / 2}, end);
+}
+
 void	minimap(t_global *pub)
 {
 	t_player	*player;
 
 	player = &pub->info->player;
-	draw_map(pub);
+	draw_flex_map(pub);
 	draw_player(pub->window_img, pub->info);
-	draw_fov(pub, player);
+	draw_rotation(pub->window_img, player);
 }
