@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/30 00:30:02 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/30 06:03:37 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,22 @@ void	cub3d(char *file_name)
 {
 	t_global	*pub;
 	t_info		*info;
+	// mlx_t		*mlx;
 
 	info = parsing(file_name);
 	pub = init_global(info);
+	// mlx = pub->mlx;
 	mlx_key_hook(pub->mlx, handle_keys, pub);
 	mlx_cursor_hook(pub->mlx, handle_mouse, &pub->info->player);
+	mlx_close_hook(pub->mlx, destroy_global, pub);
 	mlx_loop_hook(pub->mlx, refresh_frame, pub);
 	mlx_loop(pub->mlx);
 	mlx_terminate(pub->mlx);
+	destroy_global(pub);
+	// use this for mlx resources
+	// mlx_delete_xpm42();
+	// mlx_delete_image();
+	// mlx_delete_texture();
 }
 
 int	main(int argc, char **argv)

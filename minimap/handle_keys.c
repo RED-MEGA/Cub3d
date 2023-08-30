@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/30 00:34:31 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/30 06:01:33 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ void	handle_keys(mlx_key_data_t keydata, void *param)
 	pub = (t_global *)param;
 	player = &(pub->info->player);
 	if (keydata.key == MLX_KEY_ESCAPE)
-		exit(1);
+		destroy_global(pub);
 	handle_moves(player, keydata);
 	handle_turn(player, keydata);
 }

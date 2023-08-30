@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:08 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/26 17:24:59 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/30 02:39:09 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,8 @@ char	**ft_matrixdup(char **matrix);
 t_list	*in(t_list *head, int index);
 void	ft_indexing(t_list *list);
 int		get_rgb(int r, int g, int b, int a);
+
+void	destroy_info(t_info *info);
+void	destroy_global(void *param);
 
 #endif

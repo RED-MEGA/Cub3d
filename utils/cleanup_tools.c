@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   cleanup_tools.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/01 21:17:24 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/30 02:18:33 by reben-ha         ###   ########.fr       */
+/*   Created: 2023/08/30 02:06:39 by reben-ha          #+#    #+#             */
+/*   Updated: 2023/08/30 04:14:22 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-void	ft_free(char **str)
+void	destroy_info(t_info *info)
 {
-	int	i;
-
-	i = 0;
-	if (!str)
-		return ;
-	while (str[i])
-		free(str[i++]);
-	free(str);
+	free(info->NO);
+	free(info->SO);
+	free(info->WE);
+	free(info->EA);
+	ft_free(info->map);
+	free(info);
 }
+
+void	destroy_global(void *param)
+{
+	t_global *pub;
+
+	pub = (t_global *)param;
+	destroy_info(pub->info);
+	free(pub);
+	exit(0);
+}
+	// use this for mlx resources
+	// mlx_delete_xpm42();
+	// mlx_delete_image();
+	// mlx_delete_texture();  

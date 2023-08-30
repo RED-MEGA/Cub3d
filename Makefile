@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/08/26 16:29:09 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/08/30 04:02:20 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = cub3D
 CC = gcc -g -Ofast
 
 FW = #-framework Cocoa -framework OpenGL -framework IOKit
-FLAGS = $(FW) -fsanitize=address #-Wall -Wextra -Werror
+FLAGS = $(FW) #-fsanitize=address #-Wall -Wextra -Werror
 
 LIBMLX = ./MLX42
 HEADERS = -I ./include  -I $(LIBMLX)/include
@@ -47,6 +47,7 @@ SRC = main.c \
 		utils/index_list.c \
 		utils/compare.c \
 		utils/mlx_put_pixel_p.c \
+		utils/cleanup_tools.c \
 		# libft/ft_atoi.c \
 		# libft/ft_bzero.c \
 		# libft/ft_calloc.c \
