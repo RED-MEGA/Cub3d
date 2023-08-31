@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/31 09:30:55 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/31 18:01:49 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_list		*skip_newline(t_list *file);
 int			get_bline(t_list *file);
 char		*addsize(char *data, int len);
 char		**to_matrix(t_list *file);
-char		**parse_map(t_list *file);
+char		**parse_map(t_info *info, t_list *file);
 
 /* **************** */
 /*     MINIMAP      */

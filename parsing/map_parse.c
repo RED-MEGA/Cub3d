@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:11:17 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/31 01:06:46 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/31 18:04:11 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	**to_matrix(t_list *file)
 	return (map);
 }
 
-char	**parse_map(t_list *file)
+char	**parse_map(t_info *info, t_list *file)
 {
 	t_list	*head;
 	int		bline;
@@ -79,11 +79,11 @@ char	**parse_map(t_list *file)
 	if (!file)
 		return (NULL);
 	head = file;
-	bline = get_bline(file);
+	info->map_m_size.j = get_bline(file);
 	while (file)
 	{
-		if (bline > file->len)
-			file->data = addsize(file->data, bline - file->len);
+		if (info->map_m_size.j > file->len)
+			file->data = addsize(file->data, info->map_m_size.j - file->len);
 		file = file->next;
 	}
 	return (to_matrix(head));
