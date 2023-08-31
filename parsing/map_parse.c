@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:11:17 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/01 19:54:26 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/31 01:06:46 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*addsize(char *data, int len)
 	char	*newstr;
 	char	*spaces;
 	int		i;
-
+	
 	if (data[0] == '\0')
 		return (ft_strjoin_gnl(data, "\n"));
 	spaces = (char *)malloc(len * sizeof(char) + 1);
@@ -68,7 +68,7 @@ char	**to_matrix(t_list *file)
 		map[++i] = ft_strdup(file->data);
 		file = file->next;
 	}
-	return (ft_lstclear(&file), map);
+	return (map);
 }
 
 char	**parse_map(t_list *file)

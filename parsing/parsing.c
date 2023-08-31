@@ -95,6 +95,7 @@ t_info	*parsing(char *file_name)
 				, exit(EXIT_FAILURE), NULL);
 	set_datalen(file);
 	info->map = parse_map(skip_newline(file));
+	ft_lstclear(&file);
 	if (!info->map || !check_map(info->map))
 		return (free(info), ft_error_msg("Invalid map", 1)
 				, NULL);
