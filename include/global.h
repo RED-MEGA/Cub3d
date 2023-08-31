@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   global.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/31 09:28:53 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/31 23:33:22 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,15 @@ typedef struct s_info
 	t_loc		map_m_size;
 }	t_info;
 
+typedef struct  s_pixel
+{
+	unsigned int	*NO;
+	unsigned int	*SO;
+	unsigned int	*WE;
+	unsigned int	*EA;
+} t_pixel;
+
+
 typedef struct s_global
 {
 	t_info		*info;
@@ -159,6 +168,7 @@ typedef struct s_global
 	mlx_image_t	*window_img;
 	double  tess_y;
 	double  tess_x;
+	t_pixel *img;
 
 }	t_global;
 
