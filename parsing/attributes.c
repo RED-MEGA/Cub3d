@@ -6,11 +6,21 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:06:37 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/06 20:36:23 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/31 10:45:55 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+bool	ispng(char *file)
+{
+	char	*extension;
+
+	extension = ft_strrchr(file, '.');
+	if (compare(extension, ".png"))
+		return (true);
+	return (false);
+}
 
 bool	set_direction(char *data, char **direction)
 {
@@ -20,7 +30,7 @@ bool	set_direction(char *data, char **direction)
 		return (perror_x("Direction attribute is Already set")
 			, false);
 	buff = ft_strtrim(data + 3, " ");
-	if (!isvalid_path(buff))
+	if (!isvalid_path(buff) || !ispng(buff))
 		return (free(buff)
 			, perror_x("Invalid direction attribute")
 			, false);
