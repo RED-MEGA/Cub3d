@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/31 11:49:31 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/31 18:09:31 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	get_new_pos(t_info *info, double rotation_angle)
 void	set_newpos(t_global *pub)
 {
 	t_player	*player;
-	t_pos		new_pos;
 	double		rotation_angle;
 
 	player = &(pub->info->player);
@@ -76,6 +75,7 @@ void	handle_mouse(double xpos, double ypos, void* param)
 {
 	t_player	*player;
 
+	(void)ypos;
 	player = (t_player *)param;
 	if (xpos <= (WIDTH / 2) - (WIDTH / 8))
 		player->turn_d = -1;

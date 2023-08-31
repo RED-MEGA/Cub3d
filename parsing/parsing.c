@@ -56,10 +56,7 @@ void	_set_pi(char **map, t_player *player, char c, t_loc pos)
 
 void	set_player_info(t_info *info)
 {
-	t_player	player;
 	t_loc		loc;
-	int			i;
-	int			j;
 
 	loc.i = -1;
 	loc.j = -1;

@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:47:56 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/29 03:43:49 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/31 18:09:46 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	draw_line(mlx_image_t *image, t_pos start, t_pos end)
     }
 }
 
-void	draw_player(mlx_image_t *image, t_info *info)
+void	draw_player(mlx_image_t *image)
 {
 	t_pos	pos;
 	int		distance;

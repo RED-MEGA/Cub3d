@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/31 18:01:49 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/31 18:09:56 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_global	*init_global(t_info *info);
 int			get_color(char c);
 void		draw_square(mlx_image_t *image, int x, int y, int color);
 void		minimap(t_global *pub);
-void		draw_player(mlx_image_t *image, t_info *info);
+void		draw_player(mlx_image_t *image);
 void		draw_line(mlx_image_t *image, t_pos start, t_pos end);
 
 

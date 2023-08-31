@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/29 06:09:14 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/31 18:10:05 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,6 @@ void	minimap(t_global *pub)
 
 	player = &pub->info->player;
 	draw_flex_map(pub->window_img, pub->info);
-	draw_player(pub->window_img, pub->info);
+	draw_player(pub->window_img);
 	draw_rotation(pub->window_img, player);
 }

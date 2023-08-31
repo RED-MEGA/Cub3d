@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:11:17 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/31 18:04:11 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/31 18:08:54 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ char	**to_matrix(t_list *file)
 char	**parse_map(t_info *info, t_list *file)
 {
 	t_list	*head;
-	int		bline;
+	// int		bline;
 
 	if (!file)
 		return (NULL);

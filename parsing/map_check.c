@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:27:54 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/31 09:31:52 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/31 18:09:01 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,6 @@ bool	m_check_surrounded(char **map)
 bool	check_map(t_info *info)
 {
 	int	i;
-	int	j;
 
 	i = -1;
 	while (info->map[++i])
