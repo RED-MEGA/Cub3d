@@ -6,28 +6,19 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/30 06:01:33 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/31 11:49:31 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	check_bp(char **map, t_pos pos)
+bool	check_pos(char **map, t_pos oldpos, t_pos newpos)
 {
-	t_pos	tmp_pos;
-
-	pos.x -= 5;
-	pos.y -= 5;
-	tmp_pos.x = pos.x;
-	tmp_pos.y = pos.y;
-	while (++pos.y <= (tmp_pos.y + 5))
-	{
-		pos.x = tmp_pos.x;
-		while (++pos.x <= (tmp_pos.x + 5))
-			if (map[(int)(pos.y / SQUARE_LEN)][(int)(pos.x / SQUARE_LEN)] == '1')
-				return (false);
-	}
-	return (true);
+	if (map[(int)(newpos.y / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != '1'
+		&& map[(int)(oldpos.y / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != '1'
+		&& map[(int)(newpos.y / SQUARE_LEN)][(int)(oldpos.x / SQUARE_LEN)] != '1')
+		return (true);
+	return (false);
 }
 
 void	get_new_pos(t_info *info, double rotation_angle)
@@ -38,8 +29,7 @@ void	get_new_pos(t_info *info, double rotation_angle)
 	new_pos.y = info->player.pos.y;
 	new_pos.x += cos(rotation_angle) * P_MOVE_SPEED;
 	new_pos.y += sin(rotation_angle) * P_MOVE_SPEED;
-	if (info->map[(int)(new_pos.y / SQUARE_LEN)][(int)(new_pos.x / SQUARE_LEN)] != '1'
-		&& check_bp(info->map, new_pos))
+	if (check_pos(info->map, info->player.pos, new_pos))
 	{
 		info->player.pos.x = new_pos.x;
 		info->player.pos.y = new_pos.y;
