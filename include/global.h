@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/29 06:10:14 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/08/31 09:28:53 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ typedef struct s_player
 	double		rotation_angle;
 	double		ray_angle;
 	t_ray		ray[WIDTH];
+	char		key;
 }	t_player;
 
 typedef struct s_color

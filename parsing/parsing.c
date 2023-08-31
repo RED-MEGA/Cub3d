@@ -40,8 +40,8 @@ t_info	*create_info(void)
 
 void	_set_pi(char **map, t_player *player, char c, t_loc pos)
 {
-	player->pos.x = pos.j * SQUARE_LEN;
-	player->pos.y = pos.i * SQUARE_LEN;
+	player->pos.x = (pos.j * SQUARE_LEN) + (SQUARE_LEN / 2);
+	player->pos.y = (pos.i * SQUARE_LEN) + (SQUARE_LEN / 2);
 	map[pos.i][pos.j] = 'P';
 	if (c == 'N')
 		player->direction = NO;
@@ -67,11 +67,10 @@ void	set_player_info(t_info *info)
 		loc.j = -1;
 		while (info->map[loc.i][++loc.j])
 		{
-			if (info->map[loc.i][loc.j] == 'N' || info->map[loc.i][loc.j] == 'S'
-				|| info->map[loc.i][loc.j] == 'W' || info->map[loc.i][loc.j] == 'E')
+			if (info->map[loc.i][loc.j] == 'P')
 			{
 				_set_pi(info->map, &info->player 
-						, info->map[loc.i][loc.j]
+						, info->player.key
 						, loc);
 				break ;
 			}
@@ -96,7 +95,7 @@ t_info	*parsing(char *file_name)
 	set_datalen(file);
 	info->map = parse_map(skip_newline(file));
 	ft_lstclear(&file);
-	if (!info->map || !check_map(info->map))
+	if (!info->map || !check_map(info))
 		return (free(info), ft_error_msg("Invalid map", 1)
 				, NULL);
 	info->map_m_size.i = ft_matlen(info->map);
