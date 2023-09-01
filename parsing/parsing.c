@@ -94,6 +94,9 @@ t_info	*parsing(char *file_name)
 	if (!set_info(&file, info))
 		return (ft_lstclear(&tmp), free(info)
 				, exit(EXIT_FAILURE), NULL);
+	/*
+		refactor create nad set info to be just init_info and make all code in one function and makw one error if this func fail
+	*/
 	set_datalen(file);
 	status = parse_map(info, skip_newline(file));
 	ft_lstclear(&tmp);
