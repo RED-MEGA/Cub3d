@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_cast.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/08/28 22:55:34 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/01 01:35:32 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ t_pos ray_cast(t_global *pub)
 {
 	t_player player = pub->info->player;
 
-
-	double wallhit_x = 0; // whai
-	double wallhit_y  = 0; // whai
-	double distance = 0; //whai
+	flag = 0;
 
 
 	//----------------------------------------------------get view player -----------------------------------------
@@ -83,6 +80,7 @@ t_pos ray_cast(t_global *pub)
 				if(is_up)
 					next_horiso_y++;
 				flag_horison = 1;
+
 				break;
 			}
 			next_horiso_x += step_x;
@@ -141,6 +139,7 @@ t_pos ray_cast(t_global *pub)
 				if(is_left)
 					next_verti_x++;
 				flag_vertical = 1;
+				flag = 1; //  khasso it7aid
 				break;
 			}
 			next_verti_x += verti_step_x;
@@ -163,13 +162,25 @@ t_pos ray_cast(t_global *pub)
 	if(horisontal_distance < vertical_distance)
 	{
 		end_pos.x = next_horiso_x;
+		pub->tess_x = next_horiso_x;
+	}
+	else
+	{
+		end_pos.x = next_verti_x;
+		pub->tess_x = next_verti_x;
+
+	}
+	if(horisontal_distance < vertical_distance)
+	{
+		end_pos.y = next_horiso_y;
+		pub->tess_y = next_horiso_y;
 
 	}
 	else
-		end_pos.x = next_verti_x;
-	if(horisontal_distance < vertical_distance)
-		end_pos.y = next_horiso_y;
-	else
+	{
 		end_pos.y = next_verti_y;
+		pub->tess_y = next_verti_y;
+
+	}
 	return (end_pos);
 }

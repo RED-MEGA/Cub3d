@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/30 06:03:37 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/01 00:10:47 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,13 @@ void	cub3d(char *file_name)
 
 	info = parsing(file_name);
 	pub = init_global(info);
+	pub->img = malloc(sizeof(t_pixel));
+
+	// printf("-->>  %p\n", pub->img->EA);
+	// exit(0);
+	pub->img->EA = ft_get_pixel_from_img(pub->info->EA);
+	//---------------------------------------------------------------------------
+
 	// mlx = pub->mlx;
 	mlx_key_hook(pub->mlx, handle_keys, pub);
 	mlx_cursor_hook(pub->mlx, handle_mouse, &pub->info->player);

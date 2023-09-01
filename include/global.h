@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/31 23:33:22 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/01 01:27:20 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,5 +171,7 @@ typedef struct s_global
 	t_pixel *img;
 
 }	t_global;
+
+int flag;
 
 #endif

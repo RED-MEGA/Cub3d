@@ -6,14 +6,14 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 17:33:44 by azarda            #+#    #+#             */
-/*   Updated: 2023/08/31 23:06:43 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/01 01:37:54 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 
-unsigned int *ft_get_pixel_from_img()
+unsigned int *ft_get_pixel_from_img(char *textur)
 {
 
 	mlx_texture_t *img = mlx_load_png("0.png");
@@ -31,13 +31,16 @@ unsigned int *ft_get_pixel_from_img()
 
 unsigned int *ft_texture(t_global *pub)
 {
+	int ofset_x;
+
+	if(flag)
+	{
+		ofset_x = (int)pub->tess_y % SQUARE_LEN;
+	}
+	else
+		ofset_x = (int)pub->tess_x % SQUARE_LEN;
 
 
-
-
-	mlx_texture_t	*texture = mlx_load_png("images.png");
-	if(!texture)
-		exit(0);
 
 	// Convert texture to a displayable image
 	// mlx_image_t* img = mlx_texture_to_image(pub->mlx, texture);

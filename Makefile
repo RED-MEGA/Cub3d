@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
+#    By: azarda <azarda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/08/31 18:10:30 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/08/31 23:51:02 by azarda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRC = main.c \
 		utils/compare.c \
 		utils/mlx_put_pixel_p.c \
 		utils/cleanup_tools.c \
+		texture/texture.c \
 		# libft/ft_atoi.c \
 		# libft/ft_bzero.c \
 		# libft/ft_calloc.c \
