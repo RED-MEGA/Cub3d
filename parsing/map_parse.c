@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:11:17 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/31 18:08:54 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/01 21:52:32 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		get_bline(t_list *file)
 	return (topline);
 }
 
-char	*addsize(char *data, int len)
+char	*addspaces(char *data, int len)
 {
 	char	*newstr;
 	char	*spaces;
@@ -61,6 +61,7 @@ char	**to_matrix(t_list *file)
 	map = NULL;
 	list_size = ft_lstsize(file);
 	map = (char **)malloc(sizeof(char *) * (list_size + 1));
+	ft_error_ptr(map, 1);
 	map[list_size] = NULL;
 	i = -1;
 	while (file)
@@ -71,20 +72,27 @@ char	**to_matrix(t_list *file)
 	return (map);
 }
 
-char	**parse_map(t_info *info, t_list *file)
+bool	parse_map(t_info *info, t_list *file)
 {
 	t_list	*head;
-	// int		bline;
+	int		bline;
 
 	if (!file)
 		return (NULL);
 	head = file;
-	info->map_m_size.j = get_bline(file);
+	bline = get_bline(file);
 	while (file)
 	{
-		if (info->map_m_size.j > file->len)
-			file->data = addsize(file->data, info->map_m_size.j - file->len);
+		if (bline > file->len)
+			file->data = addspaces(file->data, bline - file->len);
 		file = file->next;
 	}
-	return (to_matrix(head));
+	info->map = to_matrix(head);
+	if (!info->map || !check_map(info))
+		return (free(info), false);
+	info->map_m_size.i = ft_matlen(info->map);
+	info->map_m_size.j = bline;
+	info->map_p_size.y = info->map_m_size.i * SQUARE_LEN;
+	info->map_p_size.x = info->map_m_size.j * SQUARE_LEN;
+	return (true);
 }

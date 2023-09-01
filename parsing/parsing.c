@@ -77,19 +77,12 @@ void	set_player_info(t_info *info)
 	}
 }
 
-void	set_map_size(t_info *info) // temporary
-{
-	info->map_m_size.i = ft_matlen(info->map);
-	// info->map_m_size.j = ft_strlen(info->map[0]);
-	info->map_p_size.y = info->map_m_size.i * SQUARE_LEN;
-	info->map_p_size.x = info->map_m_size.j * SQUARE_LEN;
-}
-
 t_info	*parsing(char *file_name)
 {
 	t_list	*file;
 	t_list	*tmp;
 	t_info	*info;
+	bool	status;
 
 	if (!check_extension(file_name))
 		ft_error_msg(ERRFILE, EXIT_FAILURE);
@@ -102,12 +95,10 @@ t_info	*parsing(char *file_name)
 		return (ft_lstclear(&tmp), free(info)
 				, exit(EXIT_FAILURE), NULL);
 	set_datalen(file);
-	info->map = parse_map(info, skip_newline(file));
+	status = parse_map(info, skip_newline(file));
 	ft_lstclear(&tmp);
-	if (!info->map || !check_map(info))
-		return (free(info), ft_error_msg("Invalid map", 1)
-				, NULL);
-	set_map_size(info);
+	if (!status)
+		return (ft_error_msg("Invalid map", 1), NULL);
 	set_player_info(info);
 	return (info);
 }
