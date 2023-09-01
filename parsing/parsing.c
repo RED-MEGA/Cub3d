@@ -22,6 +22,7 @@ t_info	*create_info(void)
 	info->SO = NULL;
 	info->WE = NULL;
 	info->EA = NULL;
+	info->map = NULL;
 	info->F.r = FAIL;
 	info->F.g = FAIL;
 	info->F.b = FAIL;
@@ -87,6 +88,7 @@ void	set_map_size(t_info *info) // temporary
 t_info	*parsing(char *file_name)
 {
 	t_list	*file;
+	t_list	*tmp;
 	t_info	*info;
 
 	if (!check_extension(file_name))
@@ -94,13 +96,14 @@ t_info	*parsing(char *file_name)
 	if (isempty(file_name))
 		ft_error_msg(ERREMPTY, EXIT_FAILURE);
 	file = read_file(file_name); // Note : Check leak
+	tmp = file;
 	info = create_info();
 	if (!set_info(&file, info))
-		return (ft_lstclear(&file), free(info)
+		return (ft_lstclear(&tmp), free(info)
 				, exit(EXIT_FAILURE), NULL);
 	set_datalen(file);
 	info->map = parse_map(info, skip_newline(file));
-	ft_lstclear(&file);
+	ft_lstclear(&tmp);
 	if (!info->map || !check_map(info))
 		return (free(info), ft_error_msg("Invalid map", 1)
 				, NULL);
