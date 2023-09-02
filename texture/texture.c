@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 17:33:44 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/02 12:32:52 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/02 12:58:22 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ unsigned int *ft_get_pixel_from_img(char *textur)
 	unsigned int *list = malloc(sizeof(unsigned int) * img->width * img->height);
 	int i = 0;
 	int j = 0;
-	while (img->pixels[i] && j < img->width * img->height)
+	while (j < img->width * img->height)
 	{
 		list[j++] = get_rgb(img->pixels[i], img->pixels[i + 1], img->pixels[i + 2], 255);
 		i += 4;
