@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/02 22:37:36 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/02 22:47:00 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 bool	wall_collision(char **map, t_pos oldpos, t_pos newpos)
 {
 	if (map[(int)(newpos.y / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != '1'
-		&& map[(int)((newpos.y + P_RADIUS) / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != '1'
-		&& map[(int)((newpos.y - P_RADIUS) / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != '1'
-		&& map[(int)(newpos.y / SQUARE_LEN)][(int)((newpos.x + P_RADIUS) / SQUARE_LEN)] != '1'
-		&& map[(int)(newpos.y / SQUARE_LEN)][(int)((newpos.x - P_RADIUS) / SQUARE_LEN)] != '1'
+		&& map[(int)((newpos.y + (P_RADIUS * 0.4)) / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != '1'
+		&& map[(int)((newpos.y - (P_RADIUS * 0.4)) / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != '1'
+		&& map[(int)(newpos.y / SQUARE_LEN)][(int)((newpos.x + (P_RADIUS * 0.4)) / SQUARE_LEN)] != '1'
+		&& map[(int)(newpos.y / SQUARE_LEN)][(int)((newpos.x - (P_RADIUS * 0.4)) / SQUARE_LEN)] != '1'
 		&& map[(int)(oldpos.y / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != '1'
 		&& map[(int)(newpos.y / SQUARE_LEN)][(int)(oldpos.x / SQUARE_LEN)] != '1')
 		return (true);
