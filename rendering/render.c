@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/02 21:14:51 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/02 21:58:32 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	to_3d_ray(t_global *pub)
 		y = start_y;
 		while (y < end_y) {
 			ofset_y = (y + ((wall_height / 2) - (HEIGHT / 2))) * ((float)64 / wall_height);
-			mlx_put_pixel(pub->window_img, i, y, (tess[(64 * ofset_y) + ofset_x]));
+			mlx_put_pixel_p(pub->window_img, i, y, (tess[(64 * ofset_y) + ofset_x]));
 			y++;
 		}
 		i++;

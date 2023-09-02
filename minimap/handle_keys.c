@@ -6,15 +6,19 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/02 20:45:19 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/02 21:59:56 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	check_pos(char **map, t_pos oldpos, t_pos newpos)
+bool	wall_collision(char **map, t_pos oldpos, t_pos newpos)
 {
 	if (map[(int)(newpos.y / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != '1'
+		&& map[(int)((newpos.y + P_RADIUS) / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != '1'
+		&& map[(int)((newpos.y - P_RADIUS) / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != '1'
+		&& map[(int)(newpos.y / SQUARE_LEN)][(int)((newpos.x + P_RADIUS) / SQUARE_LEN)] != '1'
+		&& map[(int)(newpos.y / SQUARE_LEN)][(int)((newpos.x - P_RADIUS) / SQUARE_LEN)] != '1'
 		&& map[(int)(oldpos.y / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != '1'
 		&& map[(int)(newpos.y / SQUARE_LEN)][(int)(oldpos.x / SQUARE_LEN)] != '1')
 		return (true);
@@ -29,7 +33,7 @@ void	get_new_pos(t_info *info, double rotation_angle)
 	new_pos.y = info->player.pos.y;
 	new_pos.x += cos(rotation_angle) * P_MOVE_SPEED;
 	new_pos.y += sin(rotation_angle) * P_MOVE_SPEED;
-	if (check_pos(info->map, info->player.pos, new_pos))
+	if (wall_collision(info->map, info->player.pos, new_pos))
 	{
 		info->player.pos.x = new_pos.x;
 		info->player.pos.y = new_pos.y;
