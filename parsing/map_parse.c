@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:11:17 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/01 21:52:32 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/02 15:06:36 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ bool	parse_map(t_info *info, t_list *file)
 	int		bline;
 
 	if (!file)
-		return (NULL);
+		return (false);
 	head = file;
 	bline = get_bline(file);
 	while (file)
@@ -89,7 +89,7 @@ bool	parse_map(t_info *info, t_list *file)
 	}
 	info->map = to_matrix(head);
 	if (!info->map || !check_map(info))
-		return (free(info), false);
+		return (destroy_info(info), false);
 	info->map_m_size.i = ft_matlen(info->map);
 	info->map_m_size.j = bline;
 	info->map_p_size.y = info->map_m_size.i * SQUARE_LEN;

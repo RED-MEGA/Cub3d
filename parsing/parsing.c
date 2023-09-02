@@ -77,6 +77,19 @@ void	set_player_info(t_info *info)
 	}
 }
 
+bool	init_info(t_info **info, t_list **file)
+{
+	bool	status;
+
+	status = true;
+	*info = create_info();
+	status = set_info(file, *info);
+	if (!info_isset(*info))
+		return (perror_x("Some attribute not set")
+			, false);
+	return (status);
+}
+
 t_info	*parsing(char *file_name)
 {
 	t_list	*file;
@@ -90,13 +103,9 @@ t_info	*parsing(char *file_name)
 		ft_error_msg(ERREMPTY, EXIT_FAILURE);
 	file = read_file(file_name); // Note : Check leak
 	tmp = file;
-	info = create_info();
-	if (!set_info(&file, info))
-		return (ft_lstclear(&tmp), free(info)
-				, exit(EXIT_FAILURE), NULL);
-	/*
-		refactor create nad set info to be just init_info and make all code in one function and makw one error if this func fail
-	*/
+	status = init_info(&info, &file);
+	if (!status)
+		return (ft_lstclear(&tmp), exit(EXIT_FAILURE), NULL);
 	set_datalen(file);
 	status = parse_map(info, skip_newline(file));
 	ft_lstclear(&tmp);

@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:08:40 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/06 20:39:10 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/02 16:01:57 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,6 @@ bool	set_info(t_list	**file, t_info *info)
 		(*file) = (*file)->next;
 		free(buff);
 	}
-	if (!info_isset(info))
-		return (perror_x("Some attribute not set")
-			, false);
 	return (status);
 }
 
