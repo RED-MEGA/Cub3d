@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/02 21:59:56 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/02 22:37:36 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,21 @@ bool	wall_collision(char **map, t_pos oldpos, t_pos newpos)
 	return (false);
 }
 
+double	get_ms(bool sprint)
+{
+	if (sprint)
+		return (P_MOVE_SPEED * 2);
+	return (P_MOVE_SPEED);
+}
+
 void	get_new_pos(t_info *info, double rotation_angle)
 {
 	t_pos	new_pos;
 
 	new_pos.x = info->player.pos.x;
 	new_pos.y = info->player.pos.y;
-	new_pos.x += cos(rotation_angle) * P_MOVE_SPEED;
-	new_pos.y += sin(rotation_angle) * P_MOVE_SPEED;
+	new_pos.x += cos(rotation_angle) * get_ms(info->player.sprint);
+	new_pos.y += sin(rotation_angle) * get_ms(info->player.sprint);
 	if (wall_collision(info->map, info->player.pos, new_pos))
 	{
 		info->player.pos.x = new_pos.x;
@@ -139,6 +146,10 @@ void	handle_keys(mlx_key_data_t keydata, void *param)
 	player = &(pub->info->player);
 	if (keydata.key == MLX_KEY_ESCAPE)
 		destroy_global(pub);
+	if (key_press(keydata, MLX_KEY_LEFT_SHIFT))
+		pub->info->player.sprint = true;
+	else if (key_release(keydata, MLX_KEY_LEFT_SHIFT))
+		pub->info->player.sprint = false;
 	handle_moves(player, keydata);
 	handle_turn(player, keydata);
 }

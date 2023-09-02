@@ -37,6 +37,7 @@ t_info	*create_info(void)
 	info->player.move_v = NONE;
 	info->player.move_h = NONE;
 	info->player.rotation_angle = 0;
+	info->player.sprint = false;
 	return (info);
 }
 
