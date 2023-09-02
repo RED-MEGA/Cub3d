@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/02 20:29:11 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/03 00:45:13 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,20 @@ void	cub3d(char *file_name)
 {
 	t_global	*pub;
 	t_info		*info;
+	t_pixel *ptr;
+
+	ptr = malloc (sizeof(t_pixel));
 	// mlx_t		*mlx;
 
 	info = parsing(file_name);
 	pub = init_global(info);
 	pub->img = malloc(sizeof(t_pixel));
 
+	lode_texture(ptr);
+
 	// printf("-->>  %p\n", pub->img->EA);
 	// exit(0);
-	pub->img->EA = ft_get_pixel_from_img(pub->info->EA);
-	pub->img->WE = ft_get_pixel_from_img(pub->info->WE);
+
 	//---------------------------------------------------------------------------
 
 	// mlx = pub->mlx;

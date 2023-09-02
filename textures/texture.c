@@ -6,24 +6,17 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 17:33:44 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/02 21:18:27 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/03 00:45:05 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-
-unsigned int *ft_get_pixel_from_img(char *textur)
+unsigned int *lode_img_from_png(char *textur, int *width, int *height)
 {
-	t_pixel *ptr;
-
-	ptr = malloc (sizeof(t_pixel));
 	mlx_texture_t *img = mlx_load_png(textur);
-	ptr->heith =  img->height;
-	ptr->whidet = img->width;
-	printf("hiet -> %d\n", img->height);
-	printf("widt -> %d\n", img->width);
-	// exit(0);
+	height = img->height;
+	width =  img->width;
 	unsigned int *list = malloc(sizeof(unsigned int) * img->width * img->height);
 	int i = 0;
 	int j = 0;
@@ -32,8 +25,28 @@ unsigned int *ft_get_pixel_from_img(char *textur)
 		list[j++] = get_rgb(img->pixels[i], img->pixels[i + 1], img->pixels[i + 2], 255);
 		i += 4;
 	}
-
 	return(list);
 }
 
+void  lode_texture(t_pixel *ptr)
+{
+	
+
+	int width;
+	int height;
+
+	ptr->EA.buffer_img = lode_img_from_png(ptr->EA.path, &width, &height);
+	ptr->EA.heith = height;
+	ptr->EA.whidet = width;
+	ptr->SO.buffer_img = lode_img_from_png(ptr->SO.path,&width, &height);
+	ptr->SO.heith = height;
+	ptr->SO.whidet = width;
+	// ptr->EA.buffer_img = lode_img_from_png(ptr->EA.path);
+	// ptr->EA.buffer_img = lode_img_from_png(ptr->EA.path);
+}
+
+unsigned int *ft_get_pixel_from_img(char *textur)
+{
+	return(0);
+}
 

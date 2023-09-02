@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   global.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/02 22:15:45 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/03 00:49:50 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,23 @@ typedef struct s_color
 	int		b;
 }	t_color;
 
+typedef struct  s_img_data
+{
+	char			*path;
+	uint32_t		heith;
+	uint32_t		whidet;
+	unsigned int	*buffer_img;
+
+}	t_img;
+
+typedef struct  s_pixel
+{
+	t_img	NO;
+	t_img	SO;
+	t_img	WE;
+	t_img	EA;
+} t_pixel;
+
 typedef struct s_info
 {
 	t_player	player;
@@ -150,20 +167,12 @@ typedef struct s_info
 	char		**map;
 	int			s_y_map;
 	int			s_x_map;
+	t_pixel		in_img;
 	t_pos		map_p_size;
 	t_loc		map_m_size;
 }	t_info;
 
-typedef struct  s_pixel
-{
-	uint32_t     heith;
-	uint32_t     whidet;
 
-	unsigned int	*NO;
-	unsigned int	*SO;
-	unsigned int	*WE;
-	unsigned int	*EA;
-} t_pixel;
 
 
 typedef struct s_global
