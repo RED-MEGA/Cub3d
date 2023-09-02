@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/02 12:54:33 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/02 15:57:16 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,19 @@ void	to_3d_ray(t_global *pub)
 
 	while (i < WIDTH) {
 		double wall_height = calcul_wp(&pub->info->player, i);
-		// if (wall_height > HEIGHT)
-		// 	wall_height = HEIGHT;
+
+		unsigned int* tess;
 
 		if(pub->info->player.ray[i].flag == 1)
+		{
 			ofset_x = (int)pub->info->player.ray[i].pos.x % SQUARE_LEN;
+			tess = pub->img->EA;
+		}
 		else if (pub->info->player.ray[i].flag == 2)
+		{
 			ofset_x = (int)pub->info->player.ray[i].pos.y % SQUARE_LEN;
+			tess = pub->img->WE;
+		}
 		start_y = (HEIGHT / 2) - (wall_height / 2);
 		if (start_y < 0)
 			start_y = 0;
@@ -77,9 +83,8 @@ void	to_3d_ray(t_global *pub)
 			end_y = HEIGHT;
 		y = start_y;
 		while (y < end_y) {
-			ofset_y = (y + ((wall_height / 2) - (HEIGHT / 2))) * ((float)SQUARE_LEN / wall_height);
-
-			mlx_put_pixel(pub->window_img, i, y, (pub->img->EA[(SQUARE_LEN * ofset_y) + ofset_x]));
+			ofset_y = (y + ((wall_height / 2) - (HEIGHT / 2))) * ((float)50 / wall_height);
+			mlx_put_pixel(pub->window_img, i, y, (tess[(50 * ofset_y) + ofset_x]));
 			y++;
 		}
 		i++;

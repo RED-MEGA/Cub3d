@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/02 12:34:13 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/02 15:57:30 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@
 # define HEIGHT 1080
 # define WIDTH 1920
 
-# define SQUARE_LEN 64
+# define SQUARE_LEN 50
 
 # define MINIMAP_SIZE (WIDTH / 6)
 

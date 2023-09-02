@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/01 00:10:47 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/02 15:44:55 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	cub3d(char *file_name)
 	// printf("-->>  %p\n", pub->img->EA);
 	// exit(0);
 	pub->img->EA = ft_get_pixel_from_img(pub->info->EA);
+	pub->img->WE = ft_get_pixel_from_img(pub->info->WE);
 	//---------------------------------------------------------------------------
 
 	// mlx = pub->mlx;
