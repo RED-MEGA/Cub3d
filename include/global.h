@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/01 01:27:20 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/02 12:34:13 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@
 # define HEIGHT 1080
 # define WIDTH 1920
 
-# define SQUARE_LEN 50
+# define SQUARE_LEN 64
 
 # define MINIMAP_SIZE (WIDTH / 6)
 
@@ -112,6 +112,7 @@ typedef struct s_ray
 	double	angle;
 	double	len;
 	t_pos	pos;
+	int flag;
 }	t_ray;
 
 typedef struct s_player
@@ -154,6 +155,9 @@ typedef struct s_info
 
 typedef struct  s_pixel
 {
+	uint32_t     heith;
+	uint32_t     whidet;
+
 	unsigned int	*NO;
 	unsigned int	*SO;
 	unsigned int	*WE;
@@ -172,6 +176,5 @@ typedef struct s_global
 
 }	t_global;
 
-int flag;
 
 #endif

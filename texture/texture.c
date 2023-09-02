@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 17:33:44 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/01 01:37:54 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/02 12:32:52 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,48 @@
 
 unsigned int *ft_get_pixel_from_img(char *textur)
 {
+	t_pixel *ptr;
 
-	mlx_texture_t *img = mlx_load_png("0.png");
+	ptr = malloc (sizeof(t_pixel));
+	mlx_texture_t *img = mlx_load_png("STARG2_64.png");
+	ptr->heith =  img->height;
+	ptr->whidet = img->width;
 	unsigned int *list = malloc(sizeof(unsigned int) * img->width * img->height);
 	int i = 0;
-	while (i < img->width * img->height)
+	int j = 0;
+	while (img->pixels[i] && j < img->width * img->height)
 	{
-		list[i] = get_rgb(img->pixels[i], img->pixels[i + 1], img->pixels[i + 2], img->pixels[i + 3]);
+		list[j++] = get_rgb(img->pixels[i], img->pixels[i + 1], img->pixels[i + 2], 255);
 		i += 4;
 	}
+
 	return(list);
 }
 
 
 
-unsigned int *ft_texture(t_global *pub)
+int ft_texture(t_global *pub, int start, int end, double wp, int number_rey)
 {
-	int ofset_x;
-
-	if(flag)
-	{
-		ofset_x = (int)pub->tess_y % SQUARE_LEN;
-	}
-	else
-		ofset_x = (int)pub->tess_x % SQUARE_LEN;
 
 
+
+
+
+
+
+	// while(pub->img->EA[i])
+	// {
+	// 	printf(" -> %x\n", pub->img->EA[i]);
+	// 	i++;
+	// }
+	// exit(0);
+
+	// return(tess);
+
+
+	// uint32_t color_text = pub->img->EA[(pub->img->img->width * ofset_y) + ofset_x];
+
+	// pub->img->EA[(WIDTH * i) + number_rey];
 
 	// Convert texture to a displayable image
 	// mlx_image_t* img = mlx_texture_to_image(pub->mlx, texture);

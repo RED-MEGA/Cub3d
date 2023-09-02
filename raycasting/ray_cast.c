@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/01 01:35:32 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/02 12:36:25 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 
 
-t_pos ray_cast(t_global *pub)
+t_pos ray_cast(t_global *pub, int *flag)
 {
 	t_player player = pub->info->player;
 
-	flag = 0;
+	*flag = 0;
 
 
 	//----------------------------------------------------get view player -----------------------------------------
@@ -80,7 +80,7 @@ t_pos ray_cast(t_global *pub)
 				if(is_up)
 					next_horiso_y++;
 				flag_horison = 1;
-
+				// *flag = 1;
 				break;
 			}
 			next_horiso_x += step_x;
@@ -139,7 +139,7 @@ t_pos ray_cast(t_global *pub)
 				if(is_left)
 					next_verti_x++;
 				flag_vertical = 1;
-				flag = 1; //  khasso it7aid
+				// *flag = 2; //  khasso it7aid
 				break;
 			}
 			next_verti_x += verti_step_x;
@@ -161,26 +161,19 @@ t_pos ray_cast(t_global *pub)
 	}
 	if(horisontal_distance < vertical_distance)
 	{
+		*flag = 1;
 		end_pos.x = next_horiso_x;
-		pub->tess_x = next_horiso_x;
-	}
-	else
-	{
-		end_pos.x = next_verti_x;
-		pub->tess_x = next_verti_x;
-
-	}
-	if(horisontal_distance < vertical_distance)
-	{
 		end_pos.y = next_horiso_y;
+		pub->tess_x = next_horiso_x;
 		pub->tess_y = next_horiso_y;
-
 	}
 	else
 	{
+		*flag = 2;
+		end_pos.x = next_verti_x;
 		end_pos.y = next_verti_y;
+		pub->tess_x = next_verti_x;
 		pub->tess_y = next_verti_y;
-
 	}
 	return (end_pos);
 }
