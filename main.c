@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/02 15:44:55 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/02 20:29:11 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	cub3d(char *file_name)
 
 	// mlx = pub->mlx;
 	mlx_key_hook(pub->mlx, handle_keys, pub);
-	mlx_cursor_hook(pub->mlx, handle_mouse, &pub->info->player);
+	mlx_cursor_hook(pub->mlx, handle_mouse, pub);
 	mlx_close_hook(pub->mlx, destroy_global, pub);
 	mlx_loop_hook(pub->mlx, refresh_frame, pub);
 	mlx_loop(pub->mlx);

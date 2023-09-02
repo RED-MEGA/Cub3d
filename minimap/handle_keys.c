@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/31 18:09:31 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/02 20:45:19 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,16 +73,12 @@ void	set_newpos(t_global *pub)
 
 void	handle_mouse(double xpos, double ypos, void* param)
 {
-	t_player	*player;
+	t_global	*pub;
 
 	(void)ypos;
-	player = (t_player *)param;
-	if (xpos <= (WIDTH / 2) - (WIDTH / 8))
-		player->turn_d = -1;
-	else if (xpos >= (WIDTH / 2) + (WIDTH / 8))
-		player->turn_d = 1;
-	else
-		player->turn_d = 0;
+	pub = (t_global *)param;
+	pub->info->player.rotation_angle += to_rad(xpos - (WIDTH / 2)) * (double)0.100;
+	mlx_set_mouse_pos(pub->mlx, (WIDTH / 2), (HEIGHT / 2));
 }
 
 bool	key_press(mlx_key_data_t keydata, keys_t key)
