@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/02 22:47:00 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/03 16:29:15 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,11 @@ void	handle_mouse(double xpos, double ypos, void* param)
 
 	(void)ypos;
 	pub = (t_global *)param;
-	pub->info->player.rotation_angle += to_rad(xpos - (WIDTH / 2)) * (double)0.100;
-	mlx_set_mouse_pos(pub->mlx, (WIDTH / 2), (HEIGHT / 2));
+	if (pub->mode == MLX_MOUSE_HIDDEN)
+	{
+		pub->info->player.rotation_angle += to_rad(xpos - (WIDTH / 2)) * (double)0.100;
+		mlx_set_mouse_pos(pub->mlx, (WIDTH / 2), (HEIGHT / 2));
+	}
 }
 
 bool	key_press(mlx_key_data_t keydata, keys_t key)
@@ -150,6 +153,14 @@ void	handle_keys(mlx_key_data_t keydata, void *param)
 		pub->info->player.sprint = true;
 	else if (key_release(keydata, MLX_KEY_LEFT_SHIFT))
 		pub->info->player.sprint = false;
+	if (key_press(keydata, MLX_KEY_F))
+	{
+		if (pub->mode == MLX_MOUSE_HIDDEN)
+			pub->mode = MLX_MOUSE_NORMAL;
+		else
+			pub->mode = MLX_MOUSE_HIDDEN;
+		mlx_set_cursor_mode(pub->mlx, pub->mode);
+	}
 	handle_moves(player, keydata);
 	handle_turn(player, keydata);
 }
