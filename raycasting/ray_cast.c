@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/03 04:55:55 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/03 05:33:30 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,51 +89,49 @@ t_pos ray_cast(t_global *pub, int *flag)
 	pub->de = ft_derection(player);
 
 	*flag = 0;
+	// int *flag_hori = 0;
+	int flag_verti = 0;
 	t_pos horiso = ft_horizontal_inter(pub, player, flag);
+
 	// t_pos verti = ft_vertical_inter(pub, player,flag);
 	// player.ray_angle *= (M_PI / 180);
 
 	//------------------------------------vertical--------------------------------------------------
 
+	t_pos inter;
+	t_pos step;
 
-	double verti_x_inter;
-	double verti_y_inter;
 
-	double verti_step_x;
-	double verti_step_y;
-
-	verti_x_inter = floor(player.pos.x / SQUARE_LEN) * SQUARE_LEN;
+	inter.x = floor(player.pos.x / SQUARE_LEN) * SQUARE_LEN;
 	if(pub->de.right)
-		verti_x_inter += SQUARE_LEN;
+		inter.x += SQUARE_LEN;
 
 
-	verti_y_inter = player.pos.y + (verti_x_inter - player.pos.x) *  tan(player.ray_angle);
+	inter.y = player.pos.y + (inter.x - player.pos.x) *  tan(player.ray_angle);
 
-	verti_step_x = SQUARE_LEN;
+	step.x = SQUARE_LEN;
 	if(pub->de.left)
-		verti_step_x *= -1;
+		step.x *= -1;
 
 
 
 
-	verti_step_y = SQUARE_LEN * tan(player.ray_angle);
-	if(pub->de.up && verti_step_y > 0)
-		verti_step_y *= -1;
-	if(pub->de.down  && verti_step_y < 0)
-		verti_step_y *= -1;
+	step.y = SQUARE_LEN * tan(player.ray_angle);
+	if(pub->de.up && step.y > 0)
+		step.y *= -1;
+	if(pub->de.down  && step.y < 0)
+		step.y *= -1;
 
-	double next_verti_x = verti_x_inter;
-	double next_verti_y = verti_y_inter;
+
 	if(pub->de.left)
-		next_verti_x--;
+		inter.x--;
 
-	int flag_vertical = 0;
 	int x = 0;
 	int y = 0;
 	while(1)
 	{
-		x = floor(next_verti_x / SQUARE_LEN);
-		y = floor(next_verti_y / SQUARE_LEN);
+		x = floor(inter.x / SQUARE_LEN);
+		y = floor(inter.y / SQUARE_LEN);
 		if(x >= pub->info->map_m_size.j || y >= pub->info->map_m_size.i || x < 0 || y < 0)
 			break;
 		else
@@ -142,12 +140,12 @@ t_pos ray_cast(t_global *pub, int *flag)
 			if(pub->info->map[y][x] == '1')
 			{
 				if(pub->de.left)
-					next_verti_x++;
-				flag_vertical = 1;
+					inter.x++;
+				flag_verti  = 1;
 				break;
 			}
-			next_verti_x += verti_step_x;
-			next_verti_y += verti_step_y;
+			inter.x += step.x;
+			inter.y += step.y;
 		}
 	}
 // ---------------------------------------------------calcul dectence -------------------------------------------------------
@@ -155,13 +153,14 @@ t_pos ray_cast(t_global *pub, int *flag)
 
 	double  horisontal_distance = ULLONG_MAX;
 	double  vertical_distance = ULLONG_MAX;
+
 	if((*flag) == 1)
 	{
 		horisontal_distance = calcul_distance(player.pos, (t_pos) {.x = horiso.x, .y = horiso.y});
 	}
-	if(flag_vertical)
+	if(flag_verti)
 	{
-		vertical_distance = calcul_distance(player.pos, (t_pos) {.x = next_verti_x, .y = next_verti_y});
+		vertical_distance = calcul_distance(player.pos, (t_pos) {.x = inter.x, .y = inter.y});
 	}
 	if(horisontal_distance < vertical_distance)
 	{
@@ -172,8 +171,8 @@ t_pos ray_cast(t_global *pub, int *flag)
 	else
 	{
 		*flag = 2;
-		end_pos.x = next_verti_x;
-		end_pos.y = next_verti_y;
+		end_pos.x = inter.x;
+		end_pos.y = inter.y;
 	}
 	return (end_pos);
 }
