@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 17:33:44 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/03 02:37:47 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/03 03:15:34 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void  lode_texture(t_pixel *ptr, t_info *info)
 	ptr->NO.buffer_img = lode_img_from_png(info->NO, &width, &height);
 	ptr->NO.heith = height;
 	ptr->NO.whidet = width;
+
 }
 
 unsigned int *ft_get_pixel_from_img(char *textur)

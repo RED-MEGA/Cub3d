@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/03 02:40:24 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/03 04:22:33 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,6 +172,13 @@ typedef struct s_info
 }	t_info;
 
 
+typedef struct  s_derec
+{
+	int	down;
+	int	up;
+	int	right;
+	int	left;
+} t_derec;
 
 
 typedef struct s_global
@@ -179,8 +186,7 @@ typedef struct s_global
 	t_info		*info;
 	mlx_t		*mlx;
 	mlx_image_t	*window_img;
-	double  tess_y;
-	double  tess_x;
+	t_derec		de;
 	t_pixel *img;
 
 }	t_global;

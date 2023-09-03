@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/03 02:38:01 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/03 03:17:08 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	to_3d_ray(t_global *pub)
 
 	int i = 0;
 	int x = 0;
-	int y =0;
+	int y = 0;
 
 
 	for (int i = 0; i < HEIGHT; i++){
@@ -59,6 +59,8 @@ void	to_3d_ray(t_global *pub)
 			}
 		}
 	}
+		// get_rgb(tess[((32 * ofset_y) + ofset_x)], tess[((32 * ofset_y) + ofset_x) + 1], tess[ ((32 * ofset_y) + ofset_x) + 2], tess[((32 * ofset_y) + ofset_x) + 3])
+
 
 	while (i < WIDTH) {
 		double wall_height = calcul_wp(&pub->info->player, i);
