@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/03 00:49:50 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/03 02:40:24 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ typedef struct s_color
 
 typedef struct  s_img_data
 {
-	char			*path;
+	// char			*path;
 	uint32_t		heith;
 	uint32_t		whidet;
 	unsigned int	*buffer_img;
@@ -167,7 +167,6 @@ typedef struct s_info
 	char		**map;
 	int			s_y_map;
 	int			s_x_map;
-	t_pixel		in_img;
 	t_pos		map_p_size;
 	t_loc		map_m_size;
 }	t_info;

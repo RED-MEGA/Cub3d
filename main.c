@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/03 00:45:13 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/03 02:40:47 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,6 @@ void	refresh_frame(void *param)
 
 	pub = (t_global *)param;
 	set_newpos(pub);
-
-
-
-
 
 	// update frame
 	calcul_rays(pub);
@@ -48,11 +44,7 @@ void	cub3d(char *file_name)
 	info = parsing(file_name);
 	pub = init_global(info);
 	pub->img = malloc(sizeof(t_pixel));
-
-	lode_texture(ptr);
-
-	// printf("-->>  %p\n", pub->img->EA);
-	// exit(0);
+	lode_texture(pub->img, info);
 
 	//---------------------------------------------------------------------------
 

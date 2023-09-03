@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/02 21:58:32 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/03 02:38:01 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,12 @@ void	to_3d_ray(t_global *pub)
 		if(pub->info->player.ray[i].flag == 1)
 		{
 			ofset_x = (int)pub->info->player.ray[i].pos.x % SQUARE_LEN;
-			tess = pub->img->EA;
+			tess = pub->img->SO.buffer_img;
 		}
 		else if (pub->info->player.ray[i].flag == 2)
 		{
 			ofset_x = (int)pub->info->player.ray[i].pos.y % SQUARE_LEN;
-			tess = pub->img->WE;
+			tess = pub->img->NO.buffer_img;
 		}
 		start_y = (HEIGHT / 2) - (wall_height / 2);
 		if (start_y < 0)
@@ -83,64 +83,14 @@ void	to_3d_ray(t_global *pub)
 			end_y = HEIGHT;
 		y = start_y;
 		while (y < end_y) {
-			ofset_y = (y + ((wall_height / 2) - (HEIGHT / 2))) * ((float)64 / wall_height);
-			mlx_put_pixel_p(pub->window_img, i, y, (tess[(64 * ofset_y) + ofset_x]));
+			ofset_y = (y + ((wall_height / 2) - (HEIGHT / 2))) * ((float)32 / wall_height);
+			mlx_put_pixel_p(pub->window_img, i, y, (tess[(32 * ofset_y) + ofset_x]));
 			y++;
 		}
 		i++;
 
 	}
 
-	// (offset_y* texture->line_length + offset_x
-	// * (texture->bits_per_pixel / 8))
-
-	// int tess;
-	// int k;
-	// int y;
-
-
-
-	// while (pos.y < HEIGHT)
-	// {
-	// 	if (pos.y < start_y)
-	// 		draw_fc(image, info->C, pos);
-
-
-
-	// 	else if (pos.y >= start_y && pos.y <= end_y)
-	// 	{
-	// 		if(flag)
-	// 			ofset_x = (int)pub->tess_y % SQUARE_LEN;
-	// 		else
-	// 			ofset_x = (int)pub->tess_x % SQUARE_LEN;
-
-
-	// 		y = start_y;
-	// 		while(y < end_y)
-	// 		{
-	// 			int destenc = (y + (wp / 2) - (HEIGHT / 2));
-	// 			ofset_y = destenc * (50 / wp);
-
-	// 			printf("ofset_y  -> %d\n", ofset_y);
-
-	// 			k = pub->img->EA[(50 * ofset_y) + ofset_x];
-
-	// 			printf("k  -> %d\n", k);
-
-	// 		 	tess = pub->img->EA[(WIDTH * y) + i] = k;
-	// 			// exit(0);
-	// 			mlx_put_pixel_p(image, pos.x, y , tess);
-	// 			y++;
-	// 		}
-	// 	}
-
-
-
-
-	// 	else if (pos.y > end_y)
-			// draw_fc(image, info->F, pos);
-	// 	pos.y++;
-	// }
 }
 
 void	render(t_global *pub)

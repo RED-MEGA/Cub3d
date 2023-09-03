@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/03 00:43:46 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/03 02:09:17 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void		draw_line(mlx_image_t *image, t_pos start, t_pos end);
 
 t_pos			ray_cast(t_global *pub, int *flag);
 unsigned int 	*ft_get_pixel_from_img(char *textur);
-void  lode_texture(t_pixel *ptr);
+void  lode_texture(t_pixel *ptr, t_info *pp);
 
 
 
