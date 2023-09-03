@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/03 04:39:53 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/03 04:55:55 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,42 +30,10 @@ t_derec ft_derection(t_player player)
 	return(de);
 }
 
-// t_pos ft_loop_calcul(t_pos inter, t_pos step, t_global *pub, int *flag)
-// {
-
-
-// }
-
-t_pos ft_horisontal_inter(t_global *pub, t_player player, int *flag)
+t_pos ft_loop_calcul(t_pos inter, t_pos step, t_global *pub, int *flag)
 {
-	t_pos inter;
-	t_pos step;
-	inter.y = floor(player.pos.y / SQUARE_LEN) * SQUARE_LEN;
-	if(pub->de.down)
-		inter.y += SQUARE_LEN;
-	inter.x = player.pos.x + (inter.y - player.pos.y) / tan(player.ray_angle);
-
-
-
-
-	step.y = SQUARE_LEN;
-	if(pub->de.up)
-		step.y *= -1;
-	step.x = SQUARE_LEN / tan(player.ray_angle);
-	if(pub->de.left && step.x > 0)
-		step.x *= -1;
-	if(pub->de.right && step.x < 0)
-		step.x *= -1;
-
-
-
-
-	if(pub->de.up)
-		inter.y--;
-
 	int x;
 	int y;
-	// ft_loop_calcul(inter, step, pub, flag);
 	while(1)
 	{
 		x = floor(inter.x / SQUARE_LEN);
@@ -88,6 +56,32 @@ t_pos ft_horisontal_inter(t_global *pub, t_player player, int *flag)
 	return((t_pos){.x = inter.x, .y = inter.y});
 }
 
+t_pos ft_horizontal_inter(t_global *pub, t_player player, int *flag)
+{
+	t_pos inter;
+	t_pos step;
+	inter.y = floor(player.pos.y / SQUARE_LEN) * SQUARE_LEN;
+	if(pub->de.down)
+		inter.y += SQUARE_LEN;
+	inter.x = player.pos.x + (inter.y - player.pos.y) / tan(player.ray_angle);
+	step.y = SQUARE_LEN;
+	if(pub->de.up)
+		step.y *= -1;
+	step.x = SQUARE_LEN / tan(player.ray_angle);
+	if(pub->de.left && step.x > 0)
+		step.x *= -1;
+	if(pub->de.right && step.x < 0)
+		step.x *= -1;
+	if(pub->de.up)
+		inter.y--;
+	return(ft_loop_calcul(inter, step, pub, flag));
+}
+
+// t_pos ft_vertical_inter(t_global *pub, t_player player, int *flag)
+// {
+
+// }
+
 t_pos ray_cast(t_global *pub, int *flag)
 {
 	t_player player = pub->info->player;
@@ -95,7 +89,8 @@ t_pos ray_cast(t_global *pub, int *flag)
 	pub->de = ft_derection(player);
 
 	*flag = 0;
-	t_pos horiso = ft_horisontal_inter(pub, player, flag);
+	t_pos horiso = ft_horizontal_inter(pub, player, flag);
+	// t_pos verti = ft_vertical_inter(pub, player,flag);
 	// player.ray_angle *= (M_PI / 180);
 
 	//------------------------------------vertical--------------------------------------------------
