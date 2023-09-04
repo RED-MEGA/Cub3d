@@ -6,11 +6,40 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:08:40 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/02 16:01:57 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/04 12:22:12 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+t_info	*create_info(void)
+{
+	t_info	*info;
+
+	info = (t_info *)malloc(sizeof(t_info));
+	ft_error_ptr(info, EXIT_FAILURE);
+	info->NO = NULL;
+	info->SO = NULL;
+	info->WE = NULL;
+	info->EA = NULL;
+	info->map = NULL;
+	info->F.r = FAIL;
+	info->F.g = FAIL;
+	info->F.b = FAIL;
+	info->C.r = FAIL;
+	info->C.g = FAIL;
+	info->C.b = FAIL;
+	info->player.pos.x = FAIL;
+	info->player.pos.y = FAIL;
+	info->player.direction = FAIL;
+	info->player.turn_d = 0;
+	info->player.walk_d = 0;
+	info->player.move_v = NONE;
+	info->player.move_h = NONE;
+	info->player.rotation_angle = 0;
+	info->player.sprint = false;
+	return (info);
+}
 
 bool	info_isset(t_info *info)
 {
@@ -52,11 +81,15 @@ bool	set_info(t_list	**file, t_info *info)
 	return (status);
 }
 
-void	set_datalen(t_list *file)
+bool	init_info(t_info **info, t_list **file)
 {
-	while (file)
-	{
-		file->len = ft_strlen(file->data);
-		file = file->next;
-	}
+	bool	status;
+
+	status = true;
+	*info = create_info();
+	status = set_info(file, *info);
+	if (!info_isset(*info))
+		return (perror_x("Some attribute not set")
+			, false);
+	return (status);
 }

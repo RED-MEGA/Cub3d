@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/03 02:09:17 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/04 12:23:53 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@
 
 t_info		*parsing(char *file_name);
 
+t_info	*create_info(void);
+bool	info_isset(t_info *info);
+bool	set_info(t_list	**file, t_info *info);
+bool	init_info(t_info **info, t_list **file);
+
 bool		check_extension(char *file);
 bool		isempty(char *file);
 bool		isrgb(int rgb);
@@ -36,8 +41,6 @@ int			_set_color(char **color, int i, char *to_free);
 bool		set_color(char *data, t_color *rgb);
 
 void		set_datalen(t_list *file);
-bool		info_isset(t_info *info);
-bool		set_info(t_list **file, t_info *info);
 
 bool		check_map(t_info *info);
 t_list		*skip_newline(t_list *file);
