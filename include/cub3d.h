@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/04 12:23:53 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:58:26 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ t_info	*create_info(void);
 bool	info_isset(t_info *info);
 bool	set_info(t_list	**file, t_info *info);
 bool	init_info(t_info **info, t_list **file);
+
+void	init_player(t_info *info);
 
 bool		check_extension(char *file);
 bool		isempty(char *file);

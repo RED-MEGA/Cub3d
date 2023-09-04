@@ -21,44 +21,6 @@ void	set_datalen(t_list *file)
 	}
 }
 
-void	_set_pi(char **map, t_player *player, char c, t_loc pos)
-{
-	player->pos.x = (pos.j * SQUARE_LEN) + (SQUARE_LEN / 2);
-	player->pos.y = (pos.i * SQUARE_LEN) + (SQUARE_LEN / 2);
-	if (c == 'N')
-		player->direction = NO;
-	else if (c == 'S')
-		player->direction = SO;
-	else if (c == 'W')
-		player->direction = WE;
-	else if (c == 'E')
-		player->direction = EA;
-}
-
-void	set_player_info(t_info *info)
-{
-	t_loc	loc;
-
-	loc.i = -1;
-	loc.j = -1;
-	while (info->map[++loc.i])
-	{
-		loc.j = -1;
-		while (info->map[loc.i][++loc.j])
-		{
-			if (info->map[loc.i][loc.j] == 'P')
-			{
-				_set_pi(info->map, &info->player 
-						, info->player.key
-						, loc);
-				break ;
-			}
-		}
-	}
-}
-
-
-
 t_info	*parsing(char *file_name)
 {
 	t_list	*file;
@@ -80,6 +42,6 @@ t_info	*parsing(char *file_name)
 	ft_lstclear(&tmp);
 	if (!status)
 		return (ft_error_msg("Invalid map", 1), NULL);
-	set_player_info(info);
+	init_player(info);
 	return (info);
 }
