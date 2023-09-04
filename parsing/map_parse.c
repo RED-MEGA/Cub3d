@@ -43,7 +43,7 @@ char	*addspaces(char *data, int len)
 	if (data[0] == '\0')
 		return (ft_strjoin_gnl(data, "\n"));
 	spaces = (char *)malloc(len * sizeof(char) + 1);
-	ft_error_ptr(spaces, 1); // Note : info is leak hair 
+	ft_error_ptr(spaces, 1);
 	i = -1;
 	spaces[len] = '\0';
 	while (spaces[++i])
