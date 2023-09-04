@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/04 13:58:26 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:11:56 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool	init_info(t_info **info, t_list **file);
 
 void	init_player(t_info *info);
 
-bool		check_extension(char *file);
+bool		check_extension(char *file, char *extension);
 bool		isempty(char *file);
 bool		isrgb(int rgb);
 bool		isvalid_path(char *file);

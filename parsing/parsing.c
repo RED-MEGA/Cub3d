@@ -28,7 +28,7 @@ t_info	*parsing(char *file_name)
 	t_info	*info;
 	bool	status;
 
-	if (!check_extension(file_name))
+	if (!check_extension(file_name, ".cub"))
 		ft_error_msg(ERRFILE, EXIT_FAILURE);
 	if (isempty(file_name))
 		ft_error_msg(ERREMPTY, EXIT_FAILURE);
