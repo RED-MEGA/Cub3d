@@ -45,7 +45,6 @@ void	_set_pi(char **map, t_player *player, char c, t_loc pos)
 {
 	player->pos.x = (pos.j * SQUARE_LEN) + (SQUARE_LEN / 2);
 	player->pos.y = (pos.i * SQUARE_LEN) + (SQUARE_LEN / 2);
-	map[pos.i][pos.j] = 'P';
 	if (c == 'N')
 		player->direction = NO;
 	else if (c == 'S')
@@ -58,7 +57,7 @@ void	_set_pi(char **map, t_player *player, char c, t_loc pos)
 
 void	set_player_info(t_info *info)
 {
-	t_loc		loc;
+	t_loc	loc;
 
 	loc.i = -1;
 	loc.j = -1;
@@ -102,7 +101,7 @@ t_info	*parsing(char *file_name)
 		ft_error_msg(ERRFILE, EXIT_FAILURE);
 	if (isempty(file_name))
 		ft_error_msg(ERREMPTY, EXIT_FAILURE);
-	file = read_file(file_name); // Note : Check leak
+	file = read_file(file_name);
 	tmp = file;
 	status = init_info(&info, &file);
 	if (!status)
