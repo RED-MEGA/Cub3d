@@ -6,11 +6,11 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:12:54 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/26 17:24:47 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:17:56 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "tools.h"
 
 //1° × π/180 = 0.01745rad
 double	to_rad(double degree)

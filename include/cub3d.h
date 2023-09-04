@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/04 14:11:56 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:19:38 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CUB3D_H
 
 # include "global.h"
-# include "utils.h"
+# include "tools.h"
 # include "libft.h"
 
 /* **************** */

@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/09/04 13:56:30 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/09/04 14:20:10 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ HEADERS = -I ./include  -I $(LIBMLX)/include
 MLXLIB = $(LIBMLX)/build/libmlx42.a
 LIBS = $(MLXLIB) -dl -lglfw -L$(shell  brew  --prefix glfw)/lib -pthread -lm
 
-INCLUDE = include/global.h include/cub3d.h include/utils.h include/libft.h
+INCLUDE = include/global.h include/cub3d.h include/tools.h include/libft.h
 
 SRC = main.c \
 		parsing/parsing.c \
@@ -40,15 +40,15 @@ SRC = main.c \
 		rendering/rays_calc.c \
 		rendering/render.c \
 		rendering/floor_ceiling.c \
-		utils/math_tools.c \
-		utils/get_color.c \
-		utils/error.c \
-		utils/matdup.c \
-		utils/free.c \
-		utils/index_list.c \
-		utils/compare.c \
-		utils/mlx_put_pixel_p.c \
-		utils/cleanup_tools.c \
+		tools/math_tools.c \
+		tools/get_color.c \
+		tools/error.c \
+		tools/matdup.c \
+		tools/free.c \
+		tools/index_list.c \
+		tools/compare.c \
+		tools/mlx_put_pixel_p.c \
+		tools/cleanup_tools.c \
 		textures/texture.c \
 		# libft/ft_atoi.c \
 		# libft/ft_bzero.c \

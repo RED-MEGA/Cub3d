@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compare.c                                          :+:      :+:    :+:   */
+/*   cleanup_tools.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/26 11:11:09 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/01 19:55:02 by reben-ha         ###   ########.fr       */
+/*   Created: 2023/08/30 02:06:39 by reben-ha          #+#    #+#             */
+/*   Updated: 2023/09/04 14:17:56 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "tools.h"
 
-bool	compare(char *s1, char *s2)
+void	destroy_info(t_info *info)
 {
-	int	i;
-
-	if (!s1 || !s2)
-		return (false);
-	i = 0;
-	while (s1[i] && s2[i])
-	{
-		if (s1[i] != s2[i])
-			return (false);
-		i++;
-	}
-	return (true);
+	free(info->NO);
+	free(info->SO);
+	free(info->WE);
+	free(info->EA);
+	ft_free(info->map);
+	free(info);
 }
+
+void	destroy_global(void *param)
+{
+	t_global *pub;
+
+	pub = (t_global *)param;
+	destroy_info(pub->info);
+	free(pub);
+	exit(0);
+}
+	// use this for mlx resources
+	// mlx_delete_xpm42();
+	// mlx_delete_image();
+	// mlx_delete_texture();  

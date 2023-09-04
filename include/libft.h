@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:49:55 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/05 21:04:39 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:19:45 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define LIBFT_H
 
 # include "global.h"
-# include "utils.h"
+# include "tools.h"
 
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
