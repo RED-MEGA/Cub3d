@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/03 16:29:15 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/04 15:03:35 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,16 +143,18 @@ void	handle_turn(t_player *player, mlx_key_data_t keydata)
 void	handle_keys(mlx_key_data_t keydata, void *param)
 {
 	t_global	*pub;
-	t_player	*player;
 
 	pub = (t_global *)param;
-	player = &(pub->info->player);
 	if (keydata.key == MLX_KEY_ESCAPE)
 		destroy_global(pub);
-	if (key_press(keydata, MLX_KEY_LEFT_SHIFT))
-		pub->info->player.sprint = true;
-	else if (key_release(keydata, MLX_KEY_LEFT_SHIFT))
-		pub->info->player.sprint = false;
+	if (keydata.key == MLX_KEY_LEFT_SHIFT)
+	{
+		if (key_press(keydata, MLX_KEY_LEFT_SHIFT))
+			pub->info->player.sprint = true;
+		else if (key_release(keydata, MLX_KEY_LEFT_SHIFT))
+			pub->info->player.sprint = false;
+		return ;
+	}
 	if (key_press(keydata, MLX_KEY_F))
 	{
 		if (pub->mode == MLX_MOUSE_HIDDEN)
@@ -160,7 +162,8 @@ void	handle_keys(mlx_key_data_t keydata, void *param)
 		else
 			pub->mode = MLX_MOUSE_HIDDEN;
 		mlx_set_cursor_mode(pub->mlx, pub->mode);
+		return ;
 	}
-	handle_moves(player, keydata);
-	handle_turn(player, keydata);
+	handle_moves(&pub->info->player, keydata);
+	handle_turn(&pub->info->player, keydata);
 }
