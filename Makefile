@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/09/04 14:43:25 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/09/04 14:54:43 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,31 +24,31 @@ LIBS = $(LIBFT) lib/libmlx42.a -dl -lglfw -L$(shell brew --prefix glfw)/lib -pth
 
 INCLUDE = include/global.h include/cub3d.h include/tools.h include/libft.h
 
-SRC = main.c \
-		parsing/parsing.c \
-		parsing/attributes.c \
-		parsing/check.c \
-		parsing/info.c \
-		parsing/map_parse.c \
-		parsing/map_check.c \
-		parsing/player.c \
-		minimap/handle_keys.c \
-		minimap/map_draw.c \
-		minimap/player_draw.c \
-		raycasting/ray_cast.c \
-		rendering/rays_calc.c \
-		rendering/render.c \
-		rendering/floor_ceiling.c \
-		tools/math_tools.c \
-		tools/get_color.c \
-		tools/error.c \
-		tools/matdup.c \
-		tools/free.c \
-		tools/index_list.c \
-		tools/compare.c \
-		tools/mlx_put_pixel_p.c \
-		tools/cleanup_tools.c \
-		textures/texture.c
+SRC = src/main.c \
+	src/parsing/parsing.c \
+	src/parsing/attributes.c \
+	src/parsing/check.c \
+	src/parsing/info.c \
+	src/parsing/map_parse.c \
+	src/parsing/map_check.c \
+	src/parsing/player.c \
+	src/minimap/handle_keys.c \
+	src/minimap/map_draw.c \
+	src/minimap/player_draw.c \
+	src/raycasting/ray_cast.c \
+	src/rendering/rays_calc.c \
+	src/rendering/render.c \
+	src/rendering/floor_ceiling.c \
+	src/tools/math_tools.c \
+	src/tools/get_color.c \
+	src/tools/error.c \
+	src/tools/matdup.c \
+	src/tools/free.c \
+	src/tools/index_list.c \
+	src/tools/compare.c \
+	src/tools/mlx_put_pixel_p.c \
+	src/tools/cleanup_tools.c \
+	src/textures/texture.c
 
 OBJ = $(SRC:.c=.o)
 
