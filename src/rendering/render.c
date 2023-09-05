@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/03 03:17:08 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/05 15:15:24 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,24 @@ double	calcul_wp(t_player *player, int i)
 // get_rgb(255, 245, 224, alpha)
 
 
+t_derec ft_derection_render(double angel)
+{
+	t_derec de;
+	de.down = 0;
+	de.up = 0;
+	de.right = 0;
+	de.left = 0;
+
+
+
+    if (angel > 0 && angel < M_PI)
+        de.down = 1;
+    de.up = !de.down;
+    if (angel < 0.5 * M_PI || angel > 1.5 * M_PI)
+        de.right = 1;
+    de.left = !de.right;
+	return(de);
+}
 
 
 void	to_3d_ray(t_global *pub)
@@ -35,6 +53,9 @@ void	to_3d_ray(t_global *pub)
 	int ofset_y;
 
 	t_pos	pos;
+	t_derec  der;
+
+
 	int		start_y;
 	int		end_y;
 	int		alpha;
@@ -65,18 +86,25 @@ void	to_3d_ray(t_global *pub)
 	while (i < WIDTH) {
 		double wall_height = calcul_wp(&pub->info->player, i);
 
+			der = ft_derection_render(pub->info->player.ray[i].angle);
+
 		unsigned int* tess;
 
-		if(pub->info->player.ray[i].flag == 1)
-		{
-			ofset_x = (int)pub->info->player.ray[i].pos.x % SQUARE_LEN;
+		if(der.down && pub->info->player.ray[i].flag == 1)
+			tess = pub->img->WE.buffer_img;
+		if(der.up && pub->info->player.ray[i].flag == 1)
+			tess = pub->img->EA.buffer_img;
+		if(der.left && pub->info->player.ray[i].flag == 2)
 			tess = pub->img->SO.buffer_img;
-		}
-		else if (pub->info->player.ray[i].flag == 2)
-		{
-			ofset_x = (int)pub->info->player.ray[i].pos.y % SQUARE_LEN;
+		if(der.right && pub->info->player.ray[i].flag == 2)
 			tess = pub->img->NO.buffer_img;
-		}
+
+
+		if(pub->info->player.ray[i].flag == 1)
+			ofset_x = (int)pub->info->player.ray[i].pos.x % SQUARE_LEN;
+		else if (pub->info->player.ray[i].flag == 2)
+			ofset_x = (int)pub->info->player.ray[i].pos.y % SQUARE_LEN;
+
 		start_y = (HEIGHT / 2) - (wall_height / 2);
 		if (start_y < 0)
 			start_y = 0;
@@ -85,8 +113,8 @@ void	to_3d_ray(t_global *pub)
 			end_y = HEIGHT;
 		y = start_y;
 		while (y < end_y) {
-			ofset_y = (y + ((wall_height / 2) - (HEIGHT / 2))) * ((float)32 / wall_height);
-			mlx_put_pixel_p(pub->window_img, i, y, (tess[(32 * ofset_y) + ofset_x]));
+			ofset_y = (y + ((wall_height / 2) - (HEIGHT / 2))) * ((double)64 / wall_height);
+			mlx_put_pixel_p(pub->window_img, i, y, (tess[(64 * ofset_y) + ofset_x]));
 			y++;
 		}
 		i++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   global.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/03 16:26:05 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/05 13:57:16 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@
 # define HEIGHT 1080
 # define WIDTH 1920
 
-# define SQUARE_LEN 50
+# define SQUARE_LEN 64
 
 # define MINIMAP_SIZE (WIDTH / 6)
 
