@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/05 15:31:48 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/05 15:58:56 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,82 +57,74 @@ unsigned int *ft_derection_render(t_global *pub, int i)
 }
 
 
-void	to_3d_ray(t_global *pub)
+void	to_3d_ray(t_global *pub, int i, double wall_height)
 {
 	int ofset_x;
 	int ofset_y;
 
 	t_pos	pos;
 	t_derec  der;
-
-
 	int		start_y;
 	int		end_y;
 	int		alpha;
 
+
+
 	// alpha = (double)((double)155 / HEIGHT) * (wp) + 100;
 
+	// for (int i = 0; i < HEIGHT; i++){
+	// 	for (int j = 0; j < WIDTH ; j++)
+	// 	{
+	// 		if (i > (HEIGHT / 2)){
+	// 			mlx_put_pixel(pub->window_img, j, i, get_rgb(pub->info->C.r, pub->info->C.g, pub->info->C.b, 255));
+	// 		}
+	// 		else {
+	// 			mlx_put_pixel(pub->window_img, j, i, get_rgb(pub->info->F.r, pub->info->F.g, pub->info->F.b, 255));
+	// 		}
+	// 	}
+	// }
 
 
-	int i = 0;
-	int x = 0;
-	int y = 0;
+	unsigned int* tess = ft_derection_render(pub, i);
 
 
-	for (int i = 0; i < HEIGHT; i++){
-		for (int j = 0; j < WIDTH ; j++)
+	if(pub->info->player.ray[i].flag == 1)
+		ofset_x = (int)pub->info->player.ray[i].pos.x % SQUARE_LEN;
+	else if (pub->info->player.ray[i].flag == 2)
+		ofset_x = (int)pub->info->player.ray[i].pos.y % SQUARE_LEN;
+
+	start_y = (HEIGHT / 2) - (wall_height / 2);
+	if (start_y < 0)
+		start_y = 0;
+	end_y = (HEIGHT / 2) + (wall_height / 2);
+	if (end_y > HEIGHT)
+		end_y = HEIGHT;
+
+
+	int y = -1;
+	while (++y < HEIGHT)
+	{
+		if (y < start_y)
+			draw_fc(pub->window_img, pub->info->C, (t_pos) {.x = i, .y = y});
+		else if (y >= start_y && y < end_y)
 		{
-			if (i > (HEIGHT / 2)){
-				mlx_put_pixel(pub->window_img, j, i, get_rgb(pub->info->C.r, pub->info->C.g, pub->info->C.b, 255));
-			}
-			else {
-				mlx_put_pixel(pub->window_img, j, i, get_rgb(pub->info->F.r, pub->info->F.g, pub->info->F.b, 255));
-			}
-		}
-	}
-		// get_rgb(tess[((32 * ofset_y) + ofset_x)], tess[((32 * ofset_y) + ofset_x) + 1], tess[ ((32 * ofset_y) + ofset_x) + 2], tess[((32 * ofset_y) + ofset_x) + 3])
-
-
-	while (i < WIDTH) {
-		double wall_height = calcul_wp(&pub->info->player, i);
-
-		unsigned int* tess = ft_derection_render(pub, i);
-
-
-
-
-
-
-		if(pub->info->player.ray[i].flag == 1)
-			ofset_x = (int)pub->info->player.ray[i].pos.x % SQUARE_LEN;
-		else if (pub->info->player.ray[i].flag == 2)
-			ofset_x = (int)pub->info->player.ray[i].pos.y % SQUARE_LEN;
-
-		start_y = (HEIGHT / 2) - (wall_height / 2);
-		if (start_y < 0)
-			start_y = 0;
-		end_y = (HEIGHT / 2) + (wall_height / 2);
-		if (end_y > HEIGHT)
-			end_y = HEIGHT;
-		y = start_y;
-		while (y < end_y) {
 			ofset_y = (y + ((wall_height / 2) - (HEIGHT / 2))) * ((double)64 / wall_height);
 			mlx_put_pixel_p(pub->window_img, i, y, (tess[(64 * ofset_y) + ofset_x]));
-			y++;
 		}
-		i++;
-
+		else if (y > end_y)
+			draw_fc(pub->window_img, pub->info->F, (t_pos) {.x = i, .y = y});
 	}
-
 }
 
 void	render(t_global *pub)
 {
 	double	wp;
+	int		i;
 
-	// for (size_t i = 0; i < WIDTH; i++)
-	// {
-		// wp = calcul_wp(&pub->info->player, i);
-		to_3d_ray(pub);
-	// }
+	i = -1;
+	while (++i < WIDTH)
+	{
+		wp = calcul_wp(&pub->info->player, i);
+		to_3d_ray(pub, i, wp);
+	}
 }
