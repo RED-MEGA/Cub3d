@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:27:54 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/31 18:09:01 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/05 23:08:42 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	m_check_characters(char **map)
 {
 	int	i;
 	int	j;
-	
+
 	i = -1;
 	while (map[++i])
 	{
@@ -24,6 +24,7 @@ bool	m_check_characters(char **map)
 		while (map[i][++j])
 	   		if (map[i][j] != '0'
 				&& map[i][j] != '1'
+				&& map[i][j] != 'D'
 				&& map[i][j] != 'N'
 				&& map[i][j] != 'S'
 				&& map[i][j] != 'E'
@@ -64,7 +65,7 @@ bool	m_check_playerc(t_info *info)
 }
 
 bool	m_check_tb(int i, char **map)
-{	
+{
 	int	j;
 
 	j = -1;

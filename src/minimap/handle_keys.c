@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_keys.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/04 15:03:35 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/06 00:04:29 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,18 @@ bool	wall_collision(char **map, t_pos oldpos, t_pos newpos)
 		&& map[(int)(newpos.y / SQUARE_LEN)][(int)((newpos.x + (P_RADIUS * 0.4)) / SQUARE_LEN)] != '1'
 		&& map[(int)(newpos.y / SQUARE_LEN)][(int)((newpos.x - (P_RADIUS * 0.4)) / SQUARE_LEN)] != '1'
 		&& map[(int)(oldpos.y / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != '1'
-		&& map[(int)(newpos.y / SQUARE_LEN)][(int)(oldpos.x / SQUARE_LEN)] != '1')
+		&& map[(int)(newpos.y / SQUARE_LEN)][(int)(oldpos.x / SQUARE_LEN)] != '1'
+
+
+
+
+		&& map[(int)(newpos.y / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != 'D'
+		&& map[(int)((newpos.y + (P_RADIUS * 0.4)) / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != 'D'
+		&& map[(int)((newpos.y - (P_RADIUS * 0.4)) / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != 'D'
+		&& map[(int)(newpos.y / SQUARE_LEN)][(int)((newpos.x + (P_RADIUS * 0.4)) / SQUARE_LEN)] != 'D'
+		&& map[(int)(newpos.y / SQUARE_LEN)][(int)((newpos.x - (P_RADIUS * 0.4)) / SQUARE_LEN)] != 'D'
+		&& map[(int)(oldpos.y / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != 'D'
+		&& map[(int)(newpos.y / SQUARE_LEN)][(int)(oldpos.x / SQUARE_LEN)] != 'D')
 		return (true);
 	return (false);
 }
@@ -140,11 +151,47 @@ void	handle_turn(t_player *player, mlx_key_data_t keydata)
 		player->turn_d = 0;
 }
 
+void	check_dor_close(t_global	*pub)
+{
+	int i,j;
+
+	i = (int)(pub->info->player.pos.x / SQUARE_LEN);
+	j = (int)(pub->info->player.pos.y / SQUARE_LEN);
+	if (pub->info->map[j][i + 1] == 'd')
+		pub->info->map[j][i + 1] = 'D';
+	else if (pub->info->map[j][i - 1] == 'd')
+		pub->info->map[j][i - 1] = 'D';
+	else if (pub->info->map[j + 1][i] == 'd')
+		pub->info->map[j + 1][i] = 'D';
+	else if (pub->info->map[j - 1][i] == 'd')
+		pub->info->map[j - 1][i] = 'D';
+}
+
+void	check_dor_open(t_global	*pub)
+{
+	int i,j;
+
+	i = (int)(pub->info->player.pos.x / SQUARE_LEN);
+	j = (int)(pub->info->player.pos.y / SQUARE_LEN);
+	if (pub->info->map[j][i + 1] == 'D')
+		pub->info->map[j][i + 1] = 'd';
+	else if (pub->info->map[j][i - 1] == 'D')
+		pub->info->map[j][i - 1] = 'd';
+	else if (pub->info->map[j + 1][i] == 'D')
+		pub->info->map[j + 1][i] = 'd';
+	else if (pub->info->map[j - 1][i] == 'D')
+		pub->info->map[j - 1][i] = 'd';
+}
+
 void	handle_keys(mlx_key_data_t keydata, void *param)
 {
 	t_global	*pub;
 
 	pub = (t_global *)param;
+	if (keydata.key == MLX_KEY_O)
+		check_dor_open(pub);
+	if (keydata.key == MLX_KEY_C)
+		check_dor_close(pub);
 	if (keydata.key == MLX_KEY_ESCAPE)
 		destroy_global(pub);
 	if (keydata.key == MLX_KEY_LEFT_SHIFT)
@@ -155,7 +202,7 @@ void	handle_keys(mlx_key_data_t keydata, void *param)
 			pub->info->player.sprint = false;
 		return ;
 	}
-	if (key_press(keydata, MLX_KEY_F))
+		if (key_press(keydata, MLX_KEY_F))
 	{
 		if (pub->mode == MLX_MOUSE_HIDDEN)
 			pub->mode = MLX_MOUSE_NORMAL;

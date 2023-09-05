@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/05 13:57:16 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/06 00:03:34 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ typedef struct s_ray
 	double	len;
 	t_pos	pos;
 	int flag;
+	int dor;
 }	t_ray;
 
 typedef struct s_player
@@ -129,7 +130,7 @@ typedef struct s_player
 	t_ray		ray[WIDTH];
 	char		key;
 	bool		sprint;
-}	t_player;
+	}	t_player;
 
 typedef struct s_color
 {
@@ -153,6 +154,7 @@ typedef struct  s_pixel
 	t_img	SO;
 	t_img	WE;
 	t_img	EA;
+	t_img	DOR;
 } t_pixel;
 
 typedef struct s_info

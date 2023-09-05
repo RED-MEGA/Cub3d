@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/05 17:16:32 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/05 23:56:28 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	to_3d_ray(t_global *pub, int i, double wall_height)
 
 	start_y = (HEIGHT / 2) - (wall_height / 2);
 	// if (start_y < 0)
-	// 	start_y = 0;  // !cheakk 
+	// 	start_y = 0;  // !cheakk
 	end_y = (HEIGHT / 2) + (wall_height / 2);
 	if (end_y > HEIGHT)
 		end_y = HEIGHT;
@@ -113,10 +113,16 @@ void	to_3d_ray(t_global *pub, int i, double wall_height)
 			draw_fc(pub->window_img, pub->info->C, (t_pos) {.x = i, .y = y});
 		else if (y >= start_y && y < end_y)
 		{
-			ofset_y = (y - start_y) * ((double)img.heith / wall_height);
-
-
-			mlx_put_pixel_p(pub->window_img, i, y, (img.buffer_img[(img.whidet * ofset_y) + ofset_x]));
+			if(pub->info->player.ray[i].dor)
+			{
+				ofset_y = (y - start_y) * ((double)pub->img->DOR.heith / wall_height);
+				mlx_put_pixel_p(pub->window_img, i, y, (pub->img->DOR.buffer_img[(pub->img->DOR.whidet * ofset_y) + ofset_x]));
+			}
+			else
+			{
+				ofset_y = (y - start_y) * ((double)img.heith / wall_height);
+				mlx_put_pixel_p(pub->window_img, i, y, (img.buffer_img[(img.whidet * ofset_y) + ofset_x]));\
+			}
 		}
 		else if (y > end_y)
 			draw_fc(pub->window_img, pub->info->F, (t_pos) {.x = i, .y = y});

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/04 14:19:38 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/05 23:44:22 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void		draw_line(mlx_image_t *image, t_pos start, t_pos end);
 /*     RAYCASTING   */
 /* **************** */
 
-t_pos			ray_cast(t_global *pub, int *flag);
+t_pos ray_cast(t_global *pub, int *flag, int  *dor);
 unsigned int 	*ft_get_pixel_from_img(char *textur);
 void  lode_texture(t_pixel *ptr, t_info *pp);
 
