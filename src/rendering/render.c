@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/05 15:15:24 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/05 15:31:48 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,33 @@ double	calcul_wp(t_player *player, int i)
 // get_rgb(255, 245, 224, alpha)
 
 
-t_derec ft_derection_render(double angel)
+unsigned int *ft_derection_render(t_global *pub, int i)
 {
 	t_derec de;
+	unsigned int *tess;
+
 	de.down = 0;
 	de.up = 0;
 	de.right = 0;
 	de.left = 0;
 
 
+	if (pub->info->player.ray[i].angle > 0 && pub->info->player.ray[i].angle < M_PI)
+		de.down = 1;
+	de.up = !de.down;
+	if (pub->info->player.ray[i].angle < 0.5 * M_PI || pub->info->player.ray[i].angle > 1.5 * M_PI)
+		de.right = 1;
+	de.left = !de.right;
+	if(de.down && pub->info->player.ray[i].flag == 1)
+		tess = pub->img->WE.buffer_img;
+	if(de.up && pub->info->player.ray[i].flag == 1)
+		tess = pub->img->EA.buffer_img;
+	if(de.left && pub->info->player.ray[i].flag == 2)
+		tess = pub->img->SO.buffer_img;
+	if(de.right && pub->info->player.ray[i].flag == 2)
+		tess = pub->img->NO.buffer_img;
 
-    if (angel > 0 && angel < M_PI)
-        de.down = 1;
-    de.up = !de.down;
-    if (angel < 0.5 * M_PI || angel > 1.5 * M_PI)
-        de.right = 1;
-    de.left = !de.right;
-	return(de);
+	return(tess);
 }
 
 
@@ -86,18 +96,11 @@ void	to_3d_ray(t_global *pub)
 	while (i < WIDTH) {
 		double wall_height = calcul_wp(&pub->info->player, i);
 
-			der = ft_derection_render(pub->info->player.ray[i].angle);
+		unsigned int* tess = ft_derection_render(pub, i);
 
-		unsigned int* tess;
 
-		if(der.down && pub->info->player.ray[i].flag == 1)
-			tess = pub->img->WE.buffer_img;
-		if(der.up && pub->info->player.ray[i].flag == 1)
-			tess = pub->img->EA.buffer_img;
-		if(der.left && pub->info->player.ray[i].flag == 2)
-			tess = pub->img->SO.buffer_img;
-		if(der.right && pub->info->player.ray[i].flag == 2)
-			tess = pub->img->NO.buffer_img;
+
+
 
 
 		if(pub->info->player.ray[i].flag == 1)
