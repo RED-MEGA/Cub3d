@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/03 02:40:47 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/06 00:27:54 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	refresh_frame(void *param)
 
 	// update frame
 	calcul_rays(pub);
-	render(pub);
+	// render(pub);
 	minimap(pub);
 
 	// Debug

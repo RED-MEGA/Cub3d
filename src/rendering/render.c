@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/05 23:56:28 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/06 01:17:36 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ double	calcul_wp(t_player *player, int i)
 	double	D;
 
 	A = (double)SQUARE_LEN;
-	B = player->ray[i].len * cos(player->rotation_angle - player->ray[i].angle);
+	B = player->ray.len * cos(player->rotation_angle - player->ray.angle);
 	D = (WIDTH / 2) / tan(FOV_ANGLE / 2);
 	return ((A / B) * D);
 }
@@ -38,19 +38,19 @@ t_img ft_derection_render(t_global *pub, int i)
 	de.left = 0;
 
 
-	if (pub->info->player.ray[i].angle > 0 && pub->info->player.ray[i].angle < M_PI)
+	if (pub->info->player.ray.angle > 0 && pub->info->player.ray.angle < M_PI)
 		de.down = 1;
 	de.up = !de.down;
-	if (pub->info->player.ray[i].angle < 0.5 * M_PI || pub->info->player.ray[i].angle > 1.5 * M_PI)
+	if (pub->info->player.ray.angle < 0.5 * M_PI || pub->info->player.ray.angle > 1.5 * M_PI)
 		de.right = 1;
 	de.left = !de.right;
-	if(de.down && pub->info->player.ray[i].flag == 1)
+	if(de.down && pub->info->player.ray.flag == 1)
 		img = pub->img->WE;
-	if(de.up && pub->info->player.ray[i].flag == 1)
+	if(de.up && pub->info->player.ray.flag == 1)
 		img = pub->img->EA;
-	if(de.left && pub->info->player.ray[i].flag == 2)
+	if(de.left && pub->info->player.ray.flag == 2)
 		img = pub->img->SO;
-	if(de.right && pub->info->player.ray[i].flag == 2)
+	if(de.right && pub->info->player.ray.flag == 2)
 		img = pub->img->NO;
 	return(img);
 }
@@ -91,12 +91,22 @@ void	to_3d_ray(t_global *pub, int i, double wall_height)
 
 
 
-	if(pub->info->player.ray[i].flag == 1)
-		ofset_x = (pub->info->player.ray[i].pos.x / SQUARE_LEN - (int)pub->info->player.ray[i].pos.x / SQUARE_LEN) * img.whidet;
+	if(pub->info->player.ray.flag == 1)
+	{
+		if(pub->info->player.ray.dor)
+			ofset_x = (pub->info->player.ray.pos.x / SQUARE_LEN - (int)pub->info->player.ray.pos.x / SQUARE_LEN) * pub->img->DOR.whidet;
+		else
+			ofset_x = (pub->info->player.ray.pos.x / SQUARE_LEN - (int)pub->info->player.ray.pos.x / SQUARE_LEN) * img.whidet;
+	}
 
 
-	else if (pub->info->player.ray[i].flag == 2)
-		ofset_x = (pub->info->player.ray[i].pos.y / SQUARE_LEN - (int)pub->info->player.ray[i].pos.y / SQUARE_LEN) * img.whidet;
+	else if (pub->info->player.ray.flag == 2)
+	{
+		if(pub->info->player.ray.dor)
+			ofset_x = (pub->info->player.ray.pos.y / SQUARE_LEN - (int)pub->info->player.ray.pos.y / SQUARE_LEN) * pub->img->DOR.whidet;
+		else
+			ofset_x = (pub->info->player.ray.pos.y / SQUARE_LEN - (int)pub->info->player.ray.pos.y / SQUARE_LEN) * img.whidet;
+	}
 
 	start_y = (HEIGHT / 2) - (wall_height / 2);
 	// if (start_y < 0)
@@ -113,12 +123,13 @@ void	to_3d_ray(t_global *pub, int i, double wall_height)
 			draw_fc(pub->window_img, pub->info->C, (t_pos) {.x = i, .y = y});
 		else if (y >= start_y && y < end_y)
 		{
-			if(pub->info->player.ray[i].dor)
+			if(pub->info->player.ray.dor && pub->info->player.ray.flag == 1)
 			{
 				ofset_y = (y - start_y) * ((double)pub->img->DOR.heith / wall_height);
 				mlx_put_pixel_p(pub->window_img, i, y, (pub->img->DOR.buffer_img[(pub->img->DOR.whidet * ofset_y) + ofset_x]));
+				// pub->info->player.ray.dor = 0;
 			}
-			else
+			else if ( pub->info->player.ray.dor == 0)
 			{
 				ofset_y = (y - start_y) * ((double)img.heith / wall_height);
 				mlx_put_pixel_p(pub->window_img, i, y, (img.buffer_img[(img.whidet * ofset_y) + ofset_x]));\
@@ -131,13 +142,13 @@ void	to_3d_ray(t_global *pub, int i, double wall_height)
 
 void	render(t_global *pub)
 {
-	double	wp;
-	int		i;
+	// double	wp;
+	// int		i;
 
-	i = -1;
-	while (++i < WIDTH)
-	{
-		wp = calcul_wp(&pub->info->player, i);
-		to_3d_ray(pub, i, wp);
-	}
+	// i = -1;
+	// while (++i < WIDTH)
+	// {
+	// 	wp = calcul_wp(&pub->info->player, i);
+	// 	to_3d_ray(pub, i, wp);
+	// }
 }

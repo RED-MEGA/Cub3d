@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/06 00:02:24 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/06 01:15:33 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ t_pos ft_vertical_inter(t_global *pub, t_player player, int *dor)
 t_pos ray_cast(t_global *pub, int *flag, int  *dor)
 {
 	t_player player = pub->info->player;
-
 	pub->de = ft_derection(player);
 
 	*flag = 0;

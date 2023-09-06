@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/06 00:03:34 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/06 00:25:24 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ typedef struct s_player
 	int			move_d;
 	double		rotation_angle;
 	double		ray_angle;
-	t_ray		ray[WIDTH];
+	t_ray		ray;
 	char		key;
 	bool		sprint;
 	}	t_player;

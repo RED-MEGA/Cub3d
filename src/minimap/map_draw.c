@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_draw.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/03 16:34:00 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/06 01:40:32 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	draw_square(mlx_image_t *image, int x, int y, int color)
 void	draw_fov(t_global *pub, t_player *player)
 {
 	for (size_t i = 0; i < WIDTH; i++)
-		draw_line(pub->window_img, player->pos, player->ray[i].pos);
+		draw_line(pub->window_img, player->pos, player->ray.pos);
 }
 
 void	draw_map(t_global *pub)

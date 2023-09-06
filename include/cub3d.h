@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/05 23:44:22 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/06 00:22:56 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,9 @@ void		draw_line(mlx_image_t *image, t_pos start, t_pos end);
 t_pos ray_cast(t_global *pub, int *flag, int  *dor);
 unsigned int 	*ft_get_pixel_from_img(char *textur);
 void  lode_texture(t_pixel *ptr, t_info *pp);
-
-
+void	to_3d_ray(t_global *pub, int i, double wall_height);
+t_img ft_derection_render(t_global *pub, int i);
+double	calcul_wp(t_player *player, int i);
 
 
 /* **************** */
