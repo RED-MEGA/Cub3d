@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 17:33:44 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/07 18:19:14 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/07 18:22:50 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,21 @@ void  lode_texture(t_pixel *ptr, t_info *info)
 	int width;
 	int height;
 
-	// ptr->SO.buffer_img = lode_img_from_png(info->SO,&width, &height);
-	// ptr->SO.heith = height;
-	// ptr->SO.whidet = width;
-	// ptr->NO.buffer_img = lode_img_from_png(info->NO, &width, &height);
-	// ptr->NO.heith = height;
-	// ptr->NO.whidet = width;
-	// ptr->EA.buffer_img = lode_img_from_png(info->EA, &width, &height);
-	// ptr->EA.heith = height;
-	// ptr->EA.whidet = width;
+	ptr->SO.buffer_img = lode_img_from_png(info->SO,&width, &height);
+	ptr->SO.heith = height;
+	ptr->SO.whidet = width;
+	ptr->NO.buffer_img = lode_img_from_png(info->NO, &width, &height);
+	ptr->NO.heith = height;
+	ptr->NO.whidet = width;
+	ptr->EA.buffer_img = lode_img_from_png(info->EA, &width, &height);
+	ptr->EA.heith = height;
+	ptr->EA.whidet = width;
 	ptr->WE.buffer_img = lode_img_from_png(info->WE, &width, &height);
 	ptr->WE.heith = height;
 	ptr->WE.whidet = width;
-	// ptr->DOR.buffer_img = lode_img_from_png("dore.png", &width, &height);
-	// ptr->DOR.heith = height;
-	// ptr->DOR.whidet = width;
+	ptr->DOR.buffer_img = lode_img_from_png("dore.png", &width, &height);
+	ptr->DOR.heith = height;
+	ptr->DOR.whidet = width;
 
 }
 

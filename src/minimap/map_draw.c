@@ -6,11 +6,25 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/06 01:40:32 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/07 18:30:21 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+
+void	get_derection_engel(t_info *inf)
+{
+	if (inf->player.direction == NO)
+		inf->player.rotation_angle = 3 * M_PI_2;
+	else if (inf->player.direction == SO)
+		inf->player.rotation_angle = M_PI_2;
+	else if (inf->player.direction == EA)
+		inf->player.rotation_angle = 0;
+	else if (inf->player.direction == WE)
+		inf->player.rotation_angle = M_PI;
+}
+
 
 t_global	*init_global(t_info *info)
 {
@@ -28,6 +42,7 @@ t_global	*init_global(t_info *info)
 	ft_error(mlx_image_to_window(global->mlx, global->window_img, 0, 0), 1);
 	global->mode = MLX_MOUSE_HIDDEN;
 	mlx_set_cursor_mode(global->mlx, MLX_MOUSE_HIDDEN);
+	get_derection_engel(info);
 	return (global);
 }
 
