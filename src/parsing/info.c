@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:08:40 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/08 17:51:39 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/08 20:24:10 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,7 @@ t_info	*create_info(void)
 {
 	t_info	*info;
 
-	info = (t_info *)malloc(sizeof(t_info));
-	ft_error_ptr(info, EXIT_FAILURE);
-	info->NO.path = NULL;
-	info->SO.path = NULL;
-	info->WE.path = NULL;
-	info->EA.path = NULL;
-	info->map = NULL;
+	info = (t_info *)ft_calloc(1, sizeof(t_info));
 	info->F.r = FAIL;
 	info->F.g = FAIL;
 	info->F.b = FAIL;
@@ -32,11 +26,8 @@ t_info	*create_info(void)
 	info->player.pos.x = FAIL;
 	info->player.pos.y = FAIL;
 	info->player.direction = FAIL;
-	info->player.turn_d = 0;
-	info->player.walk_d = 0;
 	info->player.move_v = NONE;
 	info->player.move_h = NONE;
-	info->player.rotation_angle = 0;
 	info->player.sprint = false;
 	return (info);
 }
