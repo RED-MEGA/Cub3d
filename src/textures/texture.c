@@ -3,59 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 17:33:44 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/07 18:22:50 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/08 17:26:18 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-unsigned int *lode_img_from_png(char *textur, int *width, int *height)
+void	init_texture(t_img *image)
 {
-	mlx_texture_t *img = mlx_load_png(textur);
-	if(!img)
-		ft_error_msg("Erreur in img", 8);
-	*height = img->height;
-	*width =  img->width;
-	unsigned int *list = malloc(sizeof(unsigned int) * img->width * img->height);
-	int i = 0;
-	int j = 0;
+	unsigned int	*buff;
+	mlx_texture_t	*img;
+	int i;
+	int j;
+
+	img = mlx_load_png(image->path);
+	if (!img)
+		ft_error_msg(mlx_strerror(mlx_errno), 1);
+	image->height = img->height;
+	image->width = img->width;
+	buff = (unsigned int *)malloc(img->width * img->height * sizeof(unsigned int));
+	ft_error_ptr(buff, 1);
+	i = 0;
+	j = 0;
 	while (j < img->width * img->height)
 	{
-		list[j++] = get_rgb(img->pixels[i], img->pixels[i + 1], img->pixels[i + 2], 255);
+		buff[j++] = get_rgb(img->pixels[i], img->pixels[i + 1], img->pixels[i + 2], 255);
 		i += 4;
 	}
-	return(list);
+	image->buffer_img = buff;
 }
 
-void  lode_texture(t_pixel *ptr, t_info *info)
+void  load_texture(t_info *info)
 {
-
-	int width;
-	int height;
-
-	ptr->SO.buffer_img = lode_img_from_png(info->SO,&width, &height);
-	ptr->SO.heith = height;
-	ptr->SO.whidet = width;
-	ptr->NO.buffer_img = lode_img_from_png(info->NO, &width, &height);
-	ptr->NO.heith = height;
-	ptr->NO.whidet = width;
-	ptr->EA.buffer_img = lode_img_from_png(info->EA, &width, &height);
-	ptr->EA.heith = height;
-	ptr->EA.whidet = width;
-	ptr->WE.buffer_img = lode_img_from_png(info->WE, &width, &height);
-	ptr->WE.heith = height;
-	ptr->WE.whidet = width;
-	ptr->DOR.buffer_img = lode_img_from_png("dore.png", &width, &height);
-	ptr->DOR.heith = height;
-	ptr->DOR.whidet = width;
-
+	init_texture(&info->NO);
+	init_texture(&info->SO);
+	init_texture(&info->WE);
+	init_texture(&info->EA);
+	init_texture(&info->DOOR);
 }
-
-unsigned int *ft_get_pixel_from_img(char *textur)
-{
-	return(0);
-}
-

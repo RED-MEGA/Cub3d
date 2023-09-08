@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/06 00:22:56 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/08 17:16:34 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,11 @@ void		draw_line(mlx_image_t *image, t_pos start, t_pos end);
 /*     RAYCASTING   */
 /* **************** */
 
-t_pos ray_cast(t_global *pub, int *flag, int  *dor);
-unsigned int 	*ft_get_pixel_from_img(char *textur);
-void  lode_texture(t_pixel *ptr, t_info *pp);
-void	to_3d_ray(t_global *pub, int i, double wall_height);
-t_img ft_derection_render(t_global *pub, int i);
-double	calcul_wp(t_player *player, int i);
+t_pos			ray_cast(t_global *pub, int *flag, int  *dor);
+void 			load_texture(t_info *info);
+void			to_3d_ray(t_global *pub, int i, double wall_height);
+t_img			ft_derection_render(t_global *pub, int i);
+double			calcul_wp(t_player *player, int i);
 
 
 /* **************** */

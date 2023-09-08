@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   global.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/06 00:25:24 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/08 16:52:02 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,8 @@ typedef struct s_ray
 	double	angle;
 	double	len;
 	t_pos	pos;
-	int flag;
-	int dor;
+	int		flag;
+	int		dor;
 }	t_ray;
 
 typedef struct s_player
@@ -130,7 +130,7 @@ typedef struct s_player
 	t_ray		ray;
 	char		key;
 	bool		sprint;
-	}	t_player;
+}	t_player;
 
 typedef struct s_color
 {
@@ -141,38 +141,28 @@ typedef struct s_color
 
 typedef struct  s_img_data
 {
-	// char			*path;
-	uint32_t		heith;
-	uint32_t		whidet;
+	char			*path;
+	uint32_t		height;
+	uint32_t		width;
 	unsigned int	*buffer_img;
-
 }	t_img;
-
-typedef struct  s_pixel
-{
-	t_img	NO;
-	t_img	SO;
-	t_img	WE;
-	t_img	EA;
-	t_img	DOR;
-} t_pixel;
 
 typedef struct s_info
 {
 	t_player	player;
 	t_color		F;
 	t_color		C;
-	char		*NO;
-	char		*SO;
-	char		*WE;
-	char		*EA;
+	t_img		NO;
+	t_img		SO;
+	t_img		WE;
+	t_img		EA;
+	t_img		DOOR;
 	char		**map;
 	int			s_y_map;
 	int			s_x_map;
 	t_pos		map_p_size;
 	t_loc		map_m_size;
 }	t_info;
-
 
 typedef struct  s_derec
 {
@@ -182,17 +172,13 @@ typedef struct  s_derec
 	int	left;
 } t_derec;
 
-
 typedef struct s_global
 {
 	t_info		*info;
 	mlx_t		*mlx;
 	mlx_image_t	*window_img;
 	t_derec		de;
-	t_pixel *img;
 	mouse_mode_t mode;
-
 }	t_global;
-
 
 #endif
