@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:08:40 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/04 12:22:12 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/08 17:51:39 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ t_info	*create_info(void)
 
 	info = (t_info *)malloc(sizeof(t_info));
 	ft_error_ptr(info, EXIT_FAILURE);
-	info->NO = NULL;
-	info->SO = NULL;
-	info->WE = NULL;
-	info->EA = NULL;
+	info->NO.path = NULL;
+	info->SO.path = NULL;
+	info->WE.path = NULL;
+	info->EA.path = NULL;
 	info->map = NULL;
 	info->F.r = FAIL;
 	info->F.g = FAIL;
@@ -43,8 +43,8 @@ t_info	*create_info(void)
 
 bool	info_isset(t_info *info)
 {
-	if (info->NO != NULL && info->SO != NULL
-		&& info->WE != NULL && info->EA != NULL
+	if (info->NO.path != NULL && info->SO.path != NULL
+		&& info->WE.path != NULL && info->EA.path != NULL
 		&& info->F.r != FAIL && info->F.g != FAIL
 		&& info->F.b != FAIL && info->C.r != FAIL
 		&& info->C.g != FAIL && info->C.b != FAIL)
@@ -91,5 +91,8 @@ bool	init_info(t_info **info, t_list **file)
 	if (!info_isset(*info))
 		return (perror_x("Some attribute not set")
 			, false);
+	(*info)->DOOR.path = "img/door.png";
+	if (!isvalid_path((*info)->DOOR.path) || !check_extension((*info)->DOOR.path, ".png"))
+		return (perror_x("Invalid door path"), false);
 	return (status);
 }

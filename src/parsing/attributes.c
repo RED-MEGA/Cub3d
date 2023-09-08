@@ -6,17 +6,17 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:06:37 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/04 14:11:35 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/08 17:39:31 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	set_direction(char *data, char **direction)
+bool	set_direction(char *data, t_img *image)
 {
 	char	*buff;
 
-	if ((*direction) != NULL)
+	if (image->path != NULL)
 		return (perror_x("Direction attribute is Already set")
 			, false);
 	buff = ft_strtrim(data + 3, " ");
@@ -24,7 +24,7 @@ bool	set_direction(char *data, char **direction)
 		return (free(buff)
 			, perror_x("Invalid direction attribute")
 			, false);
-	(*direction) = buff;
+	image->path = buff;
 	return (true);
 }
 

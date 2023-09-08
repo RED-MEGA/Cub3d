@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 17:33:44 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/08 17:26:18 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/08 17:46:17 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	init_texture(t_img *image)
 		buff[j++] = get_rgb(img->pixels[i], img->pixels[i + 1], img->pixels[i + 2], 255);
 		i += 4;
 	}
+	mlx_delete_texture(img);
 	image->buffer_img = buff;
 }
 

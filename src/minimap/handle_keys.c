@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_keys.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/06 00:04:29 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/08 18:18:53 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,6 @@ void	set_newpos(t_global *pub)
 			rotation_angle -= to_rad(90);
 		get_new_pos(pub->info, rotation_angle);
 	}
-	printf("Turn : %d\n", player->turn_d);
-	printf("Walk : %d\n", player->walk_d);
-	printf("[ x: %.3f -- y: %.3f ]\n", player->pos.x, player->pos.y);
-	printf("Rotation angle : %.3f\n\n", to_degree(player->rotation_angle));
 }
 
 void	handle_mouse(double xpos, double ypos, void* param)

@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/08 17:16:34 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/08 17:37:57 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ bool		isrgb(int rgb);
 bool		isvalid_path(char *file);
 t_list		*read_file(char *file);
 
-bool		set_direction(char *data, char **direction);
+bool		set_direction(char *data, t_img *image);
 
 bool		check_rgbform(char *rgb);
 int			_set_color(char **color, int i, char *to_free);

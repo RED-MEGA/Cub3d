@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/08 16:52:37 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/08 18:22:13 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,14 @@
 void	get_derection_engel(t_info *inf)
 {
 	if (inf->player.direction == NO)
-		inf->player.rotation_angle = 3 * M_PI_2;
+		inf->player.rotation_angle = to_rad(90);
 	else if (inf->player.direction == SO)
-		inf->player.rotation_angle = M_PI_2;
+		inf->player.rotation_angle = to_rad(270);
 	else if (inf->player.direction == EA)
-		inf->player.rotation_angle = 0;
+		inf->player.rotation_angle = to_rad(0);
 	else if (inf->player.direction == WE)
-		inf->player.rotation_angle = M_PI;
+		inf->player.rotation_angle = to_rad(180);
 }
-
 
 t_global	*init_global(t_info *info)
 {

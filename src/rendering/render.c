@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/06 01:17:36 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/08 17:43:51 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,16 @@ t_img ft_derection_render(t_global *pub, int i)
 	if (pub->info->player.ray.angle < 0.5 * M_PI || pub->info->player.ray.angle > 1.5 * M_PI)
 		de.right = 1;
 	de.left = !de.right;
-	if(de.down && pub->info->player.ray.flag == 1)
-		img = pub->img->WE;
-	if(de.up && pub->info->player.ray.flag == 1)
-		img = pub->img->EA;
-	if(de.left && pub->info->player.ray.flag == 2)
-		img = pub->img->SO;
-	if(de.right && pub->info->player.ray.flag == 2)
-		img = pub->img->NO;
+	if (de.down && pub->info->player.ray.flag == 1)
+		img = pub->info->WE;
+	if (de.up && pub->info->player.ray.flag == 1)
+		img = pub->info->EA;
+	if (de.left && pub->info->player.ray.flag == 2)
+		img = pub->info->SO;
+	if (de.right && pub->info->player.ray.flag == 2)
+		img = pub->info->NO;
 	return(img);
 }
-
 
 void	to_3d_ray(t_global *pub, int i, double wall_height)
 {
@@ -94,18 +93,18 @@ void	to_3d_ray(t_global *pub, int i, double wall_height)
 	if(pub->info->player.ray.flag == 1)
 	{
 		if(pub->info->player.ray.dor)
-			ofset_x = (pub->info->player.ray.pos.x / SQUARE_LEN - (int)pub->info->player.ray.pos.x / SQUARE_LEN) * pub->img->DOR.whidet;
+			ofset_x = (pub->info->player.ray.pos.x / SQUARE_LEN - (int)pub->info->player.ray.pos.x / SQUARE_LEN) * pub->info->DOOR.width;
 		else
-			ofset_x = (pub->info->player.ray.pos.x / SQUARE_LEN - (int)pub->info->player.ray.pos.x / SQUARE_LEN) * img.whidet;
+			ofset_x = (pub->info->player.ray.pos.x / SQUARE_LEN - (int)pub->info->player.ray.pos.x / SQUARE_LEN) * img.width;
 	}
 
 
 	else if (pub->info->player.ray.flag == 2)
 	{
 		if(pub->info->player.ray.dor)
-			ofset_x = (pub->info->player.ray.pos.y / SQUARE_LEN - (int)pub->info->player.ray.pos.y / SQUARE_LEN) * pub->img->DOR.whidet;
+			ofset_x = (pub->info->player.ray.pos.y / SQUARE_LEN - (int)pub->info->player.ray.pos.y / SQUARE_LEN) * pub->info->DOOR.width;
 		else
-			ofset_x = (pub->info->player.ray.pos.y / SQUARE_LEN - (int)pub->info->player.ray.pos.y / SQUARE_LEN) * img.whidet;
+			ofset_x = (pub->info->player.ray.pos.y / SQUARE_LEN - (int)pub->info->player.ray.pos.y / SQUARE_LEN) * img.width;
 	}
 
 	start_y = (HEIGHT / 2) - (wall_height / 2);
@@ -125,14 +124,14 @@ void	to_3d_ray(t_global *pub, int i, double wall_height)
 		{
 			if(pub->info->player.ray.dor && pub->info->player.ray.flag == 1)
 			{
-				ofset_y = (y - start_y) * ((double)pub->img->DOR.heith / wall_height);
-				mlx_put_pixel_p(pub->window_img, i, y, (pub->img->DOR.buffer_img[(pub->img->DOR.whidet * ofset_y) + ofset_x]));
+				ofset_y = (y - start_y) * ((double)pub->info->DOOR.width / wall_height);
+				mlx_put_pixel_p(pub->window_img, i, y, (pub->info->DOOR.buffer_img[(pub->info->DOOR.width * ofset_y) + ofset_x]));
 				// pub->info->player.ray.dor = 0;
 			}
 			else if ( pub->info->player.ray.dor == 0)
 			{
-				ofset_y = (y - start_y) * ((double)img.heith / wall_height);
-				mlx_put_pixel_p(pub->window_img, i, y, (img.buffer_img[(img.whidet * ofset_y) + ofset_x]));\
+				ofset_y = (y - start_y) * ((double)img.height / wall_height);
+				mlx_put_pixel_p(pub->window_img, i, y, (img.buffer_img[(img.width * ofset_y) + ofset_x]));\
 			}
 		}
 		else if (y > end_y)
