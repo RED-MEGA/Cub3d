@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/09 17:54:55 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/09 20:43:13 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ void	draw_fc(mlx_image_t *image, t_color color, t_pos pos);
 
 void	check_dor_close(t_global	*pub);
 void	check_dor_open(t_global	*pub);
+void	handle_mouse_hook(mouse_key_t button, action_t action, modifier_key_t mods, void *param);
 
 #endif

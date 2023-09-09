@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/09 17:57:25 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/09 20:42:40 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,6 @@ void	refresh_frame(void *param)
 	t = clock() - t;
 	double time_taken = ((double)t) / CLOCKS_PER_SEC;
 	printf("--- FPS :%d\n", (int)(1 / time_taken));
-}
-
-void	handle_mouse_hook(mouse_key_t button, action_t action, modifier_key_t mods, void *param)
-{
-	(void)mods;
-	if (button == MLX_MOUSE_BUTTON_LEFT && action == MLX_PRESS)
-		return (check_dor_open((t_global *)param));
-	if (button == MLX_MOUSE_BUTTON_RIGHT && action == MLX_PRESS)
-		return (check_dor_close((t_global *)param));
 }
 
 // void leaks () {system("leaks cub3D | grep LEAK");};

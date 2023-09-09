@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/09 16:23:23 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/09 20:42:49 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,4 +209,13 @@ void	handle_keys(mlx_key_data_t keydata, void *param)
 	}
 	handle_moves(&pub->info->player, keydata);
 	handle_turn(&pub->info->player, keydata);
+}
+
+void	handle_mouse_hook(mouse_key_t button, action_t action, modifier_key_t mods, void *param)
+{
+	(void)mods;
+	if (button == MLX_MOUSE_BUTTON_LEFT && action == MLX_PRESS)
+		return (check_dor_open((t_global *)param));
+	if (button == MLX_MOUSE_BUTTON_RIGHT && action == MLX_PRESS)
+		return (check_dor_close((t_global *)param));
 }
