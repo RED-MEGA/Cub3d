@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:28:09 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/09 17:54:30 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/09 21:17:51 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	render(t_global *pub)
 	while (++i < WIDTH)
 	{
 		calcul_ray(pub, player);
-		wp = calcul_wp(player, i);
+		wp = calcul_wp(player);
 		to_3d_ray(pub, i, wp);
 		player->ray_angle = normalize_angle(player->ray_angle + RAY_D);
 		player->ray.dor = 0;

@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/09 20:43:13 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/09 21:18:02 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ t_pos			ray_cast(t_global *pub, int *flag, int  *dor);
 void 			load_texture(t_info *info);
 void			to_3d_ray(t_global *pub, int i, double wall_height);
 t_img			ft_derection_render(t_global *pub);
-double			calcul_wp(t_player *player, int i);
+double			calcul_wp(t_player *player);
 
 
 /* **************** */
