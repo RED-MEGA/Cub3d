@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/09 20:12:01 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/09 20:30:04 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,13 @@ t_global	*init_global(t_info *info)
 
 int	get_color(char c)
 {
-	if (c == '1'
-		|| c == ' ')
-		return (get_rgb(101, 69, 31, 255));
-	return (get_rgb(BLACK_R, BLACK_G, BLACK_B, 255));
+	if (c == '1' || c == ' ')
+		return (get_rgb(109, 93, 110, 255));
+	else if (c == 'D')
+		return (get_rgb(79, 112, 156, 255));
+	else if (c == 'd')
+		return (get_rgb(33, 53, 85, 255));
+	return (get_rgb(0, 0, 0, 255));
 }
 
 void	draw_square(mlx_image_t *image, int x, int y, int color)
