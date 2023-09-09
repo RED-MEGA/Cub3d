@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/08 18:22:13 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/09 20:30:04 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,13 @@ t_global	*init_global(t_info *info)
 
 int	get_color(char c)
 {
-	if (c == '1'
-		|| c == ' ')
-		return (get_rgb(101, 69, 31, 255));
-	return (get_rgb(BLACK_R, BLACK_G, BLACK_B, 255));
+	if (c == '1' || c == ' ')
+		return (get_rgb(109, 93, 110, 255));
+	else if (c == 'D')
+		return (get_rgb(79, 112, 156, 255));
+	else if (c == 'd')
+		return (get_rgb(33, 53, 85, 255));
+	return (get_rgb(0, 0, 0, 255));
 }
 
 void	draw_square(mlx_image_t *image, int x, int y, int color)
@@ -96,7 +99,7 @@ void	draw_map(t_global *pub)
 	}
 }
 
-void	draw_flex_map(mlx_image_t *image, t_info *info)
+void	draw_dynamic_map(mlx_image_t *image, t_info *info)
 {
 	t_pos	map_pos;
 	t_pos	pos_tmp;
@@ -144,7 +147,7 @@ void	minimap(t_global *pub)
 	t_player	*player;
 
 	player = &pub->info->player;
-	draw_flex_map(pub->window_img, pub->info);
+	draw_dynamic_map(pub->window_img, pub->info);
 	draw_player(pub->window_img);
 	draw_rotation(pub->window_img, player);
 }

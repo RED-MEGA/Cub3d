@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/09 16:32:02 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/09 20:42:40 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,13 @@ void	refresh_frame(void *param)
 	set_newpos(pub);
 
 	// update frame
-	calcul_rays(pub);
-	// render(pub);
+	render(pub);
 	minimap(pub);
 
 	// Debug
 	t = clock() - t;
 	double time_taken = ((double)t) / CLOCKS_PER_SEC;
 	printf("--- FPS :%d\n", (int)(1 / time_taken));
-}
-
-void	handle_mouse_hook(mouse_key_t button, action_t action, modifier_key_t mods, void *param)
-{
-	(void)mods;
-	if (button == MLX_MOUSE_BUTTON_LEFT && action == MLX_PRESS)
-		return (check_dor_open((t_global *)param));
-	if (button == MLX_MOUSE_BUTTON_RIGHT && action == MLX_PRESS)
-		return (check_dor_close((t_global *)param));
 }
 
 // void leaks () {system("leaks cub3D | grep LEAK");};
@@ -51,22 +41,13 @@ void	cub3d(char *file_name)
 
 	info = parsing(file_name);
 	pub = init_global(info);
-
-	//---------------------------------------------------------------------------
-
-	// mlx = pub->mlx;
-	mlx_mouse(pub->mlx, handle_keys, pub);
+	mlx_mouse_hook(pub->mlx, handle_mouse_hook, pub);
 	mlx_key_hook(pub->mlx, handle_keys, pub);
 	mlx_cursor_hook(pub->mlx, handle_mouse, pub);
 	mlx_close_hook(pub->mlx, destroy_global, pub);
 	mlx_loop_hook(pub->mlx, refresh_frame, pub);
 	mlx_loop(pub->mlx);
 	mlx_terminate(pub->mlx);
-	destroy_global(pub);
-	// use this for mlx resources
-	// mlx_delete_xpm42();
-	// mlx_delete_image();
-	// mlx_delete_texture();
 }
 
 int	main(int argc, char **argv)
@@ -76,24 +57,3 @@ int	main(int argc, char **argv)
 	cub3d(argv[1]);
 	return (0);
 }
-
-
-
-
-
-// Parsing debug
-// int debug_fd = open("Debug.log", O_RDWR);
-// dprintf(debug_fd, "/* **************** */\n");
-// dprintf(debug_fd, "/*     PARSING      */\n");
-// dprintf(debug_fd, "/* **************** */\n");
-// dprintf(debug_fd, "\nAttribute : \n");
-// dprintf(debug_fd, "NO : %s \n", info->NO);
-// dprintf(debug_fd, "SO : %s \n", info->SO);
-// dprintf(debug_fd, "WE : %s \n", info->WE);
-// dprintf(debug_fd, "EA : %s \n", info->EA);
-// dprintf(debug_fd, "F : (%d,%d,%d) \n", info->F.r, info->F.g, info->F.b);
-// dprintf(debug_fd, "C : (%d,%d,%d) \n", info->C.r, info->C.g, info->C.b);
-// dprintf(debug_fd, "\nMap :\n");
-// for (size_t i = 0; info->map[i]; i++)
-// 	dprintf(debug_fd, "%s:newline\n", info->map[i]);
-// printf("%sSUCCESS\n", GREEN);

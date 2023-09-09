@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 02:06:39 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/09 16:26:54 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/09 17:29:51 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ void	destroy_info(t_info *info)
 	free(info->SO.path);
 	free(info->WE.path);
 	free(info->EA.path);
+	free(info->DOOR.path);
 	free(info->NO.buffer_img);
 	free(info->SO.buffer_img);
 	free(info->WE.buffer_img);
 	free(info->EA.buffer_img);
+	free(info->DOOR.buffer_img);
 	ft_free(info->map);
 	free(info);
 }

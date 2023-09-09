@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/28 20:27:54 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/05 23:08:42 by azarda           ###   ########.fr       */
+/*   Created: 2023/09/09 19:03:23 by reben-ha          #+#    #+#             */
+/*   Updated: 2023/09/09 19:03:25 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,11 @@ bool	m_check_tb(int i, char **map)
 
 	j = -1;
 	while (map[0][++j])
-		if (map[0][j] == '0' || map[0][j] == 'P')
+		if (map[0][j] == '0' || map[0][j] == 'P' || map[0][j] == 'D')
 			return (false);
 	j = -1;
 	while (map[i] && map[i][++j])
-		if (map[i][j] == '0' || map[i][j] == 'P')
+		if (map[i][j] == '0' || map[i][j] == 'P' || map[i][j] == 'D')
 			return (false);
 	return (true);
 }
@@ -90,11 +90,15 @@ bool	m_check_surrounded(char **map)
 		j = -1;
 		while (map[i][++j])
 		{
-			if ((map[i][j] == '0' || map[i][j] == 'P')
+			if ((map[i][j] == '0' || map[i][j] == 'P' || map[i][j] == 'D')
 				&& (j == 0
 				|| (map[i + 1][j] == ' ' || map[i - 1][j] == ' '
 				|| map[i][j + 1] == ' ' || map[i][j - 1] == ' '
 				|| map[i][j + 1] == '\0')))
+				return (false);
+			if (map[i][j] == 'D'
+				&& (!(map[i][j - 1] == '1' && map[i][j + 1] == '1')
+					&& !(map[i - 1][j] == '1' && map[i + 1][j] == '1')))
 				return (false);
 		}
 	}

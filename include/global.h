@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/08 16:52:02 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/09 20:13:45 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,6 @@
 # define RED_R 255
 # define RED_G 0
 # define RED_B 0
-# define BLACK_R 0
-# define BLACK_G 0
-# define BLACK_B 0
-# define WHITE_R 255
-# define WHITE_G 255
-# define WHITE_B 255
 
 # define HEIGHT 1080
 # define WIDTH 1920
