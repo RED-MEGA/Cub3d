@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/06 01:15:33 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/09 13:50:58 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,14 +119,22 @@ t_pos ray_cast(t_global *pub, int *flag, int  *dor)
 	pub->de = ft_derection(player);
 
 	*flag = 0;
+	int h;
+	int v;
+
+
 	int flag_hori = 0;
 	int flag_verti = 0;
 	t_pos horiso = ft_horizontal_inter(pub, player, dor);
 	if(horiso.x != -50 && horiso.y != -50)
 		flag_hori = 1;
+	h = *dor;
+
+	*dor = 0;
 	t_pos verti = ft_vertical_inter(pub, player, dor);
 	if(verti.x != -50 && verti.y != -50)
 		flag_verti = 1;
+	v = *dor;
 	// player.ray_angle *= (M_PI / 180);
 
 
@@ -147,12 +155,14 @@ t_pos ray_cast(t_global *pub, int *flag, int  *dor)
 	if(horisontal_distance < vertical_distance)
 	{
 		*flag = 1;
+		*dor = h;
 		end_pos.x = horiso.x;
 		end_pos.y = horiso.y;
 	}
 	else
 	{
 		*flag = 2;
+		*dor = v;
 		end_pos.x = verti.x;
 		end_pos.y = verti.y;
 	}
