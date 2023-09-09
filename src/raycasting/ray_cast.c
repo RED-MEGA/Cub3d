@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/09 13:50:58 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/09 21:06:59 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ t_derec ft_derection(t_player player)
 	return(de);
 }
 
-t_pos ft_loop_calcul(t_pos inter, t_pos step, t_global *pub, int flag, int *dor)
+t_pos ft_loop_calcul(t_doub_pos pos,  t_global *pub, int flag, int *dor)
 {
 	int x;
 	int y;
 	while(1)
 	{
-		x = floor(inter.x / SQUARE_LEN);
-		y = floor(inter.y / SQUARE_LEN);
+		x = floor(pos.a.x / SQUARE_LEN);
+		y = floor(pos.a.y / SQUARE_LEN);
 		if(x >= pub->info->map_m_size.j || y >= pub->info->map_m_size.i || x < 0 || y < 0)
 			break;
 		else
@@ -45,15 +45,15 @@ t_pos ft_loop_calcul(t_pos inter, t_pos step, t_global *pub, int flag, int *dor)
 			if(pub->info->map[y][x] == '1' || pub->info->map[y][x] == 'D')
 			{
 				if(flag == 1)
-					inter.y++;
+					pos.a.y++;
 				if(flag == 2)
-					inter.x++;
+					pos.a.x++;
 				if(pub->info->map[y][x] == 'D')
 					*dor = 1;
-				return((t_pos){.x = inter.x, .y = inter.y});
+				return((t_pos){.x = pos.a.x, .y = pos.a.y});
 			}
-			inter.x += step.x;
-			inter.y += step.y;
+			pos.a.x += pos.b.x;
+			pos.a.y += pos.b.y;
 		}
 	}
 	return((t_pos){.x = -50 , .y = -50});
@@ -83,7 +83,7 @@ t_pos ft_horizontal_inter(t_global *pub, t_player player, int *dor)
 		inter.y--;
 		flag = 1;
 	}
-	return(ft_loop_calcul(inter, step, pub, flag, dor));
+	return(ft_loop_calcul((t_doub_pos){.a = inter, .b = step}, pub, flag, dor));
 }
 
 t_pos ft_vertical_inter(t_global *pub, t_player player, int *dor)
@@ -110,8 +110,11 @@ t_pos ft_vertical_inter(t_global *pub, t_player player, int *dor)
 		inter.x--;
 		flag = 2;
 	}
-	return(ft_loop_calcul(inter, step, pub, flag, dor));
+	return(ft_loop_calcul((t_doub_pos){.a = inter, .b = step}, pub, flag, dor));
 }
+
+
+
 
 t_pos ray_cast(t_global *pub, int *flag, int  *dor)
 {
@@ -135,7 +138,6 @@ t_pos ray_cast(t_global *pub, int *flag, int  *dor)
 	if(verti.x != -50 && verti.y != -50)
 		flag_verti = 1;
 	v = *dor;
-	// player.ray_angle *= (M_PI / 180);
 
 
 // ---------------------------------------------------calcul dectence -------------------------------------------------------
