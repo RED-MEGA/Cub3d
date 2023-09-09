@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   global.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/09 20:13:45 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/09 21:11:31 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,15 @@ typedef struct s_pos
 	double x;
 	double y;
 }	t_pos;
+
+
+typedef struct s_doubl
+{
+	t_pos a;
+	t_pos b;
+}	t_doubl;
+
+
 
 typedef struct s_loc
 {

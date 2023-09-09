@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/09 21:06:59 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/09 21:11:14 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_derec ft_derection(t_player player)
 	return(de);
 }
 
-t_pos ft_loop_calcul(t_doub_pos pos,  t_global *pub, int flag, int *dor)
+t_pos ft_loop_calcul(t_doubl pos,  t_global *pub, int flag, int *dor)
 {
 	int x;
 	int y;
@@ -83,7 +83,7 @@ t_pos ft_horizontal_inter(t_global *pub, t_player player, int *dor)
 		inter.y--;
 		flag = 1;
 	}
-	return(ft_loop_calcul((t_doub_pos){.a = inter, .b = step}, pub, flag, dor));
+	return(ft_loop_calcul((t_doubl){.a = inter, .b = step}, pub, flag, dor));
 }
 
 t_pos ft_vertical_inter(t_global *pub, t_player player, int *dor)
@@ -110,7 +110,7 @@ t_pos ft_vertical_inter(t_global *pub, t_player player, int *dor)
 		inter.x--;
 		flag = 2;
 	}
-	return(ft_loop_calcul((t_doub_pos){.a = inter, .b = step}, pub, flag, dor));
+	return(ft_loop_calcul((t_doubl){.a = inter, .b = step}, pub, flag, dor));
 }
 
 
