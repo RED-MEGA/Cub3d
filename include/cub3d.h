@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/09 15:47:07 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/09 17:54:55 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ double			calcul_wp(t_player *player, int i);
 /*     RENDERING    */
 /* **************** */
 
-void	calcul_rays(t_global *pub);
+void	calcul_ray(t_global *pub, t_player *player);
 void	render(t_global *pub);
 void	draw_fc(mlx_image_t *image, t_color color, t_pos pos);
 
