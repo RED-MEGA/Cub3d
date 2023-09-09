@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/08 18:18:53 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/09 16:23:23 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,12 +184,12 @@ void	handle_keys(mlx_key_data_t keydata, void *param)
 	t_global	*pub;
 
 	pub = (t_global *)param;
-	if (keydata.key == MLX_KEY_O)
-		check_dor_open(pub);
-	if (keydata.key == MLX_KEY_C)
-		check_dor_close(pub);
 	if (keydata.key == MLX_KEY_ESCAPE)
 		destroy_global(pub);
+	if (keydata.key == MLX_KEY_O && keydata.action == MLX_PRESS)
+		return (check_dor_open(pub));
+	if (keydata.key == MLX_KEY_C && keydata.action == MLX_PRESS)
+		return (check_dor_close(pub));
 	if (keydata.key == MLX_KEY_LEFT_SHIFT)
 	{
 		if (key_press(keydata, MLX_KEY_LEFT_SHIFT))
@@ -198,7 +198,7 @@ void	handle_keys(mlx_key_data_t keydata, void *param)
 			pub->info->player.sprint = false;
 		return ;
 	}
-		if (key_press(keydata, MLX_KEY_F))
+	if (key_press(keydata, MLX_KEY_F))
 	{
 		if (pub->mode == MLX_MOUSE_HIDDEN)
 			pub->mode = MLX_MOUSE_NORMAL;

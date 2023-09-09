@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 02:06:39 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/08 17:44:15 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/09 16:26:54 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ void	destroy_global(void *param)
 
 	pub = (t_global *)param;
 	destroy_info(pub->info);
+	mlx_delete_image(pub->mlx, pub->window_img);
+	mlx_terminate(pub->mlx);
 	free(pub);
 	exit(0);
 }
 	// use this for mlx resources
 	// mlx_delete_xpm42();
 	// mlx_delete_image();
-	// mlx_delete_texture();  
+	// mlx_delete_texture();
