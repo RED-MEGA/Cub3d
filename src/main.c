@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/09 16:32:02 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/09 17:30:37 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	cub3d(char *file_name)
 	//---------------------------------------------------------------------------
 
 	// mlx = pub->mlx;
-	mlx_mouse(pub->mlx, handle_keys, pub);
+	mlx_mouse_hook(pub->mlx, handle_mouse_hook, pub);
 	mlx_key_hook(pub->mlx, handle_keys, pub);
 	mlx_cursor_hook(pub->mlx, handle_mouse, pub);
 	mlx_close_hook(pub->mlx, destroy_global, pub);
