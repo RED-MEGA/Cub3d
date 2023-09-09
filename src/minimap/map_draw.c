@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/08 18:22:13 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/09 20:12:01 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	draw_map(t_global *pub)
 	}
 }
 
-void	draw_flex_map(mlx_image_t *image, t_info *info)
+void	draw_dynamic_map(mlx_image_t *image, t_info *info)
 {
 	t_pos	map_pos;
 	t_pos	pos_tmp;
@@ -144,7 +144,7 @@ void	minimap(t_global *pub)
 	t_player	*player;
 
 	player = &pub->info->player;
-	draw_flex_map(pub->window_img, pub->info);
+	draw_dynamic_map(pub->window_img, pub->info);
 	draw_player(pub->window_img);
 	draw_rotation(pub->window_img, player);
 }
