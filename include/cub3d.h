@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/09 21:18:02 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/10 03:05:20 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,5 @@ void	draw_fc(mlx_image_t *image, t_color color, t_pos pos);
 void	check_dor_close(t_global	*pub);
 void	check_dor_open(t_global	*pub);
 void	handle_mouse_hook(mouse_key_t button, action_t action, modifier_key_t mods, void *param);
-
+bool	wall_collision(char **map, t_pos *oldpos, t_pos *newpos);
 #endif
