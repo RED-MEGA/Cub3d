@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/10 14:16:54 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/10 17:16:33 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,22 +70,25 @@ void		draw_line(mlx_image_t *image, t_pos start, t_pos end);
 /*     RAYCASTING   */
 /* **************** */
 
-t_derec			ft_derection(double angle);
 
-t_pos			ray_cast(t_global *pub, int *flag, int  *dor);
-void 			load_texture(t_info *info);
-void			to_3d_ray(t_global *pub, int i, double wall_height);
-t_img			ft_derection_render(t_global *pub);
-double			calcul_wp(t_player *player);
+t_pos		ft_horizontal_inter(t_global *pub, t_player player, int *dor);
+t_pos		ft_vertical_inter(t_global *pub, t_player player, int *dor);
+t_pos		ray_cast(t_global *pub, int *flag, int  *dor);
+
+
+
 
 
 /* **************** */
 /*     RENDERING    */
 /* **************** */
 
-void	calcul_ray(t_global *pub, t_player *player);
-void	render(t_global *pub);
-void	draw_fc(mlx_image_t *image, t_color color, t_pos pos);
+void 			load_texture(t_info *info);
+void			to_3d_ray(t_global *pub, int i, double wall_height);
+double			calcul_wp(t_player *player);
+void			calcul_ray(t_global *pub, t_player *player);
+void			render(t_global *pub);
+void			draw_fc(mlx_image_t *image, t_color color, t_pos pos);
 
 
 void	check_dor_close(t_global	*pub);
