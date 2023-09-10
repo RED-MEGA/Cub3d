@@ -6,7 +6,7 @@
 #    By: azarda <azarda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/09/07 17:52:43 by azarda           ###   ########.fr        #
+#    Updated: 2023/09/10 16:39:52 by azarda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRC = src/main.c \
 	src/minimap/map_draw.c \
 	src/minimap/player_draw.c \
 	src/raycasting/ray_cast.c \
+	src/raycasting/ray_cast_utils.c \
 	src/rendering/rays_calc.c \
 	src/rendering/render.c \
 	src/rendering/floor_ceiling.c \
