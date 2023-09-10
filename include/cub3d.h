@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/10 17:16:33 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/10 19:01:16 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ t_pos		ray_cast(t_global *pub, int *flag, int  *dor);
 /* **************** */
 
 void 			load_texture(t_info *info);
-void			to_3d_ray(t_global *pub, int i, double wall_height);
+void			to_3d_ray(t_global *pub, int i, double wall_height, int y);
 double			calcul_wp(t_player *player);
 void			calcul_ray(t_global *pub, t_player *player);
 void			render(t_global *pub);

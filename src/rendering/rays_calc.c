@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays_calc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:28:09 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/09 21:17:51 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/10 19:01:29 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	render(t_global *pub)
 	{
 		calcul_ray(pub, player);
 		wp = calcul_wp(player);
-		to_3d_ray(pub, i, wp);
+		to_3d_ray(pub, i, wp, -1);
 		player->ray_angle = normalize_angle(player->ray_angle + RAY_D);
 		player->ray.dor = 0;
 	}
