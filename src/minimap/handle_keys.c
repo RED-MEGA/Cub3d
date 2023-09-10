@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/10 02:12:50 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/10 02:30:59 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ bool	try_sliding(t_info *info, double move_speed, t_pos *new_pos)
 
 	if (!select_range(info, move_speed, &range_s, &range_e))
 		return (false);
-	printf("Range is %f -> %f\n", to_degree(range_s) ,to_degree(range_e));
+	printf("Range is %f -> %f\n", range_s ,range_e);
 	// in Loop increment the value of rotation angle to find sliding_pos
 	double	sliding_angle;
 	char	char_pos;
@@ -68,8 +68,7 @@ bool	try_sliding(t_info *info, double move_speed, t_pos *new_pos)
 	while (sliding_angle <= range_e)
 	{
 		*new_pos = generate_newpos(info->player.pos, to_rad(sliding_angle), move_speed);
-		char_pos = pos_to_char(info->map, new_pos->y, new_pos->x);
-		if (char_pos == '0' || char_pos == 'd')
+		if (wall_collision(info->map, &info->player.pos, new_pos))
 			return (true);
 		sliding_angle++;
 	}
