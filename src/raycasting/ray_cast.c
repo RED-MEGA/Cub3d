@@ -6,14 +6,14 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/09 21:11:14 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/10 15:20:07 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 
-t_derec ft_derection(t_player player)
+t_derec ft_derection(double angle)
 {
 	t_derec de;
 	de.down = 0;
@@ -21,36 +21,45 @@ t_derec ft_derection(t_player player)
 	de.right = 0;
 	de.left = 0;
 
-    if (player.ray_angle > 0 && player.ray_angle < M_PI)
+    if (angle > 0 && angle < M_PI)
         de.down = 1;
     	de.up = !de.down;
-    if (player.ray_angle < 0.5 * M_PI || player.ray_angle > 1.5 * M_PI)
+    if (angle < 0.5 * M_PI || angle > 1.5 * M_PI)
         	de.right = 1;
     	de.left = !de.right;
 	return(de);
 }
 
+
+t_pos ft_cheak_flag(t_doubl pos, int flag)
+{
+    if (flag == 1)
+        pos.a.y++;
+    if (flag == 2)
+        pos.a.x++;
+    return ((t_pos){.x = pos.a.x, .y = pos.a.y});
+}
+
+
 t_pos ft_loop_calcul(t_doubl pos,  t_global *pub, int flag, int *dor)
 {
 	int x;
 	int y;
+
 	while(1)
 	{
 		x = floor(pos.a.x / SQUARE_LEN);
 		y = floor(pos.a.y / SQUARE_LEN);
-		if(x >= pub->info->map_m_size.j || y >= pub->info->map_m_size.i || x < 0 || y < 0)
+		if(x >= pub->info->map_m_size.j || \
+				y >= pub->info->map_m_size.i || x < 0 || y < 0)
 			break;
 		else
 		{
 			if(pub->info->map[y][x] == '1' || pub->info->map[y][x] == 'D')
 			{
-				if(flag == 1)
-					pos.a.y++;
-				if(flag == 2)
-					pos.a.x++;
 				if(pub->info->map[y][x] == 'D')
 					*dor = 1;
-				return((t_pos){.x = pos.a.x, .y = pos.a.y});
+				return(ft_cheak_flag(pos, flag));
 			}
 			pos.a.x += pos.b.x;
 			pos.a.y += pos.b.y;
@@ -119,7 +128,7 @@ t_pos ft_vertical_inter(t_global *pub, t_player player, int *dor)
 t_pos ray_cast(t_global *pub, int *flag, int  *dor)
 {
 	t_player player = pub->info->player;
-	pub->de = ft_derection(player);
+	pub->de = ft_derection(player.ray_angle);
 
 	*flag = 0;
 	int h;
@@ -140,7 +149,6 @@ t_pos ray_cast(t_global *pub, int *flag, int  *dor)
 	v = *dor;
 
 
-// ---------------------------------------------------calcul dectence -------------------------------------------------------
 	t_pos end_pos;
 
 	double  horisontal_distance = ULLONG_MAX;
