@@ -6,28 +6,93 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/09 20:57:29 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/10 02:12:50 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	wall_collision(char **map, t_pos oldpos, t_pos newpos)
+char	pos_to_char(char **map, double y, double x)
 {
-	if (map[(int)(newpos.y / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != '1'
-		&& map[(int)((newpos.y + (P_RADIUS * 0.4)) / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != '1'
-		&& map[(int)((newpos.y - (P_RADIUS * 0.4)) / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != '1'
-		&& map[(int)(newpos.y / SQUARE_LEN)][(int)((newpos.x + (P_RADIUS * 0.4)) / SQUARE_LEN)] != '1'
-		&& map[(int)(newpos.y / SQUARE_LEN)][(int)((newpos.x - (P_RADIUS * 0.4)) / SQUARE_LEN)] != '1'
-		&& map[(int)(oldpos.y / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != '1'
-		&& map[(int)(newpos.y / SQUARE_LEN)][(int)(oldpos.x / SQUARE_LEN)] != '1'
-		&& map[(int)(newpos.y / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != 'D'
-		&& map[(int)((newpos.y + (P_RADIUS * 0.4)) / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != 'D'
-		&& map[(int)((newpos.y - (P_RADIUS * 0.4)) / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != 'D'
-		&& map[(int)(newpos.y / SQUARE_LEN)][(int)((newpos.x + (P_RADIUS * 0.4)) / SQUARE_LEN)] != 'D'
-		&& map[(int)(newpos.y / SQUARE_LEN)][(int)((newpos.x - (P_RADIUS * 0.4)) / SQUARE_LEN)] != 'D'
-		&& map[(int)(oldpos.y / SQUARE_LEN)][(int)(newpos.x / SQUARE_LEN)] != 'D'
-		&& map[(int)(newpos.y / SQUARE_LEN)][(int)(oldpos.x / SQUARE_LEN)] != 'D')
+	return (map[(int)(y / SQUARE_LEN)][(int)(x / SQUARE_LEN)]);
+}
+
+t_pos	generate_newpos(t_pos pos, double rotation_angle, double move_speed)
+{
+	pos.x += cos(rotation_angle) * move_speed;
+	pos.y += sin(rotation_angle) * move_speed;
+	return (pos);
+}
+
+bool	select_range(t_info *info, double move_speed, double *range_s, double *range_e)
+{
+	t_pos	new_pos;
+	double	sliding_angle;
+	char	char_pos;
+
+	sliding_angle = normalize_angle(info->player.rotation_angle - to_rad(30));
+	new_pos = generate_newpos(info->player.pos, sliding_angle, move_speed);
+	char_pos = pos_to_char(info->map, new_pos.y, new_pos.x);
+	if (char_pos == '0' || char_pos == 'd')
+	{
+		*range_s = to_degree(sliding_angle);
+		*range_e = to_degree(normalize_angle(sliding_angle + to_rad(20)));
+		return (true);
+	}
+	sliding_angle = normalize_angle(info->player.rotation_angle + to_rad(30));
+	new_pos = generate_newpos(info->player.pos, sliding_angle, move_speed);
+	char_pos = pos_to_char(info->map, new_pos.y, new_pos.x);
+	if (char_pos == '0' || char_pos == 'd')
+	{
+		*range_s = to_degree(normalize_angle(sliding_angle - to_rad(20)));
+		*range_e = to_degree(sliding_angle);
+		return (true);
+	}
+	return (false);
+}
+
+bool	try_sliding(t_info *info, double move_speed, t_pos *new_pos)
+{
+	// check which range you need to check (-30 to 0, or 0 to +30)
+	double	range_s;
+	double	range_e;
+
+	if (!select_range(info, move_speed, &range_s, &range_e))
+		return (false);
+	printf("Range is %f -> %f\n", to_degree(range_s) ,to_degree(range_e));
+	// in Loop increment the value of rotation angle to find sliding_pos
+	double	sliding_angle;
+	char	char_pos;
+
+	sliding_angle = range_s;
+	while (sliding_angle <= range_e)
+	{
+		*new_pos = generate_newpos(info->player.pos, to_rad(sliding_angle), move_speed);
+		char_pos = pos_to_char(info->map, new_pos->y, new_pos->x);
+		if (char_pos == '0' || char_pos == 'd')
+			return (true);
+		sliding_angle++;
+	}
+	return (false);	
+}
+
+bool	wall_collision(char **map, t_pos *oldpos, t_pos *newpos)
+{
+	if (pos_to_char(map, newpos->y, newpos->x) != '1'
+		&& pos_to_char(map, newpos->y + (P_RADIUS * 0.4), newpos->x) != '1'
+		&& pos_to_char(map, newpos->y - (P_RADIUS * 0.4), newpos->x) != '1'
+		&& pos_to_char(map, newpos->y, newpos->x + (P_RADIUS * 0.4)) != '1'
+		&& pos_to_char(map, newpos->y, newpos->x - (P_RADIUS * 0.4)) != '1'
+		&& pos_to_char(map, oldpos->y, newpos->x) != '1'
+		&& pos_to_char(map, newpos->y, oldpos->x) != '1'
+
+		&& pos_to_char(map, newpos->y, newpos->x) != 'D'
+		&& pos_to_char(map, newpos->y + (P_RADIUS * 0.4), newpos->x) != 'D'
+		&& pos_to_char(map, newpos->y - (P_RADIUS * 0.4), newpos->x) != 'D'
+		&& pos_to_char(map, newpos->y, newpos->x + (P_RADIUS * 0.4)) != 'D'
+		&& pos_to_char(map, newpos->y, newpos->x - (P_RADIUS * 0.4)) != 'D'
+		&& pos_to_char(map, oldpos->y, newpos->x) != 'D'
+		&& pos_to_char(map, newpos->y, oldpos->x) != 'D')
 		return (true);
 	return (false);
 }
@@ -42,16 +107,12 @@ double	get_ms(bool sprint)
 void	get_new_pos(t_info *info, double rotation_angle)
 {
 	t_pos	new_pos;
+	double	move_speed;
 
-	new_pos.x = info->player.pos.x;
-	new_pos.y = info->player.pos.y;
-	new_pos.x += cos(rotation_angle) * get_ms(info->player.sprint);
-	new_pos.y += sin(rotation_angle) * get_ms(info->player.sprint);
-	if (wall_collision(info->map, info->player.pos, new_pos))
-	{
-		info->player.pos.x = new_pos.x;
-		info->player.pos.y = new_pos.y;
-	}
+	move_speed = get_ms(info->player.sprint);
+	new_pos = generate_newpos(info->player.pos, rotation_angle, move_speed);
+	if (wall_collision(info->map, &info->player.pos, &new_pos))
+		info->player.pos = new_pos;
 }
 
 void	set_newpos(t_global *pub)
