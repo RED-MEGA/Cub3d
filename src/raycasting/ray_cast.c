@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 02:27:06 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/10 15:20:07 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/10 16:09:42 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,59 +122,55 @@ t_pos ft_vertical_inter(t_global *pub, t_player player, int *dor)
 	return(ft_loop_calcul((t_doubl){.a = inter, .b = step}, pub, flag, dor));
 }
 
+void flag_dor(t_pos diste, int  *dor, int h , int v)
+{
+	if(diste.x < diste.y)
+		*dor = h;
+	else
+		*dor = v;
 
+}
 
+t_pos return_pos_ray(t_doubl ra, t_pos des, int *flag)
+{
+	t_pos end_pos;
+	if(des.x < des.y)
+	{
+		*flag = 1;
+		end_pos.x = ra.a.x;
+		end_pos.y = ra.a.y;
+	}
+	else
+	{
+		*flag = 2;
+		end_pos.x = ra.b.x;
+		end_pos.y = ra.b.y;
+	}
+	return (end_pos);
+}
 
 t_pos ray_cast(t_global *pub, int *flag, int  *dor)
 {
 	t_player player = pub->info->player;
 	pub->de = ft_derection(player.ray_angle);
 
-	*flag = 0;
 	int h;
 	int v;
+	double  horisontal_distance;
+	double  vertical_distance;
 
-
-	int flag_hori = 0;
-	int flag_verti = 0;
+	horisontal_distance = LONG_MAX;
+	vertical_distance = LONG_MAX;
 	t_pos horiso = ft_horizontal_inter(pub, player, dor);
 	if(horiso.x != -50 && horiso.y != -50)
-		flag_hori = 1;
+		horisontal_distance = calcul_distance(player.pos, (t_pos) {.x = horiso.x, .y = horiso.y});
 	h = *dor;
-
 	*dor = 0;
 	t_pos verti = ft_vertical_inter(pub, player, dor);
 	if(verti.x != -50 && verti.y != -50)
-		flag_verti = 1;
-	v = *dor;
-
-
-	t_pos end_pos;
-
-	double  horisontal_distance = ULLONG_MAX;
-	double  vertical_distance = ULLONG_MAX;
-
-	if(flag_hori)
-	{
-		horisontal_distance = calcul_distance(player.pos, (t_pos) {.x = horiso.x, .y = horiso.y});
-	}
-	if(flag_verti)
-	{
 		vertical_distance = calcul_distance(player.pos, (t_pos) {.x = verti.x, .y = verti.y});
-	}
-	if(horisontal_distance < vertical_distance)
-	{
-		*flag = 1;
-		*dor = h;
-		end_pos.x = horiso.x;
-		end_pos.y = horiso.y;
-	}
-	else
-	{
-		*flag = 2;
-		*dor = v;
-		end_pos.x = verti.x;
-		end_pos.y = verti.y;
-	}
-	return (end_pos);
+	v = *dor;
+	flag_dor((t_pos){.x = horisontal_distance , .y = vertical_distance} , dor, h , v);
+	return (return_pos_ray((t_doubl){.a = horiso, .b = verti},
+	(t_pos){.x = horisontal_distance, .y = vertical_distance} ,flag));
 }
