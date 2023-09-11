@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/10 04:47:17 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/11 17:17:10 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,7 +183,7 @@ typedef struct s_global
 	t_derec			de;
 	mouse_mode_t	mode;
 	mlx_image_t		*weapon;
-	mlx_image_t		*sprite[4];
+	mlx_image_t		*sprite[14];
 }	t_global;
 
 #endif

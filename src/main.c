@@ -6,17 +6,17 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/10 04:50:23 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/11 17:29:57 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	draw_image(mlx_image_t *image, uint32_t x, uint32_t y, mlx_image_t *img)
+void draw_image(mlx_image_t *image, uint32_t x, uint32_t y, mlx_image_t *img)
 {
-	t_pos	pos;
-	int		i;
-	int		color;
+	t_pos pos;
+	int i;
+	int color;
 
 	i = 0;
 	pos.x = -1;
@@ -27,30 +27,97 @@ void	draw_image(mlx_image_t *image, uint32_t x, uint32_t y, mlx_image_t *img)
 		while (++pos.x < img->width)
 		{
 			color = get_rgb(img->pixels[i], img->pixels[i + 1], img->pixels[i + 2], 255);
-			mlx_put_pixel_p(image, pos.x, pos.y, color);
+			if (color != 0xff)
+				mlx_put_pixel_p(image, pos.x, pos.y, color);
 			i += 4;
 		}
 	}
 }
 
-void	animated_sprite(t_global *pub)
+void animated_sprite(t_global *pub)
 {
-	static int i;
+	static unsigned char i;
 
-	draw_image(pub->window_img, 0, 0, pub->sprite[0]);
-	draw_image(pub->window_img, 0, 0, pub->sprite[1]);
-	draw_image(pub->window_img, 0, 0, pub->sprite[2]);
-	draw_image(pub->window_img, 0, 0, pub->sprite[3]);
-	if (i == 4)
-		i = 0;
+	if (i == 0)
+	{
+		draw_image(pub->window_img, 0, 0, pub->sprite[0]);
+		printf("pub->sprite\n");
+	}
+	else if (i == 1)
+	{
+		draw_image(pub->window_img, 0, 0, pub->sprite[1]);
+		printf("pub->sprite\n");
+	}
+	else if (i == 2)
+	{
+		draw_image(pub->window_img, 0, 0, pub->sprite[2]);
+		printf("pub->sprite\n");
+	}
+	else if (i == 3)
+	{
+		draw_image(pub->window_img, 0, 0, pub->sprite[3]);
+		printf("pub->sprite\n");
+	}
+	else if (i == 4)
+	{
+		draw_image(pub->window_img, 0, 0, pub->sprite[4]);
+		printf("pub->sprite\n");
+	}
+	else if (i == 5)
+	{
+		draw_image(pub->window_img, 0, 0, pub->sprite[5]);
+		printf("pub->sprite\n");
+	}
+	else if (i == 6)
+	{
+		draw_image(pub->window_img, 0, 0, pub->sprite[6]);
+		printf("pub->sprite\n");
+	}
+	else if (i == 7)
+	{
+		draw_image(pub->window_img, 0, 0, pub->sprite[7]);
+		printf("pub->sprite\n");
+	}
+	else if (i == 8)
+	{
+		draw_image(pub->window_img, 0, 0, pub->sprite[8]);
+		printf("pub->sprite\n");
+	}
+	else if (i == 9)
+	{
+		draw_image(pub->window_img, 0, 0, pub->sprite[9]);
+		printf("pub->sprite\n");
+	}
+	else if (i == 10)
+	{
+		draw_image(pub->window_img, 0, 0, pub->sprite[10]);
+		printf("pub->sprite\n");
+	}
+	else if (i == 11)
+	{
+		draw_image(pub->window_img, 0, 0, pub->sprite[11]);
+		printf("pub->sprite\n");
+	}
+	else if (i == 12)
+	{
+		draw_image(pub->window_img, 0, 0, pub->sprite[12]);
+		printf("pub->sprite\n");
+	}
+	else if (i == 13)
+	{
+		draw_image(pub->window_img, 0, 0, pub->sprite[13]);
+		printf("pub->sprite\n");
+	}
 	i++;
+	if (i == 14)
+		i = 0;
 }
 
-void	refresh_frame(void *param)
+void refresh_frame(void *param)
 {
 	clock_t t = clock();
 	// Debug
-	t_global	*pub;
+	t_global *pub;
 
 	pub = (t_global *)param;
 	set_newpos(pub);
@@ -58,15 +125,13 @@ void	refresh_frame(void *param)
 	// update frame
 	render(pub);
 	minimap(pub);
-	// animated_sprite(pub);
-	
+	draw_image(pub->window_img, 0, 0, pub->weapon);
+
 	// mlx_image_to_window(pub->mlx, pub->weapon
 	// 	, HEIGHT - pub->weapon->height
 	// 	, (WIDTH / 2) - (pub->weapon->width / 2));
 
-	mlx_image_to_window(pub->mlx, pub->weapon
-		, (WIDTH / 2) - (pub->weapon->width / 2)
-		, HEIGHT - pub->weapon->height);
+	animated_sprite(pub);
 	// Debug
 	t = clock() - t;
 	double time_taken = ((double)t) / CLOCKS_PER_SEC;
@@ -75,38 +140,57 @@ void	refresh_frame(void *param)
 
 // void leaks () {system("leaks cub3D | grep LEAK");};
 
-void	cub3d(char *file_name)
+void cub3d(char *file_name)
 {
 	// atexit(leaks);
-	t_global	*pub;
-	t_info		*info;
+	t_global *pub;
+	t_info *info;
 
 	info = parsing(file_name);
 	pub = init_global(info);
 
-
 	mlx_texture_t *texture;
 
-	texture = mlx_load_png("img/axe.png");
+	texture = mlx_load_png("img/hamer.png");
+	pub->weapon = mlx_texture_to_image(pub->mlx, texture);
+	mlx_resize_image(pub->weapon, pub->weapon->width * 0.2, pub->weapon->height * 0.2);
+
 	// pub->weapon = mlx_texture_to_image(pub->mlx, texture);
 	// mlx_resize_image(pub->weapon
-	// 	, pub->weapon->width * 0.2
-	// 	, pub->weapon->height * 0.2);
+	// 	, pub->weapon->width * 0.26
+	// 	, pub->weapon->height * 0.26);
+	// mlx_image_to_window(pub->mlx, pub->weapon
+	// 	, (WIDTH / 2) - (pub->weapon->width / 2)
+	// 	, HEIGHT - pub->weapon->height);
 
-	pub->weapon = mlx_texture_to_image(pub->mlx, texture);
-	mlx_resize_image(pub->weapon
-		, pub->weapon->width * 0.26
-		, pub->weapon->height * 0.26);
-	
-	texture = mlx_load_png("img/sprite/frame1.png");
+	texture = mlx_load_png("img/sprite/frame_00.png");
 	pub->sprite[0] = mlx_texture_to_image(pub->mlx, texture);
-	texture = mlx_load_png("img/sprite/frame2.png");
+	texture = mlx_load_png("img/sprite/frame_01.png");
 	pub->sprite[1] = mlx_texture_to_image(pub->mlx, texture);
-	texture = mlx_load_png("img/sprite/frame3.png");
+	texture = mlx_load_png("img/sprite/frame_02.png");
 	pub->sprite[2] = mlx_texture_to_image(pub->mlx, texture);
-	texture = mlx_load_png("img/sprite/frame4.png");
+	texture = mlx_load_png("img/sprite/frame_03.png");
 	pub->sprite[3] = mlx_texture_to_image(pub->mlx, texture);
-
+	texture = mlx_load_png("img/sprite/frame_04.png");
+	pub->sprite[4] = mlx_texture_to_image(pub->mlx, texture);
+	texture = mlx_load_png("img/sprite/frame_05.png");
+	pub->sprite[5] = mlx_texture_to_image(pub->mlx, texture);
+	texture = mlx_load_png("img/sprite/frame_06.png");
+	pub->sprite[6] = mlx_texture_to_image(pub->mlx, texture);
+	texture = mlx_load_png("img/sprite/frame_07.png");
+	pub->sprite[7] = mlx_texture_to_image(pub->mlx, texture);
+	texture = mlx_load_png("img/sprite/frame_08.png");
+	pub->sprite[8] = mlx_texture_to_image(pub->mlx, texture);
+	texture = mlx_load_png("img/sprite/frame_09.png");
+	pub->sprite[9] = mlx_texture_to_image(pub->mlx, texture);
+	texture = mlx_load_png("img/sprite/frame_10.png");
+	pub->sprite[10] = mlx_texture_to_image(pub->mlx, texture);
+	texture = mlx_load_png("img/sprite/frame_11.png");
+	pub->sprite[11] = mlx_texture_to_image(pub->mlx, texture);
+	texture = mlx_load_png("img/sprite/frame_12.png");
+	pub->sprite[12] = mlx_texture_to_image(pub->mlx, texture);
+	texture = mlx_load_png("img/sprite/frame_13.png");
+	pub->sprite[13] = mlx_texture_to_image(pub->mlx, texture);
 
 	mlx_mouse_hook(pub->mlx, handle_mouse_hook, pub);
 	mlx_key_hook(pub->mlx, handle_keys, pub);
@@ -117,7 +201,7 @@ void	cub3d(char *file_name)
 	mlx_terminate(pub->mlx);
 }
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	if (argc != 2)
 		return (perror_x(ERRINVALID), 1);
