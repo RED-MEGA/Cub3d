@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/11 19:08:18 by reben-ha         ###   ########.fr       */
+// /*   Updated: 2023/09/11 19:08:18 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void draw_image(mlx_image_t *image, int x, int y, mlx_image_t *img)
 		while (x < (x_tmp + img->width))
 		{
 			color = get_rgb(img->pixels[i], img->pixels[i + 1], img->pixels[i + 2], 255);
-			if (color != 0xff)
+			if (color != 255)
 				mlx_put_pixel_p(image, x, y, color);
 			i += 4;
 			x++;
@@ -128,15 +128,13 @@ void refresh_frame(void *param)
 	set_newpos(pub);
 
 	// update frame
+
 	render(pub);
 	minimap(pub);
-	draw_image(pub->window_img, 0, 0, pub->weapon);
-
-	// mlx_image_to_window(pub->mlx, pub->weapon
-	// 	, HEIGHT - pub->weapon->height
-	// 	, (WIDTH / 2) - (pub->weapon->width / 2));
-
 	animated_sprite(pub);
+
+
+
 	// Debug
 	t = clock() - t;
 	double time_taken = ((double)t) / CLOCKS_PER_SEC;
@@ -156,46 +154,21 @@ void cub3d(char *file_name)
 
 	mlx_texture_t *texture;
 
+	//  open the main weopen
 	texture = mlx_load_png("img/Mjollnir.png");
 	pub->weapon = mlx_texture_to_image(pub->mlx, texture);
-	mlx_resize_image(pub->weapon, pub->weapon->width * 0.2, pub->weapon->height * 0.2);
+	//  open the main weopen in attack mode
+	texture = mlx_load_png("img/Mjollnir_in_attack.png");
+	pub->weapon = mlx_texture_to_image(pub->mlx, texture);
 
-	// pub->weapon = mlx_texture_to_image(pub->mlx, texture);
-	// mlx_resize_image(pub->weapon
-	// 	, pub->weapon->width * 0.26
-	// 	, pub->weapon->height * 0.26);
-	// mlx_image_to_window(pub->mlx, pub->weapon
-	// 	, (WIDTH / 2) - (pub->weapon->width / 2)
-	// 	, HEIGHT - pub->weapon->height);
-
+	// open frames of sprite
 	texture = mlx_load_png("img/sprite/frame_00.png");
 	pub->sprite[0] = mlx_texture_to_image(pub->mlx, texture);
-	texture = mlx_load_png("img/sprite/frame_01.png");
-	pub->sprite[1] = mlx_texture_to_image(pub->mlx, texture);
-	texture = mlx_load_png("img/sprite/frame_02.png");
-	pub->sprite[2] = mlx_texture_to_image(pub->mlx, texture);
-	texture = mlx_load_png("img/sprite/frame_03.png");
-	pub->sprite[3] = mlx_texture_to_image(pub->mlx, texture);
-	texture = mlx_load_png("img/sprite/frame_04.png");
-	pub->sprite[4] = mlx_texture_to_image(pub->mlx, texture);
-	texture = mlx_load_png("img/sprite/frame_05.png");
-	pub->sprite[5] = mlx_texture_to_image(pub->mlx, texture);
-	texture = mlx_load_png("img/sprite/frame_06.png");
-	pub->sprite[6] = mlx_texture_to_image(pub->mlx, texture);
-	texture = mlx_load_png("img/sprite/frame_07.png");
-	pub->sprite[7] = mlx_texture_to_image(pub->mlx, texture);
-	texture = mlx_load_png("img/sprite/frame_08.png");
-	pub->sprite[8] = mlx_texture_to_image(pub->mlx, texture);
-	texture = mlx_load_png("img/sprite/frame_09.png");
-	pub->sprite[9] = mlx_texture_to_image(pub->mlx, texture);
-	texture = mlx_load_png("img/sprite/frame_10.png");
-	pub->sprite[10] = mlx_texture_to_image(pub->mlx, texture);
-	texture = mlx_load_png("img/sprite/frame_11.png");
-	pub->sprite[11] = mlx_texture_to_image(pub->mlx, texture);
-	texture = mlx_load_png("img/sprite/frame_12.png");
-	pub->sprite[12] = mlx_texture_to_image(pub->mlx, texture);
-	texture = mlx_load_png("img/sprite/frame_13.png");
-	pub->sprite[13] = mlx_texture_to_image(pub->mlx, texture);
+	mlx_resize_image(pub->sprite[0], pub->sprite[0]->height * 0.5, pub->sprite[0]->width * 0.5);
+
+
+	// you need to make function that take path and return mlx_image_t
+
 
 	mlx_mouse_hook(pub->mlx, handle_mouse_hook, pub);
 	mlx_key_hook(pub->mlx, handle_keys, pub);

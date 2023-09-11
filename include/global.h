@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/11 17:17:10 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/11 21:22:19 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@
 
 # define P_RADIUS (SQUARE_LEN / 4)
 # define P_ROTATION_SPEED 2.0 * (M_PI / 180)
-# define P_MOVE_SPEED 3.0
+# define P_MOVE_SPEED 5.0
 
 # define PI M_PI
 # define RAY_D (FOV_ANGLE / WIDTH)
