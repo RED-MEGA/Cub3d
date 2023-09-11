@@ -2,6 +2,7 @@
 	"files.associations": {
 		"cub3d.h": "c",
 		"tools.h": "c",
-		"global.h": "c"
+		"global.h": "c",
+		"libft.h": "c"
 	}
 }
