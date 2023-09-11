@@ -6,106 +6,111 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/11 17:29:57 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/11 19:08:18 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void draw_image(mlx_image_t *image, uint32_t x, uint32_t y, mlx_image_t *img)
+void draw_image(mlx_image_t *image, int x, int y, mlx_image_t *img)
 {
-	t_pos pos;
-	int i;
-	int color;
+	int	x_tmp;
+	int	y_tmp;
+	int	i;
+	int	color;
 
 	i = 0;
-	pos.x = -1;
-	pos.y = -1;
-	while (++pos.y < img->height)
+	x_tmp = x;
+	y_tmp = y;
+	while (y < (y_tmp + img->height))
 	{
-		pos.x = -1;
-		while (++pos.x < img->width)
+		x = x_tmp;
+		while (x < (x_tmp + img->width))
 		{
 			color = get_rgb(img->pixels[i], img->pixels[i + 1], img->pixels[i + 2], 255);
 			if (color != 0xff)
-				mlx_put_pixel_p(image, pos.x, pos.y, color);
+				mlx_put_pixel_p(image, x, y, color);
 			i += 4;
+			x++;
 		}
+		y++;
 	}
 }
 
 void animated_sprite(t_global *pub)
 {
 	static unsigned char i;
+	int x = (WIDTH / 2) - (pub->sprite[0]->width / 2);
+	int y = (HEIGHT / 2) - (pub->sprite[0]->height / 2);
 
 	if (i == 0)
 	{
-		draw_image(pub->window_img, 0, 0, pub->sprite[0]);
+		draw_image(pub->window_img, x, y, pub->sprite[0]);
 		printf("pub->sprite\n");
 	}
 	else if (i == 1)
 	{
-		draw_image(pub->window_img, 0, 0, pub->sprite[1]);
+		draw_image(pub->window_img, x, y, pub->sprite[1]);
 		printf("pub->sprite\n");
 	}
 	else if (i == 2)
 	{
-		draw_image(pub->window_img, 0, 0, pub->sprite[2]);
+		draw_image(pub->window_img, x, y, pub->sprite[2]);
 		printf("pub->sprite\n");
 	}
 	else if (i == 3)
 	{
-		draw_image(pub->window_img, 0, 0, pub->sprite[3]);
+		draw_image(pub->window_img, x, y, pub->sprite[3]);
 		printf("pub->sprite\n");
 	}
 	else if (i == 4)
 	{
-		draw_image(pub->window_img, 0, 0, pub->sprite[4]);
+		draw_image(pub->window_img, x, y, pub->sprite[4]);
 		printf("pub->sprite\n");
 	}
 	else if (i == 5)
 	{
-		draw_image(pub->window_img, 0, 0, pub->sprite[5]);
+		draw_image(pub->window_img, x, y, pub->sprite[5]);
 		printf("pub->sprite\n");
 	}
 	else if (i == 6)
 	{
-		draw_image(pub->window_img, 0, 0, pub->sprite[6]);
+		draw_image(pub->window_img, x, y, pub->sprite[6]);
 		printf("pub->sprite\n");
 	}
 	else if (i == 7)
 	{
-		draw_image(pub->window_img, 0, 0, pub->sprite[7]);
+		draw_image(pub->window_img, x, y, pub->sprite[7]);
 		printf("pub->sprite\n");
 	}
 	else if (i == 8)
 	{
-		draw_image(pub->window_img, 0, 0, pub->sprite[8]);
+		draw_image(pub->window_img, x, y, pub->sprite[8]);
 		printf("pub->sprite\n");
 	}
 	else if (i == 9)
 	{
-		draw_image(pub->window_img, 0, 0, pub->sprite[9]);
+		draw_image(pub->window_img, x, y, pub->sprite[9]);
 		printf("pub->sprite\n");
 	}
 	else if (i == 10)
 	{
-		draw_image(pub->window_img, 0, 0, pub->sprite[10]);
+		draw_image(pub->window_img, x, y, pub->sprite[10]);
 		printf("pub->sprite\n");
 	}
 	else if (i == 11)
 	{
-		draw_image(pub->window_img, 0, 0, pub->sprite[11]);
+		draw_image(pub->window_img, x, y, pub->sprite[11]);
 		printf("pub->sprite\n");
 	}
 	else if (i == 12)
 	{
-		draw_image(pub->window_img, 0, 0, pub->sprite[12]);
+		draw_image(pub->window_img, x, y, pub->sprite[12]);
 		printf("pub->sprite\n");
 	}
 	else if (i == 13)
 	{
-		draw_image(pub->window_img, 0, 0, pub->sprite[13]);
+		draw_image(pub->window_img, x, y, pub->sprite[13]);
 		printf("pub->sprite\n");
 	}
 	i++;
@@ -151,7 +156,7 @@ void cub3d(char *file_name)
 
 	mlx_texture_t *texture;
 
-	texture = mlx_load_png("img/hamer.png");
+	texture = mlx_load_png("img/Mjollnir.png");
 	pub->weapon = mlx_texture_to_image(pub->mlx, texture);
 	mlx_resize_image(pub->weapon, pub->weapon->width * 0.2, pub->weapon->height * 0.2);
 
