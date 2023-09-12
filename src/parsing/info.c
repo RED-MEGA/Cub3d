@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:08:40 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/09 17:29:09 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/12 21:00:13 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ bool	init_info(t_info **info, t_list **file)
 	if (!info_isset(*info))
 		return (perror_x("Some attribute not set")
 			, false);
-	(*info)->DOOR.path = ft_strdup("img/door.png");
+	(*info)->DOOR.path = ft_strdup("img_new/door.png");
 	if (!isvalid_path((*info)->DOOR.path) || !check_extension((*info)->DOOR.path, ".png"))
 		return (perror_x("Invalid door path"), false);
 	return (status);

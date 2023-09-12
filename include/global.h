@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/11 21:22:19 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/12 15:37:47 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,6 +165,8 @@ typedef struct s_info
 	int			s_x_map;
 	t_pos		map_p_size;
 	t_loc		map_m_size;
+	mlx_texture_t	*weapon[2];
+	mlx_texture_t	*sprite[10];
 }	t_info;
 
 typedef struct  s_derec
@@ -182,8 +184,6 @@ typedef struct s_global
 	mlx_image_t		*window_img;
 	t_derec			de;
 	mouse_mode_t	mode;
-	mlx_image_t		*weapon;
-	mlx_image_t		*sprite[14];
 }	t_global;
 
 #endif

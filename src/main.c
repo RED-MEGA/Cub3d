@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-void draw_image(mlx_image_t *image, int x, int y, mlx_image_t *img)
+void draw_image(mlx_image_t *image, int x, int y, mlx_texture_t *texture)
 {
 	int	x_tmp;
 	int	y_tmp;
@@ -22,15 +22,15 @@ void draw_image(mlx_image_t *image, int x, int y, mlx_image_t *img)
 	i = 0;
 	x_tmp = x;
 	y_tmp = y;
-	while (y < (y_tmp + img->height))
+	while (y < (y_tmp + texture->height))
 	{
 		x = x_tmp;
-		while (x < (x_tmp + img->width))
+		while (x < (x_tmp + texture->width))
 		{
-			color = get_rgb(img->pixels[i], img->pixels[i + 1], img->pixels[i + 2], 255);
+			color = get_rgb(texture->pixels[i], texture->pixels[i + 1], texture->pixels[i + 2], 255);
 			if (color != 255)
 				mlx_put_pixel_p(image, x, y, color);
-			i += 4;
+			i += texture->bytes_per_pixel;
 			x++;
 		}
 		y++;
@@ -39,86 +39,72 @@ void draw_image(mlx_image_t *image, int x, int y, mlx_image_t *img)
 
 void animated_sprite(t_global *pub)
 {
-	static unsigned char i;
-	int x = (WIDTH / 2) - (pub->sprite[0]->width / 2);
-	int y = (HEIGHT / 2) - (pub->sprite[0]->height / 2);
+	t_info					*info;
+	int						x;
+	int						y;
+	static unsigned char	i;
+	unsigned char	repeat = 3;
 
-	if (i == 0)
+
+	info = (t_info *)pub->info;
+	x = (WIDTH / 2) - (info->sprite[0]->width / 2);
+	y = (HEIGHT / 2) - (info->sprite[0]->height / 2);
+	if ((i / repeat) == 0)
 	{
-		draw_image(pub->window_img, x, y, pub->sprite[0]);
-		printf("pub->sprite\n");
+		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
+		printf("pub->sprite[%d]\n", i);
 	}
-	else if (i == 1)
+	else if ((i / repeat) == 1)
 	{
-		draw_image(pub->window_img, x, y, pub->sprite[1]);
-		printf("pub->sprite\n");
+		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
+		printf("pub->sprite[%d]\n", i);
 	}
-	else if (i == 2)
+	else if ((i / repeat) == 2)
 	{
-		draw_image(pub->window_img, x, y, pub->sprite[2]);
-		printf("pub->sprite\n");
+		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
+		printf("pub->sprite[%d]\n", i);
 	}
-	else if (i == 3)
+	else if ((i / repeat) == 3)
 	{
-		draw_image(pub->window_img, x, y, pub->sprite[3]);
-		printf("pub->sprite\n");
+		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
+		printf("pub->sprite[%d]\n", i);
 	}
-	else if (i == 4)
+	else if ((i / repeat) == 4)
 	{
-		draw_image(pub->window_img, x, y, pub->sprite[4]);
-		printf("pub->sprite\n");
+		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
+		printf("pub->sprite[%d]\n", i);
 	}
-	else if (i == 5)
+	else if ((i / repeat) == 5)
 	{
-		draw_image(pub->window_img, x, y, pub->sprite[5]);
-		printf("pub->sprite\n");
+		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
+		printf("pub->sprite[%d]\n", i);
 	}
-	else if (i == 6)
+	else if ((i / repeat) == 6)
 	{
-		draw_image(pub->window_img, x, y, pub->sprite[6]);
-		printf("pub->sprite\n");
+		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
+		printf("pub->sprite[%d]\n", i);
 	}
-	else if (i == 7)
+	else if ((i / repeat) == 7)
 	{
-		draw_image(pub->window_img, x, y, pub->sprite[7]);
-		printf("pub->sprite\n");
+		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
+		printf("pub->sprite[%d]\n", i);
 	}
-	else if (i == 8)
+	else if ((i / repeat) == 8)
 	{
-		draw_image(pub->window_img, x, y, pub->sprite[8]);
-		printf("pub->sprite\n");
+		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
+		printf("pub->sprite[%d]\n", i);
 	}
-	else if (i == 9)
+	else if ((i / repeat) == 9)
 	{
-		draw_image(pub->window_img, x, y, pub->sprite[9]);
-		printf("pub->sprite\n");
-	}
-	else if (i == 10)
-	{
-		draw_image(pub->window_img, x, y, pub->sprite[10]);
-		printf("pub->sprite\n");
-	}
-	else if (i == 11)
-	{
-		draw_image(pub->window_img, x, y, pub->sprite[11]);
-		printf("pub->sprite\n");
-	}
-	else if (i == 12)
-	{
-		draw_image(pub->window_img, x, y, pub->sprite[12]);
-		printf("pub->sprite\n");
-	}
-	else if (i == 13)
-	{
-		draw_image(pub->window_img, x, y, pub->sprite[13]);
-		printf("pub->sprite\n");
+		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
+		printf("pub->sprite[%d]\n", i);
 	}
 	i++;
-	if (i == 14)
+	if (i >= 9 * repeat)
 		i = 0;
 }
 
-void refresh_frame(void *param)
+void	refresh_frame(void *param)
 {
 	clock_t t = clock();
 	// Debug
@@ -151,25 +137,6 @@ void cub3d(char *file_name)
 
 	info = parsing(file_name);
 	pub = init_global(info);
-
-	mlx_texture_t *texture;
-
-	//  open the main weopen
-	texture = mlx_load_png("img/Mjollnir.png");
-	pub->weapon = mlx_texture_to_image(pub->mlx, texture);
-	//  open the main weopen in attack mode
-	texture = mlx_load_png("img/Mjollnir_in_attack.png");
-	pub->weapon = mlx_texture_to_image(pub->mlx, texture);
-
-	// open frames of sprite
-	texture = mlx_load_png("img/sprite/frame_00.png");
-	pub->sprite[0] = mlx_texture_to_image(pub->mlx, texture);
-	mlx_resize_image(pub->sprite[0], pub->sprite[0]->height * 0.5, pub->sprite[0]->width * 0.5);
-
-
-	// you need to make function that take path and return mlx_image_t
-
-
 	mlx_mouse_hook(pub->mlx, handle_mouse_hook, pub);
 	mlx_key_hook(pub->mlx, handle_keys, pub);
 	mlx_cursor_hook(pub->mlx, handle_mouse, pub);

@@ -6,12 +6,39 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/09 20:30:04 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/12 16:04:39 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+mlx_texture_t	*load_frame(mlx_t *mlx, char *path)
+{
+	mlx_texture_t	*texture;
+	
+	texture = mlx_load_png(path);
+	if (!texture)
+		ft_error_msg(mlx_strerror(mlx_errno), 1);
+	// mlx_resize_image(pub->sprite[0], pub->sprite[0]->height * 0.5, pub->sprite[0]->width * 0.5);
+	return (texture);
+}
+
+void	load_sprite_frames(t_info *info, mlx_t *mlx)
+{
+	info->weapon[0] = load_frame(mlx, "img/Mjollnir_in_attack.png");
+	info->weapon[1] = load_frame(mlx, "img/Mjollnir_in_normal.png");
+
+	info->sprite[0] = load_frame(mlx, "img/Sprite_frames_t/frame_00.png");
+	info->sprite[1] = load_frame(mlx, "img/Sprite_frames_t/frame_01.png");
+	info->sprite[2] = load_frame(mlx, "img/Sprite_frames_t/frame_02.png");
+	info->sprite[3] = load_frame(mlx, "img/Sprite_frames_t/frame_03.png");
+	info->sprite[4] = load_frame(mlx, "img/Sprite_frames_t/frame_04.png");
+	info->sprite[5] = load_frame(mlx, "img/Sprite_frames_t/frame_05.png");
+	info->sprite[6] = load_frame(mlx, "img/Sprite_frames_t/frame_06.png");
+	info->sprite[7] = load_frame(mlx, "img/Sprite_frames_t/frame_07.png");
+	info->sprite[8] = load_frame(mlx, "img/Sprite_frames_t/frame_08.png");
+	info->sprite[9] = load_frame(mlx, "img/Sprite_frames_t/frame_09.png");
+}
 
 void	get_derection_engel(t_info *inf)
 {
@@ -32,6 +59,7 @@ t_global	*init_global(t_info *info)
 	global = (t_global *)malloc(sizeof(t_global));
 	ft_error_ptr(global, 1);
 	global->info = info;
+	mlx_set_setting(MLX_STRETCH_IMAGE, 1); // Note
 	global->mlx = mlx_init(WIDTH, HEIGHT, "Cub3d", true);
 	if (!global->mlx)
 		ft_error_msg(mlx_strerror(mlx_errno), 1);
@@ -43,6 +71,7 @@ t_global	*init_global(t_info *info)
 	mlx_set_cursor_mode(global->mlx, MLX_MOUSE_HIDDEN);
 	get_derection_engel(info);
 	load_texture(info);
+	load_sprite_frames(info, global->mlx);
 	return (global);
 }
 
