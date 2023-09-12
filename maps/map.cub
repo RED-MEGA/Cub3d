@@ -1,7 +1,7 @@
-NO img_new/wall.png
-SO img_new/wall.png
-WE img_new/wall.png
-EA img_new/wall.png
+NO img/wall.png
+SO img/wall.png
+WE img/wall.png
+EA img/wall.png
 C 40,36,40
 F 97,90,98
 

@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/12 15:37:47 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/12 22:40:05 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ typedef struct s_player
 	t_ray		ray;
 	char		key;
 	bool		sprint;
+	bool		attack;
 }	t_player;
 
 typedef struct s_color

@@ -48,7 +48,7 @@ void animated_sprite(t_global *pub)
 
 	info = (t_info *)pub->info;
 	x = (WIDTH / 2) - (info->sprite[0]->width / 2);
-	y = (HEIGHT / 2) - (info->sprite[0]->height / 2);
+	y = 0;
 	if ((i / repeat) == 0)
 	{
 		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
@@ -117,7 +117,24 @@ void	refresh_frame(void *param)
 
 	render(pub);
 	minimap(pub);
-	animated_sprite(pub);
+	
+
+	int y;
+	int x;
+	int	frame_i;
+
+	frame_i = 0;
+	if (pub->info->player.attack == true)
+	{
+		animated_sprite(pub);
+		frame_i = 1;
+	}
+
+	x = (WIDTH / 2) - (pub->info->weapon[frame_i]->width / 2);
+	y = HEIGHT - pub->info->weapon[frame_i]->height;
+	draw_image(pub->window_img, x, y, pub->info->weapon[frame_i]);
+
+	if (pub->info->player.attack == true)
 
 
 

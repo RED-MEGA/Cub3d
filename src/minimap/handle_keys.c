@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/10 02:30:59 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/12 22:45:42 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -269,9 +269,16 @@ void	handle_keys(mlx_key_data_t keydata, void *param)
 
 void	handle_mouse_hook(mouse_key_t button, action_t action, modifier_key_t mods, void *param)
 {
+	t_global	*pub;
+
 	(void)mods;
-	if (button == MLX_MOUSE_BUTTON_LEFT && action == MLX_PRESS)
-		return (check_dor_open((t_global *)param));
-	if (button == MLX_MOUSE_BUTTON_RIGHT && action == MLX_PRESS)
-		return (check_dor_close((t_global *)param));
+	pub = (t_global *)param;
+	if (mlx_is_mouse_down(pub->mlx, MLX_MOUSE_BUTTON_LEFT))
+		pub->info->player.attack = true;
+	else if (button == MLX_MOUSE_BUTTON_LEFT && action == MLX_RELEASE)
+		pub->info->player.attack = false;
+	else if (mlx_is_mouse_down(pub->mlx, MLX_MOUSE_BUTTON_MIDDLE))
+		check_dor_open(pub);
+	else if (mlx_is_mouse_down(pub->mlx, MLX_MOUSE_BUTTON_RIGHT))
+		check_dor_close(pub);
 }
