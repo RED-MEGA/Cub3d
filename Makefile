@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: azarda <azarda@student.42.fr>              +#+  +:+       +#+         #
+#    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/09/10 16:39:52 by azarda           ###   ########.fr        #
+#    Updated: 2023/09/12 23:43:59 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRC = src/main.c \
 	src/rendering/rays_calc.c \
 	src/rendering/render.c \
 	src/rendering/floor_ceiling.c \
+	src/rendering/sprite.c \
 	src/tools/math_tools.c \
 	src/tools/get_color.c \
 	src/tools/error.c \

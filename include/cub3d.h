@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/10 19:01:16 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/12 23:44:06 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,7 @@ void	check_dor_close(t_global	*pub);
 void	check_dor_open(t_global	*pub);
 void	handle_mouse_hook(mouse_key_t button, action_t action, modifier_key_t mods, void *param);
 bool	wall_collision(char **map, t_pos *oldpos, t_pos *newpos);
+
+void	mjollnir(t_global *pub);
+
 #endif
