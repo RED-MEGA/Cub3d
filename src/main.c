@@ -50,75 +50,32 @@ void animated_sprite(t_global *pub)
 	x = (WIDTH / 2) - (info->sprite[0]->width / 2);
 	y = 0;
 	if ((i / repeat) == 0)
-	{
 		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
-		printf("pub->sprite[%d]\n", i);
-	}
 	else if ((i / repeat) == 1)
-	{
 		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
-		printf("pub->sprite[%d]\n", i);
-	}
 	else if ((i / repeat) == 2)
-	{
 		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
-		printf("pub->sprite[%d]\n", i);
-	}
 	else if ((i / repeat) == 3)
-	{
 		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
-		printf("pub->sprite[%d]\n", i);
-	}
 	else if ((i / repeat) == 4)
-	{
 		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
-		printf("pub->sprite[%d]\n", i);
-	}
 	else if ((i / repeat) == 5)
-	{
 		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
-		printf("pub->sprite[%d]\n", i);
-	}
 	else if ((i / repeat) == 6)
-	{
 		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
-		printf("pub->sprite[%d]\n", i);
-	}
 	else if ((i / repeat) == 7)
-	{
 		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
-		printf("pub->sprite[%d]\n", i);
-	}
 	else if ((i / repeat) == 8)
-	{
 		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
-		printf("pub->sprite[%d]\n", i);
-	}
 	else if ((i / repeat) == 9)
-	{
 		draw_image(pub->window_img, x, y, info->sprite[(i / repeat)]);
-		printf("pub->sprite[%d]\n", i);
-	}
 	i++;
-	if (i >= 9 * repeat)
+	if (i >= (9 * repeat))
 		i = 0;
 }
 
-void	refresh_frame(void *param)
+void	mjollnir(t_global *pub)
 {
-	clock_t t = clock();
-	// Debug
-	t_global *pub;
-
-	pub = (t_global *)param;
-	set_newpos(pub);
-
-	// update frame
-
-	render(pub);
-	minimap(pub);
-	
-
 	int y;
 	int x;
 	int	frame_i;
@@ -129,15 +86,23 @@ void	refresh_frame(void *param)
 		animated_sprite(pub);
 		frame_i = 1;
 	}
-
 	x = (WIDTH / 2) - (pub->info->weapon[frame_i]->width / 2);
 	y = HEIGHT - pub->info->weapon[frame_i]->height;
 	draw_image(pub->window_img, x, y, pub->info->weapon[frame_i]);
+}
 
-	if (pub->info->player.attack == true)
+void	refresh_frame(void *param)
+{
+	clock_t t = clock();
+	// Debug
+	t_global *pub;
 
-
-
+	pub = (t_global *)param;
+	set_newpos(pub);
+	// update frame
+	render(pub);
+	minimap(pub);
+	mjollnir(pub);
 	// Debug
 	t = clock() - t;
 	double time_taken = ((double)t) / CLOCKS_PER_SEC;
