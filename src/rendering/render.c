@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/10 19:06:22 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/13 14:48:45 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,16 @@ t_img	ft_img_render(t_global *pub)
 
 	if (pub->de.down && pub->info->player.ray.flag == 1 \
 	&& pub->info->player.ray.dor == 0)
-		img = pub->info->WE;
+		img = pub->info->SO;
 	else if (pub->de.up && pub->info->player.ray.flag == 1 \
 	&& pub->info->player.ray.dor == 0)
-		img = pub->info->EA;
+		img = pub->info->NO;
 	else if (pub->de.left && pub->info->player.ray.flag == 2 \
 	&& pub->info->player.ray.dor == 0)
-		img = pub->info->SO;
+		img = pub->info->EA;
 	else if (pub->de.right && pub->info->player.ray.flag == 2 \
 	&& pub->info->player.ray.dor == 0)
-		img = pub->info->NO;
+		img = pub->info->WE;
 	else
 		img = pub->info->DOOR;
 	return (img);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   global.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/12 22:40:05 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:56:15 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,10 +172,10 @@ typedef struct s_info
 
 typedef struct  s_derec
 {
-	int	down;
-	int	up;
-	int	right;
-	int	left;
+	bool	down;
+	bool	up;
+	bool	right;
+	bool	left;
 } t_derec;
 
 typedef struct s_global
