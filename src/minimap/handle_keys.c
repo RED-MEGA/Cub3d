@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/13 21:04:53 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/13 22:11:02 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,17 +90,13 @@ void	get_new_pos(t_info *info, double rotation_angle)
 		info->player.pos = new_pos;
 }
 
-void	set_newpos(t_global *pub)
+void	set_newpos(t_info *info, t_player *player)
 {
-	t_player	*player;
 	double		rotation_angle;
 
-	player = &(pub->info->player);
 	if (player->turn_d != 0)
-	{
-		player->rotation_angle += (double)player->turn_d * P_ROTATION_SPEED;
-		player->rotation_angle = normalize_angle(player->rotation_angle);
-	}
+		player->rotation_angle = normalize_angle(player->rotation_angle
+				+ (double)player->turn_d * P_ROTATION_SPEED);
 	if (player->move_v != NONE)
 	{
 		rotation_angle = player->rotation_angle;
@@ -108,7 +104,7 @@ void	set_newpos(t_global *pub)
 			;
 		else if (player->move_v == DOWN)
 			rotation_angle += to_rad(180);
-		get_new_pos(pub->info, rotation_angle);
+		get_new_pos(info, rotation_angle);
 	}
 	if (player->move_h != NONE)
 	{
@@ -117,7 +113,7 @@ void	set_newpos(t_global *pub)
 			rotation_angle += to_rad(90);
 		else if (player->move_h == LEFT)
 			rotation_angle -= to_rad(90);
-		get_new_pos(pub->info, rotation_angle);
+		get_new_pos(info, rotation_angle);
 	}
 }
 
@@ -214,16 +210,11 @@ void	check_dor_open(t_global	*pub)
 		pub->info->map[j - 1][i] = 'd';
 }
 
-void	handle_keys(mlx_key_data_t keydata, void *param)
+void	handle_features(t_global *pub, mlx_key_data_t keydata)
 {
-	t_global	*pub;
-
-	pub = (t_global *)param;
-	if (keydata.key == MLX_KEY_ESCAPE)
-		destroy_global(pub);
-	if (keydata.key == MLX_KEY_O && keydata.action == MLX_PRESS)
+	if (mlx_is_key_down(pub->mlx, MLX_KEY_O))
 		return (check_dor_open(pub));
-	if (keydata.key == MLX_KEY_C && keydata.action == MLX_PRESS)
+	if (mlx_is_key_down(pub->mlx, MLX_KEY_C))
 		return (check_dor_close(pub));
 	if (keydata.key == MLX_KEY_LEFT_SHIFT)
 	{
@@ -242,6 +233,16 @@ void	handle_keys(mlx_key_data_t keydata, void *param)
 		mlx_set_cursor_mode(pub->mlx, pub->mode);
 		return ;
 	}
+}
+
+void	handle_keys(mlx_key_data_t keydata, void *param)
+{
+	t_global	*pub;
+
+	pub = (t_global *)param;
+	if (keydata.key == MLX_KEY_ESCAPE)
+		destroy_global(pub);
+	handle_features(pub, keydata);
 	handle_moves(&pub->info->player, keydata);
 	handle_turn(&pub->info->player, keydata);
 }

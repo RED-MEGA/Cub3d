@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/13 19:02:40 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/13 22:05:27 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ bool		parse_map(t_info *info, t_list *file);
 /*     MINIMAP      */
 /* **************** */
 
-void		set_newpos(t_global *pub);
+void		set_newpos(t_info *info, t_player *player);
 void		handle_keys(mlx_key_data_t keydata, void *param);
-void		handle_cursor(double xpos, double ypos, void* param);
+void		handle_cursor(double xpos, double ypos, void *param);
 t_global	*init_global(t_info *info);
 int			get_color(char c);
 void		draw_square(mlx_image_t *image, int x, int y, int color);
@@ -71,7 +71,7 @@ void		draw_player(mlx_image_t *image);
 
 t_pos		ft_horizontal_inter(t_global *pub, t_player player, int *dor);
 t_pos		ft_vertical_inter(t_global *pub, t_player player, int *dor);
-t_pos		ray_cast(t_global *pub, int *flag, int  *dor);
+t_pos		ray_cast(t_global *pub, int *flag, int *dor);
 
 
 
