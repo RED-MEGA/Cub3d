@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/13 22:11:02 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/13 22:16:52 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ bool	key_release(mlx_key_data_t keydata, keys_t key)
 		&& keydata.action == MLX_RELEASE);
 }
 
-void	handle_moves(t_player *player, mlx_key_data_t keydata)
+bool	handle_moves(t_player *player, mlx_key_data_t keydata)
 {
 	if (key_press(keydata, MLX_KEY_W))
 		player->move_v = UP;
@@ -162,9 +162,12 @@ void	handle_moves(t_player *player, mlx_key_data_t keydata)
 		player->move_h = NONE;
 	else if (key_release(keydata, MLX_KEY_A))
 		player->move_h = NONE;
+	else
+		return (false);
+	return (true);
 }
 
-void	handle_turn(t_player *player, mlx_key_data_t keydata)
+bool	handle_turn(t_player *player, mlx_key_data_t keydata)
 {
 	if (key_press(keydata, MLX_KEY_RIGHT))
 		player->turn_d = 1;
@@ -174,6 +177,9 @@ void	handle_turn(t_player *player, mlx_key_data_t keydata)
 		player->turn_d = 0;
 	else if (key_release(keydata, MLX_KEY_LEFT))
 		player->turn_d = 0;
+	else
+		return (false);
+	return (true);
 }
 
 void	check_dor_close(t_global *pub)
@@ -210,19 +216,19 @@ void	check_dor_open(t_global	*pub)
 		pub->info->map[j - 1][i] = 'd';
 }
 
-void	handle_features(t_global *pub, mlx_key_data_t keydata)
+bool	handle_features(t_global *pub, mlx_key_data_t keydata)
 {
 	if (mlx_is_key_down(pub->mlx, MLX_KEY_O))
-		return (check_dor_open(pub));
+		return (check_dor_open(pub), true);
 	if (mlx_is_key_down(pub->mlx, MLX_KEY_C))
-		return (check_dor_close(pub));
+		return (check_dor_close(pub), true);
 	if (keydata.key == MLX_KEY_LEFT_SHIFT)
 	{
 		if (key_press(keydata, MLX_KEY_LEFT_SHIFT))
 			pub->info->player.sprint = true;
 		else if (key_release(keydata, MLX_KEY_LEFT_SHIFT))
 			pub->info->player.sprint = false;
-		return ;
+		return (true);
 	}
 	if (key_press(keydata, MLX_KEY_F))
 	{
@@ -231,8 +237,9 @@ void	handle_features(t_global *pub, mlx_key_data_t keydata)
 		else
 			pub->mode = MLX_MOUSE_HIDDEN;
 		mlx_set_cursor_mode(pub->mlx, pub->mode);
-		return ;
+		return (true);
 	}
+	return (false);
 }
 
 void	handle_keys(mlx_key_data_t keydata, void *param)
@@ -242,9 +249,12 @@ void	handle_keys(mlx_key_data_t keydata, void *param)
 	pub = (t_global *)param;
 	if (keydata.key == MLX_KEY_ESCAPE)
 		destroy_global(pub);
-	handle_features(pub, keydata);
-	handle_moves(&pub->info->player, keydata);
-	handle_turn(&pub->info->player, keydata);
+	if (handle_features(pub, keydata))
+		return ;
+	if (handle_moves(&pub->info->player, keydata))
+		return ;
+	if (handle_turn(&pub->info->player, keydata))
+		return ;
 }
 
 void	handle_mouse(mouse_key_t button, action_t action,
