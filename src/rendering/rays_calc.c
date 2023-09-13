@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays_calc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:28:09 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/10 19:01:29 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/13 21:08:05 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	render(t_global *pub)
 
 	i = -1;
 	player = &(pub->info->player);
-	player->ray_angle = normalize_angle(player->rotation_angle - (FOV_ANGLE / 2));
+	player->ray_angle = normalize_angle(player->rotation_angle
+			- (FOV_ANGLE / 2));
 	while (++i < WIDTH)
 	{
 		calcul_ray(pub, player);

@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-// /*   Updated: 2023/09/11 19:08:18 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/13 21:40:41 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@ void	refresh_frame(void *param)
 {
 	clock_t t = clock();
 	// Debug
-	t_global *pub;
+
+	t_global	*pub;
 
 	pub = (t_global *)param;
 	set_newpos(pub);
-	// update frame
 	render(pub);
 	minimap(pub);
 	mjollnir(pub);
+
 	// Debug
 	t = clock() - t;
 	double time_taken = ((double)t) / CLOCKS_PER_SEC;
@@ -32,11 +33,11 @@ void	refresh_frame(void *param)
 
 // void leaks () {system("leaks cub3D | grep LEAK");};
 
-void cub3d(char *file_name)
+void	cub3d(char *file_name)
 {
 	// atexit(leaks);
-	t_global *pub;
-	t_info *info;
+	t_global	*pub;
+	t_info		*info;
 
 	info = parsing(file_name);
 	pub = init_global(info);
@@ -49,7 +50,7 @@ void cub3d(char *file_name)
 	mlx_terminate(pub->mlx);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	if (argc != 2)
 		return (perror_x(ERRINVALID), 1);

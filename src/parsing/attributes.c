@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:06:37 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/08 17:39:31 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/13 21:05:27 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ bool	check_rgbform(char *rgb)
 	while (rgb[++i])
 		if (!ft_isdigit(rgb[i]) && rgb[i] != ',')
 			return (false);
-	return (true);	
+	return (true);
 }
 
-int		_set_color(char **color, int i, char *to_free)
+int	_set_color(char **color, int i, char *to_free)
 {
 	int	nb;
 

@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 02:06:39 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/13 17:41:53 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/13 21:37:26 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	destroy_info(t_info *info)
 
 void	destroy_global(void *param)
 {
-	t_global *pub;
+	t_global	*pub;
 
 	pub = (t_global *)param;
 	destroy_info(pub->info);

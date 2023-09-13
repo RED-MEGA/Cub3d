@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:08:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/13 19:00:03 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/13 21:04:53 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ t_pos	generate_newpos(t_pos pos, double rotation_angle, double move_speed)
 	return (pos);
 }
 
-bool	select_range(t_info *info, double move_speed, double *range_s, double *range_e)
+bool	select_range(t_info *info, double move_speed,
+			double *range_s, double *range_e)
 {
 	t_pos	new_pos;
 	double	sliding_angle;
@@ -51,30 +52,6 @@ bool	select_range(t_info *info, double move_speed, double *range_s, double *rang
 	return (false);
 }
 
-bool	try_sliding(t_info *info, double move_speed, t_pos *new_pos)
-{
-	// check which range you need to check (-30 to 0, or 0 to +30)
-	double	range_s;
-	double	range_e;
-
-	if (!select_range(info, move_speed, &range_s, &range_e))
-		return (false);
-	printf("Range is %f -> %f\n", range_s ,range_e);
-	// in Loop increment the value of rotation angle to find sliding_pos
-	double	sliding_angle;
-	char	char_pos;
-
-	sliding_angle = range_s;
-	while (sliding_angle <= range_e)
-	{
-		*new_pos = generate_newpos(info->player.pos, to_rad(sliding_angle), move_speed);
-		if (wall_collision(info->map, &info->player.pos, new_pos))
-			return (true);
-		sliding_angle++;
-	}
-	return (false);	
-}
-
 bool	wall_collision(char **map, t_pos *oldpos, t_pos *newpos)
 {
 	if (pos_to_char(map, newpos->y, newpos->x) != '1'
@@ -84,7 +61,6 @@ bool	wall_collision(char **map, t_pos *oldpos, t_pos *newpos)
 		&& pos_to_char(map, newpos->y, newpos->x - (P_RADIUS * 0.4)) != '1'
 		&& pos_to_char(map, oldpos->y, newpos->x) != '1'
 		&& pos_to_char(map, newpos->y, oldpos->x) != '1'
-
 		&& pos_to_char(map, newpos->y, newpos->x) != 'D'
 		&& pos_to_char(map, newpos->y + (P_RADIUS * 0.4), newpos->x) != 'D'
 		&& pos_to_char(map, newpos->y - (P_RADIUS * 0.4), newpos->x) != 'D'
@@ -145,7 +121,7 @@ void	set_newpos(t_global *pub)
 	}
 }
 
-void	handle_cursor(double xpos, double ypos, void* param)
+void	handle_cursor(double xpos, double ypos, void *param)
 {
 	t_global	*pub;
 
@@ -153,7 +129,8 @@ void	handle_cursor(double xpos, double ypos, void* param)
 	pub = (t_global *)param;
 	if (pub->mode == MLX_MOUSE_HIDDEN)
 	{
-		pub->info->player.rotation_angle += to_rad(xpos - (WIDTH / 2)) * (double)0.100;
+		pub->info->player.rotation_angle += to_rad(xpos - (WIDTH / 2))
+			* (double)0.100;
 		mlx_set_mouse_pos(pub->mlx, (WIDTH / 2), (HEIGHT / 2));
 	}
 }
@@ -203,9 +180,10 @@ void	handle_turn(t_player *player, mlx_key_data_t keydata)
 		player->turn_d = 0;
 }
 
-void	check_dor_close(t_global	*pub)
+void	check_dor_close(t_global *pub)
 {
-	int i,j;
+	int	i;
+	int	j;
 
 	i = (int)(pub->info->player.pos.x / SQUARE_LEN);
 	j = (int)(pub->info->player.pos.y / SQUARE_LEN);
@@ -221,7 +199,8 @@ void	check_dor_close(t_global	*pub)
 
 void	check_dor_open(t_global	*pub)
 {
-	int i,j;
+	int	i;
+	int	j;
 
 	i = (int)(pub->info->player.pos.x / SQUARE_LEN);
 	j = (int)(pub->info->player.pos.y / SQUARE_LEN);
@@ -267,7 +246,8 @@ void	handle_keys(mlx_key_data_t keydata, void *param)
 	handle_turn(&pub->info->player, keydata);
 }
 
-void	handle_mouse(mouse_key_t button, action_t action, modifier_key_t mods, void *param)
+void	handle_mouse(mouse_key_t button, action_t action,
+			modifier_key_t mods, void *param)
 {
 	t_global	*pub;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/13 14:48:45 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/13 21:09:39 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	calcul_ofset_x(t_ray ray, t_img img)
 	return (ofset_x);
 }
 
-void	to_3d_ray(t_global *pub, int i, double wall_height, int y)
+void	to_3d_ray(t_global *pub, int i, double wall_height, int y) // Note
 {
 	t_img	img;
 	int		ofset_x;

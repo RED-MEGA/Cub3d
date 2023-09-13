@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:11:17 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/02 15:06:36 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/13 21:07:23 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ t_list	*skip_newline(t_list *file)
 	return (file);
 }
 
-int		get_bline(t_list *file)
+int	get_bline(t_list *file)
 {
-	int topline;
+	int	topline;
 
 	topline = file->len;
 	file = file->next;
@@ -39,7 +39,7 @@ char	*addspaces(char *data, int len)
 	char	*newstr;
 	char	*spaces;
 	int		i;
-	
+
 	if (data[0] == '\0')
 		return (ft_strjoin_gnl(data, "\n"));
 	spaces = (char *)malloc(len * sizeof(char) + 1);

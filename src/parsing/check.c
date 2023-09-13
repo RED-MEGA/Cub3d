@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:47:39 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/04 14:12:50 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/13 21:05:46 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ t_list	*read_file(char *file)
 			break ;
 		if (buff[ft_strlen(buff) - 1] != '\n')
 			buff = ft_strjoin_gnl(buff, "\n");
-		ft_lstadd_back(&file_data, ft_lstnew(ft_substr(buff, 0, ft_strlen(buff) - 1)));
+		ft_lstadd_back(&file_data,
+			ft_lstnew(ft_substr(buff, 0, ft_strlen(buff) - 1)));
 		free(buff);
 	}
 	close(fd);

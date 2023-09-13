@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 19:03:23 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/09 19:03:25 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/13 21:06:52 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ bool	m_check_characters(char **map)
 	{
 		j = -1;
 		while (map[i][++j])
-	   		if (map[i][j] != '0'
+			if (map[i][j] != '0'
 				&& map[i][j] != '1'
 				&& map[i][j] != 'D'
 				&& map[i][j] != 'N'
@@ -81,8 +81,8 @@ bool	m_check_tb(int i, char **map)
 
 bool	m_check_surrounded(char **map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (map[++i] && map[i + 1] != NULL)
