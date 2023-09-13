@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/12 23:05:33 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/13 19:07:53 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 mlx_texture_t	*load_frame(mlx_t *mlx, char *path)
 {
 	mlx_texture_t	*texture;
-	
+
 	texture = mlx_load_png(path);
 	if (!texture)
 		ft_error_msg(mlx_strerror(mlx_errno), 1);
-	// mlx_resize_image(pub->sprite[0], pub->sprite[0]->height * 0.5, pub->sprite[0]->width * 0.5);
 	return (texture);
 }
 
@@ -27,7 +26,6 @@ void	load_sprite_frames(t_info *info, mlx_t *mlx)
 {
 	info->weapon[0] = load_frame(mlx, "img/Mjollnir_in_normal.png");
 	info->weapon[1] = load_frame(mlx, "img/Mjollnir_in_attack.png");
-
 	info->sprite[0] = load_frame(mlx, "img/sprite_frames/frame_00.png");
 	info->sprite[1] = load_frame(mlx, "img/sprite_frames/frame_01.png");
 	info->sprite[2] = load_frame(mlx, "img/sprite_frames/frame_02.png");
@@ -59,7 +57,7 @@ t_global	*init_global(t_info *info)
 	global = (t_global *)malloc(sizeof(t_global));
 	ft_error_ptr(global, 1);
 	global->info = info;
-	mlx_set_setting(MLX_STRETCH_IMAGE, 1); // Note
+	mlx_set_setting(MLX_STRETCH_IMAGE, 1);
 	global->mlx = mlx_init(WIDTH, HEIGHT, "Cub3d", true);
 	if (!global->mlx)
 		ft_error_msg(mlx_strerror(mlx_errno), 1);
@@ -88,8 +86,8 @@ int	get_color(char c)
 
 void	draw_square(mlx_image_t *image, int x, int y, int color)
 {
-	int x_tmp;
-	int y_tmp;
+	int	x_tmp;
+	int	y_tmp;
 
 	x_tmp = x;
 	y_tmp = y;
@@ -105,12 +103,6 @@ void	draw_square(mlx_image_t *image, int x, int y, int color)
 	}
 }
 
-void	draw_fov(t_global *pub, t_player *player)
-{
-	for (size_t i = 0; i < WIDTH; i++)
-		draw_line(pub->window_img, player->pos, player->ray.pos);
-}
-
 void	draw_map(t_global *pub)
 {
 	t_loc	index;
@@ -121,10 +113,10 @@ void	draw_map(t_global *pub)
 	{
 		index.j = -1;
 		while (pub->info->map[index.i][++index.j])
-			draw_square(pub->window_img
-				, index.j * SQUARE_LEN
-				, index.i * SQUARE_LEN
-				, get_color(pub->info->map[index.i][index.j]));
+			draw_square(pub->window_img,
+				index.j * SQUARE_LEN,
+				index.i * SQUARE_LEN,
+				get_color(pub->info->map[index.i][index.j]));
 	}
 }
 
@@ -148,27 +140,19 @@ void	draw_dynamic_map(mlx_image_t *image, t_info *info)
 		while (map_pos.x < (pos_tmp.x + MINIMAP_SIZE))
 		{
 			if ((map_pos.x >= 0 && map_pos.y >= 0)
-					&& (map_pos.y < info->map_p_size.y && map_pos.x < info->map_p_size.x))
-				color = get_color(info->map[(int)map_pos.y / SQUARE_LEN][(int)map_pos.x / SQUARE_LEN]);
+				&& (map_pos.y < info->map_p_size.y
+					&& map_pos.x < info->map_p_size.x))
+				color = get_color(info->map[(int)map_pos.y / SQUARE_LEN]
+					[(int)map_pos.x / SQUARE_LEN]);
 			else
 				color = get_color('1');
-			mlx_put_pixel_p(image
-					, pos.x, pos.y, color);
+			mlx_put_pixel_p(image, pos.x, pos.y, color);
 			map_pos.x++;
 			pos.x++;
 		}
 		map_pos.y++;
 		pos.y++;
 	}
-}
-
-void	draw_rotation(mlx_image_t *image, t_player *player)
-{
-	t_pos	end;
-
-	end.x = (MINIMAP_SIZE / 2) + (cos(player->rotation_angle) * 23);
-	end.y = (MINIMAP_SIZE / 2) + (sin(player->rotation_angle) * 23);
-	draw_line(image, (t_pos){.x = MINIMAP_SIZE / 2, .y = MINIMAP_SIZE / 2}, end);
 }
 
 void	minimap(t_global *pub)
@@ -178,5 +162,4 @@ void	minimap(t_global *pub)
 	player = &pub->info->player;
 	draw_dynamic_map(pub->window_img, pub->info);
 	draw_player(pub->window_img);
-	draw_rotation(pub->window_img, player);
 }

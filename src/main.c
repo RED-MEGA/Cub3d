@@ -40,9 +40,9 @@ void cub3d(char *file_name)
 
 	info = parsing(file_name);
 	pub = init_global(info);
-	mlx_mouse_hook(pub->mlx, handle_mouse_hook, pub);
+	mlx_mouse_hook(pub->mlx, handle_mouse, pub);
 	mlx_key_hook(pub->mlx, handle_keys, pub);
-	mlx_cursor_hook(pub->mlx, handle_mouse, pub);
+	mlx_cursor_hook(pub->mlx, handle_cursor, pub);
 	mlx_close_hook(pub->mlx, destroy_global, pub);
 	mlx_loop_hook(pub->mlx, refresh_frame, pub);
 	mlx_loop(pub->mlx);

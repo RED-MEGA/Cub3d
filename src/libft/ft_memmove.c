@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 19:47:14 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/01 19:53:38 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/13 19:01:43 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	*ft_memmove(void *dest, const void *src, size_t nulb)
 		{
 			d[nulb - 1] = s[nulb - 1];
 			nulb--;
-		}	
+		}
 	}
 	return (d);
 }
