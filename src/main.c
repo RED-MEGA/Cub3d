@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/13 22:05:52 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 15:12:28 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	refresh_frame(void *param)
 	t_global	*pub;
 
 	pub = (t_global *)param;
-	set_newpos(pub->info, &pub->info->player);
+	update_position(pub->info, &pub->info->player);
 	render(pub);
 	minimap(pub);
 	mjollnir(pub);

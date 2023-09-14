@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:08 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/04 14:18:22 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 15:20:06 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 # include "global.h"
 # include "libft.h"
 
+char	pos_to_char(char **map, double y, double x);
 double	normalize_angle(double angle);
-void	mlx_put_pixel_p(mlx_image_t *image, uint32_t x, uint32_t y, uint32_t color);
+void	mlx_put_pixel_p(mlx_image_t *image,
+			uint32_t x, uint32_t y, uint32_t color);
 double	to_rad(double degree);
 double	to_degree(double rad);
 double	calcul_distance(t_pos start, t_pos end);

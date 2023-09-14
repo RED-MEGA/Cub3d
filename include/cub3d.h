@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/13 22:05:27 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 15:15:19 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ bool		parse_map(t_info *info, t_list *file);
 /* **************** */
 
 void		set_newpos(t_info *info, t_player *player);
-void		handle_keys(mlx_key_data_t keydata, void *param);
-void		handle_cursor(double xpos, double ypos, void *param);
 t_global	*init_global(t_info *info);
 int			get_color(char c);
 void		draw_square(mlx_image_t *image, int x, int y, int color);
@@ -88,12 +86,30 @@ void			calcul_ray(t_global *pub, t_player *player);
 void			render(t_global *pub);
 void			draw_fc(mlx_image_t *image, t_color color, t_pos pos);
 
-
-void	check_dor_close(t_global	*pub);
-void	check_dor_open(t_global	*pub);
-void	handle_mouse(mouse_key_t button, action_t action, modifier_key_t mods, void *param);
-bool	wall_collision(char **map, t_pos *oldpos, t_pos *newpos);
-
 void	mjollnir(t_global *pub);
+
+bool			wall_collision(char **map, t_pos *oldpos, t_pos *newpos);
+double			get_ms(bool sprint);
+void			get_new_pos(t_info *info, double rotation_angle);
+void			update_position(t_info *info, t_player *player);
+t_pos			generate_newpos(t_pos pos, double rotation_angle,
+				double move_speed);
+
+/* **************** */
+/*     HOOKS        */
+/* **************** */
+
+bool	handle_turn(t_player *player, mlx_key_data_t keydata);
+bool	handle_moves(t_player *player, mlx_key_data_t keydata);
+bool	handle_features(t_global *pub, mlx_key_data_t keydata);
+bool	key_press(mlx_key_data_t keydata, keys_t key);
+bool	key_release(mlx_key_data_t keydata, keys_t key);
+void	close_door(t_global *pub);
+void	open_door(t_global *pub);
+void	handle_keys(mlx_key_data_t keydata, void *param);
+void	handle_cursor(double xpos, double ypos, void *param);
+void	handle_mouse(mouse_key_t button, action_t action,
+				modifier_key_t mods, void *param);
+
 
 #endif
