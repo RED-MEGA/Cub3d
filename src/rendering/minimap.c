@@ -6,13 +6,36 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 15:35:07 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 15:43:30 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	get_color(char c)
+static void	draw_player(mlx_image_t *image)
+{
+	t_pos	pos;
+	t_pos	center_pos;
+	int		distance;
+
+	center_pos.x = MINIMAP_SIZE / 2;
+	center_pos.y = MINIMAP_SIZE / 2;
+	pos.y = -1;
+	pos.x = -1;
+	while (++pos.y < MINIMAP_SIZE)
+	{
+		pos.x = -1;
+		while (++pos.x < MINIMAP_SIZE)
+		{
+			distance = calcul_distance(center_pos, pos);
+			if (distance < P_RADIUS)
+				mlx_put_pixel_p(image, pos.x, pos.y,
+					get_rgb(RED_R, RED_G, RED_B, 255));
+		}
+	}
+}
+
+static int	get_color(char c)
 {
 	if (c == '1' || c == ' ')
 		return (get_rgb(109, 93, 110, 255));
@@ -23,7 +46,7 @@ int	get_color(char c)
 	return (get_rgb(0, 0, 0, 255));
 }
 
-int	select_color_map(t_info *info, t_pos *map_pos)
+static int	select_color_map(t_info *info, t_pos *map_pos)
 {
 	int	color;
 
@@ -37,7 +60,7 @@ int	select_color_map(t_info *info, t_pos *map_pos)
 	return (color);
 }
 
-void	draw_dynamic_map(mlx_image_t *image, t_info *info)
+static void	draw_dynamic_map(mlx_image_t *image, t_info *info)
 {
 	t_pos	map_pos;
 	t_pos	pos_tmp;

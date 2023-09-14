@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 15:37:14 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 15:47:08 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,8 @@ bool		parse_map(t_info *info, t_list *file);
 
 void		set_newpos(t_info *info, t_player *player);
 t_global	*init_global(t_info *info);
-int			get_color(char c);
 void		draw_square(mlx_image_t *image, int x, int y, int color);
 void		minimap(t_global *pub);
-void		draw_player(mlx_image_t *image);
 
 /* **************** */
 /*     RAYCASTING   */

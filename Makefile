@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/09/14 15:37:39 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/09/14 15:45:54 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,6 @@ SRC = src/main.c \
 	src/parsing/map_parse.c \
 	src/parsing/map_check.c \
 	src/parsing/player.c \
-	src/minimap/map_draw.c \
-	src/minimap/player_draw.c \
 	src/raycasting/ray_cast.c \
 	src/raycasting/ray_cast_utils.c \
 	src/rendering/rays_calc.c \
@@ -44,6 +42,7 @@ SRC = src/main.c \
 	src/rendering/change_pos.c \
 	src/rendering/floor_ceiling.c \
 	src/rendering/sprite.c \
+	src/rendering/minimap.c \
 	src/tools/math_tools.c \
 	src/tools/get_color.c \
 	src/tools/error.c \
