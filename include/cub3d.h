@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 15:15:19 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 15:37:14 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ char		*addsize(char *data, int len);
 char		**to_matrix(t_list *file);
 bool		parse_map(t_info *info, t_list *file);
 
+
 /* **************** */
 /*     MINIMAP      */
 /* **************** */
@@ -79,6 +80,8 @@ t_pos		ray_cast(t_global *pub, int *flag, int *dor);
 /*     RENDERING    */
 /* **************** */
 
+mlx_texture_t	*load_frame(mlx_t *mlx, char *path);
+void			load_sprite_frames(t_info *info, mlx_t *mlx);
 void 			load_texture(t_info *info);
 void			to_3d_ray(t_global *pub, int i, double wall_height, int y);
 double			calcul_wp(t_player *player);
@@ -96,7 +99,7 @@ t_pos			generate_newpos(t_pos pos, double rotation_angle,
 				double move_speed);
 
 /* **************** */
-/*     HOOKS        */
+/*       HOOKS      */
 /* **************** */
 
 bool	handle_turn(t_player *player, mlx_key_data_t keydata);

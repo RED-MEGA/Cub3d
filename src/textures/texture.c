@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 17:33:44 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/13 21:38:52 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 15:35:15 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,30 @@ void	load_texture(t_info *info)
 	init_texture(&info->WE);
 	init_texture(&info->EA);
 	init_texture(&info->DOOR);
+}
+
+mlx_texture_t	*load_frame(mlx_t *mlx, char *path)
+{
+	mlx_texture_t	*texture;
+
+	texture = mlx_load_png(path);
+	if (!texture)
+		ft_error_msg(mlx_strerror(mlx_errno), 1);
+	return (texture);
+}
+
+void	load_sprite_frames(t_info *info, mlx_t *mlx)
+{
+	info->weapon[0] = load_frame(mlx, "img/Mjollnir_in_normal.png");
+	info->weapon[1] = load_frame(mlx, "img/Mjollnir_in_attack.png");
+	info->sprite[0] = load_frame(mlx, "img/sprite_frames/frame_00.png");
+	info->sprite[1] = load_frame(mlx, "img/sprite_frames/frame_01.png");
+	info->sprite[2] = load_frame(mlx, "img/sprite_frames/frame_02.png");
+	info->sprite[3] = load_frame(mlx, "img/sprite_frames/frame_03.png");
+	info->sprite[4] = load_frame(mlx, "img/sprite_frames/frame_04.png");
+	info->sprite[5] = load_frame(mlx, "img/sprite_frames/frame_05.png");
+	info->sprite[6] = load_frame(mlx, "img/sprite_frames/frame_06.png");
+	info->sprite[7] = load_frame(mlx, "img/sprite_frames/frame_07.png");
+	info->sprite[8] = load_frame(mlx, "img/sprite_frames/frame_08.png");
+	info->sprite[9] = load_frame(mlx, "img/sprite_frames/frame_09.png");
 }

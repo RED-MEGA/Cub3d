@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/09/14 15:20:51 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/09/14 15:37:39 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC = src/main.c \
 	src/parsing/attributes.c \
 	src/parsing/check.c \
 	src/parsing/info.c \
+	src/parsing/global.c \
 	src/parsing/map_parse.c \
 	src/parsing/map_check.c \
 	src/parsing/player.c \
