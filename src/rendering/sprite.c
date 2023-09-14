@@ -6,18 +6,19 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 23:43:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 18:22:43 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 21:28:55 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	draw_image(mlx_image_t *image, int x, int y, mlx_texture_t *texture)
+static void	draw_image(mlx_image_t *image,
+		unsigned int x, unsigned int y, mlx_texture_t *texture)
 {
-	int	x_tmp;
-	int	y_tmp;
-	int	i;
-	int	color;
+	unsigned int	x_tmp;
+	unsigned int	y_tmp;
+	int				i;
+	int				color;
 
 	i = 0;
 	x_tmp = x;

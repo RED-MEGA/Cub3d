@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/09/14 20:15:50 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/09/14 21:23:34 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,13 @@ NAME = cub3D
 
 CC = cc -g -Ofast
 
-FLAGS = #-fsanitize=address #-Wall -Wextra -Werror
+FLAGS = -fsanitize=address -Wall -Wextra -Werror
 
 HEADERS = -I ./include  -I include/MLX42/include
 
 LIBFT = lib/libft.a
 
 LIBS = $(LIBFT) lib/libmlx42.a -dl -lglfw -L$(shell brew --prefix glfw)/lib -pthread -lm
-
-LIBSLINU = liblinux/libft.a liblinux/libmlx42.a -dl -lglfw -L$(shell  --prefix glfw)/lib -pthread -lm
 
 INCLUDE = include/global.h include/cub3d.h include/tools.h include/libft.h
 
@@ -58,9 +56,6 @@ SRC = src/main.c \
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
-
-linux : $(OBJ) #$(LIBFT)
-	$(CC) $(FLAGS) $(OBJ) $(LIBSLINU) -o $(NAME)
 
 $(NAME) : $(OBJ) #$(LIBFT)
 	$(CC) $(FLAGS) $(OBJ) $(LIBS) -o $(NAME)

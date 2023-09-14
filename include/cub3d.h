@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 20:14:30 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 21:31:07 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void 	minimap(t_global *pub);
 void	render(t_global *pub);
 void	mjollnir(t_global *pub);
 void	load_texture(t_info *info);
-void	load_sprite_frames(t_info *info, mlx_t *mlx);
+void	load_sprite_frames(t_info *info);
 t_img	ft_img_render(t_global *pub);
 
 /* **************** */

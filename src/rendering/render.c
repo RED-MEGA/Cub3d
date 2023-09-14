@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:28:09 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 20:08:23 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 21:25:38 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static int	calcul_ofset_x(t_ray ray, t_img img)
 {
 	int	ofset_x;
 
+	ofset_x = 0;
 	if (ray.flag == 1)
 		ofset_x = (ray.pos.x / SQUARE_LEN - \
 		(int)ray.pos.x / SQUARE_LEN) * img.width;

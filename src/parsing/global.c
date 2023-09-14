@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:33:38 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 16:13:23 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 21:30:46 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ t_global	*init_global(t_info *info)
 	mlx_set_cursor_mode(global->mlx, MLX_MOUSE_HIDDEN);
 	set_default_direction(info);
 	load_texture(info);
-	load_sprite_frames(info, global->mlx);
+	load_sprite_frames(info);
 	return (global);
 }
