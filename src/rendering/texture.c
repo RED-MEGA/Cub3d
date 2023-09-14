@@ -6,13 +6,13 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 17:33:44 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/14 15:35:15 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 20:10:09 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	init_texture(t_img *image)
+static void	init_texture(t_img *image)
 {
 	unsigned int	*buff;
 	mlx_texture_t	*img;
@@ -48,7 +48,7 @@ void	load_texture(t_info *info)
 	init_texture(&info->DOOR);
 }
 
-mlx_texture_t	*load_frame(mlx_t *mlx, char *path)
+static mlx_texture_t	*load_frame(mlx_t *mlx, char *path)
 {
 	mlx_texture_t	*texture;
 
@@ -72,4 +72,25 @@ void	load_sprite_frames(t_info *info, mlx_t *mlx)
 	info->sprite[7] = load_frame(mlx, "img/sprite_frames/frame_07.png");
 	info->sprite[8] = load_frame(mlx, "img/sprite_frames/frame_08.png");
 	info->sprite[9] = load_frame(mlx, "img/sprite_frames/frame_09.png");
+}
+
+t_img	ft_img_render(t_global *pub)
+{
+	t_img	img;
+
+	if (pub->de.down && pub->info->player.ray.flag == 1 \
+	&& pub->info->player.ray.dor == 0)
+		img = pub->info->SO;
+	else if (pub->de.up && pub->info->player.ray.flag == 1 \
+	&& pub->info->player.ray.dor == 0)
+		img = pub->info->NO;
+	else if (pub->de.left && pub->info->player.ray.flag == 2 \
+	&& pub->info->player.ray.dor == 0)
+		img = pub->info->EA;
+	else if (pub->de.right && pub->info->player.ray.flag == 2 \
+	&& pub->info->player.ray.dor == 0)
+		img = pub->info->WE;
+	else
+		img = pub->info->DOOR;
+	return (img);
 }

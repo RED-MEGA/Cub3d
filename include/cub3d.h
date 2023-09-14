@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 19:03:51 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 20:14:30 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,12 @@ t_pos		ray_cast(t_global *pub, int *flag, int *dor);
 /* **************** */
 
 void	update_position(t_info *info, t_player *player);
-void	minimap(t_global *pub);
-double	calcul_wp(t_player *player);
-t_img	ft_img_render(t_global *pub);
-int		calcul_ofset_x(t_ray ray, t_img img);
-void	to_3d_ray(t_global *pub, int i, double wall_height, t_loc *range);
-void	calcul_ray(t_global *pub, t_player *player);
-void	draw_fc(mlx_image_t *image, t_color color, t_pos pos);
+void 	minimap(t_global *pub);
 void	render(t_global *pub);
 void	mjollnir(t_global *pub);
+void	load_texture(t_info *info);
+void	load_sprite_frames(t_info *info, mlx_t *mlx);
+t_img	ft_img_render(t_global *pub);
 
 /* **************** */
 /*       HOOKS      */
@@ -79,15 +76,5 @@ void	handle_keys(mlx_key_data_t keydata, void *param);
 void	handle_cursor(double xpos, double ypos, void *param);
 void	handle_mouse(mouse_key_t button, action_t action,
 				modifier_key_t mods, void *param);
-
-/* **************** */
-/*       texture    */
-/* **************** */
-
-void	init_texture(t_img *image);
-void	load_texture(t_info *info);
-mlx_texture_t	*load_frame(mlx_t *mlx, char *path);
-void	load_sprite_frames(t_info *info, mlx_t *mlx);
-
 
 #endif

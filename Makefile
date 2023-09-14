@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/09/14 18:45:29 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/09/14 20:15:50 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,11 +37,14 @@ SRC = src/main.c \
 	src/parsing/player.c \
 	src/raycasting/ray_cast.c \
 	src/raycasting/ray_cast_utils.c \
-	src/rendering/rays_calc.c \
-	src/rendering/render.c \
 	src/rendering/change_pos.c \
-	src/rendering/sprite.c \
 	src/rendering/minimap.c \
+	src/rendering/render.c \
+	src/rendering/sprite.c \
+	src/rendering/texture.c \
+	src/hooks/callback_utils.c \
+	src/hooks/keyboard_callback.c \
+	src/hooks/mouse_callback.c \
 	src/tools/math_tools.c \
 	src/tools/get_color.c \
 	src/tools/error.c \
@@ -50,11 +53,7 @@ SRC = src/main.c \
 	src/tools/index_list.c \
 	src/tools/compare.c \
 	src/tools/mlx_put_pixel_p.c \
-	src/tools/cleanup_tools.c \
-	src/textures/texture.c \
-	src/hooks/callback_utils.c \
-	src/hooks/keyboard_callback.c \
-	src/hooks/mouse_callback.c
+	src/tools/cleanup_tools.c
 
 OBJ = $(SRC:.c=.o)
 

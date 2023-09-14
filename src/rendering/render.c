@@ -5,17 +5,74 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 19:04:03 by reben-ha         ###   ########.fr       */
+/*   Created: 2023/08/26 16:28:09 by reben-ha          #+#    #+#             */
+/*   Updated: 2023/09/14 20:08:23 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	draw_fc(mlx_image_t *image, t_color color, t_pos pos)
+static double	calcul_wp(t_player *player)
 {
-	mlx_put_pixel_p(image, pos.x, pos.y,
-		get_rgb(color.r, color.g, color.b, 255));
+	double	a;
+	double	b;
+	double	d;
+
+	a = (double)SQUARE_LEN;
+	b = player->ray.len * cos(player->rotation_angle - player->ray.angle);
+	d = (WIDTH / 2) / tan(FOV_ANGLE / 2);
+	return ((a / b) * d);
+}
+
+static int	calcul_ofset_x(t_ray ray, t_img img)
+{
+	int	ofset_x;
+
+	if (ray.flag == 1)
+		ofset_x = (ray.pos.x / SQUARE_LEN - \
+		(int)ray.pos.x / SQUARE_LEN) * img.width;
+	else if (ray.flag == 2)
+		ofset_x = (ray.pos.y / SQUARE_LEN - \
+		(int)ray.pos.y / SQUARE_LEN) * img.width;
+	return (ofset_x);
+}
+
+static void	to_3d_ray(t_global *pub, int i, 
+			double wall_height, t_loc *range) // Note
+{
+	t_img	img;
+	t_loc	ofset;
+	int		color;
+	int		y;
+
+	y = -1;
+	img = ft_img_render(pub);
+	ofset.j = calcul_ofset_x(pub->info->player.ray, img);
+	// if (range->j > HEIGHT)
+	// 	range->j = HEIGHT; // !cheak Not work
+	while (++y < HEIGHT)
+	{
+		if (y < range->i)
+			color = get_rgb(pub->info->C.r, pub->info->C.g, pub->info->C.b,
+					255);
+		else if (y >= range->i && y < range->j)
+		{
+			ofset.i = (y - range->i) * ((double)img.height / wall_height);
+			color = (img.buffer_img[(img.width * ofset.i) + ofset.j]);
+		}
+		else if (y > range->j)
+			color = get_rgb(pub->info->F.r, pub->info->F.g, pub->info->F.b,
+					255);
+		mlx_put_pixel_p(pub->window_img, i, y, color);
+	}
+}
+
+static void	calcul_ray(t_global *pub, t_player *player)
+{
+	player->ray.dor = 0;
+	player->ray.pos = ray_cast(pub, &(player->ray.flag), &(player->ray.dor));
+	player->ray.angle = player->ray_angle;
+	player->ray.len = calcul_distance(player->pos, player->ray.pos);
 }
 
 void	render(t_global *pub)
