@@ -5,6 +5,7 @@
 		"global.h": "c",
 		"libft.h": "c",
 		"stdlib.h": "c",
-		"stdbool.h": "c"
+		"stdbool.h": "c",
+		"type_traits": "c"
 	}
 }

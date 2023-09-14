@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/09/14 15:45:54 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/09/14 18:45:29 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,6 @@ SRC = src/main.c \
 	src/rendering/rays_calc.c \
 	src/rendering/render.c \
 	src/rendering/change_pos.c \
-	src/rendering/floor_ceiling.c \
 	src/rendering/sprite.c \
 	src/rendering/minimap.c \
 	src/tools/math_tools.c \

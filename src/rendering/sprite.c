@@ -6,13 +6,13 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 23:43:10 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/13 21:39:17 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 18:22:43 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	draw_image(mlx_image_t *image, int x, int y, mlx_texture_t *texture)
+static void	draw_image(mlx_image_t *image, int x, int y, mlx_texture_t *texture)
 {
 	int	x_tmp;
 	int	y_tmp;
@@ -38,7 +38,7 @@ void	draw_image(mlx_image_t *image, int x, int y, mlx_texture_t *texture)
 	}
 }
 
-void	animated_sprite(mlx_image_t *image, t_info *info, int x)
+static void	animated_sprite(mlx_image_t *image, t_info *info, int x)
 {
 	static unsigned char	i;
 

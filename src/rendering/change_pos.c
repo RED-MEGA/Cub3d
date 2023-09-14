@@ -6,20 +6,21 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:08:49 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 15:13:44 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 18:46:29 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_pos	generate_newpos(t_pos pos, double rotation_angle, double move_speed)
+static t_pos	generate_newpos(t_pos pos,
+					double rotation_angle, double move_speed)
 {
 	pos.x += cos(rotation_angle) * move_speed;
 	pos.y += sin(rotation_angle) * move_speed;
 	return (pos);
 }
 
-bool	wall_collision(char **map, t_pos *oldpos, t_pos *newpos)
+static bool	wall_collision(char **map, t_pos *oldpos, t_pos *newpos)
 {
 	if (pos_to_char(map, newpos->y, newpos->x) != '1'
 		&& pos_to_char(map, newpos->y + (P_RADIUS * 0.4), newpos->x) != '1'
@@ -39,14 +40,14 @@ bool	wall_collision(char **map, t_pos *oldpos, t_pos *newpos)
 	return (false);
 }
 
-double	get_ms(bool sprint)
+static double	get_ms(bool sprint)
 {
 	if (sprint)
 		return (P_MOVE_SPEED * 2);
 	return (P_MOVE_SPEED);
 }
 
-void	get_new_pos(t_info *info, double rotation_angle)
+static void	get_new_pos(t_info *info, double rotation_angle)
 {
 	t_pos	new_pos;
 	double	move_speed;

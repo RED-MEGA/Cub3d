@@ -6,83 +6,34 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:29:43 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/13 21:09:39 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 18:31:11 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-double	calcul_wp(t_player *player)
+void	draw_fc(mlx_image_t *image, t_color color, t_pos pos)
 {
-	double	a;
-	double	b;
-	double	d;
-
-	a = (double)SQUARE_LEN;
-	b = player->ray.len * cos(player->rotation_angle - player->ray.angle);
-	d = (WIDTH / 2) / tan(FOV_ANGLE / 2);
-	return ((a / b) * d);
+	mlx_put_pixel_p(image, pos.x, pos.y,
+		get_rgb(color.r, color.g, color.b, 255));
 }
 
-t_img	ft_img_render(t_global *pub)
+void	render(t_global *pub)
 {
-	t_img	img;
+	t_player	*player;
+	double		wp;
+	int			i;
 
-	if (pub->de.down && pub->info->player.ray.flag == 1 \
-	&& pub->info->player.ray.dor == 0)
-		img = pub->info->SO;
-	else if (pub->de.up && pub->info->player.ray.flag == 1 \
-	&& pub->info->player.ray.dor == 0)
-		img = pub->info->NO;
-	else if (pub->de.left && pub->info->player.ray.flag == 2 \
-	&& pub->info->player.ray.dor == 0)
-		img = pub->info->EA;
-	else if (pub->de.right && pub->info->player.ray.flag == 2 \
-	&& pub->info->player.ray.dor == 0)
-		img = pub->info->WE;
-	else
-		img = pub->info->DOOR;
-	return (img);
-}
-
-int	calcul_ofset_x(t_ray ray, t_img img)
-{
-	int	ofset_x;
-
-	if (ray.flag == 1)
-		ofset_x = (ray.pos.x / SQUARE_LEN - \
-		(int)ray.pos.x / SQUARE_LEN) * img.width;
-	else if (ray.flag == 2)
-		ofset_x = (ray.pos.y / SQUARE_LEN - \
-		(int)ray.pos.y / SQUARE_LEN) * img.width;
-	return (ofset_x);
-}
-
-void	to_3d_ray(t_global *pub, int i, double wall_height, int y) // Note
-{
-	t_img	img;
-	int		ofset_x;
-	int		ofset_y;
-	int		start_y;
-	int		end_y;
-
-	img = ft_img_render(pub);
-	ofset_x = calcul_ofset_x(pub->info->player.ray, img);
-	start_y = (HEIGHT / 2) - (wall_height / 2);
-	end_y = (HEIGHT / 2) + (wall_height / 2);
-	// if (end_y > HEIGHT)
-	// 	end_y = HEIGHT; // !cheak Not work
-	while (++y < HEIGHT)
+	i = -1;
+	player = &(pub->info->player);
+	player->ray_angle = normalize_angle(player->rotation_angle
+			- (FOV_ANGLE / 2));
+	while (++i < WIDTH)
 	{
-		if (y < start_y)
-			draw_fc(pub->window_img, pub->info->C, (t_pos){.x = i, .y = y});
-		else if (y >= start_y && y < end_y)
-		{
-			ofset_y = (y - start_y) * ((double)img.height / wall_height);
-			mlx_put_pixel_p(pub->window_img, i, y, \
-			(img.buffer_img[(img.width * ofset_y) + ofset_x]));
-		}
-		else if (y > end_y)
-			draw_fc(pub->window_img, pub->info->F, (t_pos){.x = i, .y = y});
+		calcul_ray(pub, player);
+		wp = calcul_wp(player);
+		to_3d_ray(pub, i, wp, -1);
+		player->ray_angle = normalize_angle(player->ray_angle + RAY_D);
+		player->ray.dor = 0;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 16:19:54 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 18:45:09 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,14 @@ bool		check_extension(char *file, char *extension);
 bool		isempty(char *file);
 bool		isrgb(int rgb);
 bool		isvalid_path(char *file);
-t_list		*read_file(char *file);
-t_global	*init_global(t_info *info);
 bool		init_info(t_info **info, t_list **file);
 bool		check_map(t_info *info);
-t_list		*skip_newline(t_list *file);
 bool		parse_map(t_info *info, t_list *file);
-t_info		*parsing(char *file_name);
 void		init_player(t_info *info);
-
-/* **************** */
-/*     MINIMAP      */
-/* **************** */
-
-void		set_newpos(t_info *info, t_player *player);
+t_list		*read_file(char *file);
 t_global	*init_global(t_info *info);
-void		draw_square(mlx_image_t *image, int x, int y, int color);
-void		minimap(t_global *pub);
+t_list		*skip_newline(t_list *file);
+t_info		*parsing(char *file_name);
 
 /* **************** */
 /*     RAYCASTING   */
@@ -62,23 +53,16 @@ t_pos		ray_cast(t_global *pub, int *flag, int *dor);
 /*     RENDERING    */
 /* **************** */
 
-mlx_texture_t	*load_frame(mlx_t *mlx, char *path);
-void			load_sprite_frames(t_info *info, mlx_t *mlx);
-void 			load_texture(t_info *info);
-void			to_3d_ray(t_global *pub, int i, double wall_height, int y);
-double			calcul_wp(t_player *player);
-void			calcul_ray(t_global *pub, t_player *player);
-void			render(t_global *pub);
-void			draw_fc(mlx_image_t *image, t_color color, t_pos pos);
-
+void	update_position(t_info *info, t_player *player);
+void	minimap(t_global *pub);
+double	calcul_wp(t_player *player);
+t_img	ft_img_render(t_global *pub);
+int		calcul_ofset_x(t_ray ray, t_img img);
+void	to_3d_ray(t_global *pub, int i, double wall_height, int y);
+void	calcul_ray(t_global *pub, t_player *player);
+void	draw_fc(mlx_image_t *image, t_color color, t_pos pos);
+void	render(t_global *pub);
 void	mjollnir(t_global *pub);
-
-bool			wall_collision(char **map, t_pos *oldpos, t_pos *newpos);
-double			get_ms(bool sprint);
-void			get_new_pos(t_info *info, double rotation_angle);
-void			update_position(t_info *info, t_player *player);
-t_pos			generate_newpos(t_pos pos, double rotation_angle,
-				double move_speed);
 
 /* **************** */
 /*       HOOKS      */
@@ -95,6 +79,15 @@ void	handle_keys(mlx_key_data_t keydata, void *param);
 void	handle_cursor(double xpos, double ypos, void *param);
 void	handle_mouse(mouse_key_t button, action_t action,
 				modifier_key_t mods, void *param);
+
+/* **************** */
+/*       texture    */
+/* **************** */
+
+void	init_texture(t_img *image);
+void	load_texture(t_info *info);
+mlx_texture_t	*load_frame(mlx_t *mlx, char *path);
+void	load_sprite_frames(t_info *info, mlx_t *mlx);
 
 
 #endif
