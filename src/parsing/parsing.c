@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-void	set_datalen(t_list *file)
+static void	set_datalen(t_list *file)
 {
 	while (file)
 	{

@@ -6,13 +6,13 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:08:40 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/13 21:05:55 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 16:13:08 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_info	*create_info(void)
+static t_info	*create_info(void)
 {
 	t_info	*info;
 
@@ -33,7 +33,7 @@ t_info	*create_info(void)
 	return (info);
 }
 
-bool	info_isset(t_info *info)
+static bool	info_isset(t_info *info)
 {
 	if (info->NO.path != NULL && info->SO.path != NULL
 		&& info->WE.path != NULL && info->EA.path != NULL
@@ -44,7 +44,7 @@ bool	info_isset(t_info *info)
 	return (false);
 }
 
-bool	set_info(t_list	**file, t_info *info)
+static bool	set_info(t_list	**file, t_info *info)
 {
 	char	*buff;
 	bool	status;

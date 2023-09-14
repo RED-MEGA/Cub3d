@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:11:17 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/13 21:07:23 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 16:11:47 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list	*skip_newline(t_list *file)
 	return (file);
 }
 
-int	get_bline(t_list *file)
+static int	get_bline(t_list *file)
 {
 	int	topline;
 
@@ -34,7 +34,7 @@ int	get_bline(t_list *file)
 	return (topline);
 }
 
-char	*addspaces(char *data, int len)
+static char	*addspaces(char *data, int len)
 {
 	char	*newstr;
 	char	*spaces;
@@ -52,7 +52,7 @@ char	*addspaces(char *data, int len)
 	return (free(spaces), newstr);
 }
 
-char	**to_matrix(t_list *file)
+static char	**to_matrix(t_list *file)
 {
 	int		i;
 	int		list_size;

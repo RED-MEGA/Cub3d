@@ -6,13 +6,13 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 19:03:23 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/13 21:06:52 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 16:12:13 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	m_check_characters(char **map)
+static bool	m_check_characters(char **map)
 {
 	int	i;
 	int	j;
@@ -35,7 +35,7 @@ bool	m_check_characters(char **map)
 	return (true);
 }
 
-bool	m_check_playerc(t_info *info)
+static bool	m_check_playerc(t_info *info)
 {
 	int	i;
 	int	j;
@@ -64,7 +64,7 @@ bool	m_check_playerc(t_info *info)
 	return (true);
 }
 
-bool	m_check_tb(int i, char **map)
+static bool	m_check_tb(int i, char **map)
 {
 	int	j;
 
@@ -79,7 +79,7 @@ bool	m_check_tb(int i, char **map)
 	return (true);
 }
 
-bool	m_check_surrounded(char **map)
+static bool	m_check_surrounded(char **map)
 {
 	int	i;
 	int	j;

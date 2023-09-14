@@ -6,13 +6,13 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:33:38 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 15:34:07 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 16:13:23 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	set_default_direction(t_info *info)
+static void	set_default_direction(t_info *info)
 {
 	if (info->player.direction == NO)
 		info->player.rotation_angle = to_rad(90);

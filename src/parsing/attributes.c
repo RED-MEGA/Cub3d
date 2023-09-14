@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:06:37 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/13 21:05:27 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 16:15:58 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ bool	set_direction(char *data, t_img *image)
 	return (true);
 }
 
-bool	check_rgbform(char *rgb)
+static bool	check_rgbform(char *rgb)
 {
 	int	i;
 	int	count;
@@ -47,7 +47,7 @@ bool	check_rgbform(char *rgb)
 	return (true);
 }
 
-int	_set_color(char **color, int i, char *to_free)
+static int	_set_color(char **color, int i, char *to_free)
 {
 	int	nb;
 
