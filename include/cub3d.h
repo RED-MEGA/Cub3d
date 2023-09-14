@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 18:45:09 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 19:03:51 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	minimap(t_global *pub);
 double	calcul_wp(t_player *player);
 t_img	ft_img_render(t_global *pub);
 int		calcul_ofset_x(t_ray ray, t_img img);
-void	to_3d_ray(t_global *pub, int i, double wall_height, int y);
+void	to_3d_ray(t_global *pub, int i, double wall_height, t_loc *range);
 void	calcul_ray(t_global *pub, t_player *player);
 void	draw_fc(mlx_image_t *image, t_color color, t_pos pos);
 void	render(t_global *pub);

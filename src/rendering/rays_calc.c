@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:28:09 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 18:28:46 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/14 19:06:58 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,32 +58,33 @@ int	calcul_ofset_x(t_ray ray, t_img img)
 	return (ofset_x);
 }
 
-void	to_3d_ray(t_global *pub, int i, double wall_height, int y) // Note
+void	to_3d_ray(t_global *pub, int i, 
+			double wall_height, t_loc *range) // Note
 {
 	t_img	img;
-	int		ofset_x;
-	int		ofset_y;
-	int		start_y;
-	int		end_y;
+	t_loc	ofset;
+	int		color;
+	int		y;
 
+	y = -1;
 	img = ft_img_render(pub);
-	ofset_x = calcul_ofset_x(pub->info->player.ray, img);
-	start_y = (HEIGHT / 2) - (wall_height / 2);
-	end_y = (HEIGHT / 2) + (wall_height / 2);
-	// if (end_y > HEIGHT)
-	// 	end_y = HEIGHT; // !cheak Not work
+	ofset.j = calcul_ofset_x(pub->info->player.ray, img);
+	// if (range->j > HEIGHT)
+	// 	range->j = HEIGHT; // !cheak Not work
 	while (++y < HEIGHT)
 	{
-		if (y < start_y)
-			draw_fc(pub->window_img, pub->info->C, (t_pos){.x = i, .y = y});
-		else if (y >= start_y && y < end_y)
+		if (y < range->i)
+			color = get_rgb(pub->info->C.r, pub->info->C.g, pub->info->C.b,
+					255);
+		else if (y >= range->i && y < range->j)
 		{
-			ofset_y = (y - start_y) * ((double)img.height / wall_height);
-			mlx_put_pixel_p(pub->window_img, i, y, \
-			(img.buffer_img[(img.width * ofset_y) + ofset_x]));
+			ofset.i = (y - range->i) * ((double)img.height / wall_height);
+			color = (img.buffer_img[(img.width * ofset.i) + ofset.j]);
 		}
-		else if (y > end_y)
-			draw_fc(pub->window_img, pub->info->F, (t_pos){.x = i, .y = y});
+		else if (y > range->j)
+			color = get_rgb(pub->info->F.r, pub->info->F.g, pub->info->F.b,
+					255);
+		mlx_put_pixel_p(pub->window_img, i, y, color);
 	}
 }
 
