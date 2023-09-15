@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/15 13:43:34 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/15 16:55:07 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	draw_player(mlx_image_t *image)
 			distance = calcul_distance(center_pos, pos);
 			if (distance < P_RADIUS)
 				mlx_put_pixel_p(image, pos.x, pos.y,
-					get_rgb(RED_R, RED_G, RED_B, 255));
+					get_rgb(255, 0, 0, 255));
 		}
 	}
 }

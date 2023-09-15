@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 21:31:07 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/15 16:53:35 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,36 +45,32 @@ t_pos		ft_horizontal_inter(t_global *pub, t_player player, int *dor);
 t_pos		ft_vertical_inter(t_global *pub, t_player player, int *dor);
 t_pos		ray_cast(t_global *pub, int *flag, int *dor);
 
-
-
-
-
 /* **************** */
 /*     RENDERING    */
 /* **************** */
 
-void	update_position(t_info *info, t_player *player);
-void 	minimap(t_global *pub);
-void	render(t_global *pub);
-void	mjollnir(t_global *pub);
-void	load_texture(t_info *info);
-void	load_sprite_frames(t_info *info);
-t_img	ft_img_render(t_global *pub);
+void		update_position(t_info *info, t_player *player);
+void		minimap(t_global *pub);
+void		render(t_global *pub);
+void		mjollnir(t_global *pub);
+void		load_texture(t_info *info);
+void		load_sprite_frames(t_info *info);
+t_img		ft_img_render(t_global *pub);
 
 /* **************** */
 /*       HOOKS      */
 /* **************** */
 
-bool	handle_turn(t_player *player, mlx_key_data_t keydata);
-bool	handle_moves(t_player *player, mlx_key_data_t keydata);
-bool	handle_features(t_global *pub, mlx_key_data_t keydata);
-bool	key_press(mlx_key_data_t keydata, keys_t key);
-bool	key_release(mlx_key_data_t keydata, keys_t key);
-void	close_door(t_global *pub);
-void	open_door(t_global *pub);
-void	handle_keys(mlx_key_data_t keydata, void *param);
-void	handle_cursor(double xpos, double ypos, void *param);
-void	handle_mouse(mouse_key_t button, action_t action,
+bool		handle_turn(t_player *player, mlx_key_data_t keydata);
+bool		handle_moves(t_player *player, mlx_key_data_t keydata);
+bool		handle_features(t_global *pub, mlx_key_data_t keydata);
+bool		key_press(mlx_key_data_t keydata, keys_t key);
+bool		key_release(mlx_key_data_t keydata, keys_t key);
+void		close_door(t_global *pub);
+void		open_door(t_global *pub);
+void		handle_keys(mlx_key_data_t keydata, void *param);
+void		handle_cursor(double xpos, double ypos, void *param);
+void		handle_mouse(mouse_key_t button, action_t action,
 				modifier_key_t mods, void *param);
 
 #endif
