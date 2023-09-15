@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/15 12:24:38 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/15 13:43:34 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,6 @@ static void	draw_dynamic_map(mlx_image_t *image, t_info *info)
 
 void	minimap(t_global *pub)
 {
-	// t_player	*player;
-
-	// player = &pub->info->player;
 	draw_dynamic_map(pub->window_img, pub->info);
 	draw_player(pub->window_img);
 }
