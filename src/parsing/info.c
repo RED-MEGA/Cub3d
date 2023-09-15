@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:08:40 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 16:13:08 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/15 16:16:36 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,30 @@ static bool	info_isset(t_info *info)
 	return (false);
 }
 
+static bool	select_option(t_info *info, char *buff)
+{
+	bool	status;
+
+	status = true;
+	if (buff[0] == '\0')
+		;
+	else if (ft_strncmp(buff, "NO ", 3) == 0)
+		status = set_direction(buff, &(info->NO));
+	else if (ft_strncmp(buff, "SO ", 3) == 0)
+		status = set_direction(buff, &(info->SO));
+	else if (ft_strncmp(buff, "WE ", 3) == 0)
+		status = set_direction(buff, &(info->WE));
+	else if (ft_strncmp(buff, "EA ", 3) == 0)
+		status = set_direction(buff, &(info->EA));
+	else if (ft_strncmp(buff, "F ", 2) == 0)
+		status = set_color(buff, &(info->F));
+	else if (ft_strncmp(buff, "C ", 2) == 0)
+		status = set_color(buff, &(info->C));
+	else
+		return (perror_x("Invalid identifier"), free(buff), false);
+	return (status);
+}
+
 static bool	set_info(t_list	**file, t_info *info)
 {
 	char	*buff;
@@ -53,20 +77,7 @@ static bool	set_info(t_list	**file, t_info *info)
 	while ((*file) && !info_isset(info) && status)
 	{
 		buff = ft_strtrim((*file)->data, " ");
-		if (buff[0] == '\0')
-			;
-		else if (ft_strncmp(buff, "NO ", 3) == 0)
-			status = set_direction(buff, &(info->NO));
-		else if (ft_strncmp(buff, "SO ", 3) == 0)
-			status = set_direction(buff, &(info->SO));
-		else if (ft_strncmp(buff, "WE ", 3) == 0)
-			status = set_direction(buff, &(info->WE));
-		else if (ft_strncmp(buff, "EA ", 3) == 0)
-			status = set_direction(buff, &(info->EA));
-		else if (ft_strncmp(buff, "F ", 2) == 0)
-			status = set_color(buff, &(info->F));
-		else if (ft_strncmp(buff, "C ", 2) == 0)
-			status = set_color(buff, &(info->C));
+		status = select_option(info, buff);
 		(*file) = (*file)->next;
 		free(buff);
 	}
@@ -75,11 +86,9 @@ static bool	set_info(t_list	**file, t_info *info)
 
 bool	init_info(t_info **info, t_list **file)
 {
-	bool	status;
-
-	status = true;
 	*info = create_info();
-	status = set_info(file, *info);
+	if (!set_info(file, *info))
+		return (false);
 	if (!info_isset(*info))
 		return (perror_x("Some attribute not set")
 			, false);
@@ -87,5 +96,5 @@ bool	init_info(t_info **info, t_list **file)
 	if (!isvalid_path((*info)->DOOR.path)
 		|| !check_extension((*info)->DOOR.path, ".png"))
 		return (perror_x("Invalid door path"), false);
-	return (status);
+	return (true);
 }

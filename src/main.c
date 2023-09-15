@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 15:12:28 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/15 17:02:18 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	refresh_frame(void *param)
 {
-	clock_t t = clock();
-	// Debug
-
 	t_global	*pub;
 
 	pub = (t_global *)param;
@@ -24,11 +21,6 @@ void	refresh_frame(void *param)
 	render(pub);
 	minimap(pub);
 	mjollnir(pub);
-
-	// Debug
-	t = clock() - t;
-	double time_taken = ((double)t) / CLOCKS_PER_SEC;
-	printf("--- FPS :%d\n", (int)(1 / time_taken));
 }
 
 // void leaks () {system("leaks cub3D | grep LEAK");};
