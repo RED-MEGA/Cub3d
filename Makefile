@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/09/16 18:43:11 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/09/16 21:23:18 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = cub3D
 
 CC = cc -g -Ofast
 
-FLAGS = -fsanitize=address -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 HEADERS = -I ./include  -I include/MLX42/include
 
