@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/15 16:59:32 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/16 18:59:46 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,8 @@
 # define WIDTH 1920
 
 # define SQUARE_LEN 64
-# define MINIMAP_SIZE (WIDTH / 6)
-# define P_RADIUS (SQUARE_LEN / 4)
-# define P_ROTATION_SPEED 2.0 * (M_PI / 180)
-# define P_MOVE_SPEED 5.0
-# define PI M_PI
-# define RAY_D (FOV_ANGLE / WIDTH)
-# define FOV_ANGLE (60 * (PI / 180))
+# define MINIMAP_SIZE 320
+# define P_RADIUS 16
 
 typedef enum t_direction
 {
@@ -75,14 +70,11 @@ typedef struct s_pos
 	double	y;
 }	t_pos;
 
-
 typedef struct s_doubl
 {
 	t_pos	a;
 	t_pos	b;
 }	t_doubl;
-
-
 
 typedef struct s_loc
 {

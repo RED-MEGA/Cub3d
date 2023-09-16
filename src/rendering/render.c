@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:28:09 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/16 18:24:47 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/16 18:59:42 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static double	calcul_wp(t_player *player)
 
 	a = (double)SQUARE_LEN;
 	b = player->ray.len * cos(player->rotation_angle - player->ray.angle);
-	d = (WIDTH / 2) / tan(FOV_ANGLE / 2);
+	d = (WIDTH / 2) / tan(to_rad(60) / 2);
 	return ((a / b) * d);
 }
 
@@ -84,7 +84,7 @@ void	render(t_global *pub)
 	i = -1;
 	player = &(pub->info->player);
 	player->ray_angle = normalize_angle(player->rotation_angle
-			- (FOV_ANGLE / 2));
+			- (to_rad(60) / 2));
 	while (++i < WIDTH)
 	{
 		calcul_ray(pub, player);
@@ -92,7 +92,7 @@ void	render(t_global *pub)
 		range.i = (HEIGHT / 2) - (wall_height / 2);
 		range.j = (HEIGHT / 2) + (wall_height / 2);
 		to_3d_ray(pub, i, wall_height, &range);
-		player->ray_angle = normalize_angle(player->ray_angle + RAY_D);
+		player->ray_angle = normalize_angle(player->ray_angle + (to_rad(60) / WIDTH));
 		player->ray.dor = 0;
 	}
 }

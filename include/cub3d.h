@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:51:59 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/15 16:53:35 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/16 18:47:10 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ t_info		*parsing(char *file_name);
 /* **************** */
 /*     RAYCASTING   */
 /* **************** */
-
 
 t_pos		ft_horizontal_inter(t_global *pub, t_player player, int *dor);
 t_pos		ft_vertical_inter(t_global *pub, t_player player, int *dor);

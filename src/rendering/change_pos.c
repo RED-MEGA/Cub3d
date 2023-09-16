@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:08:49 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 18:46:29 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/16 18:51:00 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ static bool	wall_collision(char **map, t_pos *oldpos, t_pos *newpos)
 static double	get_ms(bool sprint)
 {
 	if (sprint)
-		return (P_MOVE_SPEED * 2);
-	return (P_MOVE_SPEED);
+		return ((double)10);
+	return ((double)5);
 }
 
 static void	get_new_pos(t_info *info, double rotation_angle)
@@ -64,7 +64,7 @@ void	update_position(t_info *info, t_player *player)
 
 	if (player->turn_d != 0)
 		player->rotation_angle = normalize_angle(player->rotation_angle
-				+ (double)player->turn_d * P_ROTATION_SPEED);
+				+ (double)player->turn_d * (2.0 * (M_PI / 180)));
 	if (player->move_v != NONE)
 	{
 		rotation_angle = player->rotation_angle;
