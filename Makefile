@@ -6,7 +6,7 @@
 #    By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 16:20:52 by reben-ha          #+#    #+#              #
-#    Updated: 2023/09/14 21:23:34 by reben-ha         ###   ########.fr        #
+#    Updated: 2023/09/16 18:43:11 by reben-ha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,18 +57,18 @@ OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJ) #$(LIBFT)
+$(NAME) : $(OBJ) $(LIBFT)
 	$(CC) $(FLAGS) $(OBJ) $(LIBS) -o $(NAME)
 
-# $(LIBFT): include/libft.h
-# 	make -C libft             lib/libft.a
+$(LIBFT) : include/libft.h
+	make -C src/libft
 
 %.o: %.c $(INCLUDE)
 	$(CC) $(FLAGS) $(HEADERS) -c $< -o $@
 
 clean :
 	rm -rf $(OBJ)
-# $(LIBFT)
+	make fclean -C src/libft
 
 fclean : clean
 	rm -rf $(NAME)
