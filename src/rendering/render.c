@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:28:09 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/16 19:05:16 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/16 21:27:00 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	to_3d_ray(t_global *pub, int i,
 	while (++y < HEIGHT)
 	{
 		if (y < range->i)
-			color = get_rgb(pub->info->C.r, pub->info->C.g, pub->info->C.b,
+			color = get_rgb(pub->info->c.r, pub->info->c.g, pub->info->c.b,
 					255);
 		else if (y >= range->i && y < range->j)
 		{
@@ -60,7 +60,7 @@ static void	to_3d_ray(t_global *pub, int i,
 			color = (img.buffer_img[(img.width * ofset.i) + ofset.j]);
 		}
 		else if (y > range->j)
-			color = get_rgb(pub->info->F.r, pub->info->F.g, pub->info->F.b,
+			color = get_rgb(pub->info->f.r, pub->info->f.g, pub->info->f.b,
 					255);
 		mlx_put_pixel_p(pub->window_img, i, y, color);
 	}

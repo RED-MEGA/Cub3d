@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:06 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/16 18:59:46 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/16 21:24:50 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,13 +124,13 @@ typedef struct s_img_data
 typedef struct s_info
 {
 	t_player		player;
-	t_color			F;
-	t_color			C;
-	t_img			NO;
-	t_img			SO;
-	t_img			WE;
-	t_img			EA;
-	t_img			DOOR;
+	t_color			f;
+	t_color			c;
+	t_img			no;
+	t_img			so;
+	t_img			we;
+	t_img			ea;
+	t_img			door;
 	char			**map;
 	t_pos			map_p_size;
 	t_loc			map_m_size;

@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 17:33:44 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/14 21:30:29 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/16 21:27:19 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ static void	init_texture(t_img *image)
 
 void	load_texture(t_info *info)
 {
-	init_texture(&info->NO);
-	init_texture(&info->SO);
-	init_texture(&info->WE);
-	init_texture(&info->EA);
-	init_texture(&info->DOOR);
+	init_texture(&info->no);
+	init_texture(&info->so);
+	init_texture(&info->we);
+	init_texture(&info->ea);
+	init_texture(&info->door);
 }
 
 static mlx_texture_t	*load_frame(char *path)
@@ -80,17 +80,17 @@ t_img	ft_img_render(t_global *pub)
 
 	if (pub->de.down && pub->info->player.ray.flag == 1 \
 	&& pub->info->player.ray.dor == 0)
-		img = pub->info->SO;
+		img = pub->info->so;
 	else if (pub->de.up && pub->info->player.ray.flag == 1 \
 	&& pub->info->player.ray.dor == 0)
-		img = pub->info->NO;
+		img = pub->info->no;
 	else if (pub->de.left && pub->info->player.ray.flag == 2 \
 	&& pub->info->player.ray.dor == 0)
-		img = pub->info->EA;
+		img = pub->info->ea;
 	else if (pub->de.right && pub->info->player.ray.flag == 2 \
 	&& pub->info->player.ray.dor == 0)
-		img = pub->info->WE;
+		img = pub->info->we;
 	else
-		img = pub->info->DOOR;
+		img = pub->info->door;
 	return (img);
 }

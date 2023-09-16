@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 02:06:39 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/15 15:52:43 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/16 21:27:19 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ void	destroy_info(t_info *info)
 {
 	int	i;
 
-	free(info->NO.path);
-	free(info->SO.path);
-	free(info->WE.path);
-	free(info->EA.path);
-	free(info->DOOR.path);
-	free(info->NO.buffer_img);
-	free(info->SO.buffer_img);
-	free(info->WE.buffer_img);
-	free(info->EA.buffer_img);
-	free(info->DOOR.buffer_img);
+	free(info->no.path);
+	free(info->so.path);
+	free(info->we.path);
+	free(info->ea.path);
+	free(info->door.path);
+	free(info->no.buffer_img);
+	free(info->so.buffer_img);
+	free(info->we.buffer_img);
+	free(info->ea.buffer_img);
+	free(info->door.buffer_img);
 	ft_free(info->map);
 	if (info->weapon[0])
 		mlx_delete_texture(info->weapon[0]);
