@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:28:09 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 21:25:38 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/16 18:24:47 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	calcul_ofset_x(t_ray ray, t_img img)
 }
 
 static void	to_3d_ray(t_global *pub, int i, 
-			double wall_height, t_loc *range) // Note
+			double wall_height, t_loc *range)
 {
 	t_img	img;
 	t_loc	ofset;
@@ -49,8 +49,6 @@ static void	to_3d_ray(t_global *pub, int i,
 	y = -1;
 	img = ft_img_render(pub);
 	ofset.j = calcul_ofset_x(pub->info->player.ray, img);
-	// if (range->j > HEIGHT)
-	// 	range->j = HEIGHT; // !cheak Not work
 	while (++y < HEIGHT)
 	{
 		if (y < range->i)
