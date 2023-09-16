@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:08:40 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/15 16:16:36 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/16 16:37:38 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static bool	select_option(t_info *info, char *buff)
 	else if (ft_strncmp(buff, "C ", 2) == 0)
 		status = set_color(buff, &(info->C));
 	else
-		return (perror_x("Invalid identifier"), free(buff), false);
+		return (perror_x("Invalid identifier"), false);
 	return (status);
 }
 

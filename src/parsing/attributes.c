@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:06:37 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 16:15:58 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/16 16:43:54 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ bool	set_color(char *data, t_color *rgb)
 		return (free(buff), perror_x("Invalid color attribute"), false);
 	color = ft_split(buff, ',');
 	free(buff);
+	if (!(color[0] && color[1] && color[2]))
+		return (ft_free(color), perror_x("Invalid color attribute"), false);
 	rgb->r = _set_color(color, 0, data);
 	rgb->g = _set_color(color, 1, data);
 	rgb->b = _set_color(color, 2, data);
