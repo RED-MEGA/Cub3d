@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 16:37:40 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/10 16:58:41 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/16 11:01:52 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,11 @@ t_pos	ft_horizontal_inter(t_global *pub, t_player player, int *dor)
 	if (pub->de.down)
 		inter.y += SQUARE_LEN;
 	inter.x = player.pos.x + (inter.y - player.pos.y) / tan(player.ray_angle);
+
 	step.y = SQUARE_LEN;
 	if (pub->de.up)
 		step.y *= -1;
-	step.x = SQUARE_LEN / tan(player.ray_angle);
-	if (pub->de.left && step.x > 0)
-		step.x *= -1;
-	if (pub->de.right && step.x < 0)
-		step.x *= -1;
+	step.x = step.y / tan(player.ray_angle);
 	if (pub->de.up)
 	{
 		inter.y--;
@@ -89,11 +86,7 @@ t_pos	ft_vertical_inter(t_global *pub, t_player player, int *dor)
 	step.x = SQUARE_LEN;
 	if (pub->de.left)
 		step.x *= -1;
-	step.y = SQUARE_LEN * tan(player.ray_angle);
-	if (pub->de.up && step.y > 0)
-		step.y *= -1;
-	if (pub->de.down && step.y < 0)
-		step.y *= -1;
+	step.y = step.x * tan(player.ray_angle);
 	if (pub->de.left)
 	{
 		inter.x--;

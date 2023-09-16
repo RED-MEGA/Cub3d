@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:42:42 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/08/31 15:42:46 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/16 11:02:32 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static char	*ft_next(char *stv)
 		j++;
 	if (!ft_check_slash(stv))
 		j++;
-	if (ft_strlen(stv) == j)
+	if ((int)ft_strlen(stv) == j)
 		return (free(stv), NULL);
 	st = malloc(ft_strlen(stv) - j + 1);
 	if (!st)
