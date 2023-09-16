@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 23:50:11 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/15 17:02:18 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/16 20:49:19 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void	refresh_frame(void *param)
 	mjollnir(pub);
 }
 
-// void leaks () {system("leaks cub3D | grep LEAK");};
+void leaks () {system("leaks cub3D");};
 
 void	cub3d(char *file_name)
 {
-	// atexit(leaks);
+	atexit(leaks);
 	t_global	*pub;
 	t_info		*info;
 

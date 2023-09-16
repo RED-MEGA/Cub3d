@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:42:42 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/16 11:02:32 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/16 20:48:28 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ char	*get_next_line(int fd)
 		if (i < 0)
 			return (free(buff), free(stv), stv = NULL, NULL);
 		buff[i] = '\0';
-		stv = ft_strjoin(stv, buff);
+		stv = ft_strjoin_gnl(stv, buff);
 	}
 	free(buff);
 	c = ft_line(stv);
