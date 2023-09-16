@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:28:09 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/16 18:59:42 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/16 19:05:16 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ void	render(t_global *pub)
 		range.i = (HEIGHT / 2) - (wall_height / 2);
 		range.j = (HEIGHT / 2) + (wall_height / 2);
 		to_3d_ray(pub, i, wall_height, &range);
-		player->ray_angle = normalize_angle(player->ray_angle + (to_rad(60) / WIDTH));
+		player->ray_angle = normalize_angle(player->ray_angle
+				+ (to_rad(60) / WIDTH));
 		player->ray.dor = 0;
 	}
 }

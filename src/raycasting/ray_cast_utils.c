@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_cast_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 16:37:40 by azarda            #+#    #+#             */
-/*   Updated: 2023/09/16 11:01:52 by azarda           ###   ########.fr       */
+/*   Updated: 2023/09/16 19:05:27 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ t_pos	ft_horizontal_inter(t_global *pub, t_player player, int *dor)
 	if (pub->de.down)
 		inter.y += SQUARE_LEN;
 	inter.x = player.pos.x + (inter.y - player.pos.y) / tan(player.ray_angle);
-
 	step.y = SQUARE_LEN;
 	if (pub->de.up)
 		step.y *= -1;
