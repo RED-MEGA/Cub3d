@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:04:16 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/15 16:55:07 by reben-ha         ###   ########.fr       */
+/*   Updated: 2023/09/16 18:27:37 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ static void	draw_player(mlx_image_t *image)
 
 	center_pos.x = MINIMAP_SIZE / 2;
 	center_pos.y = MINIMAP_SIZE / 2;
-	pos.y = -1;
-	pos.x = -1;
+	pos.y = center_pos.y - 20;
+	pos.x = center_pos.x - 20;
 	while (++pos.y < MINIMAP_SIZE)
 	{
-		pos.x = -1;
+		pos.x = center_pos.x - 20;
 		while (++pos.x < MINIMAP_SIZE)
 		{
 			distance = calcul_distance(center_pos, pos);
