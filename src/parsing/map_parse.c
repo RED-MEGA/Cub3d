@@ -6,7 +6,7 @@
 /*   By: reben-ha <reben-ha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:11:17 by reben-ha          #+#    #+#             */
-/*   Updated: 2023/09/14 16:11:47 by reben-ha         ###   ########.fr       */
+								/*   Updated: 2023/09/17 16:26:28 by reben-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ static char	*addspaces(char *data, int len)
 	spaces = (char *)malloc(len * sizeof(char) + 1);
 	ft_error_ptr(spaces, 1);
 	i = -1;
-	spaces[len] = '\0';
-	while (spaces[++i])
+	while (++i < len)
 		spaces[i] = ' ';
+	spaces[i] = '\0';
 	newstr = ft_strjoin_gnl(data, spaces);
 	return (free(spaces), newstr);
 }
